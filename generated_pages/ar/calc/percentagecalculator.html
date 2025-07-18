@@ -1,0 +1,351 @@
+<!DOCTYPE html><html lang="en"><!-- #BeginTemplate "../../rapidtables.dwt" --><head>
+<!--
+<script>var mobileAdsNum=0;</script>
+<script async src="/ar/js/tagmng8.js"></script>
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/ar/css/rapid02.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/ar/css/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/ar/css/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/ar/css/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/ar/css/favicon/manifest.json">
+<link rel="mask-icon" href="/ar/css/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/ar/css/favicon/favicon.ico">
+<meta name="msapplication-config" content="/lib/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+<!-- #BeginEditable "doctitle" -->
+<title>Percentage Calculator (%)</title>
+<meta name="description" content="Percentage calculator (%) - calculate percentage with steps shown free online.">
+<!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">-->
+<link href="/ar/css/bootstrap/bootstrap4small.css" rel="stylesheet">
+<style>
+   #adngin-right_sidebar-0 { display:none; }
+   h1 { font-size:1.6rem; }
+   h2 { font-size:1.4rem; }
+   h3 { font-size:1.2rem; }
+   h4 { font-size:1.2rem; }
+   :root { scroll-behavior:unset; }
+   #header>div { width:1050px; }
+   #wrapper { max-width:1050px; }
+   #lcol { max-width:700px; }
+   h1 a,h1 a:hover { color:black; text-decoration:none; }
+   .btn span { font-size:large; font-weight:bold; }
+   .calcform { max-width:700px; width:100%; background:#f0eedc; background:#eed;  padding:15px; border-radius:7px; margin-bottom:20px; }
+   .calcform div { display:inline-block; }
+   .calcform div:nth-child(2) { margin-top:10px; }
+   .calcform div:nth-child(1) input[type=text] { width:105px; display:inline-block; margin-left:5px; }
+   .calcform div:nth-child(1) input[type=number] { width:105px; display:inline-block; margin-left:5px; }
+   .calcform div:nth-child(2) input[type=text] { width:105px; display:inline-block; margin-left:5px; }
+   .calcform div:nth-child(2) input[type=number] { width:105px; display:inline-block; margin-left:5px; }
+   .calcform div:nth-child(3) { display:none; margin-top:10px; }
+   /*#calcform,#calcform0,#calcform5 { display:none; }*/
+   #calcform { display:none; }
+   #calcform0 { background:#f0eedc; padding:15px; border-radius:7px; margin-bottom:20px; }
+   #calcform2 div:nth-child(2) { display:none; margin-top:10px; }
+   #calcform4 input[type=text] { margin-top:10px; }
+   #calcform4 input[type=number] { margin-top:10px; }
+   #txt { font-size:large; }
+	#tbl5 tr:nth-child(2) td:nth-child(4) { border-bottom:2px #666 solid }
+   #p52,#p53 { text-align:center; }
+	@media all and (max-width: 672px) {
+      .calcform { padding:10px; }
+      .calcform div:nth-child(2) { display:block; }
+      .calcform input[type=text] { margin:5px 0; }
+      .calcform input[type=number] { margin:5px 0; }
+      .calcform div:nth-child(1) input[type=text] { width:90px; }
+      .calcform div:nth-child(1) input[type=number] { width:90px; }
+      #calcform5 { padding:10px; }
+      #calcform5 button[type=reset] { float:left; }
+      #resetbtn1 { display:none; }
+   }
+	@media all and (min-width: 673px) {
+      .calcform button { margin-left:10px; }
+      #calcform5 button { margin-left:0; }
+      #resetbtn2 { display:none; }
+   }
+   .fraction {
+      display: inline-block;
+      position: relative;
+      vertical-align: middle; 
+      letter-spacing: 0.001em;
+      text-align: center;
+   }
+   .fraction > span { display: block; padding: 0.1em; }
+   .fraction span.fdn { border-top: 2px solid black; }
+</style>
+<noscript>
+   <style>#calcform0, #calcform5 { display:none; }</style>
+</noscript>
+<!-- #EndEditable -->
+
+</head>
+
+<body>
+        <div style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+            <select onchange="changeLanguage(this.value)" style="padding: 5px; border: 1px solid #ccc; border-radius: 3px;">
+                <option value="en" >English</option>
+                <option value="zh" >中文</option>
+                <option value="es" >Español</option>
+                <option value="fr" >Français</option>
+                <option value="de" >Deutsch</option>
+                <option value="ja" >日本語</option>
+                <option value="ko" >한국어</option>
+                <option value="pt" >Português</option>
+                <option value="ru" >Русский</option>
+                <option value="ar" selected>العربية</option>
+            </select>
+        </div>
+        <script>
+        function changeLanguage(lang) {
+            const currentPath = window.location.pathname;
+            const newPath = currentPath.replace(/^/([a-z]{2})//, '/' + lang + '/');
+            if (newPath !== currentPath) {
+                window.location.href = newPath;
+            }
+        }
+        </script>
+
+<div id="header">
+	<div>
+	<div id="logo"><a href="/">RapidTables</a></div>
+   <div class="gcse-search"></div>
+   <div id="tooldiv">
+      <a href="#" onclick="OnPageSearch()"><img width="24" height="24" title="Search" src="/ar/js/icons/material/svg/search_black_24dp.svg" loading="lazy"><span> Search</span></a>
+      <a href="#" onclick="OnPageShare()"><img width="24" height="24" title="Share" src="/ar/js/icons/material/svg/share_black_24dp.svg" loading="lazy"><span> Share</span></a>
+   </div>
+	</div>
+</div>
+
+<div id="wrapper">
+
+<div id="nav">
+	<!-- #BeginEditable "doclink" -->
+	<a href="/">Home</a>›<a href="../index.html">Calculators</a>›<a href="index.html">Math Calculators</a>›<a href="percentage-calculator.html">Percentage calculator</a>
+	<!-- #EndEditable -->
+</div>
+
+<div id="lcol">
+
+	<div id="doc">
+	<!-- #BeginEditable "doctext" -->
+	<h1><a href="percentage-calculator.html">Percentage Calculator (%)</a></h1>
+	<form id="calcform" class="calcform">
+      <textarea rows="4" id="txt" placeholder="Calculation results ..." class="form-control" readonly=""></textarea>
+	</form>
+	<form id="calcform1" class="calcform">
+   <div>
+      What is <input type="text" id="p11" name="p11" value="" class="form-control" tabindex="1" autofocus=""> % of <input type="text" id="p12" name="p12" value="" class="form-control" tabindex="2"> ?
+   </div>
+   <div>
+      <button type="button" id="calcbtn1" title="Calculate" class="btn btn-success" tabindex="3"><span>=</span> Calculate</button>
+      <input type="text" id="result1" value="" class="form-control" tabindex="4" readonly="">
+   </div>
+   <div>
+      <textarea rows="1" id="out1" class="form-control" readonly=""></textarea>
+   </div>
+	</form>
+	<form id="calcform2" class="calcform">
+   <div>
+      <input type="text" id="p21" name="p21" value="" class="form-control" tabindex="5"> is what % of 
+      <input type="text" id="p22" name="p22" value="" class="form-control" tabindex="6"> ?
+      <button type="button" id="calcbtn2" title="Calculate" class="btn btn-success" tabindex="7"><span>=</span> Calculate</button>
+      <input type="text" id="result2" value="" class="form-control" readonly="" tabindex="8"> %
+   </div>
+   <div>
+      <textarea rows="1" id="out2" class="form-control" readonly=""></textarea>
+   </div>
+	</form>
+   <form id="calcform3" class="calcform">
+   <div>
+      <input type="text" id="p31" name="p31" value="" class="form-control" tabindex="9"> is
+      <input type="text" id="p32" name="p32" value="" class="form-control" tabindex="10"> % of what?
+   </div>
+   <div>
+      <button type="button" id="calcbtn3" title="Calculate" class="btn btn-success" tabindex="11"><span>=</span> Calculate</button>
+      <input type="text" id="result3" value="" class="form-control" tabindex="12" readonly="">
+   </div>
+   <div>
+      <textarea rows="1" id="out3" class="form-control" readonly=""></textarea>
+   </div>
+   </form>
+
+   <!--<h4>Percentage change</h4>-->
+	<form id="calcform4" class="calcform">
+   <div>
+      What is the percentage change<br>from
+      <input type="text" id="p41" name="p41" value="" class="form-control" tabindex="13">
+      to
+      <input type="text" id="p42" name="p42" value="" class="form-control" tabindex="14">?
+   </div>
+   <div>
+      <button type="button" id="calcbtn4" title="Calculate" class="btn btn-success" tabindex="15"><span>=</span> Calculate</button>
+      <input type="text" id="result4" value="" class="form-control" tabindex="16" readonly=""> %
+   </div>
+   <div>
+      <textarea rows="1" id="out4" class="form-control" readonly=""></textarea>
+   </div>
+	</form>
+	
+   <!--<h4>Percent to fraction & decimal</h4>-->
+	<form id="calcform5" class="calcform" style="display: block;">
+	<table id="tbl5">
+		<tbody><tr>
+			<td>Percent:</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>Fraction:</td>
+			<td>&nbsp;</td>
+			<td>Decimal:</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td rowspan="2"><input type="text" id="p51" name="p51" class="form-control" tabindex="17"></td>
+			<td rowspan="2">%</td>
+			<td rowspan="2"><button type="button" title="Convert" onclick="convert()" class="btn btn-success" tabindex="18"><span>=</span></button></td>
+			<td><input type="text" id="p52" name="p52" class="form-control" tabindex="19"></td>
+			<td rowspan="2"><button type="button" title="Convert" onclick="convert()" class="btn btn-success" tabindex="21"><span>=</span></button></td>
+			<td rowspan="2"><input type="text" id="p54" name="p54" class="form-control" tabindex="22"></td>
+			<td rowspan="2"><button type="reset" id="resetbtn1" title="Reset" class="btn btn-secondary" tabindex="23"><span>×</span></button></td>
+		</tr>
+		<tr>
+			<td><input type="text" id="p53" name="p53" class="form-control" tabindex="20"></td>
+		</tr>
+		<tr>
+			<td colspan="7"><button type="reset" id="resetbtn2" title="Reset" class="btn btn-secondary" tabindex="24"><span>×</span> Reset</button></td>
+		</tr>
+	</tbody></table>
+	<!--<p>Example: 30% = 3/10 = 0.3</p>-->
+	</form>
+	<form id="calcform0" style="display: block;">
+   <div class="input-group">
+         <input type="text" id="calctxt" name="q" tabindex="25" placeholder="Enter a calculation ..." class="form-control ms-0" spellcheck="false" autocomplete="off">
+         <button type="button" id="calcbtn" title="Calculate" tabindex="26" class="btn btn-success fw-semibold" onclick="calcq()" style="margin:auto 15px;"><span>=</span></button>
+         <input type="text" id="calcresult" tabindex="27" class="form-control" spellcheck="false" autocomplete="off" readonly="" style="width:1rem; max-width:200px">
+   </div>
+	</form>
+	<!-- #EndEditable -->
+
+   <!-- rapidtables_bottom_01 -->
+   <div id="adngin-bottom_01-0"></div>
+	
+	<!-- #BeginEditable "doctext2" -->
+	<h2>Percentage calculations</h2>
+	<h4>Percentage of a value calculation</h4>
+	<p>What is 20% of $60?</p>
+	<p>20% is 20/100 mutiplied by $60:</p>
+	<div class="mathsymbol">20% × $60 = <div class="fraction"><span class="fup">20</span><span class="fdn">100</span></div> × $60 = 0.2 × $60 = $12</div>
+	<h4>Percentage calculation</h4>
+	<p>$12 is what percent of $60?</p>
+	<p>$12 is divided by $60 and multiplied by 100%:</p>
+	<div class="mathsymbol"><div class="fraction"><span class="fup">$12</span><span class="fdn">$60</span></div> × 100% = 20%</div>
+	<h4>Whole value calculation</h4>
+	<p>$12 is 20% of what?</p>
+	<p>$12 is divided by 20%:</p>
+	<div class="mathsymbol"><div class="fraction"><span class="fup">$12</span><span class="fdn">20%</span></div> = <div class="fraction"><span class="fup">$12</span><span class="fdn">20</span></div> × 100 = $60</div>
+	<h4>Percentage change calculation</h4>
+   <!--   <p><a href="simple-calculator.html?c=200%2B50%25">Percentage change: 200+50% (short writing)</a></p>-->
+	<p>What is the percentage change from $40 to $50?</p>
+	<p>The difference between $50 and $40 is divided by $40 and multiplied by 100%:</p>
+	<div class="mathsymbol"><div class="fraction"><span class="fup">$50 - $40</span><span class="fdn">$40</span></div> × 100% = 0.25 × 100% = 25%</div>
+	<br>
+	<hr>
+	<h2>See also</h2>
+	<ul class="seealso">
+		<li><a href="/math/number/Percentage.html">Percentage (%)</a></li>
+		<li><a href="percentage-increase-calculator.html">Percentage increase calculator</a></li>
+		<li><a href="percentage-change-calculator.html">Percentage change calculator</a></li>
+		<li><a href="percent-error-calculator.html">Percent error calculator</a></li>
+		<li><a href="/convert/number/percent-to-fraction.html">Percent to fraction</a></li>
+		<li><a href="/convert/number/fraction-to-percent.html">Fraction to percent</a></li>
+		<li><a href="/convert/number/percent-to-decimal.html">Percent to decimal</a></li>
+		<li><a href="/convert/number/decimal-to-percent.html">Decimal to percent</a></li>
+		<li><a href="/convert/number/Percent_to_PPM.html">Percent to ppm</a></li>
+		<li><a href="/convert/number/PPM_to_Percent.html">ppm to percent</a></li>
+		<li><a href="/calc/grade/grade-calculator.html">Grade calculator</a></li>
+		<li><a href="/math/number/Per_mille.html">Per-mille (‰)</a></li>
+		<li><a href="/math/number/PPM.html">Parts-per million (ppm)</a></li>
+		<li><a href="/math/symbols/Basic_Math_Symbols.html">Math symbols</a></li>
+	</ul>
+	<!-- #EndEditable -->
+	</div>
+	
+   <div id="fdbk">
+      <h2 id="feedback">Write how to improve this page</h2>
+      <form id="fdbkform">
+      <textarea id="fdbkarea" rows="4" minlength="30" maxlength="1000" placeholder="Your message ..." required="" class="form-control"></textarea>
+      <span id="fdbkmsg"></span>
+      <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">Submit Feedback</button>
+      </form>
+   </div>
+</div>
+
+<div id="rcol">
+   <!-- rapidtables_right_sidebar -->
+   <div id="adngin-right_sidebar-0"></div>
+
+	<!-- #BeginEditable "docnav" -->
+	<h5>MATH CALCULATORS</h5>
+	<ul>
+		<li><a href="calculator.html">Scientific calculator</a></li>
+		<li><a href="simple-calculator.html">Simple calculator</a></li>
+		<li><a href="average-calculator.html">Average calculator</a></li>
+		<li><a href="base-calculator.html">Base calculator</a></li>
+		<li><a href="complex-calculator.html">Complex numbers calculator</a></li>
+		<li><a href="fractions-calculator.html">Fractions calculator</a></li>
+      <li><a href="percentage-calculator.html">Percentage calculator</a></li>
+	</ul>
+	<h5>RAPID TABLES</h5>
+	<ul>
+		<li><a href="/about.html#link" rel="nofollow">Link to Us</a></li>
+		<li><a href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com">Recommend Site</a></li>
+		<li><a href="#feedback">Send Feedback</a></li>
+		<li><a href="/about/about.html">About</a></li>
+	</ul>
+	<!-- #EndEditable -->
+	
+</div>
+
+</div>
+
+<div id="footer">
+	<a href="/index.html">Home</a> | 
+	<a href="/web/index.html">Web</a> |
+	<a href="/math/index.html">Math</a> | 
+	<a href="/electric/index.html">Electricity</a> |
+	<a href="/calc/index.html">Calculators</a> | 
+	<a href="/convert/index.html">Converters</a> |
+	<a href="/tools/index.html">Tools</a>
+	<p>©  
+	<a href="/">RapidTables.com</a> | 
+	<a href="/about/about.html" rel="nofollow">About</a> | 
+	<a href="/about/terms.html" rel="nofollow">Terms of Use</a> | 
+	<a href="/about/privacy.html" rel="nofollow">Privacy Policy</a> | 
+	<a href="/about/cookies.html" rel="nofollow">Manage Cookies</a>
+	</p>
+</div>
+
+<!-- rapidtables_bottom_adhesive -->
+<div id="adngin-adhesive-0"></div>
+
+<!-- #BeginEditable "docscript" -->
+<!--sse-->
+<!--
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.6.7/es5-shim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.6.7/es5-sham.min.js"></script>
+-->
+<script src="/ar/calc/calc2.js" defer=""></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/13.0.3/math.min.js" integrity="sha512-iatv2PvvAmY15HqtWaNhisBs45yRZpTj/69zD4+wNJoV10U/ti2AoqG2G+0WhAS4/N3WWjqqzGnKxZNFqw4HjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+<script>
+var calcform=document.getElementById("calcform"),calcform0=document.getElementById("calcform0"),calcform5=document.getElementById("calcform5"),calcbtn1=document.getElementById("calcbtn"),calcbtn1=document.getElementById("calcbtn1"),calcbtn2=document.getElementById("calcbtn2"),calcbtn3=document.getElementById("calcbtn3"),calcbtn4=document.getElementById("calcbtn4"),txt=document.getElementById("txt"),calctxt=document.getElementById("calctxt"),calcresult=document.getElementById("calcresult"),c1elem=document.getElementById("c1"),c2elem=document.getElementById("c2"),c3elem=document.getElementById("c3"),c4elem=document.getElementById("c4"),p11elem=document.getElementById("p11"),p12elem=document.getElementById("p12"),p21elem=document.getElementById("p21"),p22elem=document.getElementById("p22"),p31elem=document.getElementById("p31"),p32elem=document.getElementById("p32"),p41elem=document.getElementById("p41"),p42elem=document.getElementById("p42"),p51elem=document.getElementById("p51"),p52elem=document.getElementById("p52"),p53elem=document.getElementById("p53"),p54elem=document.getElementById("p54"),lastin=-1,lastout=-1,prec=16;function removeAt(e,t){return e=e.substring(0,t)+e.substring(t+1,e.length)}function digits_after_period(e){var t=e.toString(),l=t.indexOf(".");return t.length-l-1}function roundresult(e){return roundnum(y=parseFloat(e),10)}function roundnum(e,t){var l,n=String(parseFloat(e).toPrecision(t+1));if(-1==(l=n.indexOf("e"))&&(l=n.length),l>(j=n.indexOf("."))&&-1!=j){for(;l>0;)if("0"==n.charAt(--l))n=removeAt(n,l);else break;"."==n.charAt(l)&&(n=removeAt(n,l))}return n}window.addEventListener("DOMContentLoaded",function(){"function"==typeof Promise&&-1==window.location.href.indexOf("?")&&(calcform0.style.display="block",calcform5.style.display="block",calcbtn1.type="button",calcbtn2.type="button",calcbtn3.type="button",calcbtn4.type="button",calcbtn.onclick=function(){calcq()},calcbtn1.onclick=function(){calcp1()},calcbtn2.onclick=function(){calcp2()},calcbtn3.onclick=function(){calcp3()},calcbtn4.onclick=function(){calcp4()},document.getElementById("calcform0").onkeypress=function(e){13==e.keyCode&&(e.preventDefault(),calcq())},document.getElementById("calcform1").onkeypress=function(e){13==e.keyCode&&(e.preventDefault(),calcp1())},document.getElementById("calcform2").onkeypress=function(e){13==e.keyCode&&(e.preventDefault(),calcp2())},document.getElementById("calcform3").onkeypress=function(e){13==e.keyCode&&(e.preventDefault(),calcp3())},document.getElementById("calcform4").onkeypress=function(e){13==e.keyCode&&(e.preventDefault(),calcp4())},document.getElementById("calcform5").onkeypress=function(e){13==e.keyCode&&(e.preventDefault(),convert())},calctxt.oninput=function(){calctxt.value=calctxt.value.replace("*","\xd7")})});var gcd2=function(e,t,l){if(l){if(t<=1)return e}else if(!t)return e;return gcd2(t,e%t,l)};function AddTxt(e,t){""!=txt.value&&(txt.value+="\n"),txt.value+=e+"\n= ",txt.value+=t,txt.scrollTop=txt.scrollHeight,calcform.style.display="block"}function SetURLParams(e){let t=new URL(window.location.href.split("?")[0]);for(var l in e)t.searchParams.set(l,e[l]);window.history.pushState({},"",t)}function getMJS(){calcresult.value="Calculating ...";var e=document.createElement("script");e.async=!0,e.src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/13.0.3/math.min.js",e.onload=function(){onMJS()},document.head.appendChild(e)}function onMJS(){math.config({number:"BigNumber",precision:prec}),calcq()}function calcq(){if("undefined"==typeof math){getMJS();return}var e=calctxt.value;if(""!=e){e=str2num4(e=(e=e.replace(/\u00D7/g,"*")).replace(/\u00F7/g,"/"));try{var t=math.evaluate(e)}catch(l){calcresult.value="Syntax error!";return}t=t.toString(),AddTxt(calctxt.value,t),calcresult.value=t,document.title="Calculate: "+e+" = ?"}}function calcp1(){var e=str2num4(p11elem.value),t=str2num4(p12elem.value),l=e*t/100;l=roundnum(l,6).toString(),document.getElementById("result1").value=l,AddTxt(e+"%\xd7"+t,l),SetURLParams({p11:e.toString(),p12:t.toString()}),document.title="What is "+e+"% of "+t+" ?"}function calcp2(){var e=str2num4(p21elem.value),t=str2num4(p22elem.value),l=100*e/t;l=roundnum(l,6).toString(),document.getElementById("result2").value=l,AddTxt("("+e+"/"+t+")\xd7100%",l+"%"),SetURLParams({p21:e.toString(),p22:t.toString()}),document.title=e+" is what % of "+t+" ?"}function calcp3(){var e=str2num4(p31elem.value),t=str2num4(p32elem.value),l=e/t*100;l=roundnum(l,6).toString(),document.getElementById("result3").value=l,AddTxt(e+"/"+t+"%",l),SetURLParams({p31:e.toString(),p32:t.toString()}),document.title=e+" is "+t+"% of what number?"}function calcp4(){var e=str2num4(p41elem.value),t=str2num4(p42elem.value),l=(t-e)/e*100;l=roundnum(l,6).toString(),document.getElementById("result4").value=l,AddTxt("(("+t+"-"+e+")/"+e+")\xd7100%",l+"%"),SetURLParams({p41:e.toString(),p42:t.toString()}),document.title="What is the percentage change from "+e+" to "+t+" ?"}function convert(){var e=str2num4(p51elem.value),t=str2num4(p52elem.value),l=str2num4(p53elem.value),n=str2num4(p54elem.value);if(""!=e){var c="",a="+",r=e,o=parseFloat(r/100),u=Math.abs(o),m=0,p=roundresult(u-m);o<0&&(c=a="-");var i=digits_after_period(u),d=(t=Math.round(p*(l=Math.round(Math.pow(10,i))))).toString().length,s=!1;d>8&&(s=!0);var f=gcd2(t,l,s),g=Math.round(t/f),_=Math.round(l/f);p52elem.value=g,p53elem.value=_,p54elem.value=roundresult(o)}else if(""!=t&&""!=l){var r=t/l;p51elem.value=roundresult(100*r),p54elem.value=roundresult(r)}else{var c="",a="+",r=n,o=parseFloat(r),u=Math.abs(o),m=0,p=roundresult(u-m);o<0&&(c=a="-");var i=digits_after_period(u),d=(t=Math.round(p*(l=Math.round(Math.pow(10,i))))).toString().length,s=!1;d>8&&(s=!0);var f=gcd2(t,l,s),g=Math.round(t/f),_=Math.round(l/f);p52elem.value=g,p53elem.value=_,p51elem.value=roundresult(100*o)}SetURLParams({p51:p51elem.value,p52:p52elem.value,p53:p53elem.value,p54:p54elem.value})}function reset1(){document.getElementById("pf1").style.display="none"}function reset2(){document.getElementById("pf3").style.display="none"}function reset3(){document.getElementById("pf5").style.display="none"}function reset4(){document.getElementById("pf7").style.display="none"}
+</script>
+<!--/sse-->
+<!-- #EndEditable -->
+
+
+
+
+
+
+</body><!-- #EndTemplate --></html>

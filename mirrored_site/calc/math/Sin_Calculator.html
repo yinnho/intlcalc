@@ -1,0 +1,402 @@
+<!DOCTYPE html><html lang="en"><!-- #BeginTemplate "../../rapidtables.dwt" --><head><script async="" type="text/javascript" src="https://c.pubguru.net/v/tc-250702-a0d-nc-9087a951a17c3cf228d61210096ed48a.js"></script>
+<!--
+<link href="//www.googletagmanager.com" rel="dns-prefetch">
+<link href="//pagead2.googlesyndication.com" rel="dns-prefetch">
+-->
+<link rel="dns-prefetch" href="https://a3.pubguru.net"><link rel="preconnect" href="https://a3.pubguru.net" crossorigin=""><script async="" src="/lib/tagmng8.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/lib/rapid02.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/lib/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/lib/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/lib/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/lib/favicon/manifest.json">
+<link rel="mask-icon" href="/lib/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/lib/favicon/favicon.ico">
+<meta name="msapplication-config" content="/lib/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+<!-- #BeginEditable "doctitle" -->
+<title>Sine calculator | sin(x) calculator</title>
+<meta name="description" content="Sine calculator online. sin(x) calculator.">
+<link rel="canonical" href="https://www.rapidtables.com/calc/math/Sin_Calculator.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<style>
+   h1 { font-size:1.6rem; }
+   h2 { font-size:1.4rem; }
+   h3 { font-size:1.4rem; }
+   h4 { font-size:1.2rem; }
+   #y5div { display:none; }
+   .btn span { font-weight: bold; font-size:large; }
+   #calcform,#calcform2,#calcform3 { padding:20px; background:#eee8d5; max-width:500px; border-radius:7px; }
+   .dtable { font-family:math; font-size:large;}
+@media all and (max-width: 576px) {
+   #x { max-width:130px; }
+   #degtype { max-width:69px; }
+   #x2 { max-width:180px; }
+}
+@media all and (max-width: 400px) {
+   #calcform { padding:10px; }
+}
+</style>
+<!-- #EndEditable -->
+
+<script async="" src="//cdn.snigelweb.com/adconsent/adconsent.js"></script><script async="" src="//c.pubguru.net/pg.rapidtables.com.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NY85XQ2FKR"></script></head>
+
+<body>
+
+<div id="header">
+	<div>
+	<div id="logo"><a href="/">RapidTables</a></div>
+   <div class="gcse-search"></div>
+   <div id="tooldiv">
+      <a href="#" onclick="OnPageSearch()"><img width="24" height="24" title="Search" src="/lib/icons/material/svg/search_black_24dp.svg" loading="lazy"><span> Search</span></a>
+      <a href="#" onclick="OnPageShare()"><img width="24" height="24" title="Share" src="/lib/icons/material/svg/share_black_24dp.svg" loading="lazy"><span> Share</span></a>
+   </div>
+	</div>
+</div>
+
+<div id="wrapper">
+
+<div id="nav">
+	<!-- #BeginEditable "doclink" -->
+	<a href="/">Home</a>›<a href="../index.html">Calculators</a>›<a href="index.html">Math Calculators</a>›<a href="Sin_Calculator.html">Sine calculator</a>
+	<!-- #EndEditable -->
+</div>
+
+<div id="lcol">
+
+	<div id="doc">
+	<!-- #BeginEditable "doctext" -->
+	<h1>Sine Calculator</h1>
+	<form id="calcform" name="calcform" autocomplete="off">
+   <div class="form-inline">
+      <span class="h1 math">sin</span>
+      <input type="text" id="x" name="x" class="form-control col-sm-7 ml-2" autofocus="">
+      <select id="degtype" class="form-control math h1 ml-1 mb-0">
+			<option selected="selected">°</option>
+			<option>rad</option>
+		</select>
+      <button type="button" onclick="onPIbtn()" class="btn btn-light ml-1 math">π</button>
+   </div>
+   <div class="form-group">
+      <button type="button" title="Calculate" class="btn btn-success" onclick="OnCalc()"><span>=</span> Calculate</button>
+      <button type="reset" title="Reset" class="btn btn-secondary" onclick="setfocus()"><span>×</span> Reset</button>
+   </div>
+   <div class="form-group">
+      <input type="text" id="y" class="form-control" readonly="">
+   </div>
+	</form>
+	<p><a href="Cos_Calculator.html">Cosine calculator ►</a></p>
+
+   <h3>Sine calculation</h3>
+   <p>Calculation with sin(angle deg|rad):</p>
+	<form id="calcform3" autocomplete="off">
+   <div class="form-group">
+      <label for="x5elem">Expression</label>
+      <input type="text" id="x5" value="sin(45deg)+1" class="form-control">
+   </div>
+   <div class="form-group">
+      <button type="button" title="Calculate" class="btn btn-success" onclick="OnCalc3()"><span>=</span> Calculate</button>
+      <button type="reset" title="Reset" class="btn btn-secondary"><span>×</span> Reset</button>
+   </div>
+   <div id="y5div" class="form-group">
+      <label for="y5">Result</label>
+      <input type="text" id="y5" class="form-control" readonly="">
+   </div>
+   </form>
+
+	<h3>Inverse sine calculator</h3>
+	<form id="calcform2" name="calcform2">
+   <div class="form-inline">
+      <span class="h1 math">sin<sup class="h4">-1</sup></span>
+      <input type="text" id="x2" name="x2" class="form-control col-sm-9 ml-2" required="">
+   </div>
+   <div class="form-group">
+      <button type="button" title="Calculate" class="btn btn-success" onclick="OnCalc2()"><span>=</span> Calculate</button>
+      <button type="reset" title="Reset" class="btn btn-secondary"><span>×</span> Reset</button>
+   </div>
+   <label>Degrees</label>
+   <div class="form-row">
+      <div class="form-group col">
+      <label for="ydeg1">First result</label>
+      <input type="text" id="ydeg1" class="form-control">
+      </div>
+      <div class="form-group col">
+      <label for="ydeg2">Second result</label>
+      <input type="text" id="ydeg2" class="form-control">
+      </div>
+   </div>
+   <label>Radians</label>
+   <div class="form-row">
+      <div class="form-group col">
+      <label for="yrad1">First result</label>
+      <input type="text" id="yrad1" class="form-control">
+      </div>
+      <div class="form-group col">
+      <label for="yrad2">Second result</label>
+      <input type="text" id="yrad2" class="form-control">
+      </div>
+   </div>
+   <p>k = ...,-2,-1,0,1,2,...</p>
+	</form>
+	<p><a href="Arcsin_Calculator.html">Arcsin calculator ►</a></p>
+
+	<h2>Sine table</h2>
+	<table class="dtable">
+		<tbody><tr>
+			<th>x<br>(deg)</th>
+			<th>x<br>(rad)</th>
+			<th>sin(x)</th>
+		</tr>
+		<tr>
+			<td>-90°</td>
+			<td>-π/2</td>
+			<td>-1</td>
+		</tr>
+		<tr>
+			<td>-60°</td>
+			<td>-π/3</td>
+			<td>-√<span style="text-decoration: overline">3</span>/2</td>
+		</tr>
+		<tr>
+			<td>-45°</td>
+			<td>-π/4</td>
+			<td>-√<span style="text-decoration: overline">2</span>/2</td>
+		</tr>
+		<tr>
+			<td>-30°</td>
+			<td>-π/6</td>
+			<td>-1/2</td>
+		</tr>
+		<tr>
+			<td>0°</td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td>30°</td>
+			<td>π/6</td>
+			<td>1/2</td>
+		</tr>
+		<tr>
+			<td>45°</td>
+			<td>π/4</td>
+			<td>√<span style="text-decoration: overline">2</span>/2</td>
+		</tr>
+		<tr>
+			<td>60°</td>
+			<td>π/3</td>
+			<td>√<span style="text-decoration: overline">3</span>/2</td>
+		</tr>
+		<tr>
+			<td>90°</td>
+			<td>π/2</td>
+			<td>1</td>
+		</tr>
+	</tbody></table>
+   <p>&nbsp;</p>
+	<hr>
+	<h2>See also</h2>
+	<ul class="seealso">
+		<li><a href="/math/trigonometry/sin.html">Sine function</a></li>
+		<li><a href="Cos_Calculator.html">Cosine calculator</a></li>
+		<li><a href="Tan_Calculator.html">Tangent calculator</a></li>
+		<li><a href="Arcsin_Calculator.html">Arcsin calculator</a></li>
+		<li><a href="Arccos_Calculator.html">Arccos calculator</a></li>
+		<li><a href="Arctan_Calculator.html">Arctan calculator</a></li>
+		<li><a href="trigonometry-calculator.html">Trigonometry calculator</a></li>
+		<li><a href="/convert/number/degrees-to-radians.html">Degrees to radians conversion</a></li>
+		<li><a href="/convert/number/radians-to-degrees.html">Radians to degrees conversion</a></li>
+		<li><a href="/convert/number/degrees-to-degrees-minutes-seconds.html">Degrees to degrees,minutes,seconds</a></li>
+		<li><a href="/convert/number/degrees-minutes-seconds-to-degrees.html">Degrees,minutes, seconds to degrees</a></li>
+	</ul>
+	<!-- #EndEditable -->
+
+   <!-- rapidtables_bottom_01 -->
+   <div id="adngin-bottom_01-0"></div>
+	
+	<!-- #BeginEditable "doctext2" -->
+	<!-- #EndEditable -->
+	</div>
+	
+   <div id="fdbk">
+      <h2 id="feedback">Write how to improve this page</h2>
+      <form id="fdbkform">
+      <textarea id="fdbkarea" rows="4" minlength="30" maxlength="1000" placeholder="Your message ..." required="" class="form-control"></textarea>
+      <span id="fdbkmsg"></span>
+      <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">Submit Feedback</button>
+      </form>
+   </div>
+</div>
+
+<div id="rcol">
+   <!-- rapidtables_right_sidebar -->
+   <div id="adngin-right_sidebar-0"></div>
+
+	<!-- #BeginEditable "docnav" -->
+	<h5>MATH CALCULATORS</h5>
+	<ul>
+		<li><a href="calculator.html">Scientific calculator</a></li>
+		<li><a href="adding-fractions-calculator.html">Adding fractions calculator</a></li>
+		<li><a href="Add_Calculator.html">Addition calculator</a></li>
+		<li><a href="anti-log-calculator.html">Antilog calculator</a></li>
+		<li><a href="Arccos_Calculator.html">Arccos calculator</a></li>
+		<li><a href="Arcsin_Calculator.html">Arcsin calculator</a></li>
+		<li><a href="Arctan_Calculator.html">Arctan calculator</a></li>
+		<li><a href="average-calculator.html">Average calculator</a></li>
+      <li><a href="base-calculator.html">Base calculator</a></li>
+      <li><a href="binary-calculator.html">Binary calculator</a></li>
+		<li><a href="complex-calculator.html">Complex numbers calculator</a></li>
+		<li><a href="convolution-calculator.html">Convolution calculator</a></li>
+		<li><a href="Cos_Calculator.html">Cosine calculator</a></li>
+		<li><a href="dividing-fractions-calculator.html">Dividing fractions calculator</a></li>
+		<li><a href="division-calculator.html">Division calculator</a></li>
+		<li><a href="exponential-growth-calculator.html">Exponential growth calculator</a></li>
+		<li><a href="exponent-calculator.html">Exponents calculator</a></li>
+		<li><a href="Factorial_Calculator.html">Factorial calculator</a></li>
+		<li><a href="fractions-calculator.html">Fractions calculator</a></li>
+		<li><a href="gcf-calculator.html">GCF calculator</a></li>
+		<li><a href="lcm-calculator.html">LCM calculator</a></li>
+		<li><a href="Ln_Calc.html">Ln calculator</a></li>
+		<li><a href="log-calculator.html">Log calculator</a></li>
+		<li><a href="multiplication-calculator.html">Multiplication calculator</a></li>
+		<li><a href="multiplying-fractions-calculator.html">Multiplying fractions calculator</a></li>
+		<li><a href="percentage-calculator.html">Percentage calculator</a></li>
+		<li><a href="percentage-change-calculator.html">Percentage change calculator</a></li>
+		<li><a href="percent-error-calculator.html">Percent error calculator</a></li>
+		<li><a href="percentage-increase-calculator.html">Percentage increase calculator</a></li>
+		<li><a href="pythagorean-calculator.html">Pythagorean theorem calculator</a></li>
+		<li><a href="Quadratic_Calculator.html">Quadratic equation solver</a></li>
+		<li><a href="random-number-generator.html">Random number generator</a></li>
+		<li><a href="ratio-calculator.html">Ratio calculator</a></li>
+		<li><a href="root-calculator.html">Root calculator</a></li>
+		<li><a href="scientific-notation-calculator.html">Scientific notation calculator</a></li>
+		<li><a href="simple-calculator.html">Simple math calculator</a></li>
+		<li><a href="fraction-simplifier.html">Fraction simplifier</a></li>
+		<li><a href="Sin_Calculator.html">Sine calculator</a></li>
+		<li><a href="square-root-calculator.html">Square root calculator</a></li>
+		<li><a href="standard-deviation-calculator.html">Standard deviation calculator</a></li>
+		<li><a href="subtracting-fractions-calculator.html">Subtracting fractions calculator</a></li>
+		<li><a href="subtraction-calculator.html">Subtraction calculator</a></li>
+		<li><a href="Tan_Calculator.html">Tangent calculator</a></li>
+		<li><a href="trigonometry-calculator.html">Trigonometry calculator</a></li>
+		<li><a href="weighted-average-calculator.html">Weighted average calculator</a></li>
+		<li><a href="variance-calculator.html">Variance calculator</a></li>
+	</ul>
+	<h5>RAPID TABLES</h5>
+	<ul>
+		<li><a href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com">Recommend Site</a></li>
+		<li><a href="#feedback">Send Feedback</a></li>
+		<li><a href="/about/about.html">About</a></li>
+	</ul>
+	<!-- #EndEditable -->
+	
+</div>
+
+</div>
+
+<div id="footer">
+	<a href="/index.html">Home</a> | 
+	<a href="/web/index.html">Web</a> |
+	<a href="/math/index.html">Math</a> | 
+	<a href="/electric/index.html">Electricity</a> |
+	<a href="/calc/index.html">Calculators</a> | 
+	<a href="/convert/index.html">Converters</a> |
+	<a href="/tools/index.html">Tools</a>
+	<p>©  
+	<a href="/">RapidTables.com</a> | 
+	<a href="/about/about.html" rel="nofollow">About</a> | 
+	<a href="/about/terms.html" rel="nofollow">Terms of Use</a> | 
+	<a href="/about/privacy.html" rel="nofollow">Privacy Policy</a> | 
+	<a href="/about/cookies.html" rel="nofollow">Manage Cookies</a>
+	</p>
+</div>
+
+<!-- rapidtables_bottom_adhesive -->
+<div id="adngin-adhesive-0"></div>
+
+<!-- #BeginEditable "docscript" -->
+<!--sse-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.6.7/es5-shim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.6.7/es5-sham.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.10.0/math.min.js" integrity="sha512-Y5iDNm1edrOTaYkJGH4GlmiKhvSHMBJ9st3DOchcFvsLdrVrMs345L6SE/3KNxRQpUqSSnuwYU8QuN/crfKdmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../calc2.js"></script>
+<script>
+   var xelem=document.getElementById("x");
+   var x2elem=document.getElementById("x2");
+   window.addEventListener("DOMContentLoaded",function() {
+      xelem.onkeypress = function(e) { if( e.keyCode==13 ) OnCalc(); };
+      x2elem.onkeypress = function(e) { if( e.keyCode==13 ) OnCalc2(); };
+      var params=GetURLParams();
+      //if( Object.keys(params).length>0 && params.x!="" ) {
+      if( typeof params.x!="undefined" ) {
+         document.title = "sin "+params.x+" calculation";
+         //SetLinks(params);
+         xelem.value = decodeURIComponent2(params.x);
+         OnCalc();
+      }
+   });
+   function GetURLParams()
+   {
+      var url=window.location.href;
+      var regex = /[?&]([^=#]+)=([^&#]*)/g,
+            //url = "www.domain.com/?v=123&p=hello",
+            params = {},
+            match;
+      while(match = regex.exec(url)) {
+         params[match[1]] = match[2];
+      }
+      return params;
+   }
+   function onPIbtn() {
+      xelem.value+="\u03C0";
+      xelem.focus();
+   }
+   function OnCalc() {
+      var x=xelem.value;
+      x=x.replace(/(\d)(\u03C0)/gm,"$1*\u03C0");
+      x=x.replace(/\u03C0/g,"3.141592653589793");
+      x=str2num(x);
+      var degtype=document.getElementById("degtype");
+      var i=degtype.selectedIndex;
+      if( i==0 )
+         x*=Math.PI/180;
+      y = Math.sin(x);
+      y = roundnum2(y,8);
+      document.getElementById("y").value = y;
+   }
+   function OnCalc2() {
+      var x=str2num(document.getElementById("x2").value);
+      if( x>1 || x<-1 ) { alert("Please enter values between -1 and 1"); return; }
+      var yrad1=Math.asin(x);
+      var ydeg1=yrad1*180/Math.PI;
+      var yrad2 = Math.PI-yrad1;
+      var ydeg2 = 180-ydeg1;
+      yrad1 = roundnum2(yrad1,6);
+      ydeg1 = roundnum2(ydeg1,6);
+      yrad2 = roundnum2(yrad2,6);
+      ydeg2 = roundnum2(ydeg2,6);
+      document.getElementById("ydeg1").value = ydeg1+"\u00B0+360k";
+      document.getElementById("yrad1").value = yrad1+"rad+2\u03C0k";
+      if( x!=1 && x!=-1 ) {
+         document.getElementById("ydeg2").value = ydeg2+"\u00B0+360k";
+         document.getElementById("yrad2").value = yrad2+"rad+2\u03C0k";
+      }
+   }
+   function OnCalc3() {
+      var x=document.getElementById("x5").value;
+      var y = math.evaluate(x);
+      document.getElementById("y5").value = roundnum2(y,8);
+      document.getElementById("y5div").style.display="block";
+   }
+</script>
+<!--/sse-->
+<!-- #EndEditable -->
+
+
+
+
+
+
+<iframe name="__tcfapiLocator" style="display: none;"></iframe><iframe name="__uspapiLocator" style="display: none;"></iframe><iframe name="__adconsentLocator" style="display: none;"></iframe><div style="display: none;"><a title="Do not click me1!" id="hp1" href="#">&lt;!â€“- Don't click me1 â€“-&gt;</a></div><a id="hp2" title="Don't click!" href="#" style="display: none;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" style="width:1px !important;height:1px !important;"></a></body><!-- #EndTemplate --></html>

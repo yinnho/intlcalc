@@ -1,0 +1,304 @@
+<!DOCTYPE html><html lang="en"><!-- #BeginTemplate "../../rapidtables.dwt" --><head>
+<script>var mobileAdsNum=0;</script>
+<script async="" src="/lib/tagmng8.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/lib/rapid02.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/lib/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/lib/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/lib/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/lib/favicon/manifest.json">
+<link rel="mask-icon" href="/lib/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/lib/favicon/favicon.ico">
+<meta name="msapplication-config" content="/lib/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+<!-- #BeginEditable "doctitle" -->
+<title>Percentage Change Calculator</title>
+<meta name="description" content="Percentage change calculator - calculate percentage change online.">
+<link href="/lib/bootstrap/bootstrap4small.css" rel="stylesheet">
+<style>
+   h1 { font-size:1.6rem; }
+   h2 { font-size:1.4rem; }
+   h3 { font-size:1.4rem; }
+   h4 { font-size:1.2rem; }
+   #wrapper td { padding-right:0; padding-left:0; }
+   textarea { margin-top:unset !important; }
+   .calcform { padding:15px; max-width:500px; background:#eee8d5; }
+   .calcform>table { width:100%; }
+   .calcform>table tr td:nth-child(2) { min-width:200px; }
+   .calcform button { margin-top:5px; margin-bottom:5px; }
+
+   :root { scroll-behavior:unset; }
+   #calcform1 .btn span,#calcform2 .btn span { font-weight: bold; font-size:large; }
+	@media all and (max-width: 600px) {
+      .calcform { padding:10px; }
+      #space,#space { display:none; }
+      #calcform1>div:nth-child(3)>label { display:none; }
+      #calcform2>div:nth-child(3)>label { display:none; }
+	}
+   .fraction {
+      display: inline-block;
+      position: relative;
+      vertical-align: middle; 
+      letter-spacing: 0.001em;
+      text-align: center;
+   }
+   .fraction > span { display: block; padding: 0.1em; }
+   .fraction span.fdn { border-top: 2px solid black; }
+   .fraction span.bar { display: none; }
+</style>
+<!-- #EndEditable -->
+
+<script async="" src="//cdn.snigelweb.com/adconsent/adconsent.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NY85XQ2FKR"></script></head>
+
+<body>
+
+<div id="header">
+	<div>
+	<div id="logo"><a href="/">RapidTables</a></div>
+   <div class="gcse-search"></div>
+   <div id="tooldiv">
+      <a href="#" onclick="OnPageSearch()"><img width="24" height="24" title="Search" src="/lib/icons/material/svg/search_black_24dp.svg" loading="lazy"><span> Search</span></a>
+      <a href="#" onclick="OnPageShare()"><img width="24" height="24" title="Share" src="/lib/icons/material/svg/share_black_24dp.svg" loading="lazy"><span> Share</span></a>
+   </div>
+	</div>
+</div>
+
+<div id="wrapper">
+
+<div id="nav">
+	<!-- #BeginEditable "doclink" -->
+	<a href="/">Home</a>›<a href="../index.html">Calculators</a>›<a href="index.html">Math Calculators</a>›<a href="percentage-change-calculator.html">Percentage change calculator</a>
+	<!-- #EndEditable -->
+</div>
+
+<div id="lcol">
+
+	<div id="doc">
+	<!-- #BeginEditable "doctext" -->
+		
+	<h1>Percentage Change Calculator</h1>
+   <p>Calculate percentage change from old value to new value:</p>
+	<form id="calcform1" name="calcform1" class="calcform" action="percentage-change-calculator.html#calcform1" autocomplete="off">
+   <table>
+   <tbody><tr>
+      <td><label for="v1">Old value</label></td>
+      <td><input type="text" id="v1" name="v1" value="" class="form-control" autofocus=""></td>
+      <td>&nbsp;</td>
+   </tr>
+   <tr>
+      <td><label for="v2">New value</label></td>
+      <td><input type="text" id="v2" name="v2" value="" class="form-control"></td>
+      <td>&nbsp;</td>
+   </tr>
+   <tr>
+      <td><label id="space">&nbsp;</label></td>
+      <td colspan="2">
+         <button type="button" id="calcbtn1" title="Calculate" class="btn btn-success"><span>=</span> Calculate</button>
+         <button type="reset" title="Reset" class="btn btn-secondary"><span>×</span> Reset</button>
+      </td>
+   </tr>
+   <tr>
+      <td><label for="y1">Percentage change</label></td>
+      <td><input type="text" id="y1" value="" class="form-control" readonly=""></td>
+      <td>%</td>
+   </tr>
+   <tr>
+      <td><label for="d1">Difference</label></td>
+      <td><input type="text" id="d1" value="" class="form-control" readonly=""></td>
+      <td>&nbsp;</td>
+   </tr>
+   <tr>
+      <td><label for="out1">Calculation</label></td>
+      <td><textarea rows="6" id="out1" class="form-control" readonly=""></textarea></td>
+      <td>&nbsp;</td>
+   </tr>
+   </tbody></table>
+   </form>
+	<p><a href="percentage-calculator.html">Percentage calculator ►</a></p>
+   <h2>New value calculator</h2>
+   <p>Calculate new value from old value and percentage change:</p>
+	<form id="calcform2" name="calcform2" class="calcform" action="percentage-change-calculator.html#calcform2" autocomplete="off">
+   <table>
+   <tbody><tr>
+      <td><label for="v">Old value</label>
+      </td><td><input type="text" id="v" name="v" value="" class="form-control"></td>
+      <td>&nbsp;</td>
+   </tr>
+   <tr>
+      <td><label for="p">Percentage change</label></td>
+      <td><input type="text" id="p" name="p" value="" class="form-control"></td>
+      <td>%</td>
+   </tr>
+   <tr>
+      <td><label id="space2">&nbsp;</label></td>
+      <td colspan="2">
+         <button type="button" id="calcbtn2" title="Calculate" class="btn btn-success"><span>=</span> Calculate</button>
+         <button type="reset" title="Reset" class="btn btn-secondary"><span>×</span> Reset</button>
+      </td>
+   </tr>
+   <tr>
+      <td><label for="y2">New value</label>
+      </td><td><input type="text" id="y2" value="" class="form-control" readonly=""></td>
+      <td>&nbsp;</td>
+   </tr>
+   <tr>
+      <td><label for="d2">Difference</label></td>
+      <td><input type="text" id="d2" value="" class="form-control" readonly="">
+      </td><td>&nbsp;</td>
+   </tr>
+   <tr>
+      <td><label for="out2">Calculation</label></td>
+      <td><textarea rows="5" id="out2" class="form-control" readonly=""></textarea></td>
+      <td>&nbsp;</td>
+   </tr>
+   </tbody></table>
+	</form>
+	<p><a href="percentage-calculator.html">Percentage calculator ►</a></p>
+	<h2>Percentage change calculation</h2>
+	<p>The percentage change from old value (V<sub>old</sub>) to new value (V<sub>new</sub>) is equal to the old and new values difference divided by the old value times 100%:</p>
+	<div class="math">percentage change = <div class="fraction"><span class="fup">Δ<i>V</i></span><span class="fdn"><i>V</i><sub>old</sub></span></div><br></div>
+   <div class="math">percentage change = <div class="fraction"><span class="fup">(<i>V</i><sub>new</sub> - <i>V</i><sub>old</sub>)</span><span class="fdn"><i>V</i><sub>old</sub></span></div> × 100%</div>
+	<h4>Example #1</h4>
+	<p>Price percentage increase from old price of $1000 to new price of $1200 is caluclated by:</p>
+	<div class="math">percentage change = <div class="fraction"><span class="fup">($1200 - $1000)</span><span class="fdn">$1000</span></div> × 100%</div>
+	<p class="math">&nbsp;= 0.2 × 100% = 20%</p>
+	<h4>Example #2</h4>
+	<p>Price percentage decrease from old price of $1000 to new price of $900 is caluclated by:</p>
+	<div class="math">percentage change = <div class="fraction"><span class="fup">($900 - $1000)</span><span class="fdn">$1000</span></div> × 100%</div>
+	<p class="math">&nbsp;= -0.1 × 100% = -10%</p>
+	<h2>Difference and new value calculation</h2>
+	<p>The difference d is equal to the old value <em>V</em><sub>old</sub> times the percentage change p divided by 100:</p>
+	<div class="math"><em>d</em> = <em>V</em><sub>old</sub> × <div class="fraction"><span class="fup"><em>p</em></span><span class="fdn">100</span></div></div>
+	<p>The new value <em>V</em><sub>new</sub> is equal to the old value <em>V</em><sub>old</sub> plus the difference d:</p>
+	<p class="math"> <em>V</em><sub>new</sub> = <em>V</em><sub>old</sub> + <em>d</em></p>
+	<p>&nbsp;</p>
+	<p><a href="percentage-calculator.html">Percentage calculator ►</a></p>
+	<p>&nbsp;</p>
+	<hr>
+	<h2>See also</h2>
+	<ul class="seealso">
+		<li><a href="percentage-calculator.html">Percentage calculator</a></li>
+		<li><a href="/math/number/Percentage.html">Percentage (%)</a></li>
+		<li><a href="percent-error-calculator.html">Percent error calculator</a></li>
+		<li><a href="/convert/number/percent-to-fraction.html">Percent to fraction</a></li>
+		<li><a href="/convert/number/fraction-to-percent.html">Fraction to percent</a></li>
+		<li><a href="/convert/number/percent-to-decimal.html">Percent to decimal</a></li>
+		<li><a href="/convert/number/decimal-to-percent.html">Decimal to percent</a></li>
+		<li><a href="/convert/number/Percent_to_PPM.html">Percent to ppm</a></li>
+		<li><a href="/convert/number/PPM_to_Percent.html">ppm to percent</a></li>
+		<li><a href="/math/number/Per_mille.html">Per-mille (‰)</a></li>
+		<li><a href="/math/number/PPM.html">Parts-per million (ppm)</a></li>
+		<li><a href="/math/symbols/Basic_Math_Symbols.html">Math symbols</a></li>
+	</ul>
+	<!-- #EndEditable -->
+
+   <!-- rapidtables_bottom_01 -->
+   <div id="adngin-bottom_01-0"></div>
+	
+	<!-- #BeginEditable "doctext2" -->
+	<!-- #EndEditable -->
+	</div>
+	
+   <div id="fdbk">
+      <h2 id="feedback">Write how to improve this page</h2>
+      <form id="fdbkform">
+      <textarea id="fdbkarea" rows="4" minlength="30" maxlength="1000" placeholder="Your message ..." required="" class="form-control"></textarea>
+      <span id="fdbkmsg"></span>
+      <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">Submit Feedback</button>
+      </form>
+   </div>
+</div>
+
+<div id="rcol">
+   <!-- rapidtables_right_sidebar -->
+   <div id="adngin-right_sidebar-0"></div>
+
+	<!-- #BeginEditable "docnav" -->
+	<h5>MATH CALCULATORS</h5>
+	<ul>
+		<li><a href="calculator.html">Math calculator</a></li>
+		<li><a href="adding-fractions-calculator.html">Adding fractions calculator</a></li>
+		<li><a href="Add_Calculator.html">Addition calculator</a></li>
+		<li><a href="anti-log-calculator.html">Antilog calculator</a></li>
+		<li><a href="Arccos_Calculator.html">Arccos calculator</a></li>
+		<li><a href="Arcsin_Calculator.html">Arcsin calculator</a></li>
+		<li><a href="Arctan_Calculator.html">Arctan calculator</a></li>
+		<li><a href="convolution-calculator.html">Convolution calculator</a></li>
+		<li><a href="Cos_Calculator.html">Cosine calculator</a></li>
+		<li><a href="dividing-fractions-calculator.html">Dividing fractions calculator</a></li>
+		<li><a href="division-calculator.html">Division calculator</a></li>
+		<li><a href="exponential-growth-calculator.html">Exponential growth calculator</a></li>
+		<li><a href="exponent-calculator.html">Exponents calculator</a></li>
+		<li><a href="Factorial_Calculator.html">Factorial calculator</a></li>
+		<li><a href="fractions-calculator.html">Fractions calculator</a></li>
+		<li><a href="gcf-calculator.html">GCF calculator</a></li>
+		<li><a href="lcm-calculator.html">LCM calculator</a></li>
+		<li><a href="Ln_Calc.html">Ln calculator</a></li>
+		<li><a href="log-calculator.html">Log calculator</a></li>
+		<li><a href="multiplication-calculator.html">Multiplication calculator</a></li>
+		<li><a href="multiplying-fractions-calculator.html">Multiplying fractions calculator</a></li>
+		<li><a href="percentage-calculator.html">Percentage calculator</a></li>
+		<li><a href="percentage-change-calculator.html">Percentage change calculator</a></li>
+		<li><a href="percent-error-calculator.html">Percent error calculator</a></li>
+		<li><a href="percentage-increase-calculator.html">Percentage increase calculator</a></li>
+		<li><a href="Quadratic_Calculator.html">Quadratic equation solver</a></li>
+		<li><a href="root-calculator.html">Root calculator</a></li>
+		<li><a href="Sin_Calculator.html">Sine calculator</a></li>
+		<li><a href="square-root-calculator.html">Square root calculator</a></li>
+		<li><a href="standard-deviation-calculator.html">Standard deviation calculator</a></li>
+		<li><a href="subtracting-fractions-calculator.html">Subtracting fractions calculator</a></li>
+		<li><a href="subtraction-calculator.html">Subtraction calculator</a></li>
+		<li><a href="Tan_Calculator.html">Tangent calculator</a></li>
+		<li><a href="weighted-average-calculator.html">Weighted average calculator</a></li>
+		<li><a href="variance-calculator.html">Variance calculator</a></li>
+	</ul>
+	<h5>RAPID TABLES</h5>
+	<ul>
+		<li><a href="/about.html#link" rel="nofollow">Link to Us</a></li>
+		<li><a href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com">Recommend Site</a></li>
+		<li><a href="#feedback">Send Feedback</a></li>
+		<li><a href="/about/about.html">About</a></li>
+	</ul>
+	<!-- #EndEditable -->
+	
+</div>
+
+</div>
+
+<div id="footer">
+	<a href="/index.html">Home</a> | 
+	<a href="/web/index.html">Web</a> |
+	<a href="/math/index.html">Math</a> | 
+	<a href="/electric/index.html">Electricity</a> |
+	<a href="/calc/index.html">Calculators</a> | 
+	<a href="/convert/index.html">Converters</a> |
+	<a href="/tools/index.html">Tools</a>
+	<p>©  
+	<a href="/">RapidTables.com</a> | 
+	<a href="/about/about.html" rel="nofollow">About</a> | 
+	<a href="/about/terms.html" rel="nofollow">Terms of Use</a> | 
+	<a href="/about/privacy.html" rel="nofollow">Privacy Policy</a> | 
+	<a href="/about/cookies.html" rel="nofollow">Manage Cookies</a>
+	</p>
+</div>
+
+<!-- rapidtables_bottom_adhesive -->
+<div id="adngin-adhesive-0"></div>
+
+<!-- #BeginEditable "docscript" -->
+<!--sse-->
+<script src="../calc2.js"></script>
+<script>
+var v1elem=document.getElementById("v1"),v2elem=document.getElementById("v2"),velem=document.getElementById("v"),pelem=document.getElementById("p"),calcbtn1=document.getElementById("calcbtn1"),calcbtn2=document.getElementById("calcbtn2");function GetURLParams(){for(var e,n=window.location.href,l=/[?&]([^=#]+)=([^&#]*)/g,t={};e=l.exec(n);)t[e[1]]=e[2];return t}function calc(){var e=str2num(v1elem.value),n=str2num(v2elem.value);if(0==e){document.getElementById("y1").value="undefined",eelem.style.background="#ffd0d0",setTimeout(function(){eelem.focus()},100);return}var l=(n-e)/e*100,t=n-e;l=roundresult(l),document.getElementById("y1").value=l,document.getElementById("d1").value=roundresult(t);var a="Percentage change\n";a+="= (Vnew - Vold) / Vold \xd7 100%\n",a+="= ("+n+" - "+e+") / "+e+" \xd7 100% \n",a+="= "+t+" / "+e+" \xd7 100% \n",a+="= "+t/e+" \xd7 100% \n",a+="= "+l+"%",document.getElementById("out1").value=a;var c=window.location.href.split("?")[0];c+="?v1="+e+"&v2="+n,history.pushState({},"",c)}function calc0(){var e=str2num(velem.value),n=str2num(pelem.value),l=e*n/100,t=parseFloat(e)+parseFloat(l);t=roundresult(t),document.getElementById("d2").value=roundresult(t-e),document.getElementById("y2").value=t;var a="Vnew\n= Vold \xd7 (1+Pchange/100)\n";a+="= "+e+" \xd7 (1 + "+n+"/100)\n",a+="= "+e+" \xd7 "+(1+n/100)+"\n",a+="= "+t,document.getElementById("out2").value=a;var c=window.location.href.split("?")[0];c+="?v="+e+"&p="+n,history.pushState({},"",c)}window.addEventListener("DOMContentLoaded",function(){if(v1elem.onkeypress=function(e){13==e.keyCode&&calc()},v2elem.onkeypress=function(e){13==e.keyCode&&calc()},velem.onkeypress=function(e){13==e.keyCode&&calc0()},pelem.onkeypress=function(e){13==e.keyCode&&calc0()},calcbtn1.type="button",calcbtn2.type="button",calcbtn1.onclick=function(){calc()},calcbtn2.onclick=function(){calc0()},-1!=window.location.href.indexOf("?")){var e=GetURLParams();if(void 0!==e.v1&&void 0!==e.v2){""!=e.v1&&""!=e.v2&&(v1elem.value=decodeURIComponent2(e.v1),v2elem.value=decodeURIComponent2(e.v2),calc(),window.location.hash="",window.location.hash="#calcform1");return}if(void 0!==e.v&&void 0!==e.p){""!=e.v&&""!=e.p&&(velem.value=decodeURIComponent2(e.v),pelem.value=decodeURIComponent2(e.p),calc0(),window.location.hash="",window.location.hash="#calcform2");return}}});
+</script>
+<!--/sse-->
+<!-- #EndEditable -->
+
+
+
+
+
+
+<iframe name="__tcfapiLocator" style="display: none;"></iframe><iframe name="__uspapiLocator" style="display: none;"></iframe><iframe name="__adconsentLocator" style="display: none;"></iframe></body><!-- #EndTemplate --></html>

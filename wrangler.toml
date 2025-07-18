@@ -1,0 +1,11 @@
+name = "intlcalc"
+compatibility_date = "2024-01-01"
+
+# 指定 Pages 构建输出目录
+pages_build_output_dir = "."
+
+# D1 数据库配置
+[[d1_databases]]
+binding = "DB"
+database_name = "intlcalc-db"
+database_id = "a426864d-b89d-4e40-98d9-e91f5cf56dd8"

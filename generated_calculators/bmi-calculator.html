@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI身体质量指数计算器</title>
+    <meta name="description" content="BMI身体质量指数计算器 - 支持公制和英制单位，提供健康建议和BMI分类">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .calculator-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            max-width: 500px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+        }
+
+        .calculator-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .calculator-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .calculator-header .description {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .calculator-main {
+            padding: 30px;
+        }
+
+        .unit-selector {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 5px;
+        }
+
+        .unit-option {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            background: transparent;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .unit-option.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .input-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .input-field {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .input-unit {
+            color: #666;
+            font-weight: 600;
+            min-width: 40px;
+        }
+
+        .height-inputs {
+            display: flex;
+            gap: 10px;
+        }
+
+        .height-inputs .input-field {
+            flex: 1;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 25px;
+        }
+
+        .calculate-btn:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .result-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            display: none;
+        }
+
+        .result-section.show {
+            display: block;
+        }
+
+        .bmi-value {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .bmi-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .bmi-category {
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+        }
+
+        .bmi-category.underweight {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .bmi-category.normal {
+            background: #e8f5e8;
+            color: #2e7d32;
+        }
+
+        .bmi-category.overweight {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+
+        .bmi-category.obese {
+            background: #ffebee;
+            color: #d32f2f;
+        }
+
+        .bmi-info {
+            margin-top: 20px;
+        }
+
+        .bmi-info h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .bmi-info p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .bmi-ranges {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .bmi-ranges h4 {
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .range-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .range-item:last-child {
+            border-bottom: none;
+        }
+
+        .range-label {
+            font-weight: 600;
+        }
+
+        .range-value {
+            color: #666;
+        }
+
+        .health-tips {
+            background: #e8f4fd;
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .health-tips h4 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tips-list li {
+            color: #666;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .tips-list li:before {
+            content: "💡";
+            position: absolute;
+            left: 0;
+        }
+
+        @media (max-width: 600px) {
+            .calculator-container {
+                margin: 10px;
+            }
+            
+            .calculator-main {
+                padding: 20px;
+            }
+            
+            .bmi-number {
+                font-size: 2.5rem;
+            }
+            
+            .height-inputs {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <header class="calculator-header">
+            <h1>BMI计算器</h1>
+            <p class="description">计算身体质量指数，评估健康状态</p>
+        </header>
+        
+        <main class="calculator-main">
+            <!-- 单位选择器 -->
+            <div class="unit-selector">
+                <button class="unit-option active" onclick="selectUnit('metric')">公制 (kg/cm)</button>
+                <button class="unit-option" onclick="selectUnit('imperial')">英制 (lb/ft)</button>
+            </div>
+
+            <!-- 输入区域 -->
+            <div class="input-section">
+                <!-- 身高输入 -->
+                <div class="input-group">
+                    <label for="height">身高:</label>
+                    <div id="height-container-metric" class="input-container">
+                        <input type="number" id="height-cm" class="input-field" placeholder="170" step="0.1" min="50" max="250">
+                        <span class="input-unit">厘米</span>
+                    </div>
+                    <div id="height-container-imperial" class="input-container height-inputs" style="display: none;">
+                        <input type="number" id="height-ft" class="input-field" placeholder="5" step="1" min="3" max="8">
+                        <span class="input-unit">英尺</span>
+                        <input type="number" id="height-in" class="input-field" placeholder="8" step="1" min="0" max="11">
+                        <span class="input-unit">英寸</span>
+                    </div>
+                </div>
+
+                <!-- 体重输入 -->
+                <div class="input-group">
+                    <label for="weight">体重:</label>
+                    <div class="input-container">
+                        <input type="number" id="weight" class="input-field" placeholder="70" step="0.1" min="20" max="300">
+                        <span class="input-unit" id="weight-unit">千克</span>
+                    </div>
+                </div>
+
+                <!-- 年龄输入（可选） -->
+                <div class="input-group">
+                    <label for="age">年龄（可选）:</label>
+                    <div class="input-container">
+                        <input type="number" id="age" class="input-field" placeholder="25" step="1" min="1" max="120">
+                        <span class="input-unit">岁</span>
+                    </div>
+                </div>
+
+                <!-- 性别选择（可选） -->
+                <div class="input-group">
+                    <label>性别（可选）:</label>
+                    <div class="unit-selector">
+                        <button class="unit-option" id="gender-male" onclick="selectGender('male')">男性</button>
+                        <button class="unit-option" id="gender-female" onclick="selectGender('female')">女性</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 计算按钮 -->
+            <button class="calculate-btn" onclick="calculateBMI()">计算BMI</button>
+
+            <!-- 结果显示区域 -->
+            <div class="result-section" id="result-section">
+                <div class="bmi-value">
+                    <div class="bmi-number" id="bmi-number">0.0</div>
+                    <div class="bmi-category" id="bmi-category">正常体重</div>
+                </div>
+                
+                <div class="bmi-info" id="bmi-info">
+                    <h4>健康评估</h4>
+                    <p id="health-assessment">您的BMI值在正常范围内，请继续保持健康的生活方式。</p>
+                </div>
+            </div>
+
+            <!-- BMI范围参考 -->
+            <div class="bmi-ranges">
+                <h4>BMI分类标准</h4>
+                <div class="range-item">
+                    <span class="range-label" style="color: #1976d2;">体重过轻</span>
+                    <span class="range-value">BMI < 18.5</span>
+                </div>
+                <div class="range-item">
+                    <span class="range-label" style="color: #2e7d32;">正常体重</span>
+                    <span class="range-value">18.5 ≤ BMI < 25</span>
+                </div>
+                <div class="range-item">
+                    <span class="range-label" style="color: #f57c00;">超重</span>
+                    <span class="range-value">25 ≤ BMI < 30</span>
+                </div>
+                <div class="range-item">
+                    <span class="range-label" style="color: #d32f2f;">肥胖</span>
+                    <span class="range-value">BMI ≥ 30</span>
+                </div>
+            </div>
+
+            <!-- 健康建议 -->
+            <div class="health-tips">
+                <h4>健康生活建议</h4>
+                <ul class="tips-list">
+                    <li>保持均衡饮食，多吃蔬菜水果</li>
+                    <li>每周至少进行150分钟中等强度运动</li>
+                    <li>保证充足睡眠，每天7-9小时</li>
+                    <li>定期体检，监测健康指标</li>
+                    <li>避免吸烟和过量饮酒</li>
+                    <li>保持良好的心理健康状态</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        let currentUnit = 'metric';
+        let selectedGender = null;
+
+        // 单位选择
+        function selectUnit(unit) {
+            currentUnit = unit;
+            
+            // 更新按钮状态
+            document.querySelectorAll('.unit-selector .unit-option').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // 切换输入界面
+            const metricContainer = document.getElementById('height-container-metric');
+            const imperialContainer = document.getElementById('height-container-imperial');
+            const weightUnit = document.getElementById('weight-unit');
+
+            if (unit === 'metric') {
+                metricContainer.style.display = 'flex';
+                imperialContainer.style.display = 'none';
+                weightUnit.textContent = '千克';
+                
+                // 更新占位符
+                document.getElementById('weight').placeholder = '70';
+            } else {
+                metricContainer.style.display = 'none';
+                imperialContainer.style.display = 'flex';
+                weightUnit.textContent = '磅';
+                
+                // 更新占位符
+                document.getElementById('weight').placeholder = '154';
+            }
+
+            // 清除结果
+            hideResult();
+        }
+
+        // 性别选择
+        function selectGender(gender) {
+            selectedGender = gender;
+            
+            // 更新按钮状态
+            document.getElementById('gender-male').classList.remove('active');
+            document.getElementById('gender-female').classList.remove('active');
+            document.getElementById('gender-' + gender).classList.add('active');
+        }
+
+        // 计算BMI
+        function calculateBMI() {
+            try {
+                let height, weight;
+
+                // 获取体重
+                weight = parseFloat(document.getElementById('weight').value);
+                if (!weight || weight <= 0) {
+                    alert('请输入有效的体重');
+                    return;
+                }
+
+                // 获取身高并转换为米
+                if (currentUnit === 'metric') {
+                    const heightCm = parseFloat(document.getElementById('height-cm').value);
+                    if (!heightCm || heightCm <= 0) {
+                        alert('请输入有效的身高');
+                        return;
+                    }
+                    height = heightCm / 100; // 转换为米
+                    
+                    // 如果是磅，转换为千克
+                } else {
+                    const heightFt = parseFloat(document.getElementById('height-ft').value) || 0;
+                    const heightIn = parseFloat(document.getElementById('height-in').value) || 0;
+                    
+                    if (heightFt <= 0) {
+                        alert('请输入有效的身高');
+                        return;
+                    }
+                    
+                    // 转换为米
+                    height = (heightFt * 12 + heightIn) * 0.0254;
+                    
+                    // 磅转换为千克
+                    weight = weight * 0.453592;
+                }
+
+                // 计算BMI
+                const bmi = weight / (height * height);
+                
+                // 显示结果
+                displayResult(bmi);
+                
+            } catch (error) {
+                alert('计算出现错误，请检查输入的数据');
+            }
+        }
+
+        // 显示结果
+        function displayResult(bmi) {
+            const bmiNumber = document.getElementById('bmi-number');
+            const bmiCategory = document.getElementById('bmi-category');
+            const healthAssessment = document.getElementById('health-assessment');
+            const resultSection = document.getElementById('result-section');
+
+            // 显示BMI值
+            bmiNumber.textContent = bmi.toFixed(1);
+
+            // 确定BMI分类
+            let category, categoryClass, assessment;
+            
+            if (bmi < 18.5) {
+                category = '体重过轻';
+                categoryClass = 'underweight';
+                assessment = '您的BMI偏低，建议增加营养摄入，适当增重。建议咨询营养师制定健康的增重计划。';
+            } else if (bmi < 25) {
+                category = '正常体重';
+                categoryClass = 'normal';
+                assessment = '恭喜！您的BMI值在正常范围内，请继续保持健康的生活方式和饮食习惯。';
+            } else if (bmi < 30) {
+                category = '超重';
+                categoryClass = 'overweight';
+                assessment = '您的BMI偏高，建议控制饮食并增加运动量。建议咨询医生制定合适的减重计划。';
+            } else {
+                category = '肥胖';
+                categoryClass = 'obese';
+                assessment = '您的BMI值过高，强烈建议咨询医生，制定科学的减重和健康管理计划。';
+            }
+
+            // 如果有年龄和性别信息，提供更详细的建议
+            const age = parseInt(document.getElementById('age').value);
+            if (age && selectedGender) {
+                assessment += getAgeGenderSpecificAdvice(bmi, age, selectedGender);
+            }
+
+            // 更新界面
+            bmiCategory.textContent = category;
+            bmiCategory.className = 'bmi-category ' + categoryClass;
+            healthAssessment.textContent = assessment;
+
+            // 显示结果区域
+            resultSection.classList.add('show');
+            
+            // 滚动到结果区域
+            resultSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // 根据年龄和性别提供特定建议
+        function getAgeGenderSpecificAdvice(bmi, age, gender) {
+            let advice = '\n\n基于您的年龄和性别的额外建议：';
+            
+            if (age < 18) {
+                advice += '\n• 青少年期间身体仍在发育，建议在医生指导下管理体重。';
+            } else if (age >= 65) {
+                advice += '\n• 老年人应注意营养充足，适度运动，定期体检。';
+            }
+            
+            if (gender === 'female') {
+                advice += '\n• 女性应注意铁质和钙质的补充，保持骨骼健康。';
+                if (age >= 18 && age <= 50) {
+                    advice += '\n• 育龄期女性应保持合适体重，有助于生育健康。';
+                }
+            } else if (gender === 'male') {
+                advice += '\n• 男性应注意心血管健康，控制腹部脂肪。';
+            }
+            
+            return advice;
+        }
+
+        // 隐藏结果
+        function hideResult() {
+            document.getElementById('result-section').classList.remove('show');
+        }
+
+        // 键盘事件监听
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                calculateBMI();
+            }
+        });
+
+        // 输入验证
+        function validateInput() {
+            const inputs = document.querySelectorAll('.input-field');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    if (this.value < 0) {
+                        this.value = '';
+                    }
+                });
+            });
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            validateInput();
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,21 @@
+{
+  "name": "Международный калькулятор",
+  "short_name": "IntlCalc",
+  "description": "Профессиональные онлайн-калькуляторы",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#2196F3",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

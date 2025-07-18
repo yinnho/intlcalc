@@ -1,0 +1,512 @@
+<!DOCTYPE html><html lang="en"><!-- #BeginTemplate "../../rapidtables.dwt" --><head>
+<script>var mobileAdsNum=0;</script>
+<script async="" src="/lib/tagmng8.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/lib/rapid02.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/lib/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/lib/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/lib/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/lib/favicon/manifest.json">
+<link rel="mask-icon" href="/lib/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/lib/favicon/favicon.ico">
+<meta name="msapplication-config" content="/lib/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+<!-- #BeginEditable "doctitle" -->
+<title>Roman Numeral Date Converter</title>
+<meta name="description" content="Date to roman numerals conversion calculator.">
+<meta name="keywords" content="date,roman numerals,roman numbers,birthday">
+<style>
+   .btn span { font-weight: bold; font-size:large; }
+   #y { font-family: 'Times New Roman', Times, serif; }
+	.calc2 select { font-size:large; padding:8px 2px; }
+	.calc2 input[type="number"]:nth-child(3) { width:75px; font-size:large; padding:8px 5px; }
+	.calc2 input[type="text"]:nth-child(1) { font-size:x-large; padding:5px; }
+	.calc2 button { margin-bottom:10px; padding:8px; }
+	@media all and (max-width: 576px) {
+		.calc2 { padding:12px; width:100%; }
+		/*.calc2, .ntable { margin:0 auto; }*/
+		.calc2 td { float:left; }
+		.calc2 td:nth-child(2) { clear:left; }
+		.calc2 input[type="text"]:nth-child(1) { width:100%; }
+	}
+	@media all and (min-width: 577px) {
+		.calc2 { padding:15px; }
+		.calc2 tr { line-height:50px; }
+		.calc2 input[type="text"]:nth-child(1) { width:250px; }
+	}
+	.ntable th a { line-height:normal; }
+</style>
+<!-- #EndEditable -->
+
+<script async="" src="//cdn.snigelweb.com/adconsent/adconsent.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NY85XQ2FKR"></script></head>
+
+<body>
+
+<div id="header">
+	<div>
+	<div id="logo"><a href="/">RapidTables</a></div>
+   <div class="gcse-search"></div>
+   <div id="tooldiv">
+      <a href="#" onclick="OnPageSearch()"><img width="24" height="24" title="Search" src="/lib/icons/material/svg/search_black_24dp.svg" loading="lazy"><span> Search</span></a>
+      <a href="#" onclick="OnPageShare()"><img width="24" height="24" title="Share" src="/lib/icons/material/svg/share_black_24dp.svg" loading="lazy"><span> Share</span></a>
+   </div>
+	</div>
+</div>
+
+<div id="wrapper">
+
+<div id="nav">
+	<!-- #BeginEditable "doclink" -->
+	<a href="/">Home</a>›<a href="../index.html">Conversion</a>›<a href="index.html">Number conversion</a>›<a href="date-to-roman-numerals.html">Dates in roman numerals converter</a>
+	<!-- #EndEditable -->
+</div>
+
+<div id="lcol">
+
+	<div id="doc">
+	<!-- #BeginEditable "doctext" -->
+	<h1>Roman numerals date converter</h1>
+	<p>Dates in <a href="/math/symbols/roman_numerals.html">roman numerals</a> conversion calculator.</p>
+	<!--<h2><a id="converter"></a>Dates in roman numerals converter</h2>-->
+	<form id="calcform" name="calcform" autocomplete="off">
+	<table class="calc2">
+	  <tbody><tr>
+		<td>Enter date:</td>
+		<td><select id="msel" name="msel" autofocus="">
+			<option value="0">January</option>
+			<option value="1">February</option>
+			<option value="2">March</option>
+			<option value="3">April</option>
+			<option value="4">May</option>
+			<option value="5">June</option>
+			<option value="6">July</option>
+			<option value="7">August</option>
+			<option value="8">September</option>
+			<option value="9">October</option>
+			<option value="10">November</option>
+			<option value="11">December</option>
+		</select> / <select id="dsel" name="dsel">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+			<option>6</option>
+			<option>7</option>
+			<option>8</option>
+			<option>9</option>
+			<option>10</option>
+			<option>11</option>
+			<option>12</option>
+			<option>13</option>
+			<option>14</option>
+			<option>15</option>
+			<option>16</option>
+			<option>17</option>
+			<option>18</option>
+			<option>19</option>
+			<option>20</option>
+			<option>21</option>
+			<option>22</option>
+			<option>23</option>
+			<option>24</option>
+			<option>25</option>
+			<option>26</option>
+			<option>27</option>
+			<option>28</option>
+			<option>29</option>
+			<option>30</option>
+			<option>31</option>
+		</select> / <input type="number" step="1" id="year" name="year" value="2000" class="intext"></td>
+	  </tr>
+	  <tr>
+		<td>Select roman date format:</td>
+		<td><select id="fmtsel" name="fmtsel" class="intext">
+			<option value="0">MM.DD.YYYY</option>
+			<option value="1">DD.MM.YYYY</option>
+			<option value="2">YYYY.MM.DD</option>
+		</select></td>
+	  </tr>
+	  <tr>
+		<td>Select delimiter:</td>
+		<td><select id="del" name="del" class="intext">
+			<option value="0">Dot</option>
+			<option value="1">Middot</option>
+			<option value="2">Slash</option>
+			<option value="3">Space</option>
+			<option value="4">Dash</option>
+		</select></td>
+	  </tr>
+	  <tr>
+		<td>&nbsp;</td>
+	  	<td>
+			<button type="button" title="Convert" class="btn" onclick="convert(1)"><span>=</span> Convert</button>
+			<!--<button type="submit" title="Convert" class="btn"><span>=</span> Convert</button>-->
+			<button type="reset" title="Reset" class="btn" onclick="setfocus()"><span>×</span> Reset</button>
+	  	</td>
+	  </tr>
+	  <tr>
+		<td>Date in roman numerals:</td>
+		<td class="math"><input type="text" id="y" class="outtext" readonly=""></td>
+	  </tr>
+	  <tr>
+		<td>&nbsp;</td>
+		<!--<td><button type="button" onclick="copy()" class="btn"><img src="/lib/icons/material/svg/content_copy_black_24dp.svg" loading="lazy" width="24" height="24" alt=""> Copy</button></td>-->
+		<td><button type="button" onclick="copy()" class="btn">Copy</button></td>
+	  </tr>
+	  </tbody></table>
+	</form>
+	<p><a href="roman-numerals-converter.html">Roman numerals converter	►</a></p>
+
+	<h2 id="table">Roman numerals table</h2>
+	<table class="ntable" style="width:200px">
+		<tbody><tr>
+			<th><a href="/math/symbols/roman_numerals.html">Roman numeral</a></th>
+			<th>Decimal number</th>
+		</tr>
+		<tr>
+			<td>I</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>V</td>
+			<td>5</td>
+		</tr>
+		<tr>
+			<td>X</td>
+			<td>10</td>
+		</tr>
+		<tr>
+			<td>L</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>C</td>
+			<td>100</td>
+		</tr>
+		<tr>
+			<td>D</td>
+			<td>500</td>
+		</tr>
+		<tr>
+			<td>M</td>
+			<td>1000</td>
+		</tr>
+	</tbody></table>
+	<h2><a id="year"></a>Years in roman numerals</h2>
+	<table class="dtable" style="width:200px">
+		<thead>
+		<tr>
+			<th>Year</th>
+			<th>Roman numeral</th>
+		</tr>
+		</thead>
+		<tbody><tr>
+			<td>1000</td>
+			<td>M</td>
+		</tr>
+		<tr>
+			<td>1100</td>
+			<td>MC</td>
+		</tr>
+		<tr>
+			<td>1200</td>
+			<td>MCC</td>
+		</tr>
+		<tr>
+			<td>1300</td>
+			<td>MCCC</td>
+		</tr>
+		<tr>
+			<td>1400</td>
+			<td>MCD</td>
+		</tr>
+		<tr>
+			<td>1500</td>
+			<td>MD</td>
+		</tr>
+		<tr>
+			<td>1600</td>
+			<td>MDC</td>
+		</tr>
+		<tr>
+			<td>1700</td>
+			<td>MDCC</td>
+		</tr>
+		<tr>
+			<td>1800</td>
+			<td>MDCCC</td>
+		</tr>
+		<tr>
+			<td>1900</td>
+			<td>MCM</td>
+		</tr>
+		<tr>
+			<td>1990</td>
+			<td>MCMXC</td>
+		</tr>
+		<tr>
+			<td>1991</td>
+			<td>MCMXCI</td>
+		</tr>
+		<tr>
+			<td>1992</td>
+			<td>MCMXCII</td>
+		</tr>
+		<tr>
+			<td>1993</td>
+			<td>MCMXCIII</td>
+		</tr>
+		<tr>
+			<td>1994</td>
+			<td>MCMXCIV</td>
+		</tr>
+		<tr>
+			<td>1995</td>
+			<td>MCMXCV</td>
+		</tr>
+		<tr>
+			<td>1996</td>
+			<td>MCMXCVI</td>
+		</tr>
+		<tr>
+			<td>1997</td>
+			<td>MCMXCVII</td>
+		</tr>
+		<tr>
+			<td>1998</td>
+			<td>MCMXCVIII</td>
+		</tr>
+		<tr>
+			<td>1999</td>
+			<td>MCMXCIX</td>
+		</tr>
+		<tr>
+			<td>2000</td>
+			<td>MM</td>
+		</tr>
+		<tr>
+			<td>2001</td>
+			<td>MMI</td>
+		</tr>
+		<tr>
+			<td>2002</td>
+			<td>MMII</td>
+		</tr>
+		<tr>
+			<td>2003</td>
+			<td>MMIII</td>
+		</tr>
+		<tr>
+			<td>2004</td>
+			<td>MMIV</td>
+		</tr>
+		<tr>
+			<td>2005</td>
+			<td>MMV</td>
+		</tr>
+		<tr>
+			<td>2006</td>
+			<td>MMVI</td>
+		</tr>
+		<tr>
+			<td>2007</td>
+			<td>MMVII</td>
+		</tr>
+		<tr>
+			<td>2008</td>
+			<td>MMVIII</td>
+		</tr>
+		<tr>
+			<td>2009</td>
+			<td>MMIX</td>
+		</tr>
+		<tr>
+			<td>2010</td>
+			<td>MMX</td>
+		</tr>
+		<tr>
+			<td>2011</td>
+			<td>MMXI</td>
+		</tr>
+		<tr>
+			<td>2012</td>
+			<td>MMXII</td>
+		</tr>
+		<tr>
+			<td>2013</td>
+			<td>MMXIII</td>
+		</tr>
+		<tr>
+			<td>2014</td>
+			<td>MMXIV</td>
+		</tr>
+		<tr>
+			<td>2015</td>
+			<td>MMXV</td>
+		</tr>
+		<tr>
+			<td>2016</td>
+			<td>MMXVI</td>
+		</tr>
+		<tr>
+			<td>2017</td>
+			<td>MMXVII</td>
+		</tr>
+		<tr>
+			<td>2018</td>
+			<td>MMXVIII</td>
+		</tr>
+		<tr>
+			<td>2019</td>
+			<td>MMXIX</td>
+		</tr>
+		<tr>
+			<td>2020</td>
+			<td>MMXX</td>
+		</tr>
+		<tr>
+			<td>2021</td>
+			<td>MMXXI</td>
+		</tr>
+		<tr>
+			<td>2022</td>
+			<td>MMXXII</td>
+		</tr>
+		<tr>
+			<td>2023</td>
+			<td>MMXXIII</td>
+		</tr>
+		<tr>
+			<td>2024</td>
+			<td>MMXXIV</td>
+		</tr>
+		<tr>
+			<td>2025</td>
+			<td>MMXXV</td>
+		</tr>
+	</tbody></table>
+	<br>
+	<p><a href="roman-numerals-converter.html">Roman numerals converter	►</a></p>
+	<br>
+	<hr>
+	<h2>See also</h2>
+	<ul class="seealso">
+		<li><a href="/calc/time/date-calculator.html">Date calculator</a></li>
+		<li><a href="how-number-to-roman-numerals.html">How to convert number to roman numerals</a></li>
+		<li><a href="how-roman-numerals-to-number.html">How to convert roman numerals to number</a></li>
+		<li><a href="/math/symbols/roman_numerals.html">Roman numerals chart</a></li>
+		<li><a href="index.html">Number conversion</a></li>
+	</ul>
+
+	<!-- #EndEditable -->
+
+   <!-- rapidtables_bottom_01 -->
+   <div id="adngin-bottom_01-0"></div>
+	
+	<!-- #BeginEditable "doctext2" -->
+	<!-- #EndEditable -->
+	</div>
+	
+   <div id="fdbk">
+      <h2 id="feedback">Write how to improve this page</h2>
+      <form id="fdbkform">
+      <textarea id="fdbkarea" rows="4" minlength="30" maxlength="1000" placeholder="Your message ..." required="" class="form-control"></textarea>
+      <span id="fdbkmsg"></span>
+      <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">Submit Feedback</button>
+      </form>
+   </div>
+</div>
+
+<div id="rcol">
+   <!-- rapidtables_right_sidebar -->
+   <div id="adngin-right_sidebar-0"></div>
+
+	<!-- #BeginEditable "docnav" -->
+	<h5>NUMBER CONVERSION</h5>
+	<ul>
+		<li><a href="ascii-hex-bin-dec-converter.html">ASCII,Hex,Binary,Decimal converter</a></li>
+		<li><a href="ascii-to-binary.html">ASCII text to binary converter</a></li>
+		<li><a href="ascii-to-hex.html">ASCII text to hex converter</a></li>
+		<li><a href="base-converter.html">Base converter</a></li>
+		<li><a href="binary-converter.html">Binary converter</a></li>
+		<li><a href="binary-to-ascii.html">Binary to ASCII text converter</a></li>
+		<li><a href="binary-to-decimal.html">Binary to decimal converter</a></li>
+		<li><a href="binary-to-hex.html">Binary to hex converter</a></li>
+		<li><a href="date-to-roman-numerals.html">Date to roman numerals converter</a></li>
+		<li><a href="decimal-to-fraction.html">Decimal to fraction converter</a></li>
+		<li><a href="decimal-to-percent.html">Decimal to percent converter</a></li>
+		<li><a href="decimal-to-binary.html">Decimal to binary converter</a></li>
+		<li><a href="decimal-to-octal.html">Decimal to octal converter</a></li>
+		<li><a href="decimal-to-hex.html">Decimal to hex converter</a></li>
+		<li><a href="degrees-to-degrees-minutes-seconds.html">Degrees to deg,min,sec converter</a></li>
+		<li><a href="degrees-minutes-seconds-to-degrees.html">Deg,min,sec to degrees converter</a></li>
+		<li><a href="degrees-to-radians.html">Degrees to radians converter</a></li>
+		<li><a href="fraction-to-decimal.html">Fraction to decimal converter</a></li>
+		<li><a href="fraction-to-percent.html">Fraction to percent converter</a></li>
+		<li><a href="hex-dec-bin-converter.html">Hex/decimal/octal/binary converter</a></li>
+		<li><a href="hex-to-ascii.html">Hex to ASCII text converter</a></li>
+		<li><a href="hex-to-binary.html">Hex to binary converter</a></li>
+		<li><a href="hex-to-decimal.html">Hex to decimal converter</a></li>
+		<li><a href="octal-to-decimal.html">Octal to decimal converter</a></li>
+		<li><a href="percent-to-decimal.html">Percent to decimal converter</a></li>
+		<li><a href="percent-to-fraction.html">Percent to fraction converter</a></li>
+		<li><a href="Percent_to_PPM.html">Percent to ppm converter</a></li>
+		<li><a href="PPM_to_Percent.html">ppm to percent converter</a></li>
+		<li><a href="ppm-to-ppb.html">ppm to ppb converter</a></li>
+		<li><a href="ppm-to-ppt.html">ppm to ppt converter</a></li>
+		<li><a href="ppb-to-ppm.html">ppb to ppm converter</a></li>
+		<li><a href="ppt-to-ppm.html">ppt to ppm converter</a></li>
+		<li><a href="ppm-converter.html">ppm converter</a></li>
+		<li><a href="radians-to-degrees.html">Radians to degrees converter</a></li>
+		<li><a href="roman-numerals-converter.html">Roman numerals converter</a></li>
+		<li><a href="scientific-notation-converter.html">Scientific notation converter</a></li>
+	</ul>
+	<h5>RAPID TABLES</h5>
+	<ul>
+		<li><a href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com">Recommend Site</a></li>
+		<li><a href="#feedback">Send Feedback</a></li>
+		<li><a href="/about/about.html">About</a></li>
+	</ul>
+	<!-- #EndEditable -->
+	
+</div>
+
+</div>
+
+<div id="footer">
+	<a href="/index.html">Home</a> | 
+	<a href="/web/index.html">Web</a> |
+	<a href="/math/index.html">Math</a> | 
+	<a href="/electric/index.html">Electricity</a> |
+	<a href="/calc/index.html">Calculators</a> | 
+	<a href="/convert/index.html">Converters</a> |
+	<a href="/tools/index.html">Tools</a>
+	<p>©  
+	<a href="/">RapidTables.com</a> | 
+	<a href="/about/about.html" rel="nofollow">About</a> | 
+	<a href="/about/terms.html" rel="nofollow">Terms of Use</a> | 
+	<a href="/about/privacy.html" rel="nofollow">Privacy Policy</a> | 
+	<a href="/about/cookies.html" rel="nofollow">Manage Cookies</a>
+	</p>
+</div>
+
+<!-- rapidtables_bottom_adhesive -->
+<div id="adngin-adhesive-0"></div>
+
+<!-- #BeginEditable "docscript" -->
+<!--sse-->
+<script>
+var fmtselElem=document.getElementById("fmtsel"),dselElem=document.getElementById("dsel"),mselElem=document.getElementById("msel"),yearElem=document.getElementById("year"),yelem=document.getElementById("y"),delElem=document.getElementById("del");function GetURLParams(){for(var e,l=window.location.href,t=/[?&]([^=#]+)=([^&#]*)/g,n={};e=t.exec(l);)n[e[1]]=e[2];return n}function getMonthIndex(e){m=["January","February","March","April","May","June","July","August","September","October","November","December"];for(var l=0;l<12;l++)if(e==m[l])return l;return -1}function convert(e){var l=mselElem.selectedIndex+1,t=dselElem.selectedIndex+1,n=fmtselElem.selectedIndex,d=yearElem.value,r=[".","\xb7","/"," ","-"][delElem.selectedIndex];if(rmonth=convert2(l),rday=convert2(t),ryear=convert2(d),date=0==n?rmonth+r+rday+r+ryear:1==n?rday+r+rmonth+r+ryear:ryear+r+rmonth+r+rday,yelem.value=date,0!=e){var s=window.location.href.split("?")[0];s+="?msel="+mselElem.selectedIndex,s+="&dsel="+dselElem.value,s+="&year="+d,s+="&fmtsel="+fmtsel.value,s+="&del="+delElem.selectedIndex,s+="#calcform",history.replaceState({},"",s)}}function copy(){yelem.select(),yelem.setSelectionRange(0,99999),navigator.clipboard.writeText(yelem.value)}function convert2(e){var l=["i","iv","v","ix","x","xl","l","xc","c","cd","d","cm","m"],t=[1,4,5,9,10,40,50,90,100,400,500,900,1e3];if((e=parseInt(e))<1||e>4999)return alert(e+" is not valid"),"";for(i=12,y="";i>=0;)t[i]<=e?(y+=l[i],e-=t[i]):(i--,k=0);return y.toUpperCase()}window.addEventListener("DOMContentLoaded",function(){if(-1==window.location.href.indexOf("?")){var e=new Date,l=e.getMonth()+1,t=e.getDate(),n=e.getFullYear();yearElem.value=n,mselElem.selectedIndex=l-1,dselElem.selectedIndex=t-1}else{var d=GetURLParams();void 0!==d.year&&(("1"==d.fmtsel||"DD.MM.YYYY"==d.fmtsel)&&(fmtselElem.selectedIndex=1),"2"==d.fmtsel&&(fmtselElem.selectedIndex=2),dselElem.selectedIndex=d.dsel-1,d.msel.length<=2?mselElem.selectedIndex=d.msel:mselElem.selectedIndex=getMonthIndex(d.msel),yearElem.value=d.year,delElem.selectedIndex=d.del)}convert(0)});
+</script>
+<!--/sse-->
+<!-- #EndEditable -->
+
+
+
+
+
+
+<iframe name="__tcfapiLocator" style="display: none;"></iframe><iframe name="__uspapiLocator" style="display: none;"></iframe><iframe name="__adconsentLocator" style="display: none;"></iframe></body><!-- #EndTemplate --></html>

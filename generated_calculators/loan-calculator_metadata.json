@@ -1,0 +1,9 @@
+{
+  "title": "loan计算器",
+  "description": "根据您的需求\"我需要计算房贷月供，包含本金和利息\"自动生成的计算器",
+  "type": "financial-calculator",
+  "complexity": "medium",
+  "features": [],
+  "generatedAt": "2025-07-16T04:56:40.233Z",
+  "version": "1.0.0"
+}

@@ -1,0 +1,599 @@
+<!DOCTYPE html><html lang="en"><!-- #BeginTemplate "../../rapidtables.dwt" --><head>
+<script>
+   var deskAdsNum=0;
+</script>
+<script async="" src="/ar/js/tagmng8.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/ar/css/rapid02.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/ar/css/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/ar/css/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/ar/css/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/ar/css/favicon/manifest.json">
+<link rel="mask-icon" href="/ar/css/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/ar/css/favicon/favicon.ico">
+<meta name="msapplication-config" content="/lib/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+<!-- #BeginEditable "doctitle" -->
+<title>BMI Calculator - Calculate body mass index</title>
+<meta name="description" content="Calculate your Body Mass Index, for men, women and kids.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<style>
+   h1 { font-size:1.6rem; }
+   h2 { font-size:1.4rem; }
+   h3 { font-size:1.4rem; }
+   h4 { font-size:1.2rem; }
+   :root { scroll-behavior:unset; }
+   #wrapper td { padding:.75rem; }
+   #calcform {
+      padding:15px;
+      background:#eee8d5;
+      border:1px solid #eee;
+      border-radius:7px;
+      max-width:500px;
+   }
+   #calcform .btn-group { background:#fff; }
+   #cmdiv, #kgdiv { display:none; }
+   .btn span { font-weight:bold; font-size:large; }
+   figure>img { width:100%; max-width:575px; margin-left:-35px; }
+   .table { max-width:500px; }
+	@media all and (max-width: 576px) {
+      div>label>span { display:none; }
+      figure>img { margin-left:0; }
+      .mt-3 { margin-top:0 !important; }
+   }
+   .fraction {
+      display: inline-block;
+      position: relative;
+      vertical-align: middle; 
+      letter-spacing: 0.001em;
+      text-align: center;
+   }
+   .fraction > span { display: block; padding: 0.1em; }
+   .fraction span.fdn { border-top: 2px solid black; }
+
+   /*
+   meter::-webkit-meter-optimum-value {
+      -webkit-transition: width 5s;
+   }
+   meter::-webkit-meter-optimum-value {
+      transition: width 5s;
+   #chart {
+   background-image: linear-gradient(
+      90deg, 
+      #e6d450 20%, 
+      #8bcf69 20%,
+      #8bcf69 40%,
+      #f28f68 40%,
+      #f28f68 60%,
+      #f26060 60%,
+      #f26060 100%
+   );
+   }
+   */
+   .chart { display:table-row; height:30px; background:#000; }
+</style>
+<noscript>
+<style>
+   #cmdiv, #kgdiv { display:flex; }
+   div:has(div>div>#utsel1:checked) ~ div>div>#cmdiv { display:none; }
+   div:has(div>div>#utsel1:checked) ~ div>div>#kgdiv { display:none; }
+   div:has(div>div>#utsel2:checked) ~ div>div>#ftdiv { display:none; }
+   div:has(div>div>#utsel2:checked) ~ div>div>#lbdiv { display:none; }
+</style>
+</noscript>
+<!--
+<noscript><style> #cmdiv, #kgdiv { display:flex; } div:has(div>div>#utsel1:checked) ~ div>div>#cmdiv { display:none; } div:has(div>div>#utsel1:checked) ~ div>div>#kgdiv { display:none; } div:has(div>div>#utsel2:checked) ~ div>div>#ftdiv { display:none; } div:has(div>div>#utsel2:checked) ~ div>div>#lbdiv { display:none; }</style></noscript>
+-->
+<!-- #EndEditable -->
+
+<script async="" src="//cdn.snigelweb.com/adconsent/adconsent.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NY85XQ2FKR"></script></head>
+
+<body>
+        <div style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+            <select onchange="changeLanguage(this.value)" style="padding: 5px; border: 1px solid #ccc; border-radius: 3px;">
+                <option value="en" >English</option>
+                <option value="zh" >中文</option>
+                <option value="es" >Español</option>
+                <option value="fr" >Français</option>
+                <option value="de" >Deutsch</option>
+                <option value="ja" >日本語</option>
+                <option value="ko" >한국어</option>
+                <option value="pt" >Português</option>
+                <option value="ru" >Русский</option>
+                <option value="ar" selected>العربية</option>
+            </select>
+        </div>
+        <script>
+        function changeLanguage(lang) {
+            const currentPath = window.location.pathname;
+            const newPath = currentPath.replace(/^/([a-z]{2})//, '/' + lang + '/');
+            if (newPath !== currentPath) {
+                window.location.href = newPath;
+            }
+        }
+        </script>
+
+<div id="header">
+	<div>
+	<div id="logo"><a href="/">RapidTables</a></div>
+   <div class="gcse-search"></div>
+   <div id="tooldiv">
+      <a href="#" onclick="OnPageSearch()"><img width="24" height="24" title="Search" src="/ar/js/icons/material/svg/search_black_24dp.svg" loading="lazy"><span> Search</span></a>
+      <a href="#" onclick="OnPageShare()"><img width="24" height="24" title="Share" src="/ar/js/icons/material/svg/share_black_24dp.svg" loading="lazy"><span> Share</span></a>
+   </div>
+	</div>
+</div>
+
+<div id="wrapper">
+
+<div id="nav">
+	<!-- #BeginEditable "doclink" -->
+	<a href="/">Home</a>›<a href="../index.html">Calculators</a>›<a href="index.html">Health &amp; Fitness Calculators</a>›<a href="bmi-calculator.html">BMI calculator</a>
+	<!-- #EndEditable -->
+</div>
+
+<div id="lcol">
+
+	<div id="doc">
+	<!-- #BeginEditable "doctext" -->
+	<h1>BMI Calculator</h1>
+   <p>Body Mass Index (BMI) calculator:</p>
+   <form id="calcform" name="calcform" action="bmi-calculator.html#calcform" autocomplete="off">
+   <div class="mt-3 row">
+      <label for="gsel1" class="col-sm-4 col-form-label">&nbsp;</label>
+      <div class="col-sm-8">
+      <div class="btn-group w-100" role="group" aria-label="Basic radio toggle button group">
+         <input type="radio" class="btn-check" name="gsel" id="gsel1" value="1" checked="">
+         <label class="btn btn-outline-success" for="gsel1">Male</label>
+         <input type="radio" class="btn-check" name="gsel" id="gsel2" value="2">
+         <label class="btn btn-outline-success" for="gsel2">Female</label>
+      </div>
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="age" class="col-sm-4 col-form-label">Age</label>
+      <div class="col-sm-8">
+      <div class="input-group">
+      <input type="text" id="age" value="25" class="form-control" autofocus="">
+      <span class="input-group-text">Years</span>
+      </div>
+      </div>
+   </div>
+   <!--
+   <div class="row">
+      <label for="usbtn" class="col-sm-4 col-form-label"><span>&nbsp;</span></label>
+      <div class="col-sm-8">
+      <div class="input-group btn-group pl-0">
+      <button type="button" id="usbtn" name="utsel" onclick="OnUnitUS()" class="btn btn-outline-success active">US/UK Units</button>
+      <button type="button" id="metricbtn" name="utsel" onclick="OnUnitMetric()" class="btn btn-outline-success">Metric Units</button>
+      </div>
+      </div>
+   </div>
+   -->
+   <div class="mt-3 row">
+      <label for="utsel1" class="col-sm-4 col-form-label"><span>&nbsp;</span></label>
+      <div class="col-sm-8">
+      <div class="btn-group w-100" role="group" aria-label="Basic radio toggle button group">
+         <input type="radio" class="btn-check" name="utsel" id="utsel1" value="1" checked="">
+         <label class="btn btn-outline-success" for="utsel1">US/UK Units</label>
+         <input type="radio" class="btn-check" name="utsel" id="utsel2" value="2">
+         <label class="btn btn-outline-success" for="utsel2">Metric Units</label>
+      </div>
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="ft" class="col-sm-4 col-form-label">Height</label>
+      <div class="col-sm-8">
+      <div class="input-group" id="ftdiv">
+         <input type="text" value="" class="form-control" id="ft" name="ft" placeholder="feet">
+         <div class="input-group-append me-2">
+            <span class="input-group-text">ft</span>
+         </div>
+         <input type="text" value="" class="form-control" id="in" name="in" placeholder="inches">
+         <div class="input-group-append">
+            <span class="input-group-text">in</span>
+         </div>
+      </div>
+      <div class="input-group" id="cmdiv">
+         <input type="text" class="form-control" id="cm" name="cm" placeholder="centimeters">
+         <div class="input-group-append">
+            <span class="input-group-text">cm</span>
+         </div>
+      </div>
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="lb" class="col-sm-4 col-form-label">Weight</label>
+      <div class="col-sm-8">
+      <div class="input-group" id="lbdiv">
+         <input type="text" value="" class="form-control" id="lb" name="lb" placeholder="pounds">
+         <div class="input-group-append">
+            <span class="input-group-text">lb</span>
+         </div>
+      </div>
+      <div class="input-group" id="kgdiv">
+         <input type="text" class="form-control" id="kg" name="kg" placeholder="kilograms">
+         <div class="input-group-append">
+            <span class="input-group-text">kg</span>
+         </div>
+      </div>
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="calcbtn" class="col-sm-4 col-form-label"><span>&nbsp;</span></label>
+      <div class="col-sm-8">
+         <button type="button" id="calcbtn" title="Calculate" class="btn btn-success"><span>=</span> Calculate</button>
+         <button type="reset" title="Reset" class="btn btn-secondary"><span>×</span> Reset</button>
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="bmi" class="col-sm-4 col-form-label">BMI (Body Mass Index)</label>
+      <div class="col-sm-8">
+      <div class="input-group">
+      <input type="text" id="bmi" value="" class="form-control" readonly="">
+      <span class="input-group-text">kg/m<sup>2</sup></span>
+      </div>
+      </div>
+   </div>
+   <!--
+   <div class="mb-3 row">
+      <label for="utsel1" class="col-sm-4 col-form-label"><span>&nbsp;</span></label>
+      <div class="col-sm-8">
+      <meter id="fuel" min="0" max="100" low="33" high="66" optimum="80" value="100" style="width:100%; height:40px;"></meter>
+      <div id="chart"  style="width:100%; height:30px;"></div>
+      </div>
+   </div>
+      -->
+  <div class="row">
+      <label for="category" class="col-sm-4 col-form-label">BMI category</label>
+      <div class="col-sm-8">
+      <input type="text" value="" class="form-control" id="category" readonly="">
+      </div>
+   </div>
+   <div class="mt-3 mb-3 row">
+      <label for="risk" class="col-sm-4 col-form-label">Health risk</label>
+      <div class="col-sm-8">
+      <input type="text" value="" class="form-control" id="risk" readonly="">
+      </div>
+   </div>
+   <div class="mt-3 mb-3 row">
+      <label for="normbmi" class="col-sm-4 col-form-label">Normal BMI range</label>
+      <div class="col-sm-8">
+      <div class="input-group">
+      <input type="text" value="" class="form-control" id="normbmi" readonly="">
+      <span class="input-group-text">kg/m<sup>2</sup></span>
+      </div>
+      </div>
+   </div>
+   <div class="mt-3 mb-3 row">
+      <label for="normweight" class="col-sm-4 col-form-label">Your normal weight range</label>
+      <div class="col-sm-8">
+      <input type="text" value="" class="form-control" id="normweight" readonly="">
+      </div>
+   </div>
+   </form>
+	<!-- #EndEditable -->
+
+   <!-- rapidtables_bottom_01 -->
+   <div id="adngin-bottom_01-0"></div>
+	
+	<!-- #BeginEditable "doctext2" -->
+   <br>
+   <h2>BMI categories table for adults (age ≥ 20)</h2>
+   <table class="table">
+      <thead>
+      <tr>
+         <th scope="col">BMI Category</th>
+         <th scope="col">BMI Range<br>(kg/m<sup>2</sup>)</th>
+         <th scope="col">Health risk</th>
+      </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>Underweight</td>
+            <td>18.4 and below</td>
+            <td>Malnutrition risk</td>
+         </tr>
+         <tr>
+            <td>Normal weight</td>
+            <td>18.5 - 24.9</td>
+            <td>Low risk</td>
+         </tr>
+         <tr>
+            <td>Overweight</td>
+            <td>25 - 29.9</td>
+            <td>Enchanced risk</td>
+         </tr>
+         <tr>
+            <td>Moderately obese</td>
+            <td>30 - 34.9</td>
+            <td>Medium risk</td>
+         </tr>
+         <tr>
+            <td>Severely obese</td>
+            <td>35 - 39.9</td>
+            <td>High risk</td>
+         </tr>
+         <tr>
+            <td>Very severely obese</td>
+            <td>40 and above</td>
+            <td>Very high risk</td>
+         </tr>
+      </tbody>
+   </table>
+   <br>
+   <h2>BMI categories table for kids/children (age &lt; 20)</h2>
+   <table class="table">
+      <thead>
+      <tr>
+         <th scope="col">BMI Category</th>
+         <th scope="col">BMI Percentile<br>(kg/m<sup>2</sup>)</th>
+         <th scope="col">Health risk</th>
+      </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>Underweight</td>
+            <td>Less than 5th percentile</td>
+            <td>Malnutrition risk</td>
+         </tr>
+         <tr>
+            <td>Normal weight</td>
+            <td>5th percentile to less than 85th percentile</td>
+            <td>Low risk</td>
+         </tr>
+         <tr>
+            <td>Overweight</td>
+            <td>85th percentile to less than 95th percentile</td>
+            <td>Enchanced risk</td>
+         </tr>
+         <tr>
+            <td>Obese</td>
+            <td>95th percentile and greater</td>
+            <td>High risk</td>
+         </tr>
+      </tbody>
+   </table>
+   <br>
+   <h2>BMI chart</h2>
+   <figure>
+      <img src="bmi_chart.svg" alt="BMI chart" loading="lazy">
+      <figcaption><a href="https://commons.wikimedia.org/wiki/File:Body_mass_index_chart.svg">Source: wikimedia</a></figcaption>
+   </figure>
+   <h2>BMI formula</h2>
+   <p>The BMI (Body Mass Index) in (kg/m<sup>2</sup>) is equal to the mass in kilograms (kg) divided by the square height in meters (m):</p>
+   <div class="math">BMI<sub>(kg/m<sup>2</sup>)</sub> = <div class="fraction"><span class="fup">mass<sub>(kg)</sub></span><span class="fdn">height<sup>2</sup><sub>(m)</sub></span></div></div>
+   <p>The BMI (Body Mass Index) in (kg/m<sup>2</sup>) is equal to the mass in pounds (lbs) divided by the square height in inches (in) times 703:</p>
+   <div class="math">BMI<sub>(kg/m<sup>2</sup>)</sub> = <div class="fraction"><span class="fup">mass<sub>(lb)</sub></span><span class="fdn">height<sup>2</sup><sub>(in)</sub></span></div> × 703</div>
+	<p>&nbsp;</p>
+	<hr>
+	<h2>See also</h2>
+	<ul class="seealso">
+      <li><a href="https://en.wikipedia.org/wiki/Body_mass_index">Body mass index</a></li>
+      <li><a href="/convert/weight/kg-to-pound.html">Kg to pounds converter</a></li>
+      <li><a href="/convert/length/feet-inch-to-cm.html">Feet+inches to cm converter</a></li>
+      <li><a href="/convert/length/height-converter.html">Height converter</a></li>
+	</ul>
+	<!-- #EndEditable -->
+	</div>
+	
+   <div id="fdbk">
+      <h2 id="feedback">Write how to improve this page</h2>
+      <form id="fdbkform">
+      <textarea id="fdbkarea" rows="4" minlength="30" maxlength="1000" placeholder="Your message ..." required="" class="form-control"></textarea>
+      <span id="fdbkmsg"></span>
+      <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">Submit Feedback</button>
+      </form>
+   </div>
+</div>
+
+<div id="rcol">
+   <!-- rapidtables_right_sidebar -->
+   <div id="adngin-right_sidebar-0" style="display: none;"></div>
+
+	<!-- #BeginEditable "docnav" -->
+	<h5>HEALTH CALCULATORS</h5>
+	<ul>
+		<li><a href="bmi-calculator.html">BMI calculator</a></li>
+	</ul>
+	<h5>RAPID TABLES</h5>
+	<ul>
+		<li><a href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com">Recommend Site</a></li>
+		<li><a href="#feedback">Send Feedback</a></li>
+		<li><a href="/about/about.html">About</a></li>
+	</ul>
+	<!-- #EndEditable -->
+	
+</div>
+
+</div>
+
+<div id="footer">
+	<a href="/index.html">Home</a> | 
+	<a href="/web/index.html">Web</a> |
+	<a href="/math/index.html">Math</a> | 
+	<a href="/electric/index.html">Electricity</a> |
+	<a href="/calc/index.html">Calculators</a> | 
+	<a href="/convert/index.html">Converters</a> |
+	<a href="/tools/index.html">Tools</a>
+	<p>©  
+	<a href="/">RapidTables.com</a> | 
+	<a href="/about/about.html" rel="nofollow">About</a> | 
+	<a href="/about/terms.html" rel="nofollow">Terms of Use</a> | 
+	<a href="/about/privacy.html" rel="nofollow">Privacy Policy</a> | 
+	<a href="/about/cookies.html" rel="nofollow">Manage Cookies</a>
+	</p>
+</div>
+
+<!-- rapidtables_bottom_adhesive -->
+<div id="adngin-adhesive-0"></div>
+
+<!-- #BeginEditable "docscript" -->
+<!--sse-->
+<script src="/ar/calc/calc2.js"></script>
+<script>
+   "use strict"
+   var isMetric=false;
+   var gsel = document.getElementsByName("gsel");
+   var ageElem=document.getElementById("age");
+   var utsel = document.getElementsByName("utsel");
+   //var usbtnElem = document.getElementById("usbtn");
+   //var metricbtnElem = document.getElementById("metricbtn");
+   var ftdiv=document.getElementById("ftdiv");
+   var lbdiv=document.getElementById("lbdiv");
+   var cmdiv=document.getElementById("cmdiv");
+   var kgdiv=document.getElementById("kgdiv");
+   var ftElem=document.getElementById("ft");
+   var inElem=document.getElementById("in");
+   var cmElem=document.getElementById("cm");
+   var lbElem=document.getElementById("lb");
+   var kgElem=document.getElementById("kg");
+   var calcbtn=document.getElementById("calcbtn");
+   window.addEventListener("DOMContentLoaded",function() {
+      //if( window.location.href.indexOf("?")!=-1 ) return;
+      calcbtn.type="button";
+      calcbtn.onclick=function(){ OnCalc(); };
+      utsel[0].addEventListener('change', function(o) { if( this.checked ) OnUnitUS(); });
+      utsel[1].addEventListener('change', function(o) { if( this.checked ) OnUnitMetric(); });
+      document.getElementById("calcform").onkeypress = function(e) { if( e.keyCode==13 ) OnCalc(); };
+   });
+   function OnUnitMetric() {
+      //usbtnElem.classList.remove("active");
+      //metricbtnElem.classList.add("active");
+      ftdiv.style.display = "none";
+      lbdiv.style.display = "none";
+      cmdiv.style.display = "flex";
+      kgdiv.style.display = "flex";
+      isMetric = true;
+      ftElem.value = "";
+      inElem.value = "";
+      lbElem.value = "";
+      cmElem.focus();
+   }
+   function OnUnitUS() {
+      //usbtnElem.classList.add("active");
+      //metricbtnElem.classList.remove("active");
+      ftdiv.style.display = "flex";
+      lbdiv.style.display = "flex";
+      cmdiv.style.display = "none";
+      kgdiv.style.display = "none";
+      isMetric = false;
+      cmElem.value = "";
+      kgElem.value = "";
+      ftElem.focus();
+   }
+   function OnCalc() {
+      var bmi,cm,kg,ft,inch,lbs,gender=1;
+      if( gsel[1].checked ) gender=2;
+      if( isMetric ) {
+         cm=cmElem.value;
+         kg=kgElem.value;
+         if( cm=="" || kg=="" ) return;
+         cm=str2num(cm);
+         kg=str2num(kg);
+         var m=cm/100.0;
+         bmi=kg/(m*m);
+      }
+      else {
+         ft=ftElem.value;
+         inch=inElem.value;
+         lbs=lbElem.value;
+         if( (ft=="" && inch=="") || lbs=="" ) return;
+         if( ft=="" ) ft="0";
+         if( inch=="" ) inch="0";
+         ft=str2num(ft);
+         inch=str2num(inch);
+         lbs=str2num(lbs);
+         inch+=12.0*ft;
+         bmi=703*lbs/(inch*inch);
+      }
+      var risk,cat,ibmi;
+      var age=ageElem.value;
+      var iage=(age<65)?0:(age<75)?1:2; //=0
+      var t=[[18.5,25,30],[22,27,30],[23,28,30]];
+      var dlook=[["Underweight","Malnutrition risk"],["Normal weight","Low risk"],["Overweight","Enchanced risk"],["Obesity","High risk"]];
+      //age 2-20.5 https://www.cdc.gov/growthcharts/html_charts/bmiagerev.htm
+      var t2male=[
+         [14.73732,14.32851,14.03296,13.83855,13.73624,13.72113,13.79575,13.96212,14.21866,14.56001,14.97745,15.45918,15.99065,16.55481,17.1325,17.70284,18.24349,18.73019,19.1354],   //5th percentile
+         [18.16219,17.32627,16.92501,16.84076,17.01418,17.40122,17.95575,18.63222,19.39041,20.19667,21.02386,21.85104,22.66325,23.45117,24.21087,24.94362,25.65601,26.36054,27.07645], //85th percentile
+         [19.33801,18.23842,17.83614,17.93893,18.41421,19.15236,20.06793,21.08893,22.15409,23.21358,24.22985,25.17811,26.04662,26.83688,27.56393,28.25676,28.95862,29.72674,30.63106]  //95th percentile
+      ];
+      var t2female=[
+         [14.39787,14.00209,13.71472,13.52091,13.42587,13.43276,13.5405,13.74413,14.03535,14.4029,14.83262,15.30749,15.80753,16.30974,16.78787,17.21234,17.55015,17.76515,17.81856], //5th percentile
+         [18.01821,17.16634,16.80058,16.80197,17.09974,17.62557,18.31718,19.11937,19.984,20.86984,21.74263,22.57506,23.34689,24.04503,24.66372,25.20482,25.67786,26.09993,26.49502], //85th percentile
+         [19.10624,18.25475,18.02851,18.25738,18.83778,19.67794,20.69525,21.81725,22.98258,24.14141,25.25564,26.2988,27.25597,28.12369,28.90981,29.6335,30.32554,31.0288,31.79903]  //95th percentile
+      ];
+      /*
+      if( bmi<18.5 ) { cat="Underweight"; risk="Malnutrition risk"; }
+      else if( bmi<25 ) { cat="Normal weight"; risk="Low risk"; }
+      else if( bmi<30 ) { cat="Overweight"; risk="Enchanced risk"; }
+      else if( bmi<35 ) { cat="Moderately obese"; risk="Medium risk"; }
+      else if( bmi<40 ) { cat="Severely obese"; risk="High risk"; }
+      else if( bmi>=40 ) { cat="Very severely obese"; risk="Very high risk"; }
+      document.getElementById("category").value = cat;
+      document.getElementById("risk").value = risk;
+      */
+      var bmimin,bmimax;
+      if( age>=20 ) {
+         ibmi=(bmi<t[iage][0])?0:(bmi<t[iage][1])?1:(bmi<t[iage][2])?2:3;
+         bmimin=t[iage][0]; //-0.1;
+         bmimax=t[iage][1];
+         //cat=dlook[ibmi][0];
+         //risk=dlook[ibmi][1];
+      }
+      else if( age>=2 ) {
+         iage=age-2;
+         if( gender==1 ) {
+            ibmi=(bmi<t2male[0][iage])?0:(t2male[1][iage])?1:(bmi<t2male[2][iage])?2:3;
+            bmimin=t2male[0][iage];
+            bmimax=t2male[1][iage];
+         }
+         else {
+            ibmi=(bmi<t2female[0][iage])?0:(t2female[1][iage])?1:(bmi<t2female[2][iage])?2:3;
+            bmimin=t2female[0][iage];
+            bmimax=t2female[1][iage];
+         }
+      }
+      else {
+         // age<2
+      }
+      cat=dlook[ibmi][0];
+      risk=dlook[ibmi][1];
+      var wmin,wmax;
+      if( isMetric ) {
+         var m=cm/100;
+         var m2=m*m;
+         wmin=bmimin*m2;
+         wmin=num2str(wmin,1);
+         wmin+=" kg";
+         wmax=bmimax*m2;
+         wmax=num2str(wmax,1);
+         wmax+=" kg";
+      }
+      else {
+         var inch2=inch*inch;
+         wmin=bmimin*inch2/703;
+         wmin=num2str(wmin,1);
+         wmin+=" lbs ";
+         wmax=bmimax*inch2/703;
+         wmax=num2str(wmax,1);
+         wmax+=" lbs";
+      }
+      document.getElementById("bmi").value=num2str(bmi,1);
+      document.getElementById("category").value = cat;
+      document.getElementById("risk").value = risk;
+      document.getElementById("normbmi").value = num2str(bmimin,1)+" - "+num2str(bmimax,1);
+      document.getElementById("normweight").value = wmin+" - "+wmax;
+   }
+</script>
+<!--/sse-->
+<!-- #EndEditable -->
+
+
+
+
+
+
+<iframe name="__tcfapiLocator" style="display: none;"></iframe><iframe name="__uspapiLocator" style="display: none;"></iframe><iframe name="__adconsentLocator" style="display: none;"></iframe></body><!-- #EndTemplate --></html>

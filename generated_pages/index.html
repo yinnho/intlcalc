@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntlCalc - International Calculator Collection</title>
+    <meta name="description" content="Free online calculators and converters in multiple languages">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #fff; color: #000; }
+        
+        .header { border-bottom: 1px solid #ccc; padding: 20px 0; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center; }
+        .logo { font-size: 36px; font-weight: bold; text-decoration: none; color: #000; }
+        .subtitle { font-size: 18px; color: #666; margin-top: 10px; }
+        
+        .main-content { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        
+        .languages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .language-card { border: 1px solid #ccc; padding: 30px; text-align: center; text-decoration: none; color: #000; transition: all 0.3s; }
+        .language-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); transform: translateY(-2px); }
+        .language-name { font-size: 24px; font-weight: bold; margin-bottom: 10px; }
+        .language-native { font-size: 16px; color: #666; margin-bottom: 15px; }
+        .calculator-count { font-size: 14px; color: #999; }
+        
+        .footer { margin-top: 50px; border-top: 1px solid #ccc; padding: 20px 0; text-align: center; font-size: 12px; color: #666; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">🧮 IntlCalc</a>
+            <p class="subtitle">International Calculator Collection</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1 style="text-align: center; margin-bottom: 20px;">Choose Your Language</h1>
+        <p style="text-align: center; color: #666; margin-bottom: 40px;">Select your preferred language to access calculators and converters</p>
+        
+        <div class="languages-grid">
+            <a href="/en/" class="language-card">
+                <div class="language-name">English</div>
+                <div class="language-native">English</div>
+                <div class="calculator-count">12 calculators available</div>
+            </a>
+            <a href="/zh/" class="language-card">
+                <div class="language-name">中文</div>
+                <div class="language-native">Chinese</div>
+                <div class="calculator-count">12 calculators available</div>
+            </a>
+            <a href="/es/" class="language-card">
+                <div class="language-name">Español</div>
+                <div class="language-native">Spanish</div>
+                <div class="calculator-count">12 calculators available</div>
+            </a>
+            <a href="/fr/" class="language-card">
+                <div class="language-name">Français</div>
+                <div class="language-native">French</div>
+                <div class="calculator-count">12 calculators available</div>
+            </a>
+            <a href="/de/" class="language-card">
+                <div class="language-name">Deutsch</div>
+                <div class="language-native">German</div>
+                <div class="calculator-count">12 calculators available</div>
+            </a>
+            <a href="/ja/" class="language-card">
+                <div class="language-name">日本語</div>
+                <div class="language-native">Japanese</div>
+                <div class="calculator-count">12 calculators available</div>
+            </a>
+            <a href="/ko/" class="language-card">
+                <div class="language-name">한국어</div>
+                <div class="language-native">Korean</div>
+                <div class="calculator-count">12 calculators available</div>
+            </a>
+            <a href="/pt/" class="language-card">
+                <div class="language-name">Português</div>
+                <div class="language-native">Portuguese</div>
+                <div class="calculator-count">12 calculators available</div>
+            </a>
+            <a href="/ru/" class="language-card">
+                <div class="language-name">Русский</div>
+                <div class="language-native">Russian</div>
+                <div class="calculator-count">12 calculators available</div>
+            </a>
+            <a href="/ar/" class="language-card">
+                <div class="language-name">العربية</div>
+                <div class="language-native">Arabic</div>
+                <div class="calculator-count">12 calculators available</div>
+            </a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2024 IntlCalc. All rights reserved.</p>
+    </footer>
+</body>
+</html>

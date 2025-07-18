@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} - IntlCalc</title>
+    <meta name="description" content="{{description}}">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background: #fff; 
+            color: #000; 
+            line-height: 1.6;
+        }
+        
+        .header { 
+            border-bottom: 1px solid #ccc; 
+            padding: 10px 0; 
+            background: #f9f9f9;
+        }
+        .header-content { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .logo { 
+            font-size: 24px; 
+            font-weight: bold; 
+            text-decoration: none; 
+            color: #000; 
+        }
+        .lang-switcher { 
+            display: flex; 
+            gap: 10px; 
+        }
+        .lang-switcher a { 
+            padding: 5px 10px; 
+            text-decoration: none; 
+            color: #666; 
+            border: 1px solid #ccc; 
+            border-radius: 3px; 
+        }
+        .lang-switcher a.active { 
+            background: #007cba; 
+            color: white; 
+            border-color: #007cba; 
+        }
+        .lang-switcher a:hover { 
+            background: #f0f0f0; 
+        }
+        
+        .main-container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px; 
+        }
+        
+        .footer { 
+            margin-top: 50px; 
+            border-top: 1px solid #ccc; 
+            padding: 20px 0; 
+            text-align: center; 
+            font-size: 12px; 
+            color: #666; 
+            background: #f9f9f9;
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .calculator-card {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        
+        .calculator-card h3 {
+            margin-bottom: 10px;
+            color: #007cba;
+        }
+        
+        .calculator-card a {
+            color: #007cba;
+            text-decoration: none;
+        }
+        
+        .calculator-card a:hover {
+            text-decoration: underline;
+        }
+        
+        .category-section {
+            margin-bottom: 40px;
+        }
+        
+        .category-section h2 {
+            border-bottom: 2px solid #007cba;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .lang-switcher {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/{{lang}}/" class="logo">IntlCalc</a>
+            <div class="lang-switcher">
+                {{#each languages}}
+                    <a href="/{{code}}/{{../currentPath}}" class="{{#if (eq code ../lang)}}active{{/if}}">
+                        {{native_name}}
+                    </a>
+                {{/each}}
+            </div>
+        </div>
+    </header>
+    
+    <div class="main-container">
+        {{{body}}}
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2024 IntlCalc.com. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

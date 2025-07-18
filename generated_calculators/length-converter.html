@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>长度转换器</title>
+    <meta name="description" content="根据您的需求"帮我做长度转换，厘米转英寸"自动生成的计算器">
+    <style id="calculator-styles">
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .calculator-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .calculator-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .calculator-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .calculator-header .description {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .calculator-main {
+            padding: 30px;
+        }
+
+        .calculator-footer {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+        }
+                .conversion-container {
+                    display: grid;
+                    grid-template-columns: 1fr auto 1fr;
+                    align-items: center;
+                    gap: 20px;
+                    margin-bottom: 30px;
+                }
+
+                .conversion-section {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                }
+
+                .conversion-section label {
+                    font-weight: 600;
+                    color: #333;
+                }
+
+                .conversion-input, .conversion-output {
+                    padding: 15px;
+                    border: 2px solid #e9ecef;
+                    border-radius: 8px;
+                    font-size: 1.1rem;
+                }
+
+                .conversion-output {
+                    background: #f8f9fa;
+                    color: #495057;
+                    font-weight: 600;
+                }
+
+                .unit-select {
+                    padding: 10px;
+                    border: 2px solid #e9ecef;
+                    border-radius: 8px;
+                    font-size: 0.9rem;
+                }
+
+                .conversion-arrow {
+                    color: #667eea;
+                    font-size: 1.5rem;
+                }
+
+                .conversion-formula {
+                    background: #f8f9fa;
+                    padding: 20px;
+                    border-radius: 10px;
+                    border-left: 4px solid #667eea;
+                }
+
+                .conversion-formula h4 {
+                    color: #333;
+                    margin-bottom: 10px;
+                }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <header class="calculator-header">
+            <h1>长度转换器</h1>
+            <p class="description">根据您的需求"帮我做长度转换，厘米转英寸"自动生成的计算器</p>
+        </header>
+        
+        <main class="calculator-main">
+            
+        <div class="conversion-container">
+            <div class="conversion-section">
+                <label for="input-value">输入值:</label>
+                <input type="number" id="input-value" class="conversion-input" oninput="convert()" placeholder="请输入数值">
+                <select id="input-unit" class="unit-select" onchange="convert()">
+                    <option value="mm">毫米 (mm)</option><option value="cm">厘米 (cm)</option><option value="m">米 (m)</option><option value="km">千米 (km)</option><option value="inch">英寸 (in)</option><option value="feet">英尺 (ft)</option><option value="yard">码 (yd)</option><option value="mile">英里 (mi)</option>
+                </select>
+            </div>
+            
+            <div class="conversion-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </div>
+            
+            <div class="conversion-section">
+                <label for="output-value">转换结果:</label>
+                <input type="text" id="output-value" class="conversion-output" readonly>
+                <select id="output-unit" class="unit-select" onchange="convert()">
+                    <option value="mm">毫米 (mm)</option><option value="cm">厘米 (cm)</option><option value="m">米 (m)</option><option value="km">千米 (km)</option><option value="inch">英寸 (in)</option><option value="feet">英尺 (ft)</option><option value="yard">码 (yd)</option><option value="mile">英里 (mi)</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="conversion-formula" id="formula-display">
+            <h4>转换公式:</h4>
+            <div id="formula-text"></div>
+        </div>
+        </main>
+        
+        <footer class="calculator-footer">
+            <p>由AI自动生成 • 2025/7/16</p>
+        </footer>
+    </div>
+
+    <script>
+        
+        // 基础功能函数
+        function formatNumber(num) {
+            if (typeof num !== 'number') return num;
+            return num.toLocaleString('zh-CN', { maximumFractionDigits: 10 });
+        }
+
+        function showError(message) {
+            console.error(message);
+            if (document.getElementById('display')) {
+                document.getElementById('display').value = '错误';
+            }
+        }
+
+        function validateInput(input) {
+            return !isNaN(input) && isFinite(input);
+        }
+        const conversionRates = {
+            length: {
+                mm: { mm: 1, cm: 0.1, m: 0.001, km: 0.000001, inch: 0.0393701, feet: 0.00328084, yard: 0.00109361, mile: 6.2137e-7 },
+                cm: { mm: 10, cm: 1, m: 0.01, km: 0.00001, inch: 0.393701, feet: 0.0328084, yard: 0.0109361, mile: 6.2137e-6 },
+                m: { mm: 1000, cm: 100, m: 1, km: 0.001, inch: 39.3701, feet: 3.28084, yard: 1.09361, mile: 0.000621371 },
+                km: { mm: 1000000, cm: 100000, m: 1000, km: 1, inch: 39370.1, feet: 3280.84, yard: 1093.61, mile: 0.621371 },
+                inch: { mm: 25.4, cm: 2.54, m: 0.0254, km: 0.0000254, inch: 1, feet: 0.0833333, yard: 0.0277778, mile: 1.5783e-5 },
+                feet: { mm: 304.8, cm: 30.48, m: 0.3048, km: 0.0003048, inch: 12, feet: 1, yard: 0.333333, mile: 0.000189394 },
+                yard: { mm: 914.4, cm: 91.44, m: 0.9144, km: 0.0009144, inch: 36, feet: 3, yard: 1, mile: 0.000568182 },
+                mile: { mm: 1609344, cm: 160934.4, m: 1609.344, km: 1.609344, inch: 63360, feet: 5280, yard: 1760, mile: 1 }
+            },
+            weight: {
+                g: { g: 1, kg: 0.001, lb: 0.00220462, oz: 0.035274 },
+                kg: { g: 1000, kg: 1, lb: 2.20462, oz: 35.274 },
+                lb: { g: 453.592, kg: 0.453592, lb: 1, oz: 16 },
+                oz: { g: 28.3495, kg: 0.0283495, lb: 0.0625, oz: 1 }
+            },
+            temperature: {} // 温度转换需要特殊处理
+        };
+
+        function convert() {
+            const inputValue = parseFloat(document.getElementById('input-value').value);
+            const inputUnit = document.getElementById('input-unit').value;
+            const outputUnit = document.getElementById('output-unit').value;
+            const outputField = document.getElementById('output-value');
+            const formulaField = document.getElementById('formula-text');
+
+            if (isNaN(inputValue)) {
+                outputField.value = '';
+                formulaField.textContent = '';
+                return;
+            }
+
+            let result;
+            let formula;
+
+            // 温度转换特殊处理
+            if (inputUnit.includes('celsius') || inputUnit.includes('fahrenheit') || inputUnit.includes('kelvin')) {
+                const conversion = convertTemperature(inputValue, inputUnit, outputUnit);
+                result = conversion.result;
+                formula = conversion.formula;
+            } else {
+                // 其他单位转换
+                const category = getConversionCategory(inputUnit);
+                if (category && conversionRates[category][inputUnit] && conversionRates[category][inputUnit][outputUnit]) {
+                    const rate = conversionRates[category][inputUnit][outputUnit];
+                    result = inputValue * rate;
+                    formula = `${inputValue} × ${rate} = ${result}`;
+                } else {
+                    result = inputValue;
+                    formula = '无法转换';
+                }
+            }
+
+            outputField.value = formatNumber(result);
+            formulaField.textContent = formula;
+        }
+
+        function convertTemperature(value, from, to) {
+            let celsius;
+            
+            // 转换为摄氏度
+            switch (from) {
+                case 'celsius': celsius = value; break;
+                case 'fahrenheit': celsius = (value - 32) * 5/9; break;
+                case 'kelvin': celsius = value - 273.15; break;
+            }
+            
+            // 从摄氏度转换到目标单位
+            let result;
+            let formula;
+            
+            switch (to) {
+                case 'celsius': 
+                    result = celsius;
+                    formula = from === 'celsius' ? `${value}°C` : `转换为摄氏度: ${result.toFixed(2)}°C`;
+                    break;
+                case 'fahrenheit': 
+                    result = celsius * 9/5 + 32;
+                    formula = `(${value} × 9/5) + 32 = ${result.toFixed(2)}°F`;
+                    break;
+                case 'kelvin': 
+                    result = celsius + 273.15;
+                    formula = `${value} + 273.15 = ${result.toFixed(2)}K`;
+                    break;
+            }
+            
+            return { result, formula };
+        }
+
+        function getConversionCategory(unit) {
+            for (const [category, units] of Object.entries(conversionRates)) {
+                if (units[unit]) return category;
+            }
+            return null;
+        }
+    </script>
+</body>
+</html>

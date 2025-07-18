@@ -1,0 +1,399 @@
+<!DOCTYPE html><html lang="en"><!-- #BeginTemplate "../../rapidtables.dwt" --><head>
+<script>var mobileAdsNum=0;</script>
+<script async="" src="/es/js/tagmng8.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/es/css/rapid02.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/es/css/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/es/css/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/es/css/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/es/css/favicon/manifest.json">
+<link rel="mask-icon" href="/es/css/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/es/css/favicon/favicon.ico">
+<meta name="msapplication-config" content="/lib/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+<!-- #BeginEditable "doctitle" -->
+<title>Average Calculator | Mean Calculator</title>
+<meta content="Average calculator. Arthmetic mean/median/mode/std calculator online and calculation." name="description">
+<link href="/es/css/bootstrap/bootstrap4small.css" rel="stylesheet">
+<style>
+   .adslot_2 { height:250px; }
+   h1 { font-size:1.6rem; }
+   h2 { font-size:1.4rem; }
+   h4 { font-size:1.2rem; }
+   .form-control-lg { font-size:1.5rem; }
+   .btn-group a { background:#fff; }
+   #calcform>div>div>a { text-decoration:none; line-height:unset; }
+   #calcform { background:#eee8d5; padding:20px; max-width:600px; }
+   #calcform>div:nth-child(n+8) { display:none; }
+   #calcform button i { vertical-align:middle; }
+   /*#calcform button img { filter: invert(1); }*/
+   #calcform button span { font-size:large; font-weight:bold; }
+   #copybtn { background:#fff; }
+   #copybtn:hover { background:#6c757d; }
+   #calcform button:hover img { filter: invert(1); }
+
+   #calcform2 { background:#eee8d5; padding:20px; max-width:400px; }
+   #calcform2 button span { font-size:large; font-weight:bold; }
+   #tbl2 tr td:nth-child(1) { width:35%; }
+   #tbl2 tr td:nth-child(2) { width:65%; }
+	#doc img { max-width:100%; }
+   #avgcalc, #TA12 { font-family:math; }
+   #cdiv1, #cdiv2 { display:none; }
+	@media all and (max-width: 576px) {
+      .mt-3 { margin-top:0.5rem!important; }
+      #calcform>div:nth-child(1) label { display:none; }
+      #calcform>div:nth-child(3) label { display:none; }
+   }
+   .fraction {
+      display: inline-block;
+      position: relative;
+      vertical-align: middle; 
+      letter-spacing: 0.001em;
+      text-align: center;
+   }
+   .fraction > span { display: block; padding: 0.1em; }
+   .fraction span.fdn { border-top: 2px solid black; }
+</style>
+<!-- #EndEditable -->
+
+<script async="" src="//cdn.snigelweb.com/adconsent/adconsent.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NY85XQ2FKR"></script></head>
+
+<body>
+        <div style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+            <select onchange="changeLanguage(this.value)" style="padding: 5px; border: 1px solid #ccc; border-radius: 3px;">
+                <option value="en" >English</option>
+                <option value="zh" >中文</option>
+                <option value="es" selected>Español</option>
+                <option value="fr" >Français</option>
+                <option value="de" >Deutsch</option>
+                <option value="ja" >日本語</option>
+                <option value="ko" >한국어</option>
+                <option value="pt" >Português</option>
+                <option value="ru" >Русский</option>
+                <option value="ar" >العربية</option>
+            </select>
+        </div>
+        <script>
+        function changeLanguage(lang) {
+            const currentPath = window.location.pathname;
+            const newPath = currentPath.replace(/^/([a-z]{2})//, '/' + lang + '/');
+            if (newPath !== currentPath) {
+                window.location.href = newPath;
+            }
+        }
+        </script>
+
+<div id="header">
+	<div>
+	<div id="logo"><a href="/">RapidTables</a></div>
+   <div class="gcse-search"></div>
+   <div id="tooldiv">
+      <a href="#" onclick="OnPageSearch()"><img width="24" height="24" title="Search" src="/es/js/icons/material/svg/search_black_24dp.svg" loading="lazy"><span> Search</span></a>
+      <a href="#" onclick="OnPageShare()"><img width="24" height="24" title="Share" src="/es/js/icons/material/svg/share_black_24dp.svg" loading="lazy"><span> Share</span></a>
+   </div>
+	</div>
+</div>
+
+<div id="wrapper">
+
+<div id="nav">
+	<!-- #BeginEditable "doclink" -->
+	<a href="/">Home</a>›<a href="../index.html">Calculators</a>›<a href="index.html">Math Calculators</a>›<a href="average-calculator.html">Average calculator</a>
+	<!-- #EndEditable -->
+</div>
+
+<div id="lcol">
+
+	<div id="doc">
+	<!-- #BeginEditable "doctext" -->
+	<h1>Average Calculator</h1>
+	<form autocomplete="off" id="calcform">
+   <div class="row">
+      <label class="col-sm-3 col-form-label">&nbsp;</label>
+      <div class="col-sm-9  btn-group">
+      <a href="#" id="fm1" class="btn btn-outline-success active">Average calculator</a>
+      <a href="standard-deviation-calculator.html" id="fm2" class="btn btn-outline-success">Standard deviation calculator</a>
+      <a href="variance-calculator.html" id="fm3" class="btn btn-outline-success">Variance calculator</a>
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="data" class="col-sm-3 col-form-label">Enter data numbers</label>
+      <div class="col-sm-9">
+         <textarea rows="3" id="data" name="data" class="form-control" autofocus="">1 2 5 2 6 6</textarea>
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label class="col-sm-3 col-form-label">&nbsp;</label>
+      <div class="col-sm-9">
+         <!--
+         <button type="button" id="calc" title="Calculate" onclick="OnCalc()" class="btn btn-success"><span>=</span> Calculate</button>
+         -->
+         <button type="button" id="calcbtn" title="Calculate" class="btn btn-success"><span>=</span> Calculate</button>
+         <button type="reset" id="reset" title="Reset" class="btn btn-secondary"><span>×</span> Reset</button>
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="avg" class="col-sm-3 col-form-label">Average (mean)</label>
+      <div class="col-sm-9">
+      <div class="input-group">
+         <input type="text" id="avg" value="3.6666666666667" class="form-control form-control-lg" readonly="">
+         <div class="input-group-append">
+            <button type="button" id="copybtn" class="btn btn-outline-secondary btn-lg"><img src="/es/js/icons/material/svg/content_copy_black_24dp.svg" loading="lazy" width="24" height="24" alt=""></button>
+         </div>
+      </div>
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="cnt" class="col-sm-3 col-form-label">Count</label>
+      <div class="col-sm-9">
+         <input type="text" id="cnt" value="6" class="form-control" readonly="">
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="sum" class="col-sm-3 col-form-label">Sum</label>
+      <div class="col-sm-9">
+         <input type="text" id="sum" value="22" class="form-control" readonly="">
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="avgcalc" class="col-sm-3 col-form-label">Average calculation steps</label>
+      <div class="col-sm-9">
+         <textarea rows="4" id="avgcalc" class="form-control" readonly="">Average = Sum / Count
+= (1+2+5+2+6+6) / 6
+= 22 / 6
+= 3.6666666666667</textarea>
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="gmean" class="col-sm-3 col-form-label">Geometric mean</label>
+      <div class="col-sm-9">
+         <input type="text" id="gmean" class="form-control" readonly="">
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="rms" class="col-sm-3 col-form-label">Root mean square (RMS)</label>
+      <div class="col-sm-9">
+         <input type="text" id="rms" class="form-control" readonly="">
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="med" class="col-sm-3 col-form-label">Median</label>
+      <div class="col-sm-9">
+         <input type="text" id="med" class="form-control" readonly="">
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="mod" class="col-sm-3 col-form-label">Mode</label>
+      <div class="col-sm-9">
+         <input type="text" id="mod" class="form-control" readonly="">
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="pstd" class="col-sm-3 col-form-label">Population SD</label>
+      <div class="col-sm-9">
+         <input type="text" id="pstd" class="form-control" readonly="">
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="sstd" class="col-sm-3 col-form-label">Sample SD</label>
+      <div class="col-sm-9">
+         <input type="text" id="sstd" class="form-control" readonly="">
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="min" class="col-sm-3 col-form-label">Min value</label>
+      <div class="col-sm-9">
+         <input type="text" id="min" class="form-control" readonly="">
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="max" class="col-sm-3 col-form-label">Max value</label>
+      <div class="col-sm-9">
+         <input type="text" id="max" class="form-control" readonly="">
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="ran" class="col-sm-3 col-form-label">Range</label>
+      <div class="col-sm-9">
+         <input type="text" id="ran" class="form-control" readonly="">
+      </div>
+   </div>
+   <div class="mt-3 row" id="cdiv1">
+      <label class="col-sm-3 col-form-label">Values graph</label>
+      <div class="col-sm-9">
+         <div id="chart_div1"></div>
+      </div>
+   </div>
+   <div class="mt-3 row" id="cdiv2">
+      <label class="col-sm-3 col-form-label">Distribution graph</label>
+      <div class="col-sm-9">
+         <div id="chart_div2"></div>
+      </div>
+   </div>
+	</form>
+	<p>* SD = standard deviation</p>
+   <p><a href="weighted-average-calculator.html">Weighted average calculator ►</a></p>
+	<h2>Average calculation</h2>
+   <p>The average (arithmetic mean) is equal to the sum of the n numbers divided by n:</p>
+   <div class="math"><i>Average</i> = <div class="fraction"><span class="fup"><i>sum</i></span><span class="fdn"><i>count</i></span></div>  = <div class="fraction"><span class="fup"><i>a</i><sub>1</sub>+<i>a</i><sub>2</sub>+...+<i>a<sub>n</sub></i></span><span class="fdn"><i>n</i></span></div></div>
+	<h4>Example</h4>
+	<p>The average of 1,2,5 is:</p>
+   <div class="mathsymbol"><i>Average</i> = <div class="fraction"><span class="fup">1+2+5</span><span class="fdn">3</span></div> = 2.667</div>
+	<!-- #EndEditable -->
+
+   <!-- rapidtables_bottom_01 -->
+   <div id="adngin-bottom_01-0"></div>
+	
+	<!-- #BeginEditable "doctext2" -->
+	<h2>Weighted average calculator</h2>
+	<form id="calcform2" autocomplete="off">
+   <div class="">
+      <table id="tbl2" class="">
+         <tbody><tr>
+            <td class="pb-2">Weight</td>
+            <td class="pb-2">Number</td>
+         </tr>
+         </tbody><tbody>
+         <tr>
+            <td><input type="text" name="weight[]" class="form-control mb-1"></td>
+            <td><input type="text" name="data[]" class="form-control mb-1"></td>
+         </tr>
+         <tr>
+            <td><input type="text" name="weight[]" class="form-control mb-1"></td>
+            <td><input type="text" name="data[]" class="form-control mb-1"></td>
+         </tr>
+         <tr>
+            <td><input type="text" name="weight[]" class="form-control mb-1"></td>
+            <td><input type="text" name="data[]" class="form-control mb-1"></td>
+         </tr>
+         <tr>
+            <td><input type="text" name="weight[]" class="form-control mb-1"></td>
+            <td><input type="text" name="data[]" class="form-control mb-1"></td>
+         </tr>
+         <tr>
+            <td><input type="text" name="weight[]" class="form-control mb-1"></td>
+            <td><input type="text" name="data[]" class="form-control mb-1"></td>
+         </tr>
+         <tr>
+            <td><input type="text" name="weight[]" class="form-control mb-1"></td>
+            <td><input type="text" name="data[]" class="form-control mb-1"></td>
+         </tr>
+         </tbody>
+      </table>
+   </div>
+   <div class="mt-3">
+      <button type="button" id="calcbtn2" title="Calculate" class="btn btn-success"><span>=</span> Calculate</button>
+      <button type="reset" id="reset2" title="Reset" class="btn btn-secondary"><span>×</span> Reset</button>
+      <button type="button" id="addrow" title="Add row" class="btn btn-secondary"><span>+</span> Add Row</button>
+   </div>
+   <div class="mt-3">
+      <label for="avg2" class="form-label">Weighted average</label>
+      <input type="text" id="avg2" class="form-control form-control-lg" readonly="">
+   </div>
+   <div class="mt-3">
+      <label for="sum2" class="form-label">Sum of weights</label>
+      <input type="text" id="sum2" class="form-control form-control-lg" readonly="">
+   </div>
+   <div class="mt-3">
+      <label for="TA12" class="form-label">Calculation</label>
+      <textarea rows="3" id="TA12" class="form-control" readonly=""></textarea>
+   </div>
+	</form>
+	<h2>Weighted average calculation</h2>
+	<p>The weighted average (<em>x</em>) is equal to the sum of the product of the weight (w<sub>i</sub>) times the data number (x<sub>i</sub>) divided by the sum of the weights:</p>
+	<p><img alt="weighted average" height="54" width="417" src="/es/calc/math/lib/weighted-average.png" loading="lazy"></p>
+   <br>
+	<h4>Example</h4>
+	<p>Find the weighted average of class grades (with equal weight) 70,70,80,80,80,90:</p>
+	<p>Since the weight of all grades are equal, we can calculate these grades with simple average or we can count how many times each grade appears and use weighted average.</p>
+	<p class="mathsymbol">2×70,3×80,1×90</p>
+	<div class="mathsymbol"><span><em>x</em></span> = <div class="fraction"><span class="fup">2×70+3×80+1×90</span><span class="fdn">2+3+1</span></div> = <div class="fraction"><span class="fup">470</span><span class="fdn">6</span></div> = 78.33333</div>
+   <br>
+   <p><a href="weighted-average-calculator.html">Weighted average calculator ►</a></p>
+	<hr>
+	<h2>See also</h2>
+	<ul class="seealso">
+		<li><a href="standard-deviation-calculator.html">Standard deviation calculator</a></li>
+		<li><a href="variance-calculator.html">Variance calculator</a></li>
+		<li><a href="/calc/grade/grade-calculator.html">Grade calculator</a></li>
+		<li><a href="/calc/grade/gpa-calculator.html">GPA calculator</a></li>
+		<li><a href="index.html">Math Calculators</a></li>
+	</ul>	
+	<!-- #EndEditable -->
+	</div>
+	
+   <div id="fdbk">
+      <h2 id="feedback">Write how to improve this page</h2>
+      <form id="fdbkform">
+      <textarea id="fdbkarea" rows="4" minlength="30" maxlength="1000" placeholder="Your message ..." required="" class="form-control"></textarea>
+      <span id="fdbkmsg"></span>
+      <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">Submit Feedback</button>
+      </form>
+   </div>
+</div>
+
+<div id="rcol">
+   <!-- rapidtables_right_sidebar -->
+   <div id="adngin-right_sidebar-0"></div>
+
+	<!-- #BeginEditable "docnav" -->
+	<h5>MATH CALCULATORS</h5>
+	<ul>
+		<li><a href="calculator.html">Scientific calculator</a></li>
+		<li><a href="simple-calculator.html">Simple calculator</a></li>
+		<li><a href="average-calculator.html">Average calculator</a></li>
+		<li><a href="base-calculator.html">Base calculator</a></li>
+		<li><a href="complex-calculator.html">Complex numbers calculator</a></li>
+		<li><a href="fractions-calculator.html">Fractions calculator</a></li>
+      <li><a href="percentage-calculator.html">Percentage calculator</a></li>
+	</ul>
+	<h5>RAPID TABLES</h5>
+	<ul>
+		<li><a href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com">Recommend Site</a></li>
+		<li><a href="#feedback">Send Feedback</a></li>
+		<li><a href="/about/about.html">About</a></li>
+	</ul>
+	<!-- #EndEditable -->
+	
+</div>
+
+</div>
+
+<div id="footer">
+	<a href="/index.html">Home</a> | 
+	<a href="/web/index.html">Web</a> |
+	<a href="/math/index.html">Math</a> | 
+	<a href="/electric/index.html">Electricity</a> |
+	<a href="/calc/index.html">Calculators</a> | 
+	<a href="/convert/index.html">Converters</a> |
+	<a href="/tools/index.html">Tools</a>
+	<p>©  
+	<a href="/">RapidTables.com</a> | 
+	<a href="/about/about.html" rel="nofollow">About</a> | 
+	<a href="/about/terms.html" rel="nofollow">Terms of Use</a> | 
+	<a href="/about/privacy.html" rel="nofollow">Privacy Policy</a> | 
+	<a href="/about/cookies.html" rel="nofollow">Manage Cookies</a>
+	</p>
+</div>
+
+<!-- rapidtables_bottom_adhesive -->
+<div id="adngin-adhesive-0"></div>
+
+<!-- #BeginEditable "docscript" -->
+<!--sse-->
+<script src="/es/calc/calc2.js"></script>
+<script src="https://www.gstatic.com/charts/loader.js" defer=""></script>
+<script>
+var num0,dist,avg,irow=0,delem=document.getElementById("data"),calcbtn=document.getElementById("calcbtn"),calcbtn2=document.getElementById("calcbtn2"),avgelem=document.getElementById("avg"),copybtn=document.getElementById("copybtn");function GetURLParams(){for(var e,t=window.location.href,a=/[?&]([^=#]+)=([^&#]*)/g,n={};e=a.exec(t);)n[e[1]]=e[2];return n}function OnCalc(){var e=delem.value,t=(e=e.trim()).split(/[^0-9.-e]+/);if(Array.isArray(t)&&0!=t.length){var a=t.length;if(0!=a){for(var n="",l=0;l<a;l++)n+=t[l],l<a-1&&(n+="+");for(var l=0;l<a;l++)t[l]=t[l].trim();for(var i=0,l=0;l<a;l++)i+=parseFloat(t[l]);avg=roundresult(i/a),e="Average = Sum / Count\n= (";for(var l=0;l<a-1;l++)e+=t[l]+"+";e+=t[a-1]+") / "+a+"\n= "+i+"/"+a+"\n= "+avg,avgelem.value=avg,document.getElementById("cnt").value=a,document.getElementById("sum").value=roundresult(i),document.getElementById("avgcalc").value=e;for(var r=1,l=0;l<a;l++)r*=t[l];for(var o=Math.pow(r,1/a),d=0,l=0;l<a;l++)d+=t[l]*t[l];d=Math.sqrt(d/a);var c=max="";num0=t.slice(),t.sort(function(e,t){return e-t}),c=t[0],max=t[a-1],dist=[];for(var s=null,l=0,u=-1;l<a;l++)t[l]!=s?(s=t[l],dist[++u]={},dist[u].num=t[l],dist[u].count=1):dist[u].count++;for(var m=-1,l=0;l<dist.length;l++)dist[l].count>m&&(m=dist[l].count);for(var v="",l=0;l<dist.length;l++)dist[l].count==m&&(v+=dist[l].num+" ");v=v.slice(0,-1);for(var g=0,l=0;l<dist.length;l++)g+=dist[l].count*Math.pow(dist[l].num-avg,2);var y=roundresult(Math.sqrt(g/a)),$=roundresult(Math.sqrt(g/(a-1))),p=roundresult((t[Math.floor((a+1)/2)-1]+t[Math.floor((a+2)/2)-1])/2),h=roundresult(max-c);document.getElementById("min").value=c,document.getElementById("max").value=max,document.getElementById("gmean").value=o,document.getElementById("rms").value=d,document.getElementById("med").value=p,document.getElementById("mod").value=v,document.getElementById("pstd").value=y,document.getElementById("sstd").value=$,document.getElementById("ran").value=h;for(var b=document.querySelectorAll("#calcform>div:nth-child(n+4)"),l=0;l<b.length;l++)b[l].style.display="flex";DrawGraph();var f=window.location.href.split("?")[0];f+="?data="+encodeURIComponent(n),history.pushState({},"",f)}}}function DrawGraph(){document.getElementById("cdiv1").style.display="flex",document.getElementById("cdiv2").style.display="flex",google.charts.load("current",{packages:["corechart"]}),google.charts.setOnLoadCallback(drawVisualization1),google.charts.setOnLoadCallback(drawVisualization2)}function drawVisualization1(){for(var e=[[{label:"Index",type:"number"},{label:"Number",type:"number"},{label:"Average",type:"number"}]],t=0;t<num0.length;t++)e.push([t,num0[t],avg]);var a=google.visualization.arrayToDataTable(e),n={width:410,legend:{position:"none"},title:"Numbers and average",vAxis:{title:"Numbers",viewWindow:{min:0}},hAxis:{title:"Index"}},l=window.innerWidth;l<=320&&(n.width=245),l<=800&&(n.width=292),new google.visualization.LineChart(document.getElementById("chart_div1")).draw(a,n)}function drawVisualization2(){for(var e,t=[[{label:"Number",type:"number"},{label:"Count",type:"number"},{label:"Average",type:"number"},{role:"style"}]],a=0;a<dist.length;a++)a>0&&avg<dist[a].num&&avg>=dist[a-1].num&&(t.push([avg,null,0,""]),e=a),t.push([dist[a].num,dist[a].count,null,""]);var n=google.visualization.arrayToDataTable(t),l={width:410,legend:{position:"none"},bar:{groupWidth:"50%"},title:"Numbers distribution and average",vAxis:{title:"# of occurrences",viewWindow:{min:0}},hAxis:{title:"Number"},crosshair:{trigger:"both"},seriesType:"bars",series:{1:{type:"line"}},series:{0:{pointSize:0,pointsVisible:!1},1:{type:"line",pointsVisible:!0}},explorer:{actions:["dragToZoom","rightClickToReset"],axis:"horizontal",keepInBounds:!0,maxZoomIn:4}},i=window.innerWidth;i<=320&&(l.width=245),i<=800&&(l.width=292);var r=new google.visualization.ComboChart(document.getElementById("chart_div2"));r.draw(n,l),setTimeout(function(){r.setSelection([{row:e,column:2}])},1e3)}function clearform(){document.getElementById("cdiv1").style.display="none",document.getElementById("cdiv2").style.display="none"}function OnCalc2(){for(var e,t,a,n=0,l=0,i=txt1=txt2="",r=1;r<=irow+1;r++){var e=document.querySelector("#tbl2>tbody>tr:nth-child("+r+")>td:nth-child(1)>input"),o=document.querySelector("#tbl2>tbody>tr:nth-child("+r+")>td:nth-child(2)>input");""!=e.value&&""!=o.value&&(t=parseFloat(t=e.value),a=o.value,t>=0&&(n+=t*a,l+=t,txt1+=t+"\xd7"+a+"+",txt2+=t+"+"))}n/=l,i=(i=(i="("+txt1+") / ("+txt2+") = "+(n=roundnum2(n,8))).replace("+)",")")).replace("+)",")"),document.getElementById("avg2").value=n,document.getElementById("sum2").value=l,document.getElementById("TA12").value=i;var d=window.location.href.split("?")[0];d=d.split("#")[0],d+="#calcform2",history.replaceState({},"",d)}function AddRow(){document.getElementById("tbl2").getElementsByTagName("tbody")[1].insertRow(++irow).innerHTML="<tr>         <td><input type='number' min='0' step='any' name='weight[]' class='form-control mb-1'></td>         <td><input type='text' name='data[]' class='form-control mb-1'></td>      </tr>"}function OnCopy(){avgelem.select(),"clipboard"in navigator?navigator.clipboard.writeText(avgelem.value):document.execCommand("copy")}window.addEventListener("DOMContentLoaded",function(){calcbtn.type="button",calcbtn.addEventListener("click",OnCalc,!1),calcbtn2.addEventListener("click",OnCalc2,!1),document.getElementById("addrow").addEventListener("click",AddRow,!1),copybtn.onclick=function(){OnCopy()},irow=5;var e=GetURLParams();if(-1!=window.location.href.indexOf("?")&&void 0!==e.data){var t=decodeURIComponent2(e.data);t=t.replace(/\+/g," "),delem.value=t,OnCalc()}});
+</script>
+<!--/sse-->
+<!-- #EndEditable -->
+
+
+
+
+
+
+<iframe name="__tcfapiLocator" style="display: none;"></iframe><iframe name="__uspapiLocator" style="display: none;"></iframe><iframe name="__adconsentLocator" style="display: none;"></iframe></body><!-- #EndTemplate --></html>

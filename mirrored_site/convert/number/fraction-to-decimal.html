@@ -1,0 +1,609 @@
+<!DOCTYPE html><html lang="en"><!-- #BeginTemplate "../../rapidtables.dwt" --><head><script async="" type="text/javascript" src="https://c.pubguru.net/v/tc-250702-a0d-nc-9087a951a17c3cf228d61210096ed48a.js"></script>
+<link rel="dns-prefetch" href="https://a3.pubguru.net"><link rel="preconnect" href="https://a3.pubguru.net" crossorigin=""><script async="" src="/lib/tagmng8.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/lib/rapid02.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/lib/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/lib/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/lib/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/lib/favicon/manifest.json">
+<link rel="mask-icon" href="/lib/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/lib/favicon/favicon.ico">
+<meta name="msapplication-config" content="/lib/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+<!-- #BeginEditable "doctitle" -->
+<title>Fraction to Decimal Number Converter</title>
+<meta name="description" content="Fraction as a decimal &amp; percent. Fraction to decimal number conversion calculator, how to convert and conversion table.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<style>
+   .adslot_1 { display:none; }
+   h1 { font-size:1.6rem; }
+   h2 { font-size:1.4rem; }
+   h3 { font-size:1.4rem; }
+   :root { scroll-behavior:unset; }
+   .btn-group a { text-decoration:none; }
+   #calcform { padding:20px; max-width:550px; background:#eee8d5; }
+   #calcform td input[type=text] { width:95px; text-align:center; margin:4px auto; }
+   #calcform td input[type=number] { width:95px; text-align:center; margin:4px auto; }
+   #calcform .btn span { font-weight: bold; font-size:large; }
+   #td11 { display:none; }
+	#td12, #td31, #td34 { padding-bottom:0px; }
+	#td21, #td41, #td42 { border-top:#888 2px solid; padding-top:1px; }
+	#frac { border:0px #ccc solid; padding:10px 20px; max-width:180px; max-height:80px; }
+   input[type=number] { -moz-appearance:textfield; }
+   input::-webkit-outer-spin-button,
+   input::-webkit-inner-spin-button { -webkit-appearance: none; }
+	@media all and (max-width: 800px) {
+      #calcform { padding:10px; }
+      #calcform td input[type=number] { width:80px; }
+      #calcform td input[type=text] { width:80px; }
+   }
+	.dtable tr td:first-child { text-align:center; }
+   .bb { border-bottom:solid 2px black; text-align:center;}
+   .fraction {
+      display: inline-block;
+      position: relative;
+      vertical-align: middle; 
+      letter-spacing: 0.001em;
+      text-align: center;
+   }
+   .fraction > span { display: block; padding: 0.1em; }
+   .fraction span.fdn { border-top: 2px solid black; }
+</style>
+<!-- #EndEditable -->
+
+<script async="" src="//cdn.snigelweb.com/adconsent/adconsent.js"></script><script async="" src="//c.pubguru.net/pg.rapidtables.com.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NY85XQ2FKR"></script></head>
+
+<body>
+
+<div id="header">
+	<div>
+	<div id="logo"><a href="/">RapidTables</a></div>
+   <div class="gcse-search"></div>
+   <div id="tooldiv">
+      <a href="#" onclick="OnPageSearch()"><img width="24" height="24" title="Search" src="/lib/icons/material/svg/search_black_24dp.svg" loading="lazy"><span> Search</span></a>
+      <a href="#" onclick="OnPageShare()"><img width="24" height="24" title="Share" src="/lib/icons/material/svg/share_black_24dp.svg" loading="lazy"><span> Share</span></a>
+   </div>
+	</div>
+</div>
+
+<div id="wrapper">
+
+<div id="nav">
+	<!-- #BeginEditable "doclink" -->
+	<a href="/">Home</a>›<a href="../index.html">Conversion</a>›<a href="index.html">Number conversion</a>›<a href="fraction-to-decimal.html">Fraction to decimal</a>
+	<!-- #EndEditable -->
+</div>
+
+<div id="lcol">
+
+	<div id="doc">
+	<!-- #BeginEditable "doctext" -->
+   <h1>Fraction to Decimal Converter</h1>
+	<form id="calcform" name="calcform" autocomplete="off">
+   <div class="btn-group">
+      <a href="/calc/math/fractions-calculator.html" id="fm1" class="btn btn-outline-success fw-semibold">Fractions Calculator</a>
+      <a href="/calc/math/fraction-simplifier.html" id="fm2" class="btn btn-outline-success fw-semibold">Fraction Simplifier</a>
+      <a href="#" id="fm3" class="btn btn-outline-success fw-semibold active">Fraction Converter</a>
+   </div>
+   <div id="unitnav" class="row">
+      <div class="mt-3 col">
+         <label for="unit1" class="form-label">From</label>
+         <select id="unit1" class="form-select">
+            <option value="decimal">Decimal</option>
+            <option value="fraction" selected="">Fraction</option>
+            <option value="percent">Percent</option>
+         </select>
+      </div>
+      <div class="mt-3 col">
+         <label for="unit2" class="form-label">To</label>
+         <select id="unit2" class="form-select">
+            <option value="decimal" selected="">Decimal</option>
+            <option value="fraction">Fraction</option>
+            <option value="percent">Percent</option>
+         </select>
+      </div>
+   </div>
+   <div class="mt-3 btn-group">
+      <button type="button" id="sf" class="btn btn-secondary active">Simple Fractions</button>
+      <button type="button" id="mf" class="btn btn-secondary">Mixed Fractions</button>
+   </div>
+   <div class="mt-3">
+      <label for="n" class="form-label">Enter fraction</label>
+      <table id="tbl1">
+      <tbody><tr>
+         <td id="td11" rowspan="2" style="display: none;"><input type="text" id="x" name="x" class="form-control form-control-lg"></td>
+         <td id="td12"><input type="text" id="n" name="n" class="form-control" autofocus=""></td>
+         <td id="td13" rowspan="2"><canvas id="frac"></canvas></td>
+      </tr>
+      <tr>
+         <td id="td21"><input type="text" id="d" name="d" class="form-control"></td>
+      </tr>
+      </tbody></table>
+   </div>
+   <div class="mt-3">
+      <button type="submit" title="Convert" onclick="fcalc()" class="btn btn-success"><span>=</span> Convert</button>
+		<button type="reset" title="Reset" onclick="freset()" class="btn btn-secondary"><span>×</span> Reset</button>
+		<button type="button" title="Swap conversion" class="btn btn-secondary" onclick="location.href='decimal-to-fraction.html';"><span>⇅</span> Swap</button>
+   </div>
+   <div class="mt-3">
+      <label for="y" class="form-label">Decimal result</label>
+      <input type="text" id="y" class="form-control" readonly="">
+   </div>
+   <div class="mt-3">
+      <label for="area" class="form-label">Calculation</label>
+      <textarea rows="3" id="area" class="form-control" readonly=""></textarea>
+   </div>
+   </form>
+	<p><a href="decimal-to-fraction.html">Decimal to fraction converter ►</a></p>
+	<!-- #EndEditable -->
+
+   <!-- rapidtables_bottom_01 -->
+   <div id="adngin-bottom_01-0"></div>
+	
+	<!-- #BeginEditable "doctext2" -->
+	<h2 id="how">How to convert fraction to decimal</h2>
+	<h2>Method #1</h2>
+	<p>Expand the denominator to be a power of 10.</p>
+	<h4>Example #1</h4>
+	<p><span class="fraction"><span class="fup">3</span><span class="fdn">5</span></span> is expanded to <span class="fraction"><span class="fup">6</span><span class="fdn">10</span></span> by multiplying the numerator by 2 and the denominator by 2:</p>
+	<table class="tbl math">
+		<tbody><tr>
+			<td class="bb">3</td>
+			<td rowspan="2">=</td>
+			<td class="bb">3×2</td>
+			<td rowspan="2">=</td>
+			<td class="bb">6</td>
+			<td rowspan="2">=</td>
+			<td rowspan="2">0.6</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>5×2</td>
+			<td>10</td>
+		</tr>
+	</tbody></table>
+	<h4>Example #2</h4>
+	<p><span class="fraction"><span class="fup">3</span><span class="fdn">4</span></span> is expanded to <span class="fraction"><span class="fup">75</span><span class="fdn">100</span></span> by multiplying the numerator by 25 and the denominator by 25:</p>
+	<table class="tbl math">
+		<tbody><tr>
+			<td class="bb">3</td>
+			<td rowspan="2">=</td>
+			<td class="bb">3×25</td>
+			<td rowspan="2">=</td>
+			<td class="bb">75</td>
+			<td rowspan="2">=</td>
+			<td rowspan="2">0.75</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>4×25</td>
+			<td>100</td>
+		</tr>
+	</tbody></table>
+	<h4>Example #3</h4>
+	<p><span class="fraction"><span class="fup">5</span><span class="fdn">8</span></span> is expanded to <span class="fraction"><span class="fup">625</span><span class="fdn">1000</span></span> by multiplying the numerator by 125 and the denominator by 125:</p>
+	<table class="tbl math">
+		<tbody><tr>
+			<td class="bb">5</td>
+			<td rowspan="2">=</td>
+			<td class="bb">5×125</td>
+			<td rowspan="2">=</td>
+			<td class="bb">625</td>
+			<td rowspan="2">=</td>
+			<td rowspan="2">0.625</td>
+		</tr>
+		<tr>
+			<td>8</td>
+			<td>8×125</td>
+			<td>1000</td>
+		</tr>
+	</tbody></table>
+		<h2>Method #2</h2>
+	<ol>
+		<li>Use calculator to divide the fraction's numerator by the denominator.</li>
+		<li>For mixed numbers add the integer.</li>
+	</ol>
+	<h4>Example #1</h4>
+	<div class="math"><div class="fraction"><span class="fup">2</span><span class="fdn">5</span></div> = 2<span class="key">÷</span>5 <span class="key">=</span> 0.4</div>
+	<h4>Example #2</h4>
+	<div class="math">1<div class="fraction"><span class="fup">2</span><span class="fdn">5</span></div> = 1<span class="key">+</span>2<span class="key">÷</span>5 <span class="key">=</span> 1.4</div>
+	<h2>Method #3</h2>
+	<p>Use long division to divide the fraction's numerator by the fraction's denominator.</p>
+	<h4>Example</h4>
+	<p>Calculate 3/4 by long division of 3 divided by 4:</p>
+	<table id="tbl2" class="math">
+		<tbody><tr>
+			<td>&nbsp;</td>
+			<td>0.75</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td class="border-top border-start border-dark">3</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td class="border-bottom border-dark">0</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>30</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td class="border-bottom border-dark">28</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;&nbsp;20&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;&nbsp;<span class="border-bottom border-dark">20</span>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;&nbsp;&nbsp;&nbsp;0</td>
+		</tr>
+	</tbody></table>
+	<h2 id="table">Fraction to decimal conversion table</h2>
+	<table class="dtable">
+		<tbody><tr>
+			<th>Fraction</th>
+			<th>Decimal</th>
+		</tr>
+		<tr>
+			<td>1/2</td>
+			<td>0.5</td>
+		</tr>
+		<tr>
+			<td>1/3</td>
+			<td>0.33333333</td>
+		</tr>
+		<tr>
+			<td>2/3</td>
+			<td>0.66666667</td>
+		</tr>
+		<tr>
+			<td>1/4</td>
+			<td>0.25</td>
+		</tr>
+		<tr>
+			<td>2/4</td>
+			<td>0.5</td>
+		</tr>
+		<tr>
+			<td>3/4</td>
+			<td>0.75</td>
+		</tr>
+		<tr>
+			<td>1/5</td>
+			<td>0.2</td>
+		</tr>
+		<tr>
+			<td>2/5</td>
+			<td>0.4</td>
+		</tr>
+		<tr>
+			<td>3/5</td>
+			<td>0.6</td>
+		</tr>
+		<tr>
+			<td>4/5</td>
+			<td>0.8</td>
+		</tr>
+		<tr>
+			<td>1/6</td>
+			<td>0.16666667</td>
+		</tr>
+		<tr>
+			<td>2/6</td>
+			<td>0.33333333</td>
+		</tr>
+		<tr>
+			<td>3/6</td>
+			<td>0.5</td>
+		</tr>
+		<tr>
+			<td>4/6</td>
+			<td>0.66666667</td>
+		</tr>
+		<tr>
+			<td>5/6</td>
+			<td>0.83333333</td>
+		</tr>
+		<tr>
+			<td>1/7</td>
+			<td>0.14285714</td>
+		</tr>
+		<tr>
+			<td>2/7</td>
+			<td>0.28571429</td>
+		</tr>
+		<tr>
+			<td>3/7</td>
+			<td>0.42857143</td>
+		</tr>
+		<tr>
+			<td>4/7</td>
+			<td>0.57142858</td>
+		</tr>
+		<tr>
+			<td>5/7</td>
+			<td>0.71428571</td>
+		</tr>
+		<tr>
+			<td>6/7</td>
+			<td>0.85714286</td>
+		</tr>
+		<tr>
+			<td>1/8</td>
+			<td>0.125</td>
+		</tr>
+		<tr>
+			<td>2/8</td>
+			<td>0.25</td>
+		</tr>
+		<tr>
+			<td>3/8</td>
+			<td>0.375</td>
+		</tr>
+		<tr>
+			<td>4/8</td>
+			<td>0.5</td>
+		</tr>
+		<tr>
+			<td>5/8</td>
+			<td>0.625</td>
+		</tr>
+		<tr>
+			<td>6/8</td>
+			<td>0.75</td>
+		</tr>
+		<tr>
+			<td>7/8</td>
+			<td>0.875</td>
+		</tr>
+		<tr>
+			<td>1/9</td>
+			<td>0.11111111</td>
+		</tr>
+		<tr>
+			<td>2/9</td>
+			<td>0.22222222</td>
+		</tr>
+		<tr>
+			<td>3/9</td>
+			<td>0.33333333</td>
+		</tr>
+		<tr>
+			<td>4/9</td>
+			<td>0.44444444</td>
+		</tr>
+		<tr>
+			<td>5/9</td>
+			<td>0.55555556</td>
+		</tr>
+		<tr>
+			<td>6/9</td>
+			<td>0.66666667</td>
+		</tr>
+		<tr>
+			<td>7/9</td>
+			<td>0.77777778</td>
+		</tr>
+		<tr>
+			<td>8/9</td>
+			<td>0.88888889</td>
+		</tr>
+		<tr>
+			<td>1/10</td>
+			<td>0.1</td>
+		</tr>
+		<tr>
+			<td>2/10</td>
+			<td>0.2</td>
+		</tr>
+		<tr>
+			<td>3/10</td>
+			<td>0.3</td>
+		</tr>
+		<tr>
+			<td>4/10</td>
+			<td>0.4</td>
+		</tr>
+		<tr>
+			<td>5/10</td>
+			<td>0.5</td>
+		</tr>
+		<tr>
+			<td>6/10</td>
+			<td>0.6</td>
+		</tr>
+		<tr>
+			<td>7/10</td>
+			<td>0.7</td>
+		</tr>
+		<tr>
+			<td>8/10</td>
+			<td>0.8</td>
+		</tr>
+		<tr>
+			<td>9/10</td>
+			<td>0.9</td>
+		</tr>
+		<tr>
+			<td>1/11</td>
+			<td>0.09090909</td>
+		</tr>
+		<tr>
+			<td>2/11</td>
+			<td>0.18181818</td>
+		</tr>
+		<tr>
+			<td>3/11</td>
+			<td>0.27272727</td>
+		</tr>
+		<tr>
+			<td>4/11</td>
+			<td>0.36363636</td>
+		</tr>
+		<tr>
+			<td>5/11</td>
+			<td>0.45454545</td>
+		</tr>
+		<tr>
+			<td>6/11</td>
+			<td>0.54545454</td>
+		</tr>
+		<tr>
+			<td>7/11</td>
+			<td>0.63636363</td>
+		</tr>
+		<tr>
+			<td>8/11</td>
+			<td>0.72727272</td>
+		</tr>
+		<tr>
+			<td>9/11</td>
+			<td>0.81818181</td>
+		</tr>
+		<tr>
+			<td>10/11</td>
+			<td>0.90909091</td>
+		</tr>
+	</tbody></table>
+	<p>&nbsp;</p>
+	<p><a href="decimal-to-fraction.html">Decimal to fraction conversion	►</a></p>
+	<p>&nbsp;</p>
+	<hr>
+	<h2>See also</h2>
+	<ul class="seealso">
+		<li><a href="how-fraction-to-decimal.html">How to convert fraction to decimal</a></li>
+		<li><a href="decimal-to-fraction.html">Decimal to fraction conversion</a></li>
+		<li><a href="fraction-to-decimal.html?x=&amp;n=1&amp;d=2">1/2 to decimal</a></li>
+		<li><a href="fraction-to-decimal.html?x=&amp;n=1&amp;d=3">1/3 to decimal</a></li>
+		<li><a href="fraction-to-decimal.html?x=&amp;n=1&amp;d=4">1/4 to decimal</a></li>
+		<li><a href="fraction-to-decimal.html?x=&amp;n=1&amp;d=8">1/8 to decimal</a></li>
+		<li><a href="fraction-to-decimal.html?x=&amp;n=1&amp;d=16">1/16 to decimal</a></li>
+		<li><a href="fraction-to-decimal.html?x=&amp;n=1&amp;d=32">1/32 to decimal</a></li>
+		<li><a href="fraction-to-percent.html">Fraction to percent conversion</a></li>
+		<li><a href="percent-to-decimal.html">Percent to decimal conversion</a></li>
+		<li><a href="/calc/math/fractions-calculator.html">Fractions calculator</a></li>
+		<li><a href="/calc/math/simplifying-fractions-calculator.html">Simplifying fractions calculator</a></li>
+		<li><a href="/calc/math/adding-fractions-calculator.html">Adding fractions calculator</a></li>
+		<li><a href="/calc/math/subtracting-fractions-calculator.html">Subtracting fractions calculator</a></li>
+		<li><a href="/calc/math/multiplying-fractions-calculator.html">Multiplying fractions calculator</a></li>
+		<li><a href="/calc/math/dividing-fractions-calculator.html">Dividing fractions calculator</a></li>
+		<li><a href="/calc/math/gcf-calculator.html">GCD calculator</a></li>
+		<li><a href="Fraction_Convert.html">Fraction conversion</a></li>
+		<li><a href="index.html">Number conversion</a></li>
+	</ul>		
+	<!-- #EndEditable -->
+	</div>
+	
+   <div id="fdbk">
+      <h2 id="feedback">Write how to improve this page</h2>
+      <form id="fdbkform">
+      <textarea id="fdbkarea" rows="4" minlength="30" maxlength="1000" placeholder="Your message ..." required="" class="form-control"></textarea>
+      <span id="fdbkmsg"></span>
+      <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">Submit Feedback</button>
+      </form>
+   </div>
+</div>
+
+<div id="rcol">
+   <!-- rapidtables_right_sidebar -->
+   <div id="adngin-right_sidebar-0"></div>
+
+	<!-- #BeginEditable "docnav" -->
+	<h5>NUMBER CONVERSION</h5>
+	<ul>
+		<li><a href="ascii-hex-bin-dec-converter.html">ASCII,Hex,Binary,Decimal converter</a></li>
+		<li><a href="ascii-to-binary.html">ASCII text to binary converter</a></li>
+		<li><a href="ascii-to-hex.html">ASCII text to hex converter</a></li>
+		<li><a href="base-converter.html">Base converter</a></li>
+		<li><a href="binary-converter.html">Binary converter</a></li>
+		<li><a href="binary-to-ascii.html">Binary to ASCII text converter</a></li>
+		<li><a href="binary-to-decimal.html">Binary to decimal converter</a></li>
+		<li><a href="binary-to-hex.html">Binary to hex converter</a></li>
+		<li><a href="date-to-roman-numerals.html">Date to roman numerals converter</a></li>
+		<li><a href="decimal-to-fraction.html">Decimal to fraction converter</a></li>
+		<li><a href="decimal-to-percent.html">Decimal to percent converter</a></li>
+		<li><a href="decimal-to-binary.html">Decimal to binary converter</a></li>
+		<li><a href="decimal-to-octal.html">Decimal to octal converter</a></li>
+		<li><a href="decimal-to-hex.html">Decimal to hex converter</a></li>
+		<li><a href="degrees-to-degrees-minutes-seconds.html">Degrees to deg,min,sec converter</a></li>
+		<li><a href="degrees-minutes-seconds-to-degrees.html">Deg,min,sec to degrees converter</a></li>
+		<li><a href="degrees-to-radians.html">Degrees to radians converter</a></li>
+		<li><a href="fraction-to-decimal.html">Fraction to decimal converter</a></li>
+		<li><a href="fraction-to-percent.html">Fraction to percent converter</a></li>
+		<li><a href="hex-dec-bin-converter.html">Hex/decimal/octal/binary converter</a></li>
+		<li><a href="hex-to-ascii.html">Hex to ASCII text converter</a></li>
+		<li><a href="hex-to-binary.html">Hex to binary converter</a></li>
+		<li><a href="hex-to-decimal.html">Hex to decimal converter</a></li>
+		<li><a href="octal-to-decimal.html">Octal to decimal converter</a></li>
+		<li><a href="percent-to-decimal.html">Percent to decimal converter</a></li>
+		<li><a href="percent-to-fraction.html">Percent to fraction converter</a></li>
+		<li><a href="Percent_to_PPM.html">Percent to ppm converter</a></li>
+		<li><a href="PPM_to_Percent.html">ppm to percent converter</a></li>
+		<li><a href="ppm-to-ppb.html">ppm to ppb converter</a></li>
+		<li><a href="ppm-to-ppt.html">ppm to ppt converter</a></li>
+		<li><a href="ppb-to-ppm.html">ppb to ppm converter</a></li>
+		<li><a href="ppt-to-ppm.html">ppt to ppm converter</a></li>
+		<li><a href="ppm-converter.html">ppm converter</a></li>
+		<li><a href="radians-to-degrees.html">Radians to degrees converter</a></li>
+		<li><a href="roman-numerals-converter.html">Roman numerals converter</a></li>
+		<li><a href="scientific-notation-converter.html">Scientific notation converter</a></li>
+	</ul>
+	<h5>RAPID TABLES</h5>
+	<ul>
+		<li><a href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com">Recommend Site</a></li>
+		<li><a href="#feedback">Send Feedback</a></li>
+		<li><a href="/about/about.html">About</a></li>
+	</ul>
+	<!-- #EndEditable -->
+	
+</div>
+
+</div>
+
+<div id="footer">
+	<a href="/index.html">Home</a> | 
+	<a href="/web/index.html">Web</a> |
+	<a href="/math/index.html">Math</a> | 
+	<a href="/electric/index.html">Electricity</a> |
+	<a href="/calc/index.html">Calculators</a> | 
+	<a href="/convert/index.html">Converters</a> |
+	<a href="/tools/index.html">Tools</a>
+	<p>©  
+	<a href="/">RapidTables.com</a> | 
+	<a href="/about/about.html" rel="nofollow">About</a> | 
+	<a href="/about/terms.html" rel="nofollow">Terms of Use</a> | 
+	<a href="/about/privacy.html" rel="nofollow">Privacy Policy</a> | 
+	<a href="/about/cookies.html" rel="nofollow">Manage Cookies</a>
+	</p>
+</div>
+
+<!-- rapidtables_bottom_adhesive -->
+<div id="adngin-adhesive-0"></div>
+
+<!-- #BeginEditable "docscript" -->
+<!--sse-->
+<script async="" src="/lib/unitnav.js"></script>
+<script src="../convert.js"></script>
+<script src="../number.js"></script>
+<script src="/lib/utils/mathview.js"></script>
+<script>
+"use strict";var xelem=document.getElementById("x"),nelem=document.getElementById("n"),delem=document.getElementById("d"),yelem=document.getElementById("y"),areaelem=document.getElementById("area"),fracelem=document.getElementById("frac"),mfelem=document.getElementById("mf"),sfelem=document.getElementById("sf"),td11elem=document.getElementById("td11");function GetURLParams(){for(var e,l=window.location.href,t=/[?&]([^=#]+)=([^&#]*)/g,a={};e=t.exec(l);)a[e[1]]=e[2];return a}function convert(){var e=1,l=str2num(xelem.value),t=str2num(nelem.value),a=str2num(delem.value);if(""==t||""==a){alert("Please enter fraction");return}"-"==l&&(e=-1,l="0"),""==l&&(l="0"),l=str2num(l),t=parseInt(t),a=parseInt(a),l<0&&(e=-1,l=-l),0==l&&t/a<0&&(e=-1),t=Math.abs(t),a=Math.abs(a),0!=l&&(nelem.value=t,delem.value=a);var n=e*(l+t/a);n=roundresult(n),yelem.value=n;var m="";-1==e&&(m+="-"),0!=l&&(m+=l,-1==e?m+="-":m+="+"),m+=t+"/"+a,m+="\n= "+n,m+="\n= "+roundresult(100*n)+"%",areaelem.value=m,CircNumber(fracelem,{n:l,num:t,den:a,radius:20,fillColor:"rgb(80,192,0)",lineWidth:1}),fracelem.style.display="none"}window.addEventListener("DOMContentLoaded",function(){td11elem.style.display="none",document.getElementById("calcform").onkeypress=function(e){13==e.keyCode&&convert()},sfelem.onclick=function(){sfelem.classList.toggle("active"),mfelem.classList.toggle("active"),td11elem.style.display="none",xelem.value="",nelem.focus(),fracelem.style.display="none"},mfelem.onclick=function(){sfelem.classList.toggle("active"),mfelem.classList.toggle("active"),td11elem.style.display="table-cell",xelem.focus(),fracelem.style.display="none"};var e=GetURLParams();if(void 0!==e.n&&void 0!==e.d){var l="";if(""!=e.x){mfelem.click();var t=decodeURIComponent2(e.x);xelem.value=t,l=t+" "}var a=decodeURIComponent2(e.n),n=decodeURIComponent2(e.d);nelem.value=a,delem.value=n,l+=a+"/"+n,document.querySelector("h1").innerHTML=l+" to decimal",document.title=l+" to decimal",convert(),window.location.hash="",window.location.hash="#calcform"}});
+</script>
+<!--/sse-->
+<!-- #EndEditable -->
+
+
+
+
+
+
+<iframe name="__tcfapiLocator" style="display: none;"></iframe><iframe name="__uspapiLocator" style="display: none;"></iframe><iframe name="__adconsentLocator" style="display: none;"></iframe><div style="display: none;"><a title="Do not click me1!" id="hp1" href="#">&lt;!â€“- Don't click me1 â€“-&gt;</a></div><a id="hp2" title="Don't click!" href="#" style="display: none;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" style="width:1px !important;height:1px !important;"></a></body><!-- #EndTemplate --></html>

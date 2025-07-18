@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利息计算器</title>
+    <meta name="description" content="根据您的需求"我要计算贷款利息"自动生成的计算器">
+    <style id="calculator-styles">
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .calculator-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .calculator-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .calculator-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .calculator-header .description {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .calculator-main {
+            padding: 30px;
+        }
+
+        .calculator-footer {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+        }
+                .financial-calculator {
+                    display: grid;
+                    gap: 30px;
+                }
+
+                .input-section {
+                    display: grid;
+                    gap: 20px;
+                }
+
+                .input-group {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                }
+
+                .input-group label {
+                    font-weight: 600;
+                    color: #333;
+                }
+
+                .financial-input, .financial-select {
+                    padding: 15px;
+                    border: 2px solid #e9ecef;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                }
+
+                .btn-calculate {
+                    padding: 15px;
+                    background: #28a745;
+                    color: white;
+                    border: none;
+                    border-radius: 10px;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                }
+
+                .btn-calculate:hover {
+                    background: #218838;
+                    transform: translateY(-2px);
+                }
+
+                .result-section {
+                    background: #f8f9fa;
+                    padding: 20px;
+                    border-radius: 10px;
+                    border-left: 4px solid #28a745;
+                }
+
+                .result-item {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px 0;
+                    border-bottom: 1px solid #e9ecef;
+                }
+
+                .result-item:last-child {
+                    border-bottom: none;
+                    font-weight: 600;
+                    font-size: 1.1rem;
+                }
+
+                .result-item span {
+                    color: #28a745;
+                    font-weight: 600;
+                }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <header class="calculator-header">
+            <h1>利息计算器</h1>
+            <p class="description">根据您的需求"我要计算贷款利息"自动生成的计算器</p>
+        </header>
+        
+        <main class="calculator-main">
+            
+        <div class="financial-calculator">
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="principal">本金 (P):</label>
+                    <input type="number" id="principal" class="financial-input" placeholder="请输入本金金额">
+                </div>
+                
+                <div class="input-group">
+                    <label for="interest-rate">年利率 (%):</label>
+                    <input type="number" id="interest-rate" class="financial-input" placeholder="请输入年利率" step="0.01">
+                </div>
+                
+                <div class="input-group">
+                    <label for="time-period">时间 (年):</label>
+                    <input type="number" id="time-period" class="financial-input" placeholder="请输入时间长度">
+                </div>
+                
+                <div class="input-group">
+                    <label for="compound-frequency">复利频率:</label>
+                    <select id="compound-frequency" class="financial-select">
+                        <option value="1">年复利</option>
+                        <option value="2">半年复利</option>
+                        <option value="4">季度复利</option>
+                        <option value="12">月复利</option>
+                        <option value="365">日复利</option>
+                    </select>
+                </div>
+                
+                <button class="btn btn-calculate" onclick="calculateInterest()">计算</button>
+            </div>
+            
+            <div class="result-section">
+                <div class="result-item">
+                    <label>单利:</label>
+                    <span id="simple-interest">--</span>
+                </div>
+                <div class="result-item">
+                    <label>复利:</label>
+                    <span id="compound-interest">--</span>
+                </div>
+                <div class="result-item">
+                    <label>总金额:</label>
+                    <span id="total-amount">--</span>
+                </div>
+            </div>
+        </div>
+        </main>
+        
+        <footer class="calculator-footer">
+            <p>由AI自动生成 • 2025/7/16</p>
+        </footer>
+    </div>
+
+    <script>
+        
+        // 基础功能函数
+        function formatNumber(num) {
+            if (typeof num !== 'number') return num;
+            return num.toLocaleString('zh-CN', { maximumFractionDigits: 10 });
+        }
+
+        function showError(message) {
+            console.error(message);
+            if (document.getElementById('display')) {
+                document.getElementById('display').value = '错误';
+            }
+        }
+
+        function validateInput(input) {
+            return !isNaN(input) && isFinite(input);
+        }
+        function calculateInterest() {
+            const principal = parseFloat(document.getElementById('principal').value);
+            const rate = parseFloat(document.getElementById('interest-rate').value) / 100;
+            const time = parseFloat(document.getElementById('time-period').value);
+            const frequency = parseInt(document.getElementById('compound-frequency').value);
+
+            if (!validateInput(principal) || !validateInput(rate) || !validateInput(time)) {
+                showError('请输入有效的数值');
+                return;
+            }
+
+            // 单利计算: I = P * r * t
+            const simpleInterest = principal * rate * time;
+
+            // 复利计算: A = P(1 + r/n)^(nt)
+            const compoundAmount = principal * Math.pow(1 + rate/frequency, frequency * time);
+            const compoundInterest = compoundAmount - principal;
+
+            // 显示结果
+            document.getElementById('simple-interest').textContent = formatCurrency(simpleInterest);
+            document.getElementById('compound-interest').textContent = formatCurrency(compoundInterest);
+            document.getElementById('total-amount').textContent = formatCurrency(compoundAmount);
+        }
+
+        function formatCurrency(amount) {
+            return '¥' + amount.toLocaleString('zh-CN', { 
+                minimumFractionDigits: 2, 
+                maximumFractionDigits: 2 
+            });
+        }
+
+        // 自动计算
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = ['principal', 'interest-rate', 'time-period', 'compound-frequency'];
+            inputs.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', calculateInterest);
+                    element.addEventListener('change', calculateInterest);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

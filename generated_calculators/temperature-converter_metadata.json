@@ -1,0 +1,9 @@
+{
+  "title": "温度转换器",
+  "description": "根据您的需求\"帮我做温度转换，摄氏度和华氏度互转\"自动生成的计算器",
+  "type": "conversion-calculator",
+  "complexity": "medium",
+  "features": [],
+  "generatedAt": "2025-07-16T04:56:40.231Z",
+  "version": "1.0.0"
+}

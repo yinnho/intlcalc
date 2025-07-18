@@ -1,0 +1,213 @@
+[
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams(){for(var e,t=window.location.href,a=/[?&]([^=#]+)=([^&#]*)/g,n={};e=a.exec(t);)n[e[1]]=e[2];return n}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\compound-interest-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnCurSel",
+    "code": "function OnCurSel(e){null==e?cur=Currency.getCurrency():(document.getElementsByName(\"cursel\")[e].checked=!0,cur=[\"$\",\"&euro;\",\"&pound;\",\"&yen;\",\"&#8377;\",\"&nbsp;\"][e]);for(var t=document.getElementsByClassName(\"cur\"),e=0;e<t.length;e++)t[e].innerHTML=cur}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\compound-interest-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "DrawTable",
+    "code": "function DrawTable(e,t,a){for(var n,l,r,d,o=[\"$\",\"&pound;\",\"&euro;\",\"&#3647;\",\"kr\",\"L\",\"t\",\"&#8369;\",\"R\",\"R$\",\"RM\",\"R\",\"Rs\",\"&#8362;\",\"z&#322;\",\"\"][cursel],u=document.getElementById(\"tbl\"),i=u.rows.length,c=1;c<i;c++)u.deleteRow(1);r=e.length;for(var c=0;c<r;c++)l=0,(d=(c+1)/a)==Math.round(d)&&(l=t),l=num2str(l,2),n=num2str(e[c],2),u.tBodies[0].insertRow().innerHTML=\"<tr>            <td>\"+c+\"</td>            <td>\"+o+l+\"</td>            <td>\"+o+n+\"</td>         </tr>\";document.getElementById(\"tbldiv\").style.display=\"block\"}",
+    "params": [
+      "e",
+      "t",
+      "a"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\compound-interest-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){var e=null,t=1,a=GetURLParams();if(void 0!==a.cursel&&(e=a.cursel),OnCurSel(e),-1!=window.location.href.indexOf(\"?\")){for(let n in a)\"cursel\"==n?e=a[n]:\"cp\"==n?t=a[n]:document.getElementById(n).value=decodeURIComponent2(a[n]);0==t&&(document.getElementsByName(\"cp\")[0].checked=!0),OnCalc(),window.location.hash=\"\",window.location.hash=\"#btns\"}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\compound-interest-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "Calc",
+    "code": "function Calc(){for(var t,e,n=0,d=0,l=txt1=txt2=\"\",a=1;a<=irow+1;a++)t=parseFloat(t=document.querySelector(\"#tbl > tbody > tr:nth-child(\"+a+\") > td:nth-child(2) > input\").value),e=document.querySelector(\"#tbl > tbody > tr:nth-child(\"+a+\") > td:nth-child(1) > input\").value,t>=0&&(n+=t*e,d+=t,txt1+=t+\"\\xd7\"+e+\"+\",txt2+=t+\"+\");n/=d,n=roundnum2(n,8),l=\"Weighted average = ∑wi∙xi / ∑wi\\n\",l+=\"= (\"+txt1+\") / (\"+txt2+\") \\n= \"+n,l=(l=l.replace(\"+)\",\")\")).replace(\"+)\",\")\"),document.getElementById(\"avg\").value=n,document.getElementById(\"sum\").value=d,document.getElementById(\"TA1\").value=l}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\weighted-average-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){Calc()}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\weighted-average-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){calcbtn.onclick=function(){Calc()},addrow.onclick=function(){AddRow()}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\weighted-average-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         var x=decodeURIComponent2(params.x);\n         var el = document.querySelector(\"#doc>h1\");\n         el.innerHTML = x+\" g to oz\";\n         document.title = x+\" g to oz\";\n         xelem.value = x;\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\weight\\gram-to-ounce.html",
+    "type": "FunctionExpression",
+    "lineStart": 3,
+    "lineEnd": 13
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\weight\\gram-to-ounce.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 14,
+    "lineEnd": 25
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = str2num(xelem.value);\n      var y = parseFloat(x)/453.59237*16;\n      var yy=roundresult(y);\n      var txt=num2str(x)+\" g / \"+num2str(28.34952)+\"\\n\";\n      txt+=\"= \"+num2str(yy)+\" oz\";\n      var y2=Math.floor(y/16);\n      var y3=y-y2*16;\n      document.getElementById(\"y\").value = num2str(roundnum(y,6));\n      document.getElementById(\"y2\").value = num2str(roundnum(y2,3));\n      document.getElementById(\"y3\").value = num2str(roundnum(y3,3));\n      document.getElementById(\"txt\").value = txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\weight\\gram-to-ounce.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 26,
+    "lineEnd": 38
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x) {\n      var y = str2num(x)/453.59237;\n      var yy=num2str(roundresult(y));\n      var txt=x+\" g / \"+num2str(453.59237)+\"\\n\";\n      txt+=\"= \"+yy+\" lb\";\n      var y2=Math.floor(y);\n      var y3=(y-y2)*16;\n      document.getElementById(\"y2\").value = roundnum(y2,3);\n      document.getElementById(\"y3\").value = roundnum(y3,3);\n      document.calcform.TA.value = txt;\n      return (y);\n   }",
+    "params": [
+      "x"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\weight\\gram-to-pound.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 13
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x) {\n\t\t\tvar y = parseFloat(x)/0.45359237;\n\t\t\tvar yy=roundresult(y);\n\t\t\tvar txt=x+\" kg / 0.45359237\\n\";\n\t\t\ttxt+=\"= \"+yy+\" lb\";\n \t\t\tvar y2=Math.floor(y);\n \t\t\tvar y3=(y-y2)*16;\n \t\t\tdocument.getElementById(\"y2\").value = roundnum(y2,3);\n \t\t\tdocument.getElementById(\"y3\").value = roundnum(y3,3);\n\t\t\tdocument.calcform.TA.value = txt;\n\t\t \treturn (y);\n\t\t}",
+    "params": [
+      "x"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\weight\\how-kg-to-pound.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 13
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x=str2num(document.getElementById(\"x\").value);\n      var y = parseFloat(x)/0.45359237*16;\n      var yy=roundresult(y);\n      var txt=num2str(x)+\" kg / \"+num2str(0.02834952)+\"\\n\";\n      txt+=\"= \"+num2str(yy)+\" oz\";\n      var y2=Math.floor(y/16);\n      var y3=y-y2*16;\n      document.getElementById(\"y\").value = num2str(roundnum(y,3));\n      document.getElementById(\"y2\").value = num2str(roundnum(y2,3));\n      document.getElementById(\"y3\").value = num2str(roundnum(y3,3));\n      document.getElementById(\"txt\").value = txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\weight\\kg-to-ounce.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 14
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         var x=decodeURIComponent2(params.x);\n         var el = document.querySelector(\"#doc>h1\");\n         el.innerHTML = x+\" oz to grams\";\n         document.title = x+\" oz to grams\";\n         xelem.value = x;\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\weight\\ounce-to-gram.html",
+    "type": "FunctionExpression",
+    "lineStart": 3,
+    "lineEnd": 13
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\weight\\ounce-to-gram.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 14,
+    "lineEnd": 25
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x) {\n      var y = str2num(x)/16;\n      var yy=num2str(roundresult(y));\n      var txt=x+\" oz / 16\\n\";\n      txt+=\"= \"+yy+\" lb\";\n      var y2=Math.floor(y);\n      var y3=(y-y2)*16;\n      document.getElementById(\"y2\").value = roundnum(y2,3);\n      document.getElementById(\"y3\").value = roundnum(y3,3);\n      document.calcform.TA.value = txt;\n      return (y);\n   }",
+    "params": [
+      "x"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\weight\\ounce-to-pound.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 13
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x) {\n      var y = str2num(x)*16;\n      var yy=num2str(roundresult(y));\n      var txt=x+\" lb \\u00D7 16\\n\";\n      txt+=\"= \"+yy+\" oz\";\n      var y2=Math.floor(y/16);\n      var y3=y-y2*16;\n      document.getElementById(\"y2\").value = roundnum(y2,3);\n      document.getElementById(\"y3\").value = roundnum(y3,3);\n      document.calcform.TA.value = txt;\n      return (y);\n   }",
+    "params": [
+      "x"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\weight\\pound-to-ounce.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 13
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x) {\n\t\t\tvar y = parseFloat(x)/14;\n\t\t\tvar yy=roundresult(y);\n         var y2=Math.floor(y);\n         var y3=roundresult((y-y2)*14);\n\t\t\tvar txt=x+\" lb / 14\\n\";\n\t\t\ttxt+=\"= \"+yy+\" st\";\n         document.getElementById(\"y2\").value=y2;\n         document.getElementById(\"y3\").value=y3;\n\t\t\tdocument.calcform.TA.value = txt;\n\t\t \treturn (y);\n\t\t}",
+    "params": [
+      "x"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\weight\\pound-to-stone.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 13
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x) {\n\t\t\tvar y = parseFloat(x)*0.00045359237;\n\t\t\tvar yy=roundresult(y);\n\t\t\tvar txt=x+\" lb \\u00D7 0.00045359237\\n\";\n\t\t\ttxt+=\"= \"+yy+\" t\";\n\t\t\tdocument.calcform.TA.value = txt;\n\t\t \treturn (y);\n\t\t}",
+    "params": [
+      "x"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\weight\\pound-to-ton.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 9
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x) {\n\t\t\tvar y = parseFloat(x)*14;\n\t\t\tvar yy=roundresult(y);\n\t\t\tvar txt=x+\" st \\u00D7 14\\n\";\n\t\t\ttxt+=\"= \"+yy+\" lb\";\n\t\t\tdocument.calcform.TA.value = txt;\n\t\t \treturn (y);\n\t\t}",
+    "params": [
+      "x"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\weight\\stone-to-pound.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 9
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x) {\n\t\t\tvar y = parseFloat(x)/0.00045359237;\n\t\t\tvar yy=roundresult(y);\n\t\t\tvar txt=x+\" kg / 0.00045359237\\n\";\n\t\t\ttxt+=\"= \"+yy+\" lb\";\n \t\t\tvar y2=Math.floor(y);\n \t\t\tvar y3=(y-y2)*16;\n \t\t\tdocument.getElementById(\"y2\").value = roundnum(y2,3);\n \t\t\tdocument.getElementById(\"y3\").value = roundnum(y3,3);\n\t\t\tdocument.calcform.TA.value = txt;\n\t\t \treturn (y);\n\t\t}",
+    "params": [
+      "x"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\weight\\ton-to-pound.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 13
+  }
+]

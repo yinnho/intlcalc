@@ -1,0 +1,9 @@
+{
+  "title": "基础数学计算器",
+  "description": "根据您的需求\"我要一个简单的计算器，只要加减乘除\"自动生成的计算器",
+  "type": "basic-calculator",
+  "complexity": "simple",
+  "features": [],
+  "generatedAt": "2025-07-16T04:56:40.229Z",
+  "version": "1.0.0"
+}

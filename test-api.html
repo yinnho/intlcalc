@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntlCalc API Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .test-section { margin-bottom: 30px; padding: 20px; border: 1px solid #ccc; border-radius: 5px; }
+        .test-section h3 { margin-top: 0; }
+        button { padding: 10px 20px; margin: 5px; background: #007cba; color: white; border: none; border-radius: 3px; cursor: pointer; }
+        button:hover { background: #005a87; }
+        .result { margin-top: 10px; padding: 10px; background: #f5f5f5; border-radius: 3px; white-space: pre-wrap; }
+        input, select { padding: 5px; margin: 5px; border: 1px solid #ccc; border-radius: 3px; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1>IntlCalc API 测试页面</h1>
+    
+    <div class="test-section">
+        <h3>1. 获取语言列表</h3>
+        <button onclick="testLanguages()">获取语言</button>
+        <div id="languages-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>2. 获取计算器列表</h3>
+        <select id="lang-select">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+        </select>
+        <button onclick="testCalculators()">获取计算器</button>
+        <div id="calculators-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>3. 获取计算器详情</h3>
+        <select id="calculator-select">
+            <option value="basic-math">Basic Math</option>
+            <option value="percentage">Percentage</option>
+            <option value="interest">Interest</option>
+            <option value="loan">Loan</option>
+            <option value="bmi">BMI</option>
+        </select>
+        <button onclick="testCalculatorDetail()">获取详情</button>
+        <div id="calculator-detail-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>4. 执行计算</h3>
+        <select id="calc-type">
+            <option value="percentage">Percentage</option>
+            <option value="interest">Interest</option>
+            <option value="loan">Loan</option>
+            <option value="bmi">BMI</option>
+        </select>
+        <div id="calc-inputs"></div>
+        <button onclick="testCalculate()">执行计算</button>
+        <div id="calculate-result" class="result"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'https://intlcalc.pages.dev/api';
+        
+        async function makeRequest(url, options = {}) {
+            try {
+                const response = await fetch(url, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        ...options.headers
+                    },
+                    ...options
+                });
+                const data = await response.json();
+                return { success: true, data };
+            } catch (error) {
+                return { success: false, error: error.message };
+            }
+        }
+        
+        async function testLanguages() {
+            const result = await makeRequest(`${API_BASE}/languages`);
+            const resultDiv = document.getElementById('languages-result');
+            if (result.success) {
+                resultDiv.innerHTML = `<span class="success">✅ 成功</span>\n${JSON.stringify(result.data, null, 2)}`;
+            } else {
+                resultDiv.innerHTML = `<span class="error">❌ 失败</span>\n${result.error}`;
+            }
+        }
+        
+        async function testCalculators() {
+            const lang = document.getElementById('lang-select').value;
+            const result = await makeRequest(`${API_BASE}/calculators?lang=${lang}`);
+            const resultDiv = document.getElementById('calculators-result');
+            if (result.success) {
+                resultDiv.innerHTML = `<span class="success">✅ 成功</span>\n${JSON.stringify(result.data, null, 2)}`;
+            } else {
+                resultDiv.innerHTML = `<span class="error">❌ 失败</span>\n${result.error}`;
+            }
+        }
+        
+        async function testCalculatorDetail() {
+            const calculator = document.getElementById('calculator-select').value;
+            const lang = document.getElementById('lang-select').value;
+            const result = await makeRequest(`${API_BASE}/calculators/${calculator}?lang=${lang}`);
+            const resultDiv = document.getElementById('calculator-detail-result');
+            if (result.success) {
+                resultDiv.innerHTML = `<span class="success">✅ 成功</span>\n${JSON.stringify(result.data, null, 2)}`;
+            } else {
+                resultDiv.innerHTML = `<span class="error">❌ 失败</span>\n${result.error}`;
+            }
+        }
+        
+        function updateCalcInputs() {
+            const calcType = document.getElementById('calc-type').value;
+            const inputsDiv = document.getElementById('calc-inputs');
+            
+            let html = '';
+            switch (calcType) {
+                case 'percentage':
+                    html = `
+                        <input type="number" id="value" placeholder="Value" step="0.01">
+                        <input type="number" id="percentage" placeholder="Percentage" step="0.01">
+                    `;
+                    break;
+                case 'interest':
+                    html = `
+                        <input type="number" id="principal" placeholder="Principal" step="0.01">
+                        <input type="number" id="rate" placeholder="Rate (%)" step="0.01">
+                        <input type="number" id="time" placeholder="Time (years)" step="0.01">
+                        <select id="interest-type">
+                            <option value="simple">Simple</option>
+                            <option value="compound">Compound</option>
+                        </select>
+                    `;
+                    break;
+                case 'loan':
+                    html = `
+                        <input type="number" id="amount" placeholder="Loan Amount" step="0.01">
+                        <input type="number" id="rate" placeholder="Interest Rate (%)" step="0.01">
+                        <input type="number" id="term" placeholder="Loan Term (years)" step="0.01">
+                    `;
+                    break;
+                case 'bmi':
+                    html = `
+                        <input type="number" id="weight" placeholder="Weight (kg)" step="0.1">
+                        <input type="number" id="height" placeholder="Height (cm)" step="0.1">
+                    `;
+                    break;
+            }
+            inputsDiv.innerHTML = html;
+        }
+        
+        async function testCalculate() {
+            const calcType = document.getElementById('calc-type').value;
+            const lang = document.getElementById('lang-select').value;
+            
+            let inputs = {};
+            switch (calcType) {
+                case 'percentage':
+                    inputs = {
+                        value: document.getElementById('value').value,
+                        percentage: document.getElementById('percentage').value
+                    };
+                    break;
+                case 'interest':
+                    inputs = {
+                        principal: document.getElementById('principal').value,
+                        rate: document.getElementById('rate').value,
+                        time: document.getElementById('time').value,
+                        type: document.getElementById('interest-type').value
+                    };
+                    break;
+                case 'loan':
+                    inputs = {
+                        amount: document.getElementById('amount').value,
+                        rate: document.getElementById('rate').value,
+                        term: document.getElementById('term').value
+                    };
+                    break;
+                case 'bmi':
+                    inputs = {
+                        weight: document.getElementById('weight').value,
+                        height: document.getElementById('height').value
+                    };
+                    break;
+            }
+            
+            const result = await makeRequest(`${API_BASE}/calculate/${calcType}`, {
+                method: 'POST',
+                body: JSON.stringify({ inputs, lang })
+            });
+            
+            const resultDiv = document.getElementById('calculate-result');
+            if (result.success) {
+                resultDiv.innerHTML = `<span class="success">✅ 成功</span>\n${JSON.stringify(result.data, null, 2)}`;
+            } else {
+                resultDiv.innerHTML = `<span class="error">❌ 失败</span>\n${result.error}`;
+            }
+        }
+        
+        // 初始化
+        document.getElementById('calc-type').addEventListener('change', updateCalcInputs);
+        updateCalcInputs();
+    </script>
+</body>
+</html> 

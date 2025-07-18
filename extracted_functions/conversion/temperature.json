@@ -1,0 +1,262 @@
+[
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams(){for(var e,t=window.location.href,n=/[?&]([^=#]+)=([^&#]*)/g,l={};e=n.exec(t);)l[e[1]]=e[2];return l}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\celsius-to-fahrenheit.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnSign",
+    "code": "function OnSign(){var e=xelem.value;\"-\"!=e[0]?xelem.value=\"-\"+e:xelem.value=e.substring(1),xelem.focus(),OnCalc()}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\celsius-to-fahrenheit.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e){OnCalc()}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\celsius-to-fahrenheit.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){if(\"function\"!=typeof Promise){btndiv.style.display=\"block\";return}if(xelem.oninput=function(e){OnCalc()},yelem.oninput=function(e){OnCalc2()},signbtn.onclick=function(){OnSign()},copybtn.onclick=function(){OnCopy()},-1!=window.location.href.indexOf(\"?\")){var e=GetURLParams();if(void 0!==e.x){\"\"!=e.x&&(xelem.value=decodeURIComponent2(e.x),OnCalc());return}}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\celsius-to-fahrenheit.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc(){var e=xelem.value;if(\"\"==e){calcform.reset();return}if(\"-\"!=e&&\".\"!=e&&\",\"!=e){var n=roundnum((e=parseFloat(e))+273.15,4);yelem.value=n;var l=\"Kelvin = Celsius + 273.15\\n\";l+=\"Kelvin = \"+e+\"\\xb0C  + 273.15\\n\",l+=\"Kelvin = \"+n+\"K\",document.getElementById(\"txt\").value=l;var t=window.location.href.split(\"?\")[0];t+=\"?x=\"+e,history.pushState({},\"\",t)}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\celsius-to-kelvin.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnCalc2",
+    "code": "function OnCalc2(){var e=yelem.value;if(\"\"==e){calcform.reset();return}if(\"-\"!=e&&\".\"!=e&&\",\"!=e){var n=roundnum((e=parseFloat(e))-273.15,4);xelem.value=n;var l=\"Celsius = Kelvin - 273.15\\n\";l+=\"Celsius = \"+e+\" - 273.15\\n\",l+=\"Celsius = \"+n+\"\\xb0C\",document.getElementById(\"txt\").value=l}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\celsius-to-kelvin.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e){OnCalc()}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\celsius-to-kelvin.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){unitnav.style.display=\"block\",btndiv.style.display=\"none\",xelem.oninput=function(e){OnCalc()},yelem.oninput=function(e){OnCalc2()}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\celsius-to-kelvin.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams(){for(var e,t=window.location.href,n=/[?&]([^=#]+)=([^&#]*)/g,l={};e=n.exec(t);)l[e[1]]=e[2];return l}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\fahrenheit-to-celsius.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnSign",
+    "code": "function OnSign(){var e=xelem.value;\"-\"!=e[0]?xelem.value=\"-\"+e:xelem.value=e.substring(1),xelem.focus(),OnCalc()}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\fahrenheit-to-celsius.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e){OnCalc()}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\fahrenheit-to-celsius.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){if(\"function\"!=typeof Promise){btndiv.style.display=\"block\";return}if(xelem.oninput=function(e){OnCalc()},yelem.oninput=function(e){OnCalc2()},signbtn.onclick=function(){OnSign()},copybtn.onclick=function(){OnCopy()},-1!=window.location.href.indexOf(\"?\")){var e=GetURLParams();if(void 0!==e.x){\"\"!=e.x&&(xelem.value=decodeURIComponent2(e.x),OnCalc());return}}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\fahrenheit-to-celsius.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams(){for(var e,t=window.location.href,n=/[?&]([^=#]+)=([^&#]*)/g,a={};e=n.exec(t);)a[e[1]]=e[2];return a}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\fahrenheit-to-rankine.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc(){for(var e,t=\"\",n=str2num3(xelem.value),a=0;a<n.length;a++)e=n[a]+459.67,a>0&&(t+=\" \"),t+=num2str(roundresult(e));if(document.getElementById(\"y\").value=t,1==n.length){var l=num2str(n[0])+\"\\xb0F + \"+num2str(459.67)+\"\\n\";l+=\"= \"+num2str(t)+\"\\xb0R\",document.getElementById(\"txt\").value=l,document.getElementById(\"pf1\").style.display=\"flex\"}else document.getElementById(\"pf1\").style.display=\"none\"}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\fahrenheit-to-rankine.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){var e=GetURLParams();if(void 0!==e.x){var t=decodeURIComponent2(e.x);-1==t.indexOf(\" \")&&(document.querySelector(\"#doc>h1\").innerHTML=t+\" degrees Fahrenheit to Rankine\",document.title=t+\" degrees Fahrenheit to Rankine\"),xelem.value=t}OnCalc()}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\fahrenheit-to-rankine.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc(){var e=xelem.value;if(\"\"==e){calcform.reset();return}if(\"-\"!=e&&\".\"!=e&&\",\"!=e){var n=roundnum((e=parseFloat(e))-273.15,4);yelem.value=n;var l=\"Celsius = Kelvin - 273.15\\n\";l+=\"Celsius = \"+e+\"K - 273.15\\n\",l+=\"Celsius = \"+n+\"\\xb0C\",document.getElementById(\"txt\").value=l;var t=window.location.href.split(\"?\")[0];t+=\"?x=\"+e,history.pushState({},\"\",t)}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\kelvin-to-celsius.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnCalc2",
+    "code": "function OnCalc2(){var e=yelem.value;if(\"\"==e){calcform.reset();return}if(\"-\"!=e&&\".\"!=e&&\",\"!=e){var n=roundnum((e=parseFloat(e))+273.15,4);xelem.value=n;var l=\"Kelvin = Celsius + 273.15\\n\";l+=\"Kelvin = \"+e+\"\\xb0C  + 273.15\\n\",l+=\"Kelvin = \"+n+\"K\",document.getElementById(\"txt\").value=l}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\kelvin-to-celsius.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e){OnCalc()}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\kelvin-to-celsius.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){unitnav.style.display=\"block\",btndiv.style.display=\"none\",xelem.oninput=function(e){OnCalc()},yelem.oninput=function(e){OnCalc2()}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\kelvin-to-celsius.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams(){for(var e,t=window.location.href,n=/[?&]([^=#]+)=([^&#]*)/g,l={};e=n.exec(t);)l[e[1]]=e[2];return l}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\kelvin-to-fahrenheit.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc(){for(var e,t=\"\",n=str2num3(xelem.value),l=0;l<n.length;l++)e=9*n[l]/5-459.67,l>0&&(t+=\" \"),t+=num2str(roundresult(e));if(document.getElementById(\"y\").value=t,1==n.length){var a=+num2str(n[0])+\"K\\xd79/5 - \"+num2str(459.67)+\"\\n\";a+=\"= \"+num2str(t)+\"\\xb0F\",document.getElementById(\"txt\").value=a,document.getElementById(\"pf1\").style.display=\"flex\"}else document.getElementById(\"pf1\").style.display=\"none\"}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\kelvin-to-fahrenheit.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){var e=GetURLParams();if(void 0!==e.x){var t=decodeURIComponent2(e.x);-1==t.indexOf(\" \")&&(document.querySelector(\"#doc>h1\").innerHTML=t+\" Kelvin to Fahrenheit\",document.title=t+\" Kelvin to Fahrenheit\"),xelem.value=t}OnCalc()}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\kelvin-to-fahrenheit.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams(){for(var e,t=window.location.href,n=/[?&]([^=#]+)=([^&#]*)/g,l={};e=n.exec(t);)l[e[1]]=e[2];return l}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\rankine-to-celsius.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc(){for(var e,t=\"\",n=str2num3(xelem.value),l=0;l<n.length;l++)e=5*n[l]/9-273.15,l>0&&(t+=\" \"),t+=num2str(roundresult(e));if(document.getElementById(\"y\").value=t,1==n.length){var a=num2str(n[0])+\"\\xb0R\\xd75/9 - \"+num2str(273.15)+\"\\n\";a+=\"= \"+num2str(t)+\"\\xb0C\",document.getElementById(\"txt\").value=a,document.getElementById(\"pf1\").style.display=\"flex\"}else document.getElementById(\"pf1\").style.display=\"none\"}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\rankine-to-celsius.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){var e=GetURLParams();if(void 0!==e.x){var t=decodeURIComponent2(e.x);-1==t.indexOf(\" \")&&(document.querySelector(\"#doc>h1\").innerHTML=t+\" degrees Rankine to Celsius\",document.title=t+\" degrees Rankine to Celsius\"),xelem.value=t}OnCalc()}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\rankine-to-celsius.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         var x=decodeURIComponent2(params.x);\n         if( x.indexOf(\" \")==-1 ) {\n            var el = document.querySelector(\"#doc>h1\");\n            el.innerHTML = x+\" Rankine to Kelvin\";\n            document.title = x+\" Rankine to Kelvin\";\n         }\n         \n         xelem.value = x;\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\rankine-to-kelvin.html",
+    "type": "FunctionExpression",
+    "lineStart": 3,
+    "lineEnd": 16
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\rankine-to-kelvin.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 28
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var y,yy=\"\";\n      var x = str2num3(xelem.value);\n      for(var i=0; i<x.length; i++) {\n         y=x[i]*5.0/9.0;\n         if( i>0 ) yy+=\" \";\n         yy+=num2str(roundresult(y));\n      }\n      document.getElementById(\"y\").value = yy;\n      if( x.length==1 ) {\n         var txt=+num2str(x[0])+\"\\u00B0R\\u00D75/9\\n\";\n         txt+=\"= \"+num2str(yy)+\"K\";\n         document.getElementById(\"txt\").value = txt;\n         document.getElementById(\"pf1\").style.display = \"flex\";\n      }\n      else\n         document.getElementById(\"pf1\").style.display = \"none\";\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\temperature\\rankine-to-kelvin.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 29,
+    "lineEnd": 46
+  }
+]

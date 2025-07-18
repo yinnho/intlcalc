@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator.net - Free Online Calculators</title>
+    <meta name="description" content="Free online calculators for math, finance, health, and more. Over 200 calculators available.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #fff; color: #000; }
+        
+        .header { border-bottom: 1px solid #ccc; padding: 10px 0; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; text-decoration: none; color: #000; }
+        .lang-switcher select { padding: 5px; border: 1px solid #ccc; }
+        
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 300px; gap: 30px; }
+        
+        .calculator-section h1 { font-size: 24px; margin-bottom: 20px; }
+        .scientific-calc { border: 1px solid #ccc; padding: 20px; background: #f9f9f9; max-width: 400px; }
+        .calc-display { width: 100%; height: 60px; font-size: 24px; text-align: right; padding: 10px; border: 1px solid #ccc; margin-bottom: 15px; }
+        .calc-buttons { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; }
+        .calc-btn { padding: 15px 10px; font-size: 14px; border: 1px solid #ccc; background: #fff; cursor: pointer; }
+        .calc-btn:hover { background: #f0f0f0; }
+        .calc-btn.operator { background: #e0e0e0; }
+        .calc-btn.number { background: #fff; }
+        .calc-btn.function { background: #f0f0f0; font-size: 12px; }
+        
+        .categories { }
+        .category { margin-bottom: 30px; }
+        .category h2 { font-size: 18px; color: #000; margin-bottom: 10px; padding-bottom: 5px; border-bottom: 1px solid #ccc; }
+        .category ul { list-style: none; }
+        .category li { margin-bottom: 3px; }
+        .category a { color: #0000ee; text-decoration: none; font-size: 14px; }
+        .category a:hover { text-decoration: underline; }
+        
+        .description { margin-top: 30px; line-height: 1.6; font-size: 14px; color: #333; }
+        
+        .footer { margin-top: 50px; border-top: 1px solid #ccc; padding: 20px 0; text-align: center; font-size: 12px; color: #666; }
+        
+        @media (max-width: 768px) {
+            .main-container { grid-template-columns: 1fr; }
+            .calc-buttons { grid-template-columns: repeat(4, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">Calculator.net</a>
+            <div class="lang-switcher">
+                <select onchange="changeLanguage(this.value)">
+                    <option value="en">English</option>
+                    <option value="zh">中文</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="ja">日本語</option>
+                    <option value="ko">한국어</option>
+                    <option value="pt">Português</option>
+                    <option value="ru">Русский</option>
+                    <option value="ar">العربية</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="calculator-section">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="vertical-align: top; padding-right: 20px;">
+                        <div class="scientific-calc">
+                            <input type="text" id="display" class="calc-display" value="0" readonly>
+                            <div class="calc-buttons" id="calcButtons"></div>
+                        </div>
+                    </td>
+                    <td style="vertical-align: top; font-size: 14px;">
+                        <strong>Free Online Calculators</strong><br><br>
+                        <input type="text" placeholder="Search" style="width: 100%; padding: 5px; border: 1px solid #ccc; margin-bottom: 10px;">
+                    </td>
+                </tr>
+            </table>
+            
+            <div class="description">
+                <p><strong>Calculator.net's</strong> sole focus is to provide fast, comprehensive, convenient, free online calculators in a plethora of areas. Currently, we have around 200 calculators to help you "do the math" quickly in areas such as finance, fitness, health, math, and others, and we are still developing more. Our goal is to become the one-stop, go-to site for people who need to make quick calculations.</p>
+            </div>
+        </div>
+
+        <div class="categories">
+            <div class="category">
+                <h2>Financial Calculators</h2>
+                <ul>
+                    <li><a href="/calc/interest-calculator.html">Interest Calculator</a></li>
+                    <li><a href="/calc/loan-calculator.html">Loan Calculator</a></li>
+                    <li><a href="/calc/mortgage-calculator.html">Mortgage Calculator</a></li>
+                    <li><a href="/calc/compound-interest-calculator.html">Compound Interest Calculator</a></li>
+                    <li><a href="/calc/investment-calculator.html">Investment Calculator</a></li>
+                </ul>
+            </div>
+
+            <div class="category">
+                <h2>Fitness & Health Calculators</h2>
+                <ul>
+                    <li><a href="/calc/bmi-calculator.html">BMI Calculator</a></li>
+                    <li><a href="/calc/calorie-calculator.html">Calorie Calculator</a></li>
+                    <li><a href="/calc/body-fat-calculator.html">Body Fat Calculator</a></li>
+                    <li><a href="/calc/ideal-weight-calculator.html">Ideal Weight Calculator</a></li>
+                    <li><a href="/calc/pregnancy-calculator.html">Pregnancy Calculator</a></li>
+                </ul>
+            </div>
+
+            <div class="category">
+                <h2>Math Calculators</h2>
+                <ul>
+                    <li><a href="/calc/basic-math-calculator.html">Basic Math Calculator</a></li>
+                    <li><a href="/calc/scientific-calculator.html">Scientific Calculator</a></li>
+                    <li><a href="/calc/percentage-calculator.html">Percentage Calculator</a></li>
+                    <li><a href="/calc/fraction-calculator.html">Fraction Calculator</a></li>
+                    <li><a href="/calc/algebra-calculator.html">Algebra Calculator</a></li>
+                </ul>
+            </div>
+
+            <div class="category">
+                <h2>Other Calculators</h2>
+                <ul>
+                    <li><a href="/calc/age-calculator.html">Age Calculator</a></li>
+                    <li><a href="/calc/date-calculator.html">Date Calculator</a></li>
+                    <li><a href="/calc/time-calculator.html">Time Calculator</a></li>
+                    <li><a href="/convert/length-converter.html">Length Converter</a></li>
+                    <li><a href="/convert/temperature-converter.html">Temperature Converter</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024 IntlCalc.com. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // 科学计算器实现
+        let display = document.getElementById('display');
+        let currentInput = '0';
+        let previousInput = '';
+        let operator = '';
+        let memory = 0;
+
+        const buttons = [
+            ['sin', 'cos', 'tan', 'Deg', 'Rad'],
+            ['sin⁻¹', 'cos⁻¹', 'tan⁻¹', 'π', 'e'],
+            ['x^y', 'x³', 'x²', 'eˣ', '10ˣ'],
+            ['ʸ√x', '³√x', '√x', 'ln', 'log'],
+            ['(', ')', '1/x', '%', 'n!'],
+            ['7', '8', '9', '+', 'Back'],
+            ['4', '5', '6', '–', 'Ans'],
+            ['1', '2', '3', '×', 'M+'],
+            ['0', '.', 'EXP', '/', 'M-'],
+            ['±', 'RND', 'AC', '=', 'MR']
+        ];
+
+        function createCalculator() {
+            const container = document.getElementById('calcButtons');
+            buttons.forEach(row => {
+                row.forEach(btn => {
+                    const button = document.createElement('button');
+                    button.className = 'calc-btn';
+                    button.textContent = btn;
+                    
+                    if (['0','1','2','3','4','5','6','7','8','9','.'].includes(btn)) {
+                        button.className += ' number';
+                    } else if (['+','–','×','/','='].includes(btn)) {
+                        button.className += ' operator';
+                    } else {
+                        button.className += ' function';
+                    }
+                    
+                    button.onclick = () => handleClick(btn);
+                    container.appendChild(button);
+                });
+            });
+        }
+
+        function handleClick(value) {
+            switch(value) {
+                case 'AC':
+                    currentInput = '0';
+                    previousInput = '';
+                    operator = '';
+                    display.value = currentInput;
+                    break;
+                case 'Back':
+                    if (currentInput.length > 1) {
+                        currentInput = currentInput.slice(0, -1);
+                    } else {
+                        currentInput = '0';
+                    }
+                    display.value = currentInput;
+                    break;
+                case '=':
+                    calculate();
+                    break;
+                case '±':
+                    currentInput = (parseFloat(currentInput) * -1).toString();
+                    display.value = currentInput;
+                    break;
+                case '%':
+                    currentInput = (parseFloat(currentInput) / 100).toString();
+                    display.value = currentInput;
+                    break;
+                case '√x':
+                    currentInput = Math.sqrt(parseFloat(currentInput)).toString();
+                    display.value = currentInput;
+                    break;
+                case 'x²':
+                    currentInput = Math.pow(parseFloat(currentInput), 2).toString();
+                    display.value = currentInput;
+                    break;
+                case '1/x':
+                    currentInput = (1 / parseFloat(currentInput)).toString();
+                    display.value = currentInput;
+                    break;
+                case 'sin':
+                    currentInput = Math.sin(parseFloat(currentInput) * Math.PI / 180).toString();
+                    display.value = currentInput;
+                    break;
+                case 'cos':
+                    currentInput = Math.cos(parseFloat(currentInput) * Math.PI / 180).toString();
+                    display.value = currentInput;
+                    break;
+                case 'tan':
+                    currentInput = Math.tan(parseFloat(currentInput) * Math.PI / 180).toString();
+                    display.value = currentInput;
+                    break;
+                case 'ln':
+                    currentInput = Math.log(parseFloat(currentInput)).toString();
+                    display.value = currentInput;
+                    break;
+                case 'log':
+                    currentInput = Math.log10(parseFloat(currentInput)).toString();
+                    display.value = currentInput;
+                    break;
+                case 'π':
+                    currentInput = Math.PI.toString();
+                    display.value = currentInput;
+                    break;
+                case 'e':
+                    currentInput = Math.E.toString();
+                    display.value = currentInput;
+                    break;
+                case 'M+':
+                    memory += parseFloat(currentInput);
+                    break;
+                case 'M-':
+                    memory -= parseFloat(currentInput);
+                    break;
+                case 'MR':
+                    currentInput = memory.toString();
+                    display.value = currentInput;
+                    break;
+                default:
+                    if (['0','1','2','3','4','5','6','7','8','9','.'].includes(value)) {
+                        if (currentInput === '0' && value !== '.') {
+                            currentInput = value;
+                        } else {
+                            currentInput += value;
+                        }
+                        display.value = currentInput;
+                    } else if (['+','–','×','/'].includes(value)) {
+                        if (operator && previousInput) {
+                            calculate();
+                        }
+                        operator = value;
+                        previousInput = currentInput;
+                        currentInput = '';
+                    }
+            }
+        }
+
+        function calculate() {
+            if (previousInput && currentInput && operator) {
+                const prev = parseFloat(previousInput);
+                const curr = parseFloat(currentInput);
+                let result = 0;
+
+                switch (operator) {
+                    case '+': result = prev + curr; break;
+                    case '–': result = prev - curr; break;
+                    case '×': result = prev * curr; break;
+                    case '/': result = prev / curr; break;
+                }
+
+                currentInput = result.toString();
+                display.value = currentInput;
+                previousInput = '';
+                operator = '';
+            }
+        }
+
+        function changeLanguage(lang) {
+            window.location.href = `https://${lang}.intlcalc.com`;
+        }
+
+        // 初始化
+        createCalculator();
+    </script>
+</body>
+</html>

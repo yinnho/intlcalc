@@ -1,0 +1,297 @@
+<!DOCTYPE html><html lang="en"><!-- #BeginTemplate "../../rapidtables.dwt" --><head>
+<script>var mobileAdsNum=0;</script>
+<script async="" src="/ja/js/tagmng8.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/ja/css/rapid02.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/ja/css/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/ja/css/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/ja/css/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/ja/css/favicon/manifest.json">
+<link rel="mask-icon" href="/ja/css/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/ja/css/favicon/favicon.ico">
+<meta name="msapplication-config" content="/lib/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+<!-- #BeginEditable "doctitle" -->
+<title>Fractions Calculator</title>
+<meta name="description" content="Fractions calculator with whole numbers and steps">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<style>
+   .adslot_1 { display:none; }
+   h1 { font-size:1.6rem; }
+   h2 { font-size:1.4rem; }
+   h3 { font-size:1.4rem; }
+   h4 { font-size:1.2rem; }
+   .btn-group a { text-decoration:none; }
+   .calcform { padding:20px; max-width:550px; background:#eee8d5; }
+   .calcform td input[type=number] { width:95px; text-align: center; margin:4px auto; }
+   .calcform td input[type=text] { width:95px; text-align: center; margin:4px auto; }
+   .calcform .btn span { font-weight: bold; font-size:large; }
+   .calcform .btn img { filter:invert(1); }
+   #calcform>div:nth-child(n+5) { display:none; }
+   #op { font-weight:bold; }
+   #td11, #td14 { display:none; }
+	#td12, #td31, #td34 { padding-bottom:0px; }
+	#td21, #td22, #td41, #td42 { border-top:#666 2px solid; padding-top:1px; }
+   #fracdiv { margin-right:0; padding:10px; border:1px #ccc solid; background:#e9ecef; }
+   #frac { height:42px; width:unset; }
+   #wrapper td { padding-left:unset; padding-right:unset; }
+	@media all and (max-width: 800px) {
+      .adslot_1, .adslot_2, .adslot_3 { display:none; }
+      #calcform { padding:10px; }
+      #calcform td input[type=number] { width:80px; }
+      #calcform td input[type=text] { width:80px; }
+   }
+	@media all and (max-width: 450px) {
+      #calcform td input[type=number] { width:70px; }
+      #calcform td input[type=text] { width:70px; }
+      #op { min-width:48px; }
+   }
+   .fraction {
+      display: inline-block;
+      position: relative;
+      vertical-align: middle; 
+      letter-spacing: 0.001em;
+      text-align: center;
+   }
+   .fraction > span { display: block; padding: 0.1em; }
+   .fraction span.fdn { border-top: 2px solid black; }
+</style>
+<!-- #EndEditable -->
+
+<script async="" src="//cdn.snigelweb.com/adconsent/adconsent.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NY85XQ2FKR"></script></head>
+
+<body>
+        <div style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+            <select onchange="changeLanguage(this.value)" style="padding: 5px; border: 1px solid #ccc; border-radius: 3px;">
+                <option value="en" >English</option>
+                <option value="zh" >中文</option>
+                <option value="es" >Español</option>
+                <option value="fr" >Français</option>
+                <option value="de" >Deutsch</option>
+                <option value="ja" selected>日本語</option>
+                <option value="ko" >한국어</option>
+                <option value="pt" >Português</option>
+                <option value="ru" >Русский</option>
+                <option value="ar" >العربية</option>
+            </select>
+        </div>
+        <script>
+        function changeLanguage(lang) {
+            const currentPath = window.location.pathname;
+            const newPath = currentPath.replace(/^/([a-z]{2})//, '/' + lang + '/');
+            if (newPath !== currentPath) {
+                window.location.href = newPath;
+            }
+        }
+        </script>
+
+<div id="header">
+	<div>
+	<div id="logo"><a href="/">RapidTables</a></div>
+   <div class="gcse-search"></div>
+   <div id="tooldiv">
+      <a href="#" onclick="OnPageSearch()"><img width="24" height="24" title="Search" src="/ja/js/icons/material/svg/search_black_24dp.svg" loading="lazy"><span> Search</span></a>
+      <a href="#" onclick="OnPageShare()"><img width="24" height="24" title="Share" src="/ja/js/icons/material/svg/share_black_24dp.svg" loading="lazy"><span> Share</span></a>
+   </div>
+	</div>
+</div>
+
+<div id="wrapper">
+
+<div id="nav">
+	<!-- #BeginEditable "doclink" -->
+	<a href="/">Home</a>›<a href="../index.html">Calculators</a>›<a href="index.html">Math Calculators</a>›<a href="fractions-calculator.html">Fractions calculator</a>
+	<!-- #EndEditable -->
+</div>
+
+<div id="lcol">
+
+	<div id="doc">
+	<!-- #BeginEditable "doctext" -->
+	<h1>Fractions Calculator</h1>
+	<form id="calcform" name="calcform" autocomplete="off" class="calcform">
+   <div class="btn-group">
+      <a href="#" id="fm1" class="btn btn-outline-success fw-semibold active">Fractions Calculator</a>
+      <a href="fraction-simplifier.html" id="fm2" class="btn btn-outline-success fw-semibold">Fraction Simplifier</a>
+      <a href="/convert/number/fraction-to-decimal.html" id="fm3" class="btn btn-outline-success fw-semibold">Fraction Converter</a>
+   </div>
+   <div class="mt-3 btn-group">
+      <button type="button" id="sf" class="btn btn-secondary active">Simple Fractions</button>
+      <button type="button" id="mf" class="btn btn-secondary">Mixed Fractions</button>
+   </div>
+   <div class="mt-3">
+      <table>
+      <tbody><tr>
+         <td id="td11" rowspan="2" style="display: none;"><input type="number" step="1" id="x1" class="form-control form-control-lg"></td>
+         <td id="td12"><input type="number" min="0" step="1" value="1" id="n1" class="form-control" autofocus=""></td>
+         <td id="td13" rowspan="2" class="ps-2 pe-2">
+            <select id="op" class="form-control form-control-lg">
+               <option selected="">+</option>
+               <option>-</option>
+               <option>×</option>
+               <option>÷</option>
+            </select>
+         </td>
+         <td id="td14" rowspan="2" style="display: none;"><input type="number" step="1" id="x2" class="form-control form-control-lg"></td>
+         <td id="td15"><input type="number" min="0" step="1" value="1" id="n2" class="form-control"></td>
+      </tr>
+      <tr>
+         <td id="td21"><input type="number" min="1" step="1" value="2" id="d1" class="form-control"></td>
+         <td id="td22"><input type="number" min="1" step="1" value="3" id="d2" class="form-control"></td>
+      </tr>
+      </tbody></table>
+   </div>
+   <div class="mt-3">
+		<button type="button" title="Calculate" class="btn btn-success" onclick="fcalc()"><span>=</span> Calculate</button>
+		<button type="reset" title="Reset" class="btn btn-secondary" onclick="freset()"><span>×</span> Reset</button>
+   </div>
+   <div class="mt-3">
+      <label>Result</label>
+      <table>
+         <tbody><tr>
+            <td id="td31"><input type="text" id="n3" class="form-control" readonly=""></td>
+            <td id="td32" rowspan="2" class="ps-2 pe-2 fw-semibold" style="display: none;">=</td>
+            <td id="td33" rowspan="2" style="display: none;"><input type="text" id="x3" class="form-control form-control-lg" readonly=""></td>
+            <td id="td34" style="display: none;"><input type="text" id="n4" class="form-control" readonly=""></td>
+         </tr>
+         <tr>
+            <td id="td41"><input type="text" id="d3" class="form-control" readonly=""></td>
+            <td id="td42" style="display: none;"><input type="text" id="d4" class="form-control" readonly=""></td>
+         </tr>
+      </tbody></table>
+   </div>
+   <div class="mt-3 ms-3">
+      <label class="row form-label">View</label>
+      <div id="fracdiv" class="row">
+      <canvas id="frac"></canvas>
+      </div>
+   </div>
+   <div class="mt-3">
+      <label for="area" class="form-label">Calculation steps</label>
+      <textarea rows="7" id="area" class="form-control" readonly=""></textarea>
+	   <p>* lcm = least common multiple</p>
+   </div>
+	</form>
+	<p><a href="fraction-simplifier.html">Fraction simplifier ►</a></p>
+   <h2>Fractions calculation</h2>
+	<form id="calcform2" class="calcform">
+      <textarea rows="4" id="txt" placeholder="Calculation results ..." class="form-control form-control-lg" readonly=""></textarea>
+      <div class="input-group">
+            <input type="text" id="calctxt" name="q" value="(1+1/2)×1/3" placeholder="Enter a calculation ..." class="form-control form-control-lg ms-0" spellcheck="false" autocomplete="off">
+            <button type="button" id="calcbtn" title="Calculate" class="btn btn-lg btn-success fw-semibold" onclick="calcq()">=</button>
+      </div>
+	</form>
+	<!-- #EndEditable -->
+
+   <!-- rapidtables_bottom_01 -->
+   <div id="adngin-bottom_01-0"></div>
+	
+	<!-- #BeginEditable "doctext2" -->
+   <br>
+	<h4>Adding fractions example</h4>
+	<div class="math"><div class="fraction"><span class="fup">1</span><span class="fdn">2</span></div> + <div class="fraction"><span class="fup">1</span><span class="fdn">3</span></div> = <div class="fraction"><span class="fup">1×3+1×2</span><span class="fdn">2×3</span></div> = <div class="fraction"><span class="fup">5</span><span class="fdn">6</span></div></div>
+	<h4>Subtracting fractions example</h4>
+	<div class="math"><div class="fraction"><span class="fup">1</span><span class="fdn">2</span></div> - <div class="fraction"><span class="fup">1</span><span class="fdn">3</span></div> = <div class="fraction"><span class="fup">1×3</span><span class="fdn">2×3</span></div> = <div class="fraction"><span class="fup">1</span><span class="fdn">6</span></div></div>
+	<h4>Multiplying fractions example</h4>
+	<div class="math"><div class="fraction"><span class="fup">1</span><span class="fdn">2</span></div> × <div class="fraction"><span class="fup">1</span><span class="fdn">3</span></div> = <div class="fraction"><span class="fup">1×1</span><span class="fdn">2×3</span></div> = <div class="fraction"><span class="fup">1</span><span class="fdn">6</span></div></div>
+	<h4>Dividing fractions example</h4>
+	<div class="math"><div class="fraction"><span class="fup">1</span><span class="fdn">2</span></div> ÷ <div class="fraction"><span class="fup">1</span><span class="fdn">3</span></div> = <div class="fraction"><span class="fup">1</span><span class="fdn">2</span></div> × <div class="fraction"><span class="fup">3</span><span class="fdn">1</span></div> = <div class="fraction"><span class="fup">1×3</span><span class="fdn">2×1</span></div> = <div class="fraction"><span class="fup">3</span><span class="fdn">2</span></div> = 1<div class="fraction"><span class="fup">1</span><span class="fdn">2</span></div></div>
+	<br>
+	<hr>
+	<h2>See also</h2>
+	<ul class="seealso">
+		<li><a href="fraction-simplifier.html">Fraction simplifier</a></li>
+		<li><a href="/convert/number/fraction-to-decimal.html">Fraction to decimal</a></li>
+		<li><a href="/convert/number/fraction-to-percent.html">Fraction to percent</a></li>
+		<li><a href="adding-fractions-calculator.html">Adding fractions calculator</a></li>
+		<li><a href="subtracting-fractions-calculator.html">Subtracting fractions calculator</a></li>
+		<li><a href="multiplying-fractions-calculator.html">Multiplying fractions calculator</a></li>
+		<li><a href="dividing-fractions-calculator.html">Dividing fractions calculator</a></li>
+		<li><a href="/convert/number/decimal-to-fraction.html">Decimal to fraction</a></li>
+		<li><a href="/convert/number/percent-to-fraction.html">Percent to fraction </a></li>
+		<li><a href="gcf-calculator.html">GCF calculator</a></li>
+		<li><a href="lcm-calculator.html">LCM calculator</a></li>
+		<li><a href="percentage-calculator.html">Percentage calculator</a></li>
+	</ul>
+	<!-- #EndEditable -->
+	</div>
+	
+   <div id="fdbk">
+      <h2 id="feedback">Write how to improve this page</h2>
+      <form id="fdbkform">
+      <textarea id="fdbkarea" rows="4" minlength="30" maxlength="1000" placeholder="Your message ..." required="" class="form-control"></textarea>
+      <span id="fdbkmsg"></span>
+      <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">Submit Feedback</button>
+      </form>
+   </div>
+</div>
+
+<div id="rcol">
+   <!-- rapidtables_right_sidebar -->
+   <div id="adngin-right_sidebar-0"></div>
+
+	<!-- #BeginEditable "docnav" -->
+	<h5>MATH CALCULATORS</h5>
+	<ul>
+		<li><a href="calculator.html">Scientific calculator</a></li>
+		<li><a href="simple-calculator.html">Simple calculator</a></li>
+		<li><a href="average-calculator.html">Average calculator</a></li>
+		<li><a href="base-calculator.html">Base calculator</a></li>
+		<li><a href="complex-calculator.html">Complex numbers calculator</a></li>
+		<li><a href="fractions-calculator.html">Fractions calculator</a></li>
+      <li><a href="percentage-calculator.html">Percentage calculator</a></li>
+	</ul>
+	<h5>RAPID TABLES</h5>
+	<ul>
+		<li><a href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com">Recommend Site</a></li>
+		<li><a href="#feedback">Send Feedback</a></li>
+		<li><a href="/about/about.html">About</a></li>
+	</ul>
+	<!-- #EndEditable -->
+	
+</div>
+
+</div>
+
+<div id="footer">
+	<a href="/index.html">Home</a> | 
+	<a href="/web/index.html">Web</a> |
+	<a href="/math/index.html">Math</a> | 
+	<a href="/electric/index.html">Electricity</a> |
+	<a href="/calc/index.html">Calculators</a> | 
+	<a href="/convert/index.html">Converters</a> |
+	<a href="/tools/index.html">Tools</a>
+	<p>©  
+	<a href="/">RapidTables.com</a> | 
+	<a href="/about/about.html" rel="nofollow">About</a> | 
+	<a href="/about/terms.html" rel="nofollow">Terms of Use</a> | 
+	<a href="/about/privacy.html" rel="nofollow">Privacy Policy</a> | 
+	<a href="/about/cookies.html" rel="nofollow">Manage Cookies</a>
+	</p>
+</div>
+
+<!-- rapidtables_bottom_adhesive -->
+<div id="adngin-adhesive-0"></div>
+
+<!-- #BeginEditable "docscript" -->
+<!--sse-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.6.7/es5-shim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.6.7/es5-sham.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.10.0/math.min.js" integrity="sha512-Y5iDNm1edrOTaYkJGH4GlmiKhvSHMBJ9st3DOchcFvsLdrVrMs345L6SE/3KNxRQpUqSSnuwYU8QuN/crfKdmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/ja/calc/calc2.js" defer=""></script>
+<script src="/convert/number.js" defer=""></script>
+<script src="/ja/js/utils/mathview.js"></script>
+<script>
+"use strict";var n2tskip=0,td11ctl=document.getElementById("td11"),td14ctl=document.getElementById("td14"),td32ctl=document.getElementById("td32"),td33ctl=document.getElementById("td33"),td34ctl=document.getElementById("td34"),td42ctl=document.getElementById("td42"),mfctl=document.getElementById("mf"),sfctl=document.getElementById("sf"),x1ctl=document.getElementById("x1"),x2ctl=document.getElementById("x2"),x3ctl=document.getElementById("x3"),n1ctl=document.getElementById("n1"),n2ctl=document.getElementById("n2"),n3ctl=document.getElementById("n3"),n4ctl=document.getElementById("n4"),d1ctl=document.getElementById("d1"),d2ctl=document.getElementById("d2"),d3ctl=document.getElementById("d3"),d4ctl=document.getElementById("d4"),opctl=document.getElementById("op"),areactl=document.getElementById("area");function freset(){ClearView(document.getElementById("frac"))}function isFrac(t,l,e){return(""!=t||""!=l&&""!=e)&&(""==t||""==l||""!=e)&&(""==t||""!=l||""==e)}function fcalc(){var t,l,e,c,n=1,a=1,d=1,s=x1ctl.value,y=n1ctl.value,o=d1ctl.value,i=x2ctl.value,u=n2ctl.value,r=d2ctl.value,_=opctl.selectedIndex;if(!isFrac(s,y,o)||!isFrac(i,u,r)){alert("Please enter 2 numbers");return}"-"==s&&(n=-1,s="0"),"-"==i&&(a=-1,i="0"),""==s&&(s="0"),""==i&&(i="0"),""==y&&(y="0"),""==u&&(u="0"),""==o&&(o="1"),""==r&&(r="1"),s=parseInt(s),y=parseInt(y),o=parseInt(o),i=parseInt(i),u=parseInt(u),r=parseInt(r),_=parseInt(_),0==s&&y/o<0&&(n=-1),0==i&&u/r<0&&(a=-1),y=Math.abs(y),o=Math.abs(o),u=Math.abs(u),r=Math.abs(r),s<0&&(n=-1,s=-s),i<0&&(a=-1,i=-i);var $=n*(y+s*o),v=a*(u+i*r);0==_?(t=$*r+v*o,l=o*r):1==_?(t=$*r-v*o,l=o*r):2==_?(t=$*v,l=o*r):(t=$*r,l=o*v),t/l<0&&(d=-1),t=Math.abs(t),l=Math.abs(l);var f=gcd(t,l),g=d*(t/=f),m=l/=f,p="",E=0,I=0;t>l&&(E=Math.floor(t/l),(I=t-E*l)>0&&-1==d&&(p="-")),n3ctl.value=g,d3ctl.value=m,t>l?(x3ctl.value=p+E,0!=I&&(n4ctl.value=I,d4ctl.value=l),td32ctl.style.display="table-cell",td33ctl.style.display="table-cell",td34ctl.style.display="table-cell",td42ctl.style.display="table-cell"):(td32ctl.style.display="none",td33ctl.style.display="none",td34ctl.style.display="none",td42ctl.style.display="none");var B=[" + "," - "," \xd7 "," / "][_],b="";""!=s&&(b+=s+" "),b+=n*y+"/"+o,b+=B,""!=i&&(b+=i+" "),b+=a*u+"/"+r,(0!=s||0!=i)&&(b+="\n= ",b+=y+o*s+"/"+o,b+=B,b+=u+r*i+"/"+r);var x=o*r/gcd(o,r);b="lcm("+o+","+r+")="+x+"\n"+b,b+="\n= ",0==_||1==_?(b+=$*x/o+"/"+x+B+v*x/r+"/"+x,0==_?(e=$*x/o+v*x/r,c=x):(e=$*x/o-v*x/r,c=x)):2==_?(b+="("+$+"\xd7"+v+") / ("+o+"\xd7"+r+")",e=$*v,c=o*r):(b+="("+$+"\xd7"+r+") / ("+o+"\xd7"+v+")",e=$*r,c=o*v),b+="\n= ",b+=e+"/"+c,(f=gcd(e,c))>1&&(e/=f,c/=f,b+="\n= ",b+=e+"/"+c),b+="\n= ",b+=num2str(roundresult(e/c)),areactl.value=b;var D=0;t>l&&(D=Math.floor(t/l),t-=D*l),CircNumber(document.getElementById("frac"),{n:D,num:t,den:l,radius:20,fillColor:"rgb(80,192,0)",lineWidth:1});for(var k=document.querySelectorAll("#calcform>div:nth-child(n+4)"),E=0;E<k.length;E++)k[E].style.display="block"}function AddTxt(t,l){""!=txt.value&&(txt.value+="\n"),txt.value+=num2str3(t)+"\n= ";var e=math.fraction(l);txt.value+=math.format(e)+"\n= ",txt.value+=num2str3(l.toString()),txt.scrollTop=txt.scrollHeight}function calcq(){var t=calctxt.value;if(""!=t){t=str2num2(t.replace(/\u00D7/g,"*"));var l=math.evaluate(t);AddTxt(calctxt.value,l),calctxt.value="",calctxt.focus()}}window.addEventListener("DOMContentLoaded",function(){td11ctl.style.display="none",td14ctl.style.display="none",td32ctl.style.display="none",td33ctl.style.display="none",td34ctl.style.display="none",td42ctl.style.display="none",sfctl.onclick=function(){td11ctl.style.display="none",td14ctl.style.display="none",sfctl.classList.toggle("active"),mfctl.classList.toggle("active"),x1ctl.value="",x2ctl.value="",n1ctl.focus()},mfctl.onclick=function(){td11ctl.style.display="table-cell",td14ctl.style.display="table-cell",sfctl.classList.toggle("active"),mfctl.classList.toggle("active"),x1ctl.focus()},document.getElementById("calcform").onkeypress=function(t){13==t.keyCode&&(t.preventDefault(),fcalc())},document.getElementById("calcform2").onkeypress=function(t){13==t.keyCode&&(t.preventDefault(),calcq())},calctxt.oninput=function(){calctxt.value=calctxt.value.replace("*","\xd7")},math.config({number:"Fraction",precision:20})});
+</script>
+<!--/sse-->
+<!-- #EndEditable -->
+
+
+
+
+
+
+<iframe name="__tcfapiLocator" style="display: none;"></iframe><iframe name="__uspapiLocator" style="display: none;"></iframe><iframe name="__adconsentLocator" style="display: none;"></iframe></body><!-- #EndTemplate --></html>

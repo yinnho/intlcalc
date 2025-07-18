@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://intlcalc.com/sitemap.xml
+Sitemap: https://en.intlcalc.com/sitemap.xml
+Sitemap: https://zh.intlcalc.com/sitemap.xml
+Sitemap: https://es.intlcalc.com/sitemap.xml
+Sitemap: https://fr.intlcalc.com/sitemap.xml
+Sitemap: https://de.intlcalc.com/sitemap.xml
+Sitemap: https://ja.intlcalc.com/sitemap.xml
+Sitemap: https://ko.intlcalc.com/sitemap.xml
+Sitemap: https://pt.intlcalc.com/sitemap.xml
+Sitemap: https://ru.intlcalc.com/sitemap.xml
+Sitemap: https://ar.intlcalc.com/sitemap.xml
+
+# Specific rules for better crawling
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Disallow common unwanted paths
+Disallow: /temp/
+Disallow: /.well-known/
+Disallow: /api/
+Disallow: /*?

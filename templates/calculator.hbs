@@ -1,0 +1,212 @@
+{{#> layout title=calculator.title description=calculator.description currentPath="calc/"}}
+
+<div class="calculator-page">
+    <div class="calculator-header">
+        <h1>{{calculator.title}}</h1>
+        <p>{{calculator.description}}</p>
+    </div>
+
+    <div class="calculator-container">
+        <div class="calculator-form">
+            {{#each calculator.config.fields}}
+            <div class="form-group">
+                <label for="{{name}}">{{label}}</label>
+                {{#if (eq type "select")}}
+                <select id="{{name}}" name="{{name}}">
+                    {{#each options}}
+                    <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                </select>
+                {{else if (eq type "date")}}
+                <input type="date" id="{{name}}" name="{{name}}">
+                {{else}}
+                <input type="{{type}}" id="{{name}}" name="{{name}}" step="0.01" placeholder="{{label}}">
+                {{/if}}
+            </div>
+            {{/each}}
+            
+            <button type="button" onclick="calculate()" class="calculate-btn">
+                {{#if (eq lang "zh")}}计算{{else}}Calculate{{/if}}
+            </button>
+        </div>
+
+        <div class="calculator-result" id="result" style="display: none;">
+            <h3>{{#if (eq lang "zh")}}计算结果{{else}}Result{{/if}}</h3>
+            <div id="result-content"></div>
+        </div>
+    </div>
+
+    {{#if calculator.instructions}}
+    <div class="calculator-instructions">
+        <h3>{{#if (eq lang "zh")}}使用说明{{else}}Instructions{{/if}}</h3>
+        <div>{{{calculator.instructions}}}</div>
+    </div>
+    {{/if}}
+
+    <div class="related-calculators">
+        <h3>{{#if (eq lang "zh")}}相关计算器{{else}}Related Calculators{{/if}}</h3>
+        <div class="calculator-grid">
+            {{#each relatedCalculators}}
+            <div class="calculator-card">
+                <h4><a href="/{{../lang}}/calc/{{slug}}">{{title}}</a></h4>
+                <p>{{description}}</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<style>
+.calculator-page {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.calculator-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.calculator-header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.calculator-form {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.calculate-btn {
+    width: 100%;
+    padding: 15px;
+    background: #007cba;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.calculate-btn:hover {
+    background: #005a87;
+}
+
+.calculator-result {
+    background: #e8f5e8;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #4caf50;
+}
+
+.calculator-result h3 {
+    margin-bottom: 15px;
+    color: #2e7d32;
+}
+
+.calculator-instructions {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.calculator-instructions h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.related-calculators {
+    margin-top: 40px;
+}
+
+.related-calculators h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .calculator-container {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<script>
+async function calculate() {
+    const calculatorSlug = '{{calculator.slug}}';
+    const lang = '{{lang}}';
+    
+    // 收集表单数据
+    const inputs = {};
+    {{#each calculator.config.fields}}
+    inputs['{{name}}'] = document.getElementById('{{name}}').value;
+    {{/each}}
+    
+    try {
+        const response = await fetch(`/api/calculate/${calculatorSlug}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ inputs, lang })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            displayResult(result.data);
+        } else {
+            alert('{{#if (eq lang "zh")}}计算错误{{else}}Calculation Error{{/if}}: ' + result.error);
+        }
+    } catch (error) {
+        alert('{{#if (eq lang "zh")}}网络错误{{else}}Network Error{{/if}}: ' + error.message);
+    }
+}
+
+function displayResult(data) {
+    const resultDiv = document.getElementById('result');
+    const contentDiv = document.getElementById('result-content');
+    
+    let html = '';
+    for (const [key, value] of Object.entries(data)) {
+        html += `<div><strong>${key}:</strong> ${value}</div>`;
+    }
+    
+    contentDiv.innerHTML = html;
+    resultDiv.style.display = 'block';
+}
+</script>
+
+{{/layout}} 

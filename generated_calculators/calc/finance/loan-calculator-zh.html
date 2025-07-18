@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贷款计算器</title>
+    <meta name="description" content="专业贷款计算器 - 支持等额本息、等额本金还款方式，提供详细还款计划表">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .calculator-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .calculator-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .calculator-header h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .calculator-header .description {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .calculator-main {
+            padding: 30px;
+        }
+
+        .input-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .input-unit {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-weight: 600;
+            pointer-events: none;
+        }
+
+        .payment-method {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .method-option {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .method-option.active {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+
+        .method-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .method-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .method-desc {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .calculate-btn:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .results-section {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .results-section.show {
+            display: grid;
+        }
+
+        .result-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .result-card h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .result-value {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.1rem;
+        }
+
+        .schedule-section {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .schedule-section.show {
+            display: block;
+        }
+
+        .schedule-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .schedule-title {
+            color: #333;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .schedule-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .control-btn {
+            padding: 8px 15px;
+            border: 1px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .schedule-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 10px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .schedule-table td {
+            padding: 12px 10px;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .schedule-table tbody tr:hover {
+            background: #f8f9ff;
+        }
+
+        .schedule-table tbody tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            padding: 8px 12px;
+            border: 1px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pagination button:hover:not(:disabled) {
+            background: #667eea;
+            color: white;
+        }
+
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pagination .current-page {
+            background: #667eea;
+            color: white;
+        }
+
+        .comparison-section {
+            display: none;
+            margin-top: 30px;
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .comparison-section.show {
+            display: block;
+        }
+
+        .comparison-title {
+            color: #333;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .comparison-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            text-align: center;
+        }
+
+        .comparison-method {
+            font-weight: 600;
+            color: #667eea;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-main {
+                padding: 20px;
+            }
+            
+            .input-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .payment-method {
+                flex-direction: column;
+            }
+            
+            .schedule-table {
+                font-size: 0.85rem;
+            }
+            
+            .schedule-table th,
+            .schedule-table td {
+                padding: 8px 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <header class="calculator-header">
+            <h1>贷款计算器</h1>
+            <p class="description">专业贷款计算器，支持多种还款方式</p>
+        </header>
+        
+        <main class="calculator-main">
+            <div class="input-section">
+                <div class="input-card">
+                    <div class="input-group">
+                        <label for="loan-amount">贷款金额:</label>
+                        <div class="input-container">
+                            <input type="number" id="loan-amount" class="input-field" placeholder="1000000" step="1000" min="1000">
+                            <span class="input-unit">元</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="loan-term">贷款期限:</label>
+                        <div class="input-container">
+                            <input type="number" id="loan-term" class="input-field" placeholder="30" step="1" min="1" max="50">
+                            <span class="input-unit">年</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="interest-rate">年利率:</label>
+                        <div class="input-container">
+                            <input type="number" id="interest-rate" class="input-field" placeholder="4.9" step="0.01" min="0.01" max="30">
+                            <span class="input-unit">%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="method-card">
+                    <div class="input-group">
+                        <label>还款方式:</label>
+                        <div class="payment-method">
+                            <label class="method-option active">
+                                <input type="radio" name="payment-method" value="equal-payment" checked>
+                                <div class="method-title">等额本息</div>
+                                <div class="method-desc">每月还款额固定</div>
+                            </label>
+                            <label class="method-option">
+                                <input type="radio" name="payment-method" value="equal-principal">
+                                <div class="method-title">等额本金</div>
+                                <div class="method-desc">本金固定，利息递减</div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="first-payment">首付金额（可选）:</label>
+                        <div class="input-container">
+                            <input type="number" id="first-payment" class="input-field" placeholder="300000" step="1000" min="0">
+                            <span class="input-unit">元</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="calculate-btn" onclick="calculateLoan()">计算贷款</button>
+
+            <!-- 结果显示区域 -->
+            <div class="results-section" id="results-section">
+                <div class="result-card">
+                    <h3>还款概览</h3>
+                    <div class="result-item">
+                        <span class="result-label">贷款本金:</span>
+                        <span class="result-value" id="principal-amount">¥0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">还款总额:</span>
+                        <span class="result-value" id="total-payment">¥0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">利息总额:</span>
+                        <span class="result-value" id="total-interest">¥0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">还款期数:</span>
+                        <span class="result-value" id="payment-periods">0期</span>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h3>月还款信息</h3>
+                    <div class="result-item">
+                        <span class="result-label">首月还款:</span>
+                        <span class="result-value" id="first-payment-amount">¥0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">末月还款:</span>
+                        <span class="result-value" id="last-payment-amount">¥0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">月均还款:</span>
+                        <span class="result-value" id="avg-payment-amount">¥0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">利息占比:</span>
+                        <span class="result-value" id="interest-ratio">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 两种方式对比 -->
+            <div class="comparison-section" id="comparison-section">
+                <h3 class="comparison-title">还款方式对比</h3>
+                <div class="comparison-grid" id="comparison-grid">
+                    <!-- 对比内容将由JavaScript生成 -->
+                </div>
+            </div>
+
+            <!-- 还款计划表 -->
+            <div class="schedule-section" id="schedule-section">
+                <div class="schedule-header">
+                    <h3 class="schedule-title">还款计划表</h3>
+                    <div class="schedule-controls">
+                        <button class="control-btn" onclick="exportSchedule()">导出Excel</button>
+                        <button class="control-btn" onclick="printSchedule()">打印</button>
+                    </div>
+                </div>
+                
+                <table class="schedule-table" id="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>期数</th>
+                            <th>还款日期</th>
+                            <th>应还本金</th>
+                            <th>应还利息</th>
+                            <th>月还款额</th>
+                            <th>剩余本金</th>
+                        </tr>
+                    </thead>
+                    <tbody id="schedule-tbody">
+                        <!-- 还款计划数据将由JavaScript生成 -->
+                    </tbody>
+                </table>
+
+                <div class="pagination" id="pagination">
+                    <!-- 分页控件将由JavaScript生成 -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        let currentSchedule = [];
+        let currentPage = 1;
+        const itemsPerPage = 12;
+
+        // 还款方式选择
+        document.querySelectorAll('input[name="payment-method"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('.method-option').forEach(option => {
+                    option.classList.remove('active');
+                });
+                this.parentElement.classList.add('active');
+            });
+        });
+
+        // 计算贷款
+        function calculateLoan() {
+            try {
+                // 获取输入值
+                const loanAmount = parseFloat(document.getElementById('loan-amount').value);
+                const loanTerm = parseInt(document.getElementById('loan-term').value);
+                const interestRate = parseFloat(document.getElementById('interest-rate').value);
+                const firstPayment = parseFloat(document.getElementById('first-payment').value) || 0;
+                const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+
+                // 验证输入
+                if (!loanAmount || loanAmount <= 0) {
+                    alert('请输入有效的贷款金额');
+                    return;
+                }
+                if (!loanTerm || loanTerm <= 0) {
+                    alert('请输入有效的贷款期限');
+                    return;
+                }
+                if (!interestRate || interestRate <= 0) {
+                    alert('请输入有效的年利率');
+                    return;
+                }
+
+                // 计算实际贷款本金
+                const principal = loanAmount - firstPayment;
+                if (principal <= 0) {
+                    alert('首付金额不能大于或等于贷款金额');
+                    return;
+                }
+
+                // 计算结果
+                const results = calculatePaymentSchedule(principal, loanTerm, interestRate, paymentMethod);
+                
+                // 显示结果
+                displayResults(results, principal);
+                
+                // 生成对比数据
+                generateComparison(principal, loanTerm, interestRate);
+                
+                // 生成还款计划表
+                generateScheduleTable(results.schedule);
+
+            } catch (error) {
+                console.error('计算错误:', error);
+                alert('计算出现错误，请检查输入的数据');
+            }
+        }
+
+        // 计算还款计划
+        function calculatePaymentSchedule(principal, termYears, annualRate, method) {
+            const monthlyRate = annualRate / 100 / 12;
+            const totalMonths = termYears * 12;
+            const schedule = [];
+            let remainingPrincipal = principal;
+            let totalInterest = 0;
+            let totalPayment = 0;
+
+            for (let month = 1; month <= totalMonths; month++) {
+                let monthlyPrincipal, monthlyInterest, monthlyPayment;
+
+                if (method === 'equal-payment') {
+                    // 等额本息
+                    monthlyPayment = principal * (monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / 
+                                   (Math.pow(1 + monthlyRate, totalMonths) - 1);
+                    monthlyInterest = remainingPrincipal * monthlyRate;
+                    monthlyPrincipal = monthlyPayment - monthlyInterest;
+                } else {
+                    // 等额本金
+                    monthlyPrincipal = principal / totalMonths;
+                    monthlyInterest = remainingPrincipal * monthlyRate;
+                    monthlyPayment = monthlyPrincipal + monthlyInterest;
+                }
+
+                remainingPrincipal -= monthlyPrincipal;
+                totalInterest += monthlyInterest;
+                totalPayment += monthlyPayment;
+
+                // 计算还款日期
+                const paymentDate = new Date();
+                paymentDate.setMonth(paymentDate.getMonth() + month);
+                const dateStr = paymentDate.getFullYear() + '年' + 
+                               (paymentDate.getMonth() + 1).toString().padStart(2, '0') + '月';
+
+                schedule.push({
+                    period: month,
+                    date: dateStr,
+                    principal: monthlyPrincipal,
+                    interest: monthlyInterest,
+                    payment: monthlyPayment,
+                    remaining: Math.max(0, remainingPrincipal)
+                });
+            }
+
+            return {
+                schedule: schedule,
+                totalInterest: totalInterest,
+                totalPayment: totalPayment,
+                firstPayment: schedule[0].payment,
+                lastPayment: schedule[schedule.length - 1].payment,
+                avgPayment: totalPayment / totalMonths
+            };
+        }
+
+        // 显示计算结果
+        function displayResults(results, principal) {
+            document.getElementById('principal-amount').textContent = formatCurrency(principal);
+            document.getElementById('total-payment').textContent = formatCurrency(results.totalPayment);
+            document.getElementById('total-interest').textContent = formatCurrency(results.totalInterest);
+            document.getElementById('payment-periods').textContent = results.schedule.length + '期';
+            document.getElementById('first-payment-amount').textContent = formatCurrency(results.firstPayment);
+            document.getElementById('last-payment-amount').textContent = formatCurrency(results.lastPayment);
+            document.getElementById('avg-payment-amount').textContent = formatCurrency(results.avgPayment);
+            document.getElementById('interest-ratio').textContent = 
+                ((results.totalInterest / results.totalPayment) * 100).toFixed(2) + '%';
+
+            document.getElementById('results-section').classList.add('show');
+        }
+
+        // 生成对比数据
+        function generateComparison(principal, termYears, annualRate) {
+            const equalPayment = calculatePaymentSchedule(principal, termYears, annualRate, 'equal-payment');
+            const equalPrincipal = calculatePaymentSchedule(principal, termYears, annualRate, 'equal-principal');
+
+            const comparisonGrid = document.getElementById('comparison-grid');
+            comparisonGrid.innerHTML = `
+                <div class="comparison-card">
+                    <div class="comparison-method">等额本息</div>
+                    <div class="result-item">
+                        <span class="result-label">月还款额:</span>
+                        <span class="result-value">${formatCurrency(equalPayment.firstPayment)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">总利息:</span>
+                        <span class="result-value">${formatCurrency(equalPayment.totalInterest)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">总还款:</span>
+                        <span class="result-value">${formatCurrency(equalPayment.totalPayment)}</span>
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="comparison-method">等额本金</div>
+                    <div class="result-item">
+                        <span class="result-label">首月还款:</span>
+                        <span class="result-value">${formatCurrency(equalPrincipal.firstPayment)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">总利息:</span>
+                        <span class="result-value">${formatCurrency(equalPrincipal.totalInterest)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">总还款:</span>
+                        <span class="result-value">${formatCurrency(equalPrincipal.totalPayment)}</span>
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="comparison-method">利息差额</div>
+                    <div class="result-item">
+                        <span class="result-label">可节省利息:</span>
+                        <span class="result-value" style="color: #28a745;">
+                            ${formatCurrency(equalPayment.totalInterest - equalPrincipal.totalInterest)}
+                        </span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">节省比例:</span>
+                        <span class="result-value" style="color: #28a745;">
+                            ${(((equalPayment.totalInterest - equalPrincipal.totalInterest) / equalPayment.totalInterest) * 100).toFixed(2)}%
+                        </span>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('comparison-section').classList.add('show');
+        }
+
+        // 生成还款计划表
+        function generateScheduleTable(schedule) {
+            currentSchedule = schedule;
+            currentPage = 1;
+            renderSchedulePage();
+            renderPagination();
+            document.getElementById('schedule-section').classList.add('show');
+        }
+
+        // 渲染当前页面的还款计划
+        function renderSchedulePage() {
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageData = currentSchedule.slice(startIndex, endIndex);
+
+            const tbody = document.getElementById('schedule-tbody');
+            tbody.innerHTML = pageData.map(item => `
+                <tr>
+                    <td>${item.period}</td>
+                    <td>${item.date}</td>
+                    <td>${formatCurrency(item.principal)}</td>
+                    <td>${formatCurrency(item.interest)}</td>
+                    <td><strong>${formatCurrency(item.payment)}</strong></td>
+                    <td>${formatCurrency(item.remaining)}</td>
+                </tr>
+            `).join('');
+        }
+
+        // 渲染分页控件
+        function renderPagination() {
+            const totalPages = Math.ceil(currentSchedule.length / itemsPerPage);
+            const pagination = document.getElementById('pagination');
+            
+            let paginationHTML = `
+                <button onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>上一页</button>
+            `;
+            
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === currentPage) {
+                    paginationHTML += `<button class="current-page">${i}</button>`;
+                } else if (i === 1 || i === totalPages || Math.abs(i - currentPage) <= 2) {
+                    paginationHTML += `<button onclick="goToPage(${i})">${i}</button>`;
+                } else if (i === currentPage - 3 || i === currentPage + 3) {
+                    paginationHTML += `<span>...</span>`;
+                }
+            }
+            
+            paginationHTML += `
+                <button onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>下一页</button>
+            `;
+            
+            pagination.innerHTML = paginationHTML;
+        }
+
+        // 跳转页面
+        function goToPage(page) {
+            const totalPages = Math.ceil(currentSchedule.length / itemsPerPage);
+            if (page >= 1 && page <= totalPages) {
+                currentPage = page;
+                renderSchedulePage();
+                renderPagination();
+            }
+        }
+
+        // 格式化货币
+        function formatCurrency(amount) {
+            return '¥' + amount.toLocaleString('zh-CN', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        }
+
+        // 导出Excel（简化版）
+        function exportSchedule() {
+            let csvContent = "期数,还款日期,应还本金,应还利息,月还款额,剩余本金\n";
+            currentSchedule.forEach(item => {
+                csvContent += `${item.period},${item.date},${item.principal.toFixed(2)},${item.interest.toFixed(2)},${item.payment.toFixed(2)},${item.remaining.toFixed(2)}\n`;
+            });
+            
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = '还款计划表.csv';
+            link.click();
+        }
+
+        // 打印还款计划
+        function printSchedule() {
+            const printWindow = window.open('', '_blank');
+            const scheduleTable = document.getElementById('schedule-table').outerHTML;
+            
+            printWindow.document.write(`
+                <html>
+                <head>
+                    <title>还款计划表</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; margin: 20px; }
+                        table { width: 100%; border-collapse: collapse; }
+                        th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+                        th { background-color: #f2f2f2; }
+                    </style>
+                </head>
+                <body>
+                    <h2>还款计划表</h2>
+                    ${scheduleTable}
+                </body>
+                </html>
+            `);
+            
+            printWindow.document.close();
+            printWindow.print();
+        }
+
+        // 键盘事件监听
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                calculateLoan();
+            }
+        });
+    </script>
+</body>
+</html>

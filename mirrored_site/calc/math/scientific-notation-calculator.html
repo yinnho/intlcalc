@@ -1,0 +1,473 @@
+<!DOCTYPE html><html lang="en"><!-- #BeginTemplate "../../rapidtables.dwt" --><head><script async="" type="text/javascript" src="https://c.pubguru.net/v/tc-250702-a0d-nc-9087a951a17c3cf228d61210096ed48a.js"></script>
+<!--<script src="https://www.googleoptimize.com/optimize.js?id=OPT-W2CDTCM"></script>-->
+<link rel="dns-prefetch" href="https://a3.pubguru.net"><link rel="preconnect" href="https://a3.pubguru.net" crossorigin=""><script async="" src="/lib/tagmng8.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/lib/rapid02.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/lib/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/lib/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/lib/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/lib/favicon/manifest.json">
+<link rel="mask-icon" href="/lib/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/lib/favicon/favicon.ico">
+<meta name="msapplication-config" content="/lib/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+<!-- #BeginEditable "doctitle" -->
+<title>Scientific Notation Calculator</title>
+<meta content="Scientific notation calculator: add,subtract,multiply,divide." name="description">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<style>
+   .adslot_1 { display:none; }
+	h1,h2 { font-size:1.6rem; }
+	h3 { font-size:1.4rem; }
+   #calcform { padding:20px; background:#eee8d5; max-width:600px; }
+   #calcform .btn span { font-weight: bold; font-size:large; }
+   #calcform .input-group input[type=number]:first-child { margin-top:20px; }
+   #calcform .input-group input[type=text]:first-child { margin-top:20px; }
+   #calcform .input-group span { margin-top:25px; }
+   #calcform select { font-weight: bold; font-size:large; }
+   #calcform select option { font-weight: bold; font-size:large; }
+   #calcform .btn img { filter: invert(1); }
+@media all and (max-width: 576px) {
+   #calcform .form-group { margin-bottom: 0; }
+   .mt-3 { margin-bottom:0 !important; }
+}
+</style>
+<!-- #EndEditable -->
+
+<script async="" src="//cdn.snigelweb.com/adconsent/adconsent.js"></script><script async="" src="//c.pubguru.net/pg.rapidtables.com.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NY85XQ2FKR"></script></head>
+
+<body>
+
+<div id="header">
+	<div>
+	<div id="logo"><a href="/">RapidTables</a></div>
+   <div class="gcse-search"></div>
+   <div id="tooldiv">
+      <a href="#" onclick="OnPageSearch()"><img width="24" height="24" title="Search" src="/lib/icons/material/svg/search_black_24dp.svg" loading="lazy"><span> Search</span></a>
+      <a href="#" onclick="OnPageShare()"><img width="24" height="24" title="Share" src="/lib/icons/material/svg/share_black_24dp.svg" loading="lazy"><span> Share</span></a>
+   </div>
+	</div>
+</div>
+
+<div id="wrapper">
+
+<div id="nav">
+	<!-- #BeginEditable "doclink" -->
+	<a href="/">Home</a>›<a href="../index.html">Calculators</a>›<a href="index.html">Math Calculators</a>›<a href="scientific-notation-calculator.html">Scientific notation calculator</a>
+	<!-- #EndEditable -->
+</div>
+
+<div id="lcol">
+
+	<div id="doc">
+	<!-- #BeginEditable "doctext" -->
+	<h1>Scientific Notation Calculator</h1>
+	<ul class="nav nav-tabs">
+	  <li class="nav-item"><a href="scientific-notation-calculator.html" class="nav-link active">Scientific notation calculator</a></li>
+	  <li class="nav-item"><a href="/convert/number/scientific-notation-converter.html" class="nav-link">Scientific notation converter</a></li>
+	</ul>
+   <br>
+	<form id="calcform" name="calcform" autocomplete="off">
+   <div id="ntypediv" class="form-group row">
+      <label for="scintype" class="col-sm-3 col-form-label">Notation type</label>
+      <div class="input-group col-sm-9">
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+         <label class="btn btn-secondary active">
+            <input type="radio" name="ntype" value="0" id="scintype" checked=""> Scientific
+         </label>
+         <label class="btn btn-secondary">
+            <input type="radio" name="ntype" value="1"> E notation
+         </label>
+         <label class="btn btn-secondary">
+            <input type="radio" name="ntype" value="2"> Decimal
+         </label>
+      </div>
+      </div>
+   </div>
+   <div class="form-group row">
+      <label id="n1label" for="n1" class="col-sm-3 col-form-label mt-3">First number</label>
+      <div class="input-group col-sm-9">
+      <input type="text" class="form-control" id="n1" name="n1" autofocus="">
+      <span class="math">×10&nbsp;</span>
+      <input type="text" class="form-control" id="e1" name="e1">
+      </div>
+   </div>
+   <div class="form-group row">
+      <label for="op" class="col-sm-3 col-form-label">&nbsp;</label>
+      <div class="input-group col-sm-9">
+		<select class="form-control" id="op" name="op">
+			<option>+</option>
+			<option>-</option>
+			<option>×</option>
+			<option>÷</option>
+		</select>
+      </div>
+   </div>
+   <div class="form-group row">
+      <label id="n2label" for="n2" class="col-sm-3 col-form-label mt-3">Second number</label>
+      <div class="input-group col-sm-9">
+      <input type="text" class="form-control" id="n2" name="n2">
+      <span class="math">×10&nbsp;</span>
+      <input type="text" class="form-control" id="e2" name="e2">
+      </div>
+   </div>
+   <div class="form-group row">
+      <label class="col-sm-3 col-form-label">&nbsp;</label>
+      <div class="col-sm-9">
+		<!--<button type="button" title="Calculate" class="btn btn-success" onclick="OnCalc()"><span>=</span> Calculate</button>-->
+		<button type="submit" title="Calculate" class="btn btn-success"><span>=</span> Calculate</button>
+		<button type="reset" title="Reset" class="btn btn-secondary" onclick="setfocus()"><span>×</span> Reset</button>
+      </div>
+   </div>
+   <div class="form-group row">
+      <label for="sci" class="col-sm-3 col-form-label mt-3">Scientific notation result</label>
+      <div class="input-group col-sm-9">
+      <input type="text" id="sci" class="form-control" readonly="">
+      <span class="math">×10&nbsp;</span>
+      <input type="text" id="sci2" class="form-control" readonly="">
+      </div>
+   </div>
+   <div class="form-group row">
+	  	<label for="e" class="col-sm-3 col-form-label">E notation result</label>
+      <div class="input-group col-sm-9">
+	  	<input type="text" id="e" class="form-control mt-0" readonly="">
+      </div>
+   </div>
+   <div class="form-group row">
+	  	<label for="dec" class="col-sm-3 col-form-label">Decimal notation result</label>
+      <div class="input-group col-sm-9">
+	  	<input type="text" id="dec" class="form-control mt-0" readonly="">
+      </div>
+   </div>
+	</form>
+	<p><a href="/convert/number/scientific-notation-converter.html">Scientific notation converter ►</a></p>
+	<h2>Scientific notation calculations</h2>
+	<p>For 2 number x1 and x2:</p>
+	<p class="math"><em>x</em><sub>1</sub> = <em>a</em><sub>1</sub> × 10<sup><em>b</em>1</sup></p>
+	<p class="math"><em>x</em><sub>2</sub> = <em>a</em><sub>2</sub> × 10<sup><em>b</em>2</sup></p>
+	<h4>Scientific notations addition</h4>
+	<p class="math"><em>x</em><sub>1</sub> + 
+	<em>x</em><sub>2</sub> 
+	= <em>a</em><sub>1</sub> × 10<sup><em>b</em>1</sup> + <em>a</em><sub>2</sub> × 10<sup><em>b</em>2</sup></p>
+	<h4>Scientific notations subtraction</h4>
+	<p class="math"><em>x</em><sub>1</sub> - <em>x</em><sub>2</sub> 
+	= <em>a</em><sub>1</sub> × 10<sup><em>b</em>1</sup> - <em>a</em><sub>2</sub> × 10<sup><em>b</em>2</sup></p>
+	<h4>Scientific notations multiplication</h4>
+	<p class="math"><em>x</em><sub>1</sub> × <em>x</em><sub>2</sub> 
+	= <em>a</em><sub>1</sub><em>a</em><sub>2</sub> × 10<sup><em>b</em>1+<em>b</em>2</sup></p>
+	<h4>Scientific notations division</h4>
+	<p class="math"><em>x</em><sub>1</sub> / <em>x</em><sub>2</sub> 
+	= (<em>a</em><sub>1</sub>/<em>a</em><sub>2</sub>) × 10<sup><em>b</em>1-<em>b</em>2</sup></p>
+	<p>&nbsp;</p>
+	<p><a href="/convert/number/scientific-notation-converter.html">Scientific notation converter ►</a></p>
+	<p>&nbsp;</p>
+	<hr>
+	<h2>See also</h2>
+	<ul class="seealso">
+		<li><a href="/convert/number/scientific-notation-converter.html">Scientific notation converter</a></li>
+		<li><a href="exponent-calculator.html">Exponents calculator</a></li>
+		<li><a href="/math/number/exponent.html">Exponents rules</a></li>
+		<li><a href="log-calculator.html">Log calculator</a></li>
+		<li><a href="percentage-calculator.html">Percentage calculator</a></li>
+		<li><a href="/calc/math/index.html">Math calculators</a></li>
+	</ul>
+	<!-- #EndEditable -->
+
+   <!-- rapidtables_bottom_01 -->
+   <div id="adngin-bottom_01-0"></div>
+	
+	<!-- #BeginEditable "doctext2" -->
+	<!-- #EndEditable -->
+	</div>
+	
+   <div id="fdbk">
+      <h2 id="feedback">Write how to improve this page</h2>
+      <form id="fdbkform">
+      <textarea id="fdbkarea" rows="4" minlength="30" maxlength="1000" placeholder="Your message ..." required="" class="form-control"></textarea>
+      <span id="fdbkmsg"></span>
+      <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">Submit Feedback</button>
+      </form>
+   </div>
+</div>
+
+<div id="rcol">
+   <!-- rapidtables_right_sidebar -->
+   <div id="adngin-right_sidebar-0"></div>
+
+	<!-- #BeginEditable "docnav" -->
+	<h5>MATH CALCULATORS</h5>
+	<ul>
+		<li><a href="calculator.html">Scientific calculator</a></li>
+		<li><a href="adding-fractions-calculator.html">Adding fractions calculator</a></li>
+		<li><a href="Add_Calculator.html">Addition calculator</a></li>
+		<li><a href="anti-log-calculator.html">Antilog calculator</a></li>
+		<li><a href="Arccos_Calculator.html">Arccos calculator</a></li>
+		<li><a href="Arcsin_Calculator.html">Arcsin calculator</a></li>
+		<li><a href="Arctan_Calculator.html">Arctan calculator</a></li>
+		<li><a href="complex-calculator.html">Complex numbers calculator</a></li>
+		<li><a href="convolution-calculator.html">Convolution calculator</a></li>
+		<li><a href="Cos_Calculator.html">Cosine calculator</a></li>
+		<li><a href="dividing-fractions-calculator.html">Dividing fractions calculator</a></li>
+		<li><a href="division-calculator.html">Division calculator</a></li>
+		<li><a href="exponential-growth-calculator.html">Exponential growth calculator</a></li>
+		<li><a href="exponent-calculator.html">Exponents calculator</a></li>
+		<li><a href="Factorial_Calculator.html">Factorial calculator</a></li>
+		<li><a href="fractions-calculator.html">Fractions calculator</a></li>
+		<li><a href="gcf-calculator.html">GCF calculator</a></li>
+		<li><a href="lcm-calculator.html">LCM calculator</a></li>
+		<li><a href="Ln_Calc.html">Ln calculator</a></li>
+		<li><a href="log-calculator.html">Log calculator</a></li>
+		<li><a href="multiplication-calculator.html">Multiplication calculator</a></li>
+		<li><a href="multiplying-fractions-calculator.html">Multiplying fractions calculator</a></li>
+		<li><a href="percentage-calculator.html">Percentage calculator</a></li>
+		<li><a href="percentage-change-calculator.html">Percentage change calculator</a></li>
+		<li><a href="percent-error-calculator.html">Percent error calculator</a></li>
+		<li><a href="percentage-increase-calculator.html">Percentage increase calculator</a></li>
+		<li><a href="pythagorean-calculator.html">Pythagorean theorem calculator</a></li>
+		<li><a href="Quadratic_Calculator.html">Quadratic equation solver</a></li>
+		<li><a href="ratio-calculator.html">Ratio calculator</a></li>
+		<li><a href="root-calculator.html">Root calculator</a></li>
+		<li><a href="scientific-notation-calculator.html">Scientific notation calculator</a></li>
+		<li><a href="simple-calculator.html">Simple math calculator</a></li>
+		<li><a href="fraction-simplifier.html">Fraction simplifier</a></li>
+		<li><a href="Sin_Calculator.html">Sine calculator</a></li>
+		<li><a href="square-root-calculator.html">Square root calculator</a></li>
+		<li><a href="standard-deviation-calculator.html">Standard deviation calculator</a></li>
+		<li><a href="subtracting-fractions-calculator.html">Subtracting fractions calculator</a></li>
+		<li><a href="subtraction-calculator.html">Subtraction calculator</a></li>
+		<li><a href="Tan_Calculator.html">Tangent calculator</a></li>
+		<li><a href="trigonometry-calculator.html">Trigonometry calculator</a></li>
+		<li><a href="weighted-average-calculator.html">Weighted average calculator</a></li>
+		<li><a href="variance-calculator.html">Variance calculator</a></li>
+	</ul>
+	<h5>RAPID TABLES</h5>
+	<ul>
+		<li><a href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com">Recommend Site</a></li>
+		<li><a href="#feedback">Send Feedback</a></li>
+		<li><a href="/about/about.html">About</a></li>
+	</ul>
+	<!-- #EndEditable -->
+	
+</div>
+
+</div>
+
+<div id="footer">
+	<a href="/index.html">Home</a> | 
+	<a href="/web/index.html">Web</a> |
+	<a href="/math/index.html">Math</a> | 
+	<a href="/electric/index.html">Electricity</a> |
+	<a href="/calc/index.html">Calculators</a> | 
+	<a href="/convert/index.html">Converters</a> |
+	<a href="/tools/index.html">Tools</a>
+	<p>©  
+	<a href="/">RapidTables.com</a> | 
+	<a href="/about/about.html" rel="nofollow">About</a> | 
+	<a href="/about/terms.html" rel="nofollow">Terms of Use</a> | 
+	<a href="/about/privacy.html" rel="nofollow">Privacy Policy</a> | 
+	<a href="/about/cookies.html" rel="nofollow">Manage Cookies</a>
+	</p>
+</div>
+
+<!-- rapidtables_bottom_adhesive -->
+<div id="adngin-adhesive-0"></div>
+
+<!-- #BeginEditable "docscript" -->
+<!--sse-->
+<script src="../calc2.js"></script>
+<script>
+var radios = document.getElementsByName("ntype");
+var n1label = document.getElementById("n1label");
+var n2label = document.getElementById("n2label");
+var n1_input = document.getElementById("n1");
+var e1_input = document.getElementById("e1");
+var n2_input = document.getElementById("n2");
+var e2_input = document.getElementById("e2");
+var op_input = document.getElementById('op');
+var sci_input = document.getElementById("sci");
+var sci2_input = document.getElementById("sci2");
+var dec_input = document.getElementById("dec");
+var e_input = document.getElementById("e");
+window.addEventListener("DOMContentLoaded",function() {
+   //n1_input.onkeypress = function(e) { if( e.keyCode==13 ) OnCalc(); };
+   //e1_input.onkeypress = function(e) { if( e.keyCode==13 ) OnCalc(); };
+   //n2_input.onkeypress = function(e) { if( e.keyCode==13 ) OnCalc(); };
+   //e2_input.onkeypress = function(e) { if( e.keyCode==13 ) OnCalc(); };
+
+   radios[0].addEventListener("click", function() { onntype(0); });
+   radios[1].addEventListener("click", function() { onntype(1); });
+   radios[2].addEventListener("click", function() { onntype(2); });
+   if( window.location.href.indexOf("?")==-1 ) return;
+   var params=GetURLParams();
+   //if( Object.keys(params).length>0 ) {
+   if( typeof params.n1!="undefined" && params.e1!="undefined" ) {
+      if( params.n1!="" && params.n2!="") {
+         onntype(params.ntype);
+         n1_input.value=decodeURIComponent2(params.n1);
+         e1_input.value=decodeURIComponent2(params.e1);
+         n2_input.value=decodeURIComponent2(params.n2);
+         e2_input.value=decodeURIComponent2(params.e2);
+         //if( strCompare(params.op,"%2B") ) op_input.value = "+";
+         //if( strCompare(params.op,"-") ) op_input.value = "-";
+         //if( strCompare(params.op,"%C3%97") ) op_input.value = "×";
+         //if( strCompare(params.op,"%C3%B7") ) op_input.value = "÷";
+         op_input.value=decodeURIComponent2(params.op);
+         OnCalc();
+         window.location.hash = "";
+         window.location.hash = "#calcform";
+      }
+   }
+});
+function onntype(i)
+{
+   var sel=document.querySelectorAll("#calcform .form-group .input-group span");
+   if( i==0 )
+   {
+      n1_input.style.marginTop = "20px";
+      n2_input.style.marginTop = "20px";
+      sel[0].style.display = "block";
+      sel[1].style.display = "block";
+      e1_input.style.display = "block";
+      e2_input.style.display = "block";
+      n1label.classList.add("mt-3");
+      n2label.classList.add("mt-3");
+   }
+   else
+   {
+      n1_input.style.marginTop = "0";
+      n2_input.style.marginTop = "0";
+      sel[0].style.display = "none";
+      sel[1].style.display = "none";
+      e1_input.style.display = "none";
+      e2_input.style.display = "none";
+      e1_input.value = "";
+      e2_input.value = "";
+      n1label.classList.remove("mt-3");
+      n2label.classList.remove("mt-3");
+   }
+   if( i==0 )
+   {
+      radios[0].checked = true;
+      radios[1].checked = false;
+      radios[2].checked = false;
+      radios[0].parentElement.classList.add("active");
+      radios[1].parentElement.classList.remove("active");
+      radios[2].parentElement.classList.remove("active");
+   }
+   else if( i==1 )
+   {
+      radios[0].checked = false;
+      radios[1].checked = true;
+      radios[2].checked = false;
+      radios[0].parentElement.classList.remove("active");
+      radios[1].parentElement.classList.add("active");
+      radios[2].parentElement.classList.remove("active");
+   }
+   else if( i==2 )
+   {
+      radios[0].checked = false;
+      radios[1].checked = false;
+      radios[2].checked = true;
+      radios[0].parentElement.classList.remove("active");
+      radios[1].parentElement.classList.remove("active");
+      radios[2].parentElement.classList.add("active");
+   }
+}
+function strCompare(s1,s2)
+{
+   if( s1.length!=s2.length ) return false;
+   for(var i=0; i<s1.length; i++)
+      if( s1[i]!=s2[i] ) return false;
+   return true;
+}
+function GetURLParams()
+{
+   var url=window.location.href;
+   var regex = /[?&]([^=#]+)=([^&#]*)/g,
+         //url = "www.domain.com/?v=123&p=hello",
+         params = {},
+         match;
+   while(match = regex.exec(url)) {
+         params[match[1]] = match[2];
+   }
+   return params;
+}
+function OnCalc()
+{
+   n1 = str2num(n1_input.value);
+   e1 = str2num(e1_input.value);
+   n2 = str2num(n2_input.value);
+   e2 = str2num(e2_input.value);
+   i = op_input.selectedIndex;
+   //if( e1=="" ) e1="0";
+   //if( e2=="" ) e2="0";
+   e1 = parseInt(e1);
+   e2 = parseInt(e2);
+   
+   dec1 = n1*Math.pow(10,e1);
+   dec2 = n2*Math.pow(10,e2);
+   if(i==0)
+   {
+      dec = dec1+dec2;
+      en = dec.toExponential();
+      n=en; e=0;
+      i=en.indexOf('e');
+      if( i!=-1 )
+      {
+         n = en.substring(0,i);
+         e = en.substring(i+1,en.length);
+      }
+      e = parseInt(e);
+   }
+   else if(i==1)
+   {
+      dec = dec1-dec2;
+      en = dec.toExponential();
+      n=en; e=0;
+      i=en.indexOf('e');
+      if( i!=-1 )
+      {
+         n = en.substring(0,i);
+         e = en.substring(i+1,en.length);
+      }
+      e = parseInt(e);
+   }
+   else if(i==2)
+   {
+      n = n1*n2;
+      e = e1+e2;
+      dec = n*Math.pow(10,e);
+   }
+   else
+   {
+      n = n1/n2;
+      e = e1-e2;
+      dec = n*Math.pow(10,e);
+   }
+   if( n==0 )
+      f=0;
+   else
+      f = Math.floor( Math.log(Math.abs(n))*Math.LOG10E );
+   norm = n/Math.pow(10,f);
+   norm = roundnum(norm,10);
+   norm2= parseInt(e)+f;
+   sign=""; if(norm2>=0) sign="+";
+   en = norm+"e"+sign+norm2;
+
+   dec_input.value = dec;
+   e_input.value = en;
+   sci_input.value = norm;
+   sci2_input.value = norm2;
+}
+</script>
+<!--/sse-->
+<!-- #EndEditable -->
+
+
+
+
+
+
+<iframe name="__tcfapiLocator" style="display: none;"></iframe><iframe name="__uspapiLocator" style="display: none;"></iframe><iframe name="__adconsentLocator" style="display: none;"></iframe><div style="display: none;"><a title="Do not click me1!" id="hp1" href="#">&lt;!â€“- Don't click me1 â€“-&gt;</a></div><a id="hp2" title="Don't click!" href="#" style="display: none;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" style="width:1px !important;height:1px !important;"></a></body><!-- #EndTemplate --></html>

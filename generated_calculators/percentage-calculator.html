@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百分比计算器</title>
+    <meta name="description" content="全功能百分比计算器 - 支持百分比计算、增减、比例、折扣等多种计算类型">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .calculator-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            max-width: 700px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+        }
+
+        .calculator-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .calculator-header h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .calculator-header .description {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .calculator-main {
+            padding: 30px;
+        }
+
+        .calculator-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .calc-type {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .calc-type.active {
+            border-color: #667eea;
+            background: #f8f9ff;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .calc-type h3 {
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .calc-type p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .calculation-area {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .calc-section {
+            display: none;
+        }
+
+        .calc-section.active {
+            display: block;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .input-group {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .operator {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin: 0 10px;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .calculate-btn:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .result-section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid #667eea;
+            display: none;
+        }
+
+        .result-section.show {
+            display: block;
+        }
+
+        .result-main {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .result-formula {
+            color: #666;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .result-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .detail-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .detail-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .examples-section {
+            background: #e8f4fd;
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 4px solid #667eea;
+        }
+
+        .examples-title {
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .example-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #dee2e6;
+        }
+
+        .example-question {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .example-answer {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .quick-fill {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .quick-btn {
+            padding: 8px 12px;
+            border: 1px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .quick-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .calculator-main {
+                padding: 20px;
+            }
+            
+            .calculator-types {
+                grid-template-columns: 1fr;
+            }
+            
+            .input-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .operator {
+                text-align: center;
+                margin: 10px 0;
+            }
+            
+            .result-value {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <header class="calculator-header">
+            <h1>百分比计算器</h1>
+            <p class="description">全功能百分比计算器，支持多种计算类型</p>
+        </header>
+        
+        <main class="calculator-main">
+            <!-- 计算类型选择 -->
+            <div class="calculator-types">
+                <div class="calc-type active" onclick="selectCalculationType('basic')">
+                    <h3>基础百分比</h3>
+                    <p>X是Y的百分之几</p>
+                </div>
+                <div class="calc-type" onclick="selectCalculationType('of')">
+                    <h3>百分比值</h3>
+                    <p>X%的Y是多少</p>
+                </div>
+                <div class="calc-type" onclick="selectCalculationType('increase')">
+                    <h3>百分比增加</h3>
+                    <p>X增加Y%是多少</p>
+                </div>
+                <div class="calc-type" onclick="selectCalculationType('decrease')">
+                    <h3>百分比减少</h3>
+                    <p>X减少Y%是多少</p>
+                </div>
+                <div class="calc-type" onclick="selectCalculationType('change')">
+                    <h3>变化百分比</h3>
+                    <p>从X到Y变化了百分之几</p>
+                </div>
+                <div class="calc-type" onclick="selectCalculationType('discount')">
+                    <h3>折扣计算</h3>
+                    <p>原价打折后的价格</p>
+                </div>
+            </div>
+
+            <!-- 计算区域 -->
+            <div class="calculation-area">
+                <!-- 基础百分比计算 -->
+                <div id="basic-calc" class="calc-section active">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>数值</label>
+                            <input type="number" id="basic-x" class="input-field" placeholder="输入数值" step="any">
+                        </div>
+                        <div class="operator">是</div>
+                        <div class="input-group">
+                            <label>总数</label>
+                            <input type="number" id="basic-y" class="input-field" placeholder="输入总数" step="any">
+                        </div>
+                        <div class="operator">的</div>
+                        <div class="input-group">
+                            <label>百分比</label>
+                            <input type="text" id="basic-result" class="input-field" placeholder="?" readonly>
+                        </div>
+                    </div>
+                    <div class="quick-fill">
+                        <button class="quick-btn" onclick="quickFill('basic', [25, 100])">25 是 100 的 ?%</button>
+                        <button class="quick-btn" onclick="quickFill('basic', [80, 200])">80 是 200 的 ?%</button>
+                        <button class="quick-btn" onclick="quickFill('basic', [150, 500])">150 是 500 的 ?%</button>
+                    </div>
+                </div>
+
+                <!-- 百分比值计算 -->
+                <div id="of-calc" class="calc-section">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>百分比</label>
+                            <input type="number" id="of-percent" class="input-field" placeholder="输入百分比" step="any">
+                        </div>
+                        <div class="operator">% 的</div>
+                        <div class="input-group">
+                            <label>总数</label>
+                            <input type="number" id="of-total" class="input-field" placeholder="输入总数" step="any">
+                        </div>
+                        <div class="operator">是</div>
+                        <div class="input-group">
+                            <label>结果</label>
+                            <input type="text" id="of-result" class="input-field" placeholder="?" readonly>
+                        </div>
+                    </div>
+                    <div class="quick-fill">
+                        <button class="quick-btn" onclick="quickFill('of', [20, 500])">20% 的 500 是 ?</button>
+                        <button class="quick-btn" onclick="quickFill('of', [15, 200])">15% 的 200 是 ?</button>
+                        <button class="quick-btn" onclick="quickFill('of', [30, 150])">30% 的 150 是 ?</button>
+                    </div>
+                </div>
+
+                <!-- 百分比增加 -->
+                <div id="increase-calc" class="calc-section">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>原始值</label>
+                            <input type="number" id="increase-original" class="input-field" placeholder="输入原始值" step="any">
+                        </div>
+                        <div class="operator">增加</div>
+                        <div class="input-group">
+                            <label>增加百分比</label>
+                            <input type="number" id="increase-percent" class="input-field" placeholder="输入百分比" step="any">
+                        </div>
+                        <div class="operator">% 是</div>
+                        <div class="input-group">
+                            <label>结果</label>
+                            <input type="text" id="increase-result" class="input-field" placeholder="?" readonly>
+                        </div>
+                    </div>
+                    <div class="quick-fill">
+                        <button class="quick-btn" onclick="quickFill('increase', [100, 20])">100 增加 20% 是 ?</button>
+                        <button class="quick-btn" onclick="quickFill('increase', [250, 15])">250 增加 15% 是 ?</button>
+                        <button class="quick-btn" onclick="quickFill('increase', [80, 25])">80 增加 25% 是 ?</button>
+                    </div>
+                </div>
+
+                <!-- 百分比减少 -->
+                <div id="decrease-calc" class="calc-section">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>原始值</label>
+                            <input type="number" id="decrease-original" class="input-field" placeholder="输入原始值" step="any">
+                        </div>
+                        <div class="operator">减少</div>
+                        <div class="input-group">
+                            <label>减少百分比</label>
+                            <input type="number" id="decrease-percent" class="input-field" placeholder="输入百分比" step="any">
+                        </div>
+                        <div class="operator">% 是</div>
+                        <div class="input-group">
+                            <label>结果</label>
+                            <input type="text" id="decrease-result" class="input-field" placeholder="?" readonly>
+                        </div>
+                    </div>
+                    <div class="quick-fill">
+                        <button class="quick-btn" onclick="quickFill('decrease', [200, 10])">200 减少 10% 是 ?</button>
+                        <button class="quick-btn" onclick="quickFill('decrease', [150, 25])">150 减少 25% 是 ?</button>
+                        <button class="quick-btn" onclick="quickFill('decrease', [300, 15])">300 减少 15% 是 ?</button>
+                    </div>
+                </div>
+
+                <!-- 变化百分比 -->
+                <div id="change-calc" class="calc-section">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>原始值</label>
+                            <input type="number" id="change-from" class="input-field" placeholder="输入原始值" step="any">
+                        </div>
+                        <div class="operator">到</div>
+                        <div class="input-group">
+                            <label>新值</label>
+                            <input type="number" id="change-to" class="input-field" placeholder="输入新值" step="any">
+                        </div>
+                        <div class="operator">变化了</div>
+                        <div class="input-group">
+                            <label>百分比</label>
+                            <input type="text" id="change-result" class="input-field" placeholder="?" readonly>
+                        </div>
+                    </div>
+                    <div class="quick-fill">
+                        <button class="quick-btn" onclick="quickFill('change', [100, 120])">100 到 120 变化了 ?%</button>
+                        <button class="quick-btn" onclick="quickFill('change', [200, 150])">200 到 150 变化了 ?%</button>
+                        <button class="quick-btn" onclick="quickFill('change', [50, 75])">50 到 75 变化了 ?%</button>
+                    </div>
+                </div>
+
+                <!-- 折扣计算 -->
+                <div id="discount-calc" class="calc-section">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>原价</label>
+                            <input type="number" id="discount-original" class="input-field" placeholder="输入原价" step="any">
+                        </div>
+                        <div class="operator">打</div>
+                        <div class="input-group">
+                            <label>折扣</label>
+                            <input type="number" id="discount-percent" class="input-field" placeholder="输入折扣%" step="any">
+                        </div>
+                        <div class="operator">% 折，价格是</div>
+                        <div class="input-group">
+                            <label>现价</label>
+                            <input type="text" id="discount-result" class="input-field" placeholder="?" readonly>
+                        </div>
+                    </div>
+                    <div class="quick-fill">
+                        <button class="quick-btn" onclick="quickFill('discount', [100, 20])">100元 打 8折 是 ?</button>
+                        <button class="quick-btn" onclick="quickFill('discount', [250, 30])">250元 打 7折 是 ?</button>
+                        <button class="quick-btn" onclick="quickFill('discount', [80, 15])">80元 打 8.5折 是 ?</button>
+                    </div>
+                </div>
+
+                <button class="calculate-btn" onclick="calculate()">计算结果</button>
+            </div>
+
+            <!-- 结果显示区域 -->
+            <div class="result-section" id="result-section">
+                <div class="result-main">
+                    <div class="result-value" id="result-value">25%</div>
+                    <div class="result-formula" id="result-formula">25 ÷ 100 × 100% = 25%</div>
+                </div>
+                <div class="result-details" id="result-details">
+                    <!-- 详细结果将由JavaScript生成 -->
+                </div>
+            </div>
+
+            <!-- 实用示例 -->
+            <div class="examples-section">
+                <h3 class="examples-title">实用计算示例</h3>
+                <div class="examples-grid">
+                    <div class="example-item">
+                        <div class="example-question">商品原价200元，打8折后多少钱？</div>
+                        <div class="example-answer">200 × (100% - 20%) = 160元</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-question">考试得了85分（满分100），百分比是多少？</div>
+                        <div class="example-answer">85 ÷ 100 × 100% = 85%</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-question">投资收益从1000元增长到1200元，增长率？</div>
+                        <div class="example-answer">(1200 - 1000) ÷ 1000 × 100% = 20%</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-question">班级50人，其中20人参加活动，参与率？</div>
+                        <div class="example-answer">20 ÷ 50 × 100% = 40%</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-question">工资3000元，需缴税15%，到手多少？</div>
+                        <div class="example-answer">3000 × (100% - 15%) = 2550元</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-question">银行存款5000元，年利率3.5%，一年利息？</div>
+                        <div class="example-answer">5000 × 3.5% = 175元</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        let currentType = 'basic';
+
+        // 选择计算类型
+        function selectCalculationType(type) {
+            currentType = type;
+            
+            // 更新按钮状态
+            document.querySelectorAll('.calc-type').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // 显示对应的计算区域
+            document.querySelectorAll('.calc-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(type + '-calc').classList.add('active');
+
+            // 隐藏结果
+            hideResult();
+        }
+
+        // 快速填充示例
+        function quickFill(type, values) {
+            switch (type) {
+                case 'basic':
+                    document.getElementById('basic-x').value = values[0];
+                    document.getElementById('basic-y').value = values[1];
+                    break;
+                case 'of':
+                    document.getElementById('of-percent').value = values[0];
+                    document.getElementById('of-total').value = values[1];
+                    break;
+                case 'increase':
+                    document.getElementById('increase-original').value = values[0];
+                    document.getElementById('increase-percent').value = values[1];
+                    break;
+                case 'decrease':
+                    document.getElementById('decrease-original').value = values[0];
+                    document.getElementById('decrease-percent').value = values[1];
+                    break;
+                case 'change':
+                    document.getElementById('change-from').value = values[0];
+                    document.getElementById('change-to').value = values[1];
+                    break;
+                case 'discount':
+                    document.getElementById('discount-original').value = values[0];
+                    document.getElementById('discount-percent').value = values[1];
+                    break;
+            }
+            calculate();
+        }
+
+        // 主计算函数
+        function calculate() {
+            try {
+                let result, formula, details;
+
+                switch (currentType) {
+                    case 'basic':
+                        ({ result, formula, details } = calculateBasic());
+                        break;
+                    case 'of':
+                        ({ result, formula, details } = calculateOf());
+                        break;
+                    case 'increase':
+                        ({ result, formula, details } = calculateIncrease());
+                        break;
+                    case 'decrease':
+                        ({ result, formula, details } = calculateDecrease());
+                        break;
+                    case 'change':
+                        ({ result, formula, details } = calculateChange());
+                        break;
+                    case 'discount':
+                        ({ result, formula, details } = calculateDiscount());
+                        break;
+                }
+
+                displayResult(result, formula, details);
+                updateResultField(result);
+
+            } catch (error) {
+                console.error('计算错误:', error);
+                alert('计算出现错误，请检查输入的数据');
+            }
+        }
+
+        // 基础百分比计算：X是Y的百分之几
+        function calculateBasic() {
+            const x = parseFloat(document.getElementById('basic-x').value);
+            const y = parseFloat(document.getElementById('basic-y').value);
+
+            if (isNaN(x) || isNaN(y) || y === 0) {
+                throw new Error('请输入有效的数值');
+            }
+
+            const percentage = (x / y) * 100;
+            const result = percentage.toFixed(2) + '%';
+            const formula = `${x} ÷ ${y} × 100% = ${result}`;
+
+            const details = [
+                { label: '数值', value: x.toLocaleString() },
+                { label: '总数', value: y.toLocaleString() },
+                { label: '百分比', value: result },
+                { label: '小数形式', value: (percentage / 100).toFixed(4) }
+            ];
+
+            return { result, formula, details };
+        }
+
+        // 百分比值计算：X%的Y是多少
+        function calculateOf() {
+            const percent = parseFloat(document.getElementById('of-percent').value);
+            const total = parseFloat(document.getElementById('of-total').value);
+
+            if (isNaN(percent) || isNaN(total)) {
+                throw new Error('请输入有效的数值');
+            }
+
+            const value = (percent / 100) * total;
+            const result = value.toFixed(2);
+            const formula = `${percent}% × ${total} = ${result}`;
+
+            const details = [
+                { label: '百分比', value: percent + '%' },
+                { label: '总数', value: total.toLocaleString() },
+                { label: '结果', value: parseFloat(result).toLocaleString() },
+                { label: '剩余部分', value: (total - value).toFixed(2) }
+            ];
+
+            return { result, formula, details };
+        }
+
+        // 百分比增加：X增加Y%是多少
+        function calculateIncrease() {
+            const original = parseFloat(document.getElementById('increase-original').value);
+            const percent = parseFloat(document.getElementById('increase-percent').value);
+
+            if (isNaN(original) || isNaN(percent)) {
+                throw new Error('请输入有效的数值');
+            }
+
+            const increase = (percent / 100) * original;
+            const newValue = original + increase;
+            const result = newValue.toFixed(2);
+            const formula = `${original} + (${original} × ${percent}%) = ${result}`;
+
+            const details = [
+                { label: '原始值', value: original.toLocaleString() },
+                { label: '增加百分比', value: percent + '%' },
+                { label: '增加数值', value: increase.toFixed(2) },
+                { label: '最终结果', value: parseFloat(result).toLocaleString() }
+            ];
+
+            return { result, formula, details };
+        }
+
+        // 百分比减少：X减少Y%是多少
+        function calculateDecrease() {
+            const original = parseFloat(document.getElementById('decrease-original').value);
+            const percent = parseFloat(document.getElementById('decrease-percent').value);
+
+            if (isNaN(original) || isNaN(percent)) {
+                throw new Error('请输入有效的数值');
+            }
+
+            const decrease = (percent / 100) * original;
+            const newValue = original - decrease;
+            const result = newValue.toFixed(2);
+            const formula = `${original} - (${original} × ${percent}%) = ${result}`;
+
+            const details = [
+                { label: '原始值', value: original.toLocaleString() },
+                { label: '减少百分比', value: percent + '%' },
+                { label: '减少数值', value: decrease.toFixed(2) },
+                { label: '最终结果', value: parseFloat(result).toLocaleString() }
+            ];
+
+            return { result, formula, details };
+        }
+
+        // 变化百分比：从X到Y变化了百分之几
+        function calculateChange() {
+            const from = parseFloat(document.getElementById('change-from').value);
+            const to = parseFloat(document.getElementById('change-to').value);
+
+            if (isNaN(from) || isNaN(to) || from === 0) {
+                throw new Error('请输入有效的数值');
+            }
+
+            const change = to - from;
+            const percentage = (change / from) * 100;
+            const result = percentage.toFixed(2) + '%';
+            const direction = change > 0 ? '增加' : '减少';
+            const formula = `(${to} - ${from}) ÷ ${from} × 100% = ${result}`;
+
+            const details = [
+                { label: '原始值', value: from.toLocaleString() },
+                { label: '新值', value: to.toLocaleString() },
+                { label: '变化数值', value: Math.abs(change).toFixed(2) },
+                { label: '变化方向', value: direction },
+                { label: '变化百分比', value: result }
+            ];
+
+            return { result, formula, details };
+        }
+
+        // 折扣计算：原价打折后的价格
+        function calculateDiscount() {
+            const original = parseFloat(document.getElementById('discount-original').value);
+            const discountPercent = parseFloat(document.getElementById('discount-percent').value);
+
+            if (isNaN(original) || isNaN(discountPercent)) {
+                throw new Error('请输入有效的数值');
+            }
+
+            const discountAmount = (discountPercent / 100) * original;
+            const finalPrice = original - discountAmount;
+            const result = finalPrice.toFixed(2);
+            const formula = `${original} - (${original} × ${discountPercent}%) = ${result}`;
+
+            const details = [
+                { label: '原价', value: '¥' + original.toLocaleString() },
+                { label: '折扣', value: discountPercent + '%' },
+                { label: '优惠金额', value: '¥' + discountAmount.toFixed(2) },
+                { label: '最终价格', value: '¥' + parseFloat(result).toLocaleString() }
+            ];
+
+            return { result: '¥' + result, formula, details };
+        }
+
+        // 显示计算结果
+        function displayResult(result, formula, details) {
+            document.getElementById('result-value').textContent = result;
+            document.getElementById('result-formula').textContent = formula;
+
+            const detailsContainer = document.getElementById('result-details');
+            detailsContainer.innerHTML = details.map(detail => `
+                <div class="detail-item">
+                    <div class="detail-label">${detail.label}</div>
+                    <div class="detail-value">${detail.value}</div>
+                </div>
+            `).join('');
+
+            showResult();
+        }
+
+        // 更新对应的结果字段
+        function updateResultField(result) {
+            const resultFields = {
+                'basic': 'basic-result',
+                'of': 'of-result',
+                'increase': 'increase-result',
+                'decrease': 'decrease-result',
+                'change': 'change-result',
+                'discount': 'discount-result'
+            };
+
+            const fieldId = resultFields[currentType];
+            if (fieldId) {
+                document.getElementById(fieldId).value = result;
+            }
+        }
+
+        // 显示结果
+        function showResult() {
+            document.getElementById('result-section').classList.add('show');
+        }
+
+        // 隐藏结果
+        function hideResult() {
+            document.getElementById('result-section').classList.remove('show');
+        }
+
+        // 自动计算（当输入改变时）
+        function setupAutoCalculate() {
+            const inputFields = document.querySelectorAll('.input-field:not([readonly])');
+            inputFields.forEach(field => {
+                field.addEventListener('input', function() {
+                    // 延迟计算，避免输入过程中频繁计算
+                    clearTimeout(this.calcTimeout);
+                    this.calcTimeout = setTimeout(() => {
+                        if (hasValidInputs()) {
+                            calculate();
+                        }
+                    }, 500);
+                });
+            });
+        }
+
+        // 检查是否有有效输入
+        function hasValidInputs() {
+            const typeInputs = {
+                'basic': ['basic-x', 'basic-y'],
+                'of': ['of-percent', 'of-total'],
+                'increase': ['increase-original', 'increase-percent'],
+                'decrease': ['decrease-original', 'decrease-percent'],
+                'change': ['change-from', 'change-to'],
+                'discount': ['discount-original', 'discount-percent']
+            };
+
+            const inputs = typeInputs[currentType];
+            return inputs && inputs.every(id => {
+                const value = document.getElementById(id).value;
+                return value !== '' && !isNaN(parseFloat(value));
+            });
+        }
+
+        // 键盘事件监听
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                calculate();
+            }
+        });
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            setupAutoCalculate();
+        });
+    </script>
+</body>
+</html>

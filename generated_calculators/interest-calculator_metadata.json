@@ -1,0 +1,9 @@
+{
+  "title": "利息计算器",
+  "description": "根据您的需求\"我要计算贷款利息\"自动生成的计算器",
+  "type": "financial-calculator",
+  "complexity": "medium",
+  "features": [],
+  "generatedAt": "2025-07-16T04:56:40.221Z",
+  "version": "1.0.0"
+}

@@ -1,0 +1,390 @@
+<!DOCTYPE html><html lang="en"><!-- #BeginTemplate "../../rapidtables.dwt" --><head><script async="" type="text/javascript" src="https://c.pubguru.net/v/tc-250702-a0d-nc-9087a951a17c3cf228d61210096ed48a.js"></script>
+<link rel="dns-prefetch" href="https://a3.pubguru.net"><link rel="preconnect" href="https://a3.pubguru.net" crossorigin=""><script async="" src="/lib/tagmng8.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/lib/rapid02.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/lib/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/lib/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/lib/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/lib/favicon/manifest.json">
+<link rel="mask-icon" href="/lib/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/lib/favicon/favicon.ico">
+<meta name="msapplication-config" content="/lib/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+<!-- #BeginEditable "doctitle" -->
+<title>Standard deviation calculator (σ)</title>
+<meta content="Standard deviation calculator with mean value &amp; variance online." name="description">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<style>
+   h1 { font-size:1.6rem; }
+   h2 { font-size:1.4rem; }
+   h4 { font-size:1.2rem; }
+   #calcform>div>div>a { text-decoration:none; line-height:unset; }
+   #calcform, #calcform2 { background:#eee8d5; padding:20px; max-width:600px; }
+   #calcform button span { font-size:large; font-weight:bold; }
+   #calcform2 button span { font-size:large; font-weight:bold; }
+</style>
+<!-- #EndEditable -->
+
+<script async="" src="//cdn.snigelweb.com/adconsent/adconsent.js"></script><script async="" src="//c.pubguru.net/pg.rapidtables.com.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NY85XQ2FKR"></script></head>
+
+<body>
+
+<div id="header">
+	<div>
+	<div id="logo"><a href="/">RapidTables</a></div>
+   <div class="gcse-search"></div>
+   <div id="tooldiv">
+      <a href="#" onclick="OnPageSearch()"><img width="24" height="24" title="Search" src="/lib/icons/material/svg/search_black_24dp.svg" loading="lazy"><span> Search</span></a>
+      <a href="#" onclick="OnPageShare()"><img width="24" height="24" title="Share" src="/lib/icons/material/svg/share_black_24dp.svg" loading="lazy"><span> Share</span></a>
+   </div>
+	</div>
+</div>
+
+<div id="wrapper">
+
+<div id="nav">
+	<!-- #BeginEditable "doclink" -->
+	<a href="/">Home</a>›<a href="../index.html">Calculators</a>›<a href="index.html">Math Calculators</a>›<a href="standard-deviation-calculator.html">Standard deviation calculator</a>
+	<!-- #EndEditable -->
+</div>
+
+<div id="lcol">
+
+	<div id="doc">
+	<!-- #BeginEditable "doctext" -->
+	<h1>Standard Deviation Calculator</h1>
+	<p>Standard deviation (σ) calculator with mean value &amp; variance online.</p>
+	<h2>Population and sampled standard deviation calculator</h2>
+	<p>Enter data values delimited with commas (e.g: 3,2,9,4) or spaces (e.g: 3 2 9 4) and press the <em>Calculate</em> button.</p>
+	<form id="calcform" name="calcform" autocomplete="off">
+   <div class="row">
+      <label for="" class="col-sm-4 col-form-label">&nbsp;</label>
+      <div class="col-sm-8 btn-group">
+         <a href="average-calculator.html" id="fm1" class="btn btn-outline-success">Average calculator</a>
+         <a href="#" id="fm2" class="btn btn-outline-success active">Standard deviation calculator</a>
+         <a href="variance-calculator.html" id="fm3" class="btn btn-outline-success">Variance calculator</a>
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="TextArea1" class="col-sm-4 col-form-label">Enter data values</label>
+      <div class="col-sm-8">
+         <textarea id="TextArea1" name="TextArea1" rows="5" placeholder="1 3 5" class="form-control" autofocus=""></textarea>
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label class="col-sm-4 col-form-label">&nbsp;</label>
+      <div class="col-sm-8">
+         <button type="button" id="calc" name="Button1" title="Calculate" onclick="OnCalc()" class="btn btn-success"><span>=</span> Calculate</button>
+         <button type="reset" id="reset" name="Reset1" title="Reset" class="btn btn-secondary"><span>×</span> Reset</button>
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="pstd" class="col-sm-4 col-form-label">Population standard deviation</label>
+      <div class="col-sm-8">
+         <input type="text" id="pstd" name="pstd" class="form-control" readonly="">
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="sstd" class="col-sm-4 col-form-label">Sample standard deviation</label>
+      <div class="col-sm-8">
+         <input type="text" id="sstd" name="sstd" class="form-control" readonly="">
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="pvar" class="col-sm-4 col-form-label">Population variance</label>
+      <div class="col-sm-8">
+         <input type="text" id="pvar" name="pvar" class="form-control" readonly="">
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="svar" class="col-sm-4 col-form-label">Sample variance</label>
+      <div class="col-sm-8">
+         <input type="text" id="svar" name="svar" class="form-control" readonly="">
+      </div>
+   </div>
+   <div class="mt-3 row">
+      <label for="mean" class="col-sm-4 col-form-label">Mean</label>
+      <div class="col-sm-8">
+         <input type="text" id="mean" name="mean" class="form-control" readonly="">
+      </div>
+   </div>
+	</form>
+   <br>
+	<h2>Discrete random variable standard deviation calculator</h2>
+	<p>Enter probability or weight and data number in each row:</p>
+	<form id="calcform2">
+   <table id="tbl" class="table">
+      <thead>
+      <tr>
+         <td>Data number</td>
+         <td>Probability</td>
+      </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td><input type="text" name="data[]" class="form-control"></td>
+            <td><input type="text" name="weight[]" class="form-control"></td>
+         </tr>
+         <tr>
+            <td><input type="text" name="data[]" class="form-control"></td>
+            <td><input type="text" name="weight[]" class="form-control"></td>
+         </tr>
+         <tr>
+            <td><input type="text" name="data[]" class="form-control"></td>
+            <td><input type="text" name="weight[]" class="form-control"></td>
+         </tr>
+         <tr>
+            <td><input type="text" name="data[]" class="form-control"></td>
+            <td><input type="text" name="weight[]" class="form-control"></td>
+         </tr>
+      </tbody>
+   </table>
+   <div class="mt-3">
+      <button type="button" id="calc" title="Calculate" onclick="OnCalc2()" class="btn btn-success"><span>=</span> Calculate</button>
+      <button type="reset" id="reset" title="Reset" class="btn btn-secondary"><span>×</span> Reset</button>
+      <button type="button" id="addrow" title="Add row" onclick="AddRow()" class="btn btn-secondary"><span>+</span> Add row</button>
+   </div>
+   <div class="mt-3">
+      <label for="std" class="form-label">Standard deviation</label>
+      <input type="text" id="std" class="form-control" readonly="">
+   </div>
+   <div class="mt-3">
+      <label for="var" class="form-label">Variance</label>
+      <input type="text" id="var" class="form-control" readonly="">
+   </div>
+   <div class="mt-3">
+      <label for="mean2" class="form-label">Mean</label>
+      <input type="text" id="mean2" class="form-control" readonly="">
+   </div>
+   <div id="row1" class="mt-3" style="display:none">
+      <label for="mean" class="form-label">Mean</label>
+      <textarea rows="4" id="TA1" class="form-control mathsymbol" readonly="" cols="20" name="S1"></textarea>
+   </div>
+	</form>
+	<h2>Whole population standard deviation calculation</h2>
+	<p>Population mean:</p>
+	<p><img alt="population mean" height="65" src="lib/population-mean.png" width="121"></p>
+	<p>Population standard deviation:</p>
+	<p><img alt="population standard deviation" height="80" src="lib/population-std.png" width="211"></p>
+	<h2>Sampled data standard deviation calculation</h2>
+	<p>Sample mean:</p>
+	<p><img alt="Sample mean" height="65" src="lib/sample-mean.png" width="120"></p>
+	<p>Sample standard deviation:</p>
+	<p><img alt="Sample standard deviation" height="80" src="lib/sample-std.png" width="243"></p>
+	<h2>Discrete random variable standard deviation calculation</h2>
+	<p>Random variable mean:</p>
+	<p><img alt="random variable mean" height="65" src="lib/random-mean.png" width="127"></p>
+	<p>Discrete random variable standard deviation:</p>
+	<p><img alt="random standard deviation" height="80" src="lib/random-std.png" width="218"></p>
+	<p>&nbsp;</p>
+	<hr>
+	<h2>See also</h2>
+	<ul>
+		<li><a href="/math/probability/standard_deviation.html">Standard deviation</a></li>
+		<li><a href="average-calculator.html">Average calculator</a></li>
+		<li><a href="weighted-average-calculator.html">Weighted average calculator</a></li>
+		<li><a href="variance-calculator.html">Variance calculator</a></li>
+	</ul>
+	<!-- #EndEditable -->
+
+   <!-- rapidtables_bottom_01 -->
+   <div id="adngin-bottom_01-0"></div>
+	
+	<!-- #BeginEditable "doctext2" -->
+	<!-- #EndEditable -->
+	</div>
+	
+   <div id="fdbk">
+      <h2 id="feedback">Write how to improve this page</h2>
+      <form id="fdbkform">
+      <textarea id="fdbkarea" rows="4" minlength="30" maxlength="1000" placeholder="Your message ..." required="" class="form-control"></textarea>
+      <span id="fdbkmsg"></span>
+      <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">Submit Feedback</button>
+      </form>
+   </div>
+</div>
+
+<div id="rcol">
+   <!-- rapidtables_right_sidebar -->
+   <div id="adngin-right_sidebar-0"></div>
+
+	<!-- #BeginEditable "docnav" -->
+	<h5>MATH CALCULATORS</h5>
+	<ul>
+		<li><a href="calculator.html">Scientific calculator</a></li>
+		<li><a href="adding-fractions-calculator.html">Adding fractions calculator</a></li>
+		<li><a href="Add_Calculator.html">Addition calculator</a></li>
+		<li><a href="anti-log-calculator.html">Antilog calculator</a></li>
+		<li><a href="Arccos_Calculator.html">Arccos calculator</a></li>
+		<li><a href="Arcsin_Calculator.html">Arcsin calculator</a></li>
+		<li><a href="Arctan_Calculator.html">Arctan calculator</a></li>
+		<li><a href="average-calculator.html">Average calculator</a></li>
+		<li><a href="convolution-calculator.html">Convolution calculator</a></li>
+		<li><a href="Cos_Calculator.html">Cosine calculator</a></li>
+		<li><a href="dividing-fractions-calculator.html">Dividing fractions calculator</a></li>
+		<li><a href="division-calculator.html">Division calculator</a></li>
+		<li><a href="exponential-growth-calculator.html">Exponential growth calculator</a></li>
+		<li><a href="exponent-calculator.html">Exponents calculator</a></li>
+		<li><a href="Factorial_Calculator.html">Factorial calculator</a></li>
+		<li><a href="fractions-calculator.html">Fractions calculator</a></li>
+		<li><a href="gcf-calculator.html">GCF calculator</a></li>
+		<li><a href="lcm-calculator.html">LCM calculator</a></li>
+		<li><a href="Ln_Calc.html">Ln calculator</a></li>
+		<li><a href="log-calculator.html">Log calculator</a></li>
+		<li><a href="multiplication-calculator.html">Multiplication calculator</a></li>
+		<li><a href="multiplying-fractions-calculator.html">Multiplying fractions calculator</a></li>
+		<li><a href="percentage-calculator.html">Percentage calculator</a></li>
+		<li><a href="percentage-change-calculator.html">Percentage change calculator</a></li>
+		<li><a href="percent-error-calculator.html">Percent error calculator</a></li>
+		<li><a href="percentage-increase-calculator.html">Percentage increase calculator</a></li>
+		<li><a href="pythagorean-calculator.html">Pythagorean theorem calculator</a></li>
+		<li><a href="Quadratic_Calculator.html">Quadratic equation solver</a></li>
+		<li><a href="ratio-calculator.html">Ratio calculator</a></li>
+		<li><a href="root-calculator.html">Root calculator</a></li>
+		<li><a href="scientific-notation-calculator.html">Scientific notation calculator</a></li>
+		<li><a href="fraction-simplifier.html">Fraction simplifier</a></li>
+		<li><a href="Sin_Calculator.html">Sine calculator</a></li>
+		<li><a href="square-root-calculator.html">Square root calculator</a></li>
+		<li><a href="standard-deviation-calculator.html">Standard deviation calculator</a></li>
+		<li><a href="subtracting-fractions-calculator.html">Subtracting fractions calculator</a></li>
+		<li><a href="subtraction-calculator.html">Subtraction calculator</a></li>
+		<li><a href="Tan_Calculator.html">Tangent calculator</a></li>
+		<li><a href="trigonometry-calculator.html">Trigonometry calculator</a></li>
+		<li><a href="weighted-average-calculator.html">Weighted average calculator</a></li>
+		<li><a href="variance-calculator.html">Variance calculator</a></li>
+	</ul>
+	<h5>RAPID TABLES</h5>
+	<ul>
+		<li><a href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com">Recommend Site</a></li>
+		<li><a href="#feedback">Send Feedback</a></li>
+		<li><a href="/about/about.html">About</a></li>
+	</ul>
+	<!-- #EndEditable -->
+	
+</div>
+
+</div>
+
+<div id="footer">
+	<a href="/index.html">Home</a> | 
+	<a href="/web/index.html">Web</a> |
+	<a href="/math/index.html">Math</a> | 
+	<a href="/electric/index.html">Electricity</a> |
+	<a href="/calc/index.html">Calculators</a> | 
+	<a href="/convert/index.html">Converters</a> |
+	<a href="/tools/index.html">Tools</a>
+	<p>©  
+	<a href="/">RapidTables.com</a> | 
+	<a href="/about/about.html" rel="nofollow">About</a> | 
+	<a href="/about/terms.html" rel="nofollow">Terms of Use</a> | 
+	<a href="/about/privacy.html" rel="nofollow">Privacy Policy</a> | 
+	<a href="/about/cookies.html" rel="nofollow">Manage Cookies</a>
+	</p>
+</div>
+
+<!-- rapidtables_bottom_adhesive -->
+<div id="adngin-adhesive-0"></div>
+
+<!-- #BeginEditable "docscript" -->
+<!--sse-->
+<script src="../calc2.js"></script>
+<script>
+   var irow=3;
+   window.addEventListener("DOMContentLoaded",function() {
+   });
+
+   function OnCalc()
+   {
+      var num = new Array();
+      txt = document.calcform.TextArea1.value;
+      if( txt=="" ) txt="1, 3, 5";
+      txt=txt.trim();
+      n = txt.split(/[\s,\n]+/);
+      for(i=0; i<n.length; i++)
+         num[i] = parseFloat(n[i]);
+      m = 0;
+      for(i=0; i<num.length; i++)
+         m += num[i];
+      m /= num.length;
+      v = 0;
+      for(i=0; i<num.length; i++)
+         v += (num[i]-m)*(num[i]-m);
+      pvar = v/num.length;
+      svar = v/(num.length-1);
+      pstd = Math.sqrt(pvar);
+      sstd = Math.sqrt(svar);
+      document.calcform.pstd.value = roundresult(pstd);
+      document.calcform.sstd.value = roundresult(sstd);
+      document.calcform.pvar.value = roundresult(pvar);
+      document.calcform.svar.value = roundresult(svar);
+      document.calcform.mean.value = roundresult(m);
+   }
+   function OnCalc2()
+   {
+      var avg=0;
+      var v=0;
+      var sum=0;
+      var txt="\u03BC = ";
+      var txt1=txt2='';
+      for(var i=1; i<=irow+1; i++)
+      {
+         weight=document.querySelector("#tbl > tbody > tr:nth-child("+i+") > td:nth-child(2) > input").value;
+         weight = parseFloat(weight);
+         data=document.querySelector("#tbl > tbody > tr:nth-child("+i+") > td:nth-child(1) > input").value;
+         if( weight>=0 )
+         {
+            avg+=weight*data;
+            sum+=weight;
+            txt1+=weight+"\u00D7"+data+"+";
+            txt2+=weight+"+";
+         }
+      }
+      avg/=sum;
+      var avg0=avg;
+      avg = roundnum2(avg,8);
+      txt+="("+txt1+") / ("+txt2+") = "+avg;
+      txt1='';
+      for(var i=1; i<=irow+1; i++)
+      {
+         weight=document.querySelector("#tbl > tbody > tr:nth-child("+i+") > td:nth-child(2) > input").value;
+         weight = parseFloat(weight);
+         data=document.querySelector("#tbl > tbody > tr:nth-child("+i+") > td:nth-child(1) > input").value;
+         if( weight>=0 )
+         {
+            v+=weight*(data-avg0)*(data-avg0);
+            txt1+=weight+"\u00D7("+data+"-"+avg+")\u00B2+";
+         }
+      }
+      v/=sum;
+      std=Math.sqrt(v);
+      v = roundnum2(v,8);
+      std = roundnum2(std,8);
+      txt+="\n\u03C3 = \u221A( ("+txt1+") / ("+txt2+") ) = "+std;
+      txt=txt.replace(/\u002B\u0029/g,")");
+      document.getElementById("var").value=v;
+      document.getElementById("mean2").value=avg;
+      document.getElementById("std").value=std;
+      document.getElementById("TA1").value=txt;
+      document.getElementById("row1").style.display="block";
+   }
+   function AddRow()
+   {
+      var tableRef = document.getElementById('tbl').getElementsByTagName('tbody')[0];
+      var newRow = tableRef.insertRow(++irow);
+      newRow.innerHTML = "<tr>\
+         <td><input type='number' name='data[]' class='form-control'></td>\
+         <td><input type='number' name='weight[]' class='form-control'></td>\
+      </tr>";
+   }
+</script>			
+<!--/sse-->
+<!-- #EndEditable -->
+
+
+
+
+
+
+<iframe name="__tcfapiLocator" style="display: none;"></iframe><iframe name="__uspapiLocator" style="display: none;"></iframe><iframe name="__adconsentLocator" style="display: none;"></iframe><div style="display: none;"><a title="Do not click me1!" id="hp1" href="#">&lt;!â€“- Don't click me1 â€“-&gt;</a></div><a id="hp2" title="Don't click!" href="#" style="display: none;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" style="width:1px !important;height:1px !important;"></a></body><!-- #EndTemplate --></html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基础数学计算器</title>
+    <meta name="description" content="根据您的需求"我要一个简单的计算器，只要加减乘除"自动生成的计算器">
+    <style id="calculator-styles">
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .calculator-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .calculator-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .calculator-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .calculator-header .description {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .calculator-main {
+            padding: 30px;
+        }
+
+        .calculator-footer {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+        }
+                .calculator-display {
+                    margin-bottom: 20px;
+                }
+
+                .display-input {
+                    width: 100%;
+                    height: 80px;
+                    font-size: 2rem;
+                    text-align: right;
+                    padding: 15px;
+                    border: 2px solid #e9ecef;
+                    border-radius: 10px;
+                    background: #f8f9fa;
+                }
+
+                .display-history {
+                    height: 30px;
+                    font-size: 0.9rem;
+                    color: #666;
+                    text-align: right;
+                    padding: 5px 15px;
+                }
+
+                .calculator-buttons {
+                    display: grid;
+                    gap: 10px;
+                }
+
+                .button-row {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 10px;
+                }
+
+                .btn {
+                    height: 60px;
+                    border: none;
+                    border-radius: 10px;
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                }
+
+                .btn:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                }
+
+                .btn-number {
+                    background: #ffffff;
+                    color: #333;
+                    border: 2px solid #e9ecef;
+                }
+
+                .btn-operator {
+                    background: #667eea;
+                    color: white;
+                }
+
+                .btn-equals {
+                    background: #28a745;
+                    color: white;
+                }
+
+                .btn-clear {
+                    background: #dc3545;
+                    color: white;
+                }
+
+                .btn-wide {
+                    grid-column: span 2;
+                }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <header class="calculator-header">
+            <h1>基础数学计算器</h1>
+            <p class="description">根据您的需求"我要一个简单的计算器，只要加减乘除"自动生成的计算器</p>
+        </header>
+        
+        <main class="calculator-main">
+            
+        <div class="calculator-display">
+            <input type="text" id="display" class="display-input" readonly>
+            <div class="display-history" id="history"></div>
+        </div>
+        
+        <div class="calculator-buttons">
+            <div class="button-row">
+                <button class="btn btn-clear" onclick="clearDisplay()">清除</button>
+                <button class="btn btn-clear" onclick="clearEntry()">CE</button>
+                <button class="btn btn-operator" onclick="deleteLast()">⌫</button>
+                <button class="btn btn-operator" onclick="inputOperator('/')">/</button>
+            </div>
+            
+            <div class="button-row">
+                <button class="btn btn-number" onclick="inputNumber('7')">7</button>
+                <button class="btn btn-number" onclick="inputNumber('8')">8</button>
+                <button class="btn btn-number" onclick="inputNumber('9')">9</button>
+                <button class="btn btn-operator" onclick="inputOperator('*')">×</button>
+            </div>
+            
+            <div class="button-row">
+                <button class="btn btn-number" onclick="inputNumber('4')">4</button>
+                <button class="btn btn-number" onclick="inputNumber('5')">5</button>
+                <button class="btn btn-number" onclick="inputNumber('6')">6</button>
+                <button class="btn btn-operator" onclick="inputOperator('-')">-</button>
+            </div>
+            
+            <div class="button-row">
+                <button class="btn btn-number" onclick="inputNumber('1')">1</button>
+                <button class="btn btn-number" onclick="inputNumber('2')">2</button>
+                <button class="btn btn-number" onclick="inputNumber('3')">3</button>
+                <button class="btn btn-operator" onclick="inputOperator('+')">+</button>
+            </div>
+            
+            <div class="button-row">
+                <button class="btn btn-number btn-wide" onclick="inputNumber('0')">0</button>
+                <button class="btn btn-number" onclick="inputNumber('.')">.</button>
+                <button class="btn btn-equals" onclick="calculate()">=</button>
+            </div>
+        </div>
+        </main>
+        
+        <footer class="calculator-footer">
+            <p>由AI自动生成 • 2025/7/16</p>
+        </footer>
+    </div>
+
+    <script>
+        
+        // 基础功能函数
+        function formatNumber(num) {
+            if (typeof num !== 'number') return num;
+            return num.toLocaleString('zh-CN', { maximumFractionDigits: 10 });
+        }
+
+        function showError(message) {
+            console.error(message);
+            if (document.getElementById('display')) {
+                document.getElementById('display').value = '错误';
+            }
+        }
+
+        function validateInput(input) {
+            return !isNaN(input) && isFinite(input);
+        }
+                let currentInput = '';
+                let operator = '';
+                let previousInput = '';
+                let shouldResetDisplay = false;
+
+                function inputNumber(num) {
+                    const display = document.getElementById('display');
+                    if (shouldResetDisplay) {
+                        display.value = '';
+                        shouldResetDisplay = false;
+                    }
+                    display.value += num;
+                    currentInput = display.value;
+                }
+
+                function inputOperator(op) {
+                    const display = document.getElementById('display');
+                    if (currentInput === '' && previousInput === '') return;
+                    
+                    if (previousInput !== '' && currentInput !== '' && operator !== '') {
+                        calculate();
+                    }
+                    
+                    previousInput = currentInput || previousInput;
+                    operator = op;
+                    currentInput = '';
+                    shouldResetDisplay = true;
+                    
+                    updateHistory();
+                }
+
+                function calculate() {
+                    const display = document.getElementById('display');
+                    if (previousInput === '' || currentInput === '' || operator === '') return;
+                    
+                    const prev = parseFloat(previousInput);
+                    const curr = parseFloat(currentInput);
+                    let result;
+                    
+                    switch (operator) {
+                        case '+': result = prev + curr; break;
+                        case '-': result = prev - curr; break;
+                        case '*': result = prev * curr; break;
+                        case '/': 
+                            if (curr === 0) {
+                                showError('除数不能为零');
+                                return;
+                            }
+                            result = prev / curr; 
+                            break;
+                        default: return;
+                    }
+                    
+                    display.value = formatNumber(result);
+                    updateHistory(true);
+                    
+                    previousInput = '';
+                    currentInput = result.toString();
+                    operator = '';
+                    shouldResetDisplay = true;
+                }
+
+                function clearDisplay() {
+                    document.getElementById('display').value = '';
+                    document.getElementById('history').textContent = '';
+                    currentInput = '';
+                    operator = '';
+                    previousInput = '';
+                    shouldResetDisplay = false;
+                }
+
+                function clearEntry() {
+                    document.getElementById('display').value = '';
+                    currentInput = '';
+                }
+
+                function deleteLast() {
+                    const display = document.getElementById('display');
+                    display.value = display.value.slice(0, -1);
+                    currentInput = display.value;
+                }
+
+                function updateHistory(showResult = false) {
+                    const history = document.getElementById('history');
+                    if (showResult) {
+                        history.textContent = `${previousInput} ${operator} ${currentInput} =`;
+                    } else {
+                        history.textContent = `${previousInput} ${operator}`;
+                    }
+                }
+
+                // 键盘支持
+                document.addEventListener('keydown', function(event) {
+                    const key = event.key;
+                    if ('0123456789.'.includes(key)) {
+                        inputNumber(key);
+                    } else if ('+-*/'.includes(key)) {
+                        inputOperator(key);
+                    } else if (key === 'Enter' || key === '=') {
+                        calculate();
+                    } else if (key === 'Escape') {
+                        clearDisplay();
+                    } else if (key === 'Backspace') {
+                        deleteLast();
+                    }
+                });
+    </script>
+</body>
+</html>

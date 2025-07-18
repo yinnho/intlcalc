@@ -1,0 +1,262 @@
+<!DOCTYPE html><html lang="en"><!-- #BeginTemplate "../../rapidtables.dwt" --><head><script async="" type="text/javascript" src="https://c.pubguru.net/v/tc-250702-a0d-nc-9087a951a17c3cf228d61210096ed48a.js"></script>
+<link rel="dns-prefetch" href="https://a3.pubguru.net"><link rel="preconnect" href="https://a3.pubguru.net" crossorigin=""><script async="" src="/lib/tagmng8.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/lib/rapid02.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/lib/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/lib/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/lib/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/lib/favicon/manifest.json">
+<link rel="mask-icon" href="/lib/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/lib/favicon/favicon.ico">
+<meta name="msapplication-config" content="/lib/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+<!-- #BeginEditable "doctitle" -->
+<title>Weighted Average Calculator</title>
+<meta content="Weighted average calculator online and calculation." name="description">
+<link rel="canonical" href="https://www.rapidtables.com/calc/math/weighted-average-calculator.html">
+<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">-->
+<link href="/lib/bootstrap/bootstrap4small.css" rel="stylesheet">
+<style>
+   h1 { font-size:1.6rem; }
+   h2 { font-size:1.4rem; }
+   h4 { font-size:1.2rem; }
+   #calcform { background:#eee8d5; padding:20px; max-width:400px; }
+   #calcform button span { font-size:large; font-weight:bold; }
+   #tbl tr td:nth-child(1) { width:65%; }
+   #tbl tr td:nth-child(2) { width:35%; }
+	#doc img { max-width:100%; }
+   .fraction {
+      display: inline-block;
+      position: relative;
+      vertical-align: middle; 
+      letter-spacing: 0.001em;
+      text-align: center;
+   }
+   .fraction > span { display: block; padding: 0.1em; }
+   .fraction span.fdn { border-top: 2px solid black; }
+</style>
+<!-- #EndEditable -->
+
+<script async="" src="//cdn.snigelweb.com/adconsent/adconsent.js"></script><script async="" src="//c.pubguru.net/pg.rapidtables.com.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NY85XQ2FKR"></script></head>
+
+<body>
+
+<div id="header">
+	<div>
+	<div id="logo"><a href="/">RapidTables</a></div>
+   <div class="gcse-search"></div>
+   <div id="tooldiv">
+      <a href="#" onclick="OnPageSearch()"><img width="24" height="24" title="Search" src="/lib/icons/material/svg/search_black_24dp.svg" loading="lazy"><span> Search</span></a>
+      <a href="#" onclick="OnPageShare()"><img width="24" height="24" title="Share" src="/lib/icons/material/svg/share_black_24dp.svg" loading="lazy"><span> Share</span></a>
+   </div>
+	</div>
+</div>
+
+<div id="wrapper">
+
+<div id="nav">
+	<!-- #BeginEditable "doclink" -->
+	<a href="/">Home</a>›<a href="../index.html">Calculators</a>›<a href="index.html">Math Calculators</a>›<a href="weighted-average-calculator.html">Weighted average calculator</a>
+	<!-- #EndEditable -->
+</div>
+
+<div id="lcol">
+
+	<div id="doc">
+	<!-- #BeginEditable "doctext" -->
+	<h1>Weighted Average Calculator</h1>
+	<form id="calcform" autocomplete="off">
+   <div class="form-group">
+      <table id="tbl" class="">
+         <tbody><tr>
+            <td class="pb-2">Data value</td>
+            <td class="pb-2">Weight</td>
+         </tr>
+         </tbody><tbody>
+         <tr>
+            <td><input type="text" name="data[]" value="70" class="form-control mb-1" autofocus=""></td>
+            <td><input type="text" value="1" name="weight[]" class="form-control mb-1"></td>
+         </tr>
+         <tr>
+            <td><input type="text" name="data[]" value="80" class="form-control mb-1"></td>
+            <td><input type="text" value="2" name="weight[]" class="form-control mb-1"></td>
+         </tr>
+         <tr>
+            <td><input type="text" name="data[]" class="form-control mb-1"></td>
+            <td><input type="text" name="weight[]" class="form-control mb-1"></td>
+         </tr>
+         <tr>
+            <td><input type="text" name="data[]" class="form-control mb-1"></td>
+            <td><input type="text" name="weight[]" class="form-control mb-1"></td>
+         </tr>
+         <tr>
+            <td><input type="text" name="data[]" class="form-control mb-1"></td>
+            <td><input type="text" name="weight[]" class="form-control mb-1"></td>
+         </tr>
+         <tr>
+            <td><input type="text" name="data[]" class="form-control mb-1"></td>
+            <td><input type="text" name="weight[]" class="form-control mb-1"></td>
+         </tr>
+         </tbody>
+      </table>
+   </div>
+   <div class="form-group">
+      <button type="button" id="calc" title="Calculate" class="btn btn-success"><span>=</span> Calculate</button>
+      <button type="reset" id="reset" title="Reset" class="btn btn-secondary"><span>×</span> Reset</button>
+      <button type="button" id="addrow" title="Add row" class="btn btn-secondary"><span>+</span> Add Row</button>
+   </div>
+   <div class="form-group">
+      <label for="avg">Weighted average</label>
+      <input type="text" id="avg" class="form-control form-control-lg" readonly="">
+   </div>
+   <div class="form-group">
+      <label for="sum">Sum of weights</label>
+      <input type="text" id="sum" class="form-control form-control-lg" readonly="">
+   </div>
+   <div class="form-group">
+      <label for="TA1">Calculation</label>
+      <textarea rows="4" id="TA1" class="form-control" readonly=""></textarea>
+   </div>
+	</form>
+   <p><a href="average-calculator.html">Average calculator ►</a></p>
+	<h2>Weighted average calculation</h2>
+	<p>The weighted average (<em>x</em>) is equal to the sum of the product of the weight (w<sub>i</sub>) times the data number (x<sub>i</sub>) divided by the sum of the weights:</p>
+	<p><img alt="weighted average" height="54" src="lib/weighted-average.png" width="417"></p>
+   <p>∑ is the sum symbol.</p>
+	<h4>Example</h4>
+	<p>Find the weighted average of class grades (with equal weight) 70,70,80,80,80,90:</p>
+	<p>Since the weight of all grades are equal, we can calculate these grades with simple average or we can cound how many times each grade apear and use weighted average.</p>
+	<p class="mathsymbol">2×70,3×80,1×90</p>
+	<div class="mathsymbol"><i style="text-decoration:overline">x</i> = <div class="fraction"><span class="fup">2×70+3×80+1×90</span><span class="fdn">2+3+1</span></div> = <div class="fraction"><span class="fup">470</span><span class="fdn">6</span></div> = 78.33333</div>
+	<br>
+   <p><a href="average-calculator.html">Average calculator ►</a></p>
+	<br>
+	<hr>
+	<h2>See also</h2>
+	<ul class="seealso">
+      <li><a href="average-calculator.html">Average calculator</a></li>
+		<li><a href="standard-deviation-calculator.html">Standard deviation calculator</a></li>
+		<li><a href="variance-calculator.html">Variance calculator</a></li>
+		<li><a href="/calc/grade/grade-calculator.html">Grade calculator</a></li>
+		<li><a href="/calc/grade/gpa-calculator.html">GPA calculator</a></li>
+		<li><a href="index.html">Math Calculators</a></li>
+	</ul>
+	<!-- #EndEditable -->
+
+   <!-- rapidtables_bottom_01 -->
+   <div id="adngin-bottom_01-0"></div>
+	
+	<!-- #BeginEditable "doctext2" -->
+	<!-- #EndEditable -->
+	</div>
+	
+   <div id="fdbk">
+      <h2 id="feedback">Write how to improve this page</h2>
+      <form id="fdbkform">
+      <textarea id="fdbkarea" rows="4" minlength="30" maxlength="1000" placeholder="Your message ..." required="" class="form-control"></textarea>
+      <span id="fdbkmsg"></span>
+      <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">Submit Feedback</button>
+      </form>
+   </div>
+</div>
+
+<div id="rcol">
+   <!-- rapidtables_right_sidebar -->
+   <div id="adngin-right_sidebar-0"></div>
+
+	<!-- #BeginEditable "docnav" -->
+	<h5>MATH CALCULATORS</h5>
+	<ul>
+		<li><a href="calculator.html">Scientific calculator</a></li>
+		<li><a href="adding-fractions-calculator.html">Adding fractions calculator</a></li>
+		<li><a href="Add_Calculator.html">Addition calculator</a></li>
+		<li><a href="anti-log-calculator.html">Antilog calculator</a></li>
+		<li><a href="Arccos_Calculator.html">Arccos calculator</a></li>
+		<li><a href="Arcsin_Calculator.html">Arcsin calculator</a></li>
+		<li><a href="Arctan_Calculator.html">Arctan calculator</a></li>
+		<li><a href="average-calculator.html">Average calculator</a></li>
+		<li><a href="complex-calculator.html">Complex numbers calculator</a></li>
+		<li><a href="convolution-calculator.html">Convolution calculator</a></li>
+		<li><a href="Cos_Calculator.html">Cosine calculator</a></li>
+		<li><a href="dividing-fractions-calculator.html">Dividing fractions calculator</a></li>
+		<li><a href="division-calculator.html">Division calculator</a></li>
+		<li><a href="exponential-growth-calculator.html">Exponential growth calculator</a></li>
+		<li><a href="exponent-calculator.html">Exponents calculator</a></li>
+		<li><a href="Factorial_Calculator.html">Factorial calculator</a></li>
+		<li><a href="fractions-calculator.html">Fractions calculator</a></li>
+		<li><a href="gcf-calculator.html">GCF calculator</a></li>
+		<li><a href="lcm-calculator.html">LCM calculator</a></li>
+		<li><a href="Ln_Calc.html">Ln calculator</a></li>
+		<li><a href="log-calculator.html">Log calculator</a></li>
+		<li><a href="multiplication-calculator.html">Multiplication calculator</a></li>
+		<li><a href="multiplying-fractions-calculator.html">Multiplying fractions calculator</a></li>
+		<li><a href="percentage-calculator.html">Percentage calculator</a></li>
+		<li><a href="percentage-change-calculator.html">Percentage change calculator</a></li>
+		<li><a href="percent-error-calculator.html">Percent error calculator</a></li>
+		<li><a href="percentage-increase-calculator.html">Percentage increase calculator</a></li>
+		<li><a href="pythagorean-calculator.html">Pythagorean theorem calculator</a></li>
+		<li><a href="Quadratic_Calculator.html">Quadratic equation solver</a></li>
+		<li><a href="ratio-calculator.html">Ratio calculator</a></li>
+		<li><a href="root-calculator.html">Root calculator</a></li>
+		<li><a href="scientific-notation-calculator.html">Scientific notation calculator</a></li>
+		<li><a href="simple-calculator.html">Simple calculator</a></li>
+		<li><a href="fraction-simplifier.html">Fraction simplifier</a></li>
+		<li><a href="Sin_Calculator.html">Sine calculator</a></li>
+		<li><a href="square-root-calculator.html">Square root calculator</a></li>
+		<li><a href="standard-deviation-calculator.html">Standard deviation calculator</a></li>
+		<li><a href="subtracting-fractions-calculator.html">Subtracting fractions calculator</a></li>
+		<li><a href="subtraction-calculator.html">Subtraction calculator</a></li>
+		<li><a href="Tan_Calculator.html">Tangent calculator</a></li>
+		<li><a href="trigonometry-calculator.html">Trigonometry calculator</a></li>
+		<li><a href="weighted-average-calculator.html">Weighted average calculator</a></li>
+		<li><a href="variance-calculator.html">Variance calculator</a></li>
+	</ul>
+	<h5>RAPID TABLES</h5>
+	<ul>
+		<li><a href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com">Recommend Site</a></li>
+		<li><a href="#feedback">Send Feedback</a></li>
+		<li><a href="/about/about.html">About</a></li>
+	</ul>
+	<!-- #EndEditable -->
+	
+</div>
+
+</div>
+
+<div id="footer">
+	<a href="/index.html">Home</a> | 
+	<a href="/web/index.html">Web</a> |
+	<a href="/math/index.html">Math</a> | 
+	<a href="/electric/index.html">Electricity</a> |
+	<a href="/calc/index.html">Calculators</a> | 
+	<a href="/convert/index.html">Converters</a> |
+	<a href="/tools/index.html">Tools</a>
+	<p>©  
+	<a href="/">RapidTables.com</a> | 
+	<a href="/about/about.html" rel="nofollow">About</a> | 
+	<a href="/about/terms.html" rel="nofollow">Terms of Use</a> | 
+	<a href="/about/privacy.html" rel="nofollow">Privacy Policy</a> | 
+	<a href="/about/cookies.html" rel="nofollow">Manage Cookies</a>
+	</p>
+</div>
+
+<!-- rapidtables_bottom_adhesive -->
+<div id="adngin-adhesive-0"></div>
+
+<!-- #BeginEditable "docscript" -->
+<!--sse-->
+<script src="/calc/calc2.js"></script>
+<script>
+var irow=5,calcbtn=document.getElementById("calc"),addrow=document.getElementById("addrow");function Calc(){for(var t,e,n=0,d=0,l=txt1=txt2="",a=1;a<=irow+1;a++)t=parseFloat(t=document.querySelector("#tbl > tbody > tr:nth-child("+a+") > td:nth-child(2) > input").value),e=document.querySelector("#tbl > tbody > tr:nth-child("+a+") > td:nth-child(1) > input").value,t>=0&&(n+=t*e,d+=t,txt1+=t+"\xd7"+e+"+",txt2+=t+"+");n/=d,n=roundnum2(n,8),l="Weighted average = ∑wi∙xi / ∑wi\n",l+="= ("+txt1+") / ("+txt2+") \n= "+n,l=(l=l.replace("+)",")")).replace("+)",")"),document.getElementById("avg").value=n,document.getElementById("sum").value=d,document.getElementById("TA1").value=l}function AddRow(){document.getElementById("tbl").getElementsByTagName("tbody")[1].insertRow(++irow).innerHTML="<tr>         <td><input type='text' name='data[]' class='form-control mb-1'></td>         <td><input type='number' min='0' step='any' name='weight[]' class='form-control mb-1'></td>     </tr>"}window.addEventListener("DOMContentLoaded",function(){calcbtn.onclick=function(){Calc()},addrow.onclick=function(){AddRow()}});
+</script>
+<!--/sse-->
+<!-- #EndEditable -->
+
+
+
+
+
+
+<iframe name="__tcfapiLocator" style="display: none;"></iframe><iframe name="__uspapiLocator" style="display: none;"></iframe><iframe name="__adconsentLocator" style="display: none;"></iframe><div style="display: none;"><a title="Do not click me1!" id="hp1" href="#">&lt;!â€“- Don't click me1 â€“-&gt;</a></div><a id="hp2" title="Don't click!" href="#" style="display: none;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" style="width:1px !important;height:1px !important;"></a></body><!-- #EndTemplate --></html>

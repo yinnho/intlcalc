@@ -1,0 +1,192 @@
+[
+  {
+    "name": "OnAdd",
+    "code": "function OnAdd(e){iaddpay=e}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\compound-interest-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "AddRow",
+    "code": "function AddRow(net,rate,gst,gross)\n   {\n      var tableRef = document.getElementById('tbl');\n      var newRow = tableRef.insertRow(1);\n      var tr = \"<tr>\\\n         <td>\"+cur+net+\"</td>\\\n         <td>\"+rate+\"%</td>\\\n         <td>\"+cur+gst+\"</td>\\\n         <td>\"+cur+gross+\"</td>\\\n         </tr>\\\n      \";\n      newRow.innerHTML=tr;\n   }",
+    "params": [
+      "net",
+      "rate",
+      "gst",
+      "gross"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\gst-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 51,
+    "lineEnd": 63
+  },
+  {
+    "name": "AddRow",
+    "code": "function AddRow(net,rate,vat,gross)\n   {\n      var tableRef = document.getElementById('tbl');\n      var newRow = tableRef.insertRow(1);\n      var tr = \"<tr>\\\n         <td>\"+cur+net+\"</td>\\\n         <td>\"+rate+\"%</td>\\\n         <td>\"+cur+vat+\"</td>\\\n         <td>\"+cur+gross+\"</td>\\\n         </tr>\\\n      \";\n      newRow.innerHTML=tr;\n   }",
+    "params": [
+      "net",
+      "rate",
+      "vat",
+      "gross"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\vat-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 50,
+    "lineEnd": 62
+  },
+  {
+    "name": "AddRow",
+    "code": "function AddRow(){var e=document.getElementById(\"tbl\").getElementsByTagName(\"tbody\")[0].insertRow(irow++),t=\"<tr>         <td><input type='checkbox' checked>         <td><input type='text' name='desc[]' class='form-control' placeholder='Course #\"+irow+\"'></td>         <td><select name='lg[]' class='form-control'>            <option selected>--</option>            <option>A+</option>            <option>A</option>            <option>A-</option>            <option>B+</option>            <option>B</option>            <option>B-</option>            <option>C+</option>            <option>C</option>            <option>C-</option>            <option>D+</option>            <option>D</option>            <option>D-</option>            <option>F</option>            <option>P</option>            <option>NP</option>         </select></td>         <td><input type='number' min='0' step='any' name='pg[]' class='form-control'></td>         <td><input type='number' min='0' step='any' name='hr[]' class='form-control'></td>         <td><select name='wg[]' class='form-control'>            <option selected>Regular</option>            <option>Honors</option>            <option>AP</option>            <option>IB</option>            <option>College</option>         </select></td>\t\t\t<td><button type='button' class='btn btn-sm btn-white'>&times;</button></td>      \";e.innerHTML=t,ColShow(1,!0),ColShow(7,!0),0==igradetype?ColShow(4,!1):ColShow(4,!0),1==igradetype?ColShow(3,!1):ColShow(3,!0),wgpa.checked?ColShow(6,!0):ColShow(6,!1),e.querySelector(\"td:nth-child(7)>button\").onclick=function(){irow--;var e=this.parentNode.parentNode;e.parentNode.removeChild(e)}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\grade\\college-gpa-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "AddRow",
+    "code": "function AddRow()\n   {\n\t   var el=document.querySelector(\"#tbl > tbody > tr button\");\n      if( el!=null ) el.remove();\n      var tableRef = document.getElementById('tbl').getElementsByTagName('tbody')[0];\n      var newRow = tableRef.insertRow(++rows);\n      newRow.innerHTML = \"<tr>\\\n         <td><input type='checkbox' checked></td>\\\n         <td><select name='lgrade[]' class='form-control'>\\\n            <option selected>--</option>\\\n            <option>A+</option>\\\n            <option>A</option>\\\n            <option>A-</option>\\\n            <option>B+</option>\\\n            <option>B</option>\\\n            <option>B-</option>\\\n            <option>C+</option>\\\n            <option>C</option>\\\n            <option>C-</option>\\\n            <option>D+</option>\\\n            <option>D</option>\\\n            <option>D-</option>\\\n            <option>F</option>\\\n         </select></td>\\\n         <td><input type='number' name='grade[]' min='0' step='any' class='form-control'></td>\\\n         <td><input type='number' name='weight[]' min='0' step='any' class='form-control'></td>\\\n         <td><button type='button' title='Add Row' class='btn btn-outline-secondary'><span>+</span></button></td>\\\n      </tr>\";\n\t   var el=document.querySelector(\"#tbl > tbody > tr button\");\n      el.onclick = function() {  AddRow(); };\n      el=document.querySelector(\"#tbl tr:nth-child(2) input[type=checkbox]\");\n      if( rows==1 )\n         el.disabled = true;\n      else\n         el.disabled = false;\n\n      if( rows==1 )\n      {\n         el=document.querySelector(\"#tbl>tbody>tr:nth-child(2)>td:nth-child(4) input\");\n         el.id=\"cgw\";\n      }\n\n      var k=rows+1;\n      var i=getGradeType();\n      if( i==1 )\n         el=document.querySelector(\"#tbl tr:nth-child(\"+k+\")>td:nth-child(3)\");\n      else\n         el=document.querySelector(\"#tbl tr:nth-child(\"+k+\")>td:nth-child(2)\");\n      el.style.display=\"none\";\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\grade\\final-grade-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 65,
+    "lineEnd": 114
+  },
+  {
+    "name": "AddRow",
+    "code": "function AddRow(){var e=document.getElementById(\"tbl\").getElementsByTagName(\"tbody\")[0].insertRow(irow++),t=\"<tr>         <td><input type='checkbox' checked>         <td><input type='text' name='desc[]' class='form-control' placeholder='Course #\"+irow+\"'></td>         <td><select name='lg[]' class='form-control'>            <option selected>--</option>            <option>A+</option>            <option>A</option>            <option>A-</option>            <option>B+</option>            <option>B</option>            <option>B-</option>            <option>C+</option>            <option>C</option>            <option>C-</option>            <option>D+</option>            <option>D</option>            <option>D-</option>            <option>F</option>            <option>P</option>            <option>NP</option>         </select></td>         <td><input type='number' min='0' step='any' name='pg[]' class='form-control'></td>         <td><input type='number' min='0' step='any' name='hr[]' class='form-control'></td>         <td><select name='wg[]' class='form-control'>            <option selected>Regular</option>            <option>Honors</option>            <option>AP</option>            <option>IB</option>            <option>College</option>         </select></td>\t\t\t<td><button type='button' class='btn btn-sm btn-white'>&times;</button></td>      \";e.innerHTML=t,ColShow(1,!0),ColShow(7,!0),0==igradetype?ColShow(4,!1):ColShow(4,!0),1==igradetype?ColShow(3,!1):ColShow(3,!0),wgpa.checked?ColShow(6,!0):ColShow(6,!1),e.querySelector(\"td:nth-child(7)>button\").onclick=function(){irow--;var e=this.parentNode.parentNode;e.parentNode.removeChild(e)}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\grade\\gpa-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "AddRow",
+    "code": "function AddRow(){document.getElementById(\"tbl\").getElementsByTagName(\"tbody\")[0].insertRow(++rows).innerHTML=\"<tr>         <td><input type='text' name='desc[]' class='form-control'></td>         <td class='gsel'><select name='lg[]' class='form-control'>            <option selected>--</option>            <option>A+</option>            <option>A</option>            <option>A-</option>            <option>B+</option>            <option>B</option>            <option>B-</option>            <option>C+</option>            <option>C</option>            <option>C-</option>            <option>D+</option>            <option>D</option>            <option>D-</option>            <option>F</option>         </select></td>         <td class='gper'><input type='number' name='pg[]' min='0' step='any' class='form-control'></td>         <td><input type='number' name='w[]' min='0' step='any' class='form-control'></td>      </tr>\";var e,t=rows+1;for(e=0;e<gradetype.length&&(console.log(gradetype[e].getAttribute(\"checked\")),\"true\"!=gradetype[e].getAttribute(\"checked\"));e++);1==e?(document.querySelector(\"#tbl tr:nth-child(\"+t+\")>td:nth-child(3)\").style.display=\"none\",document.querySelector(\"#tbl tr:nth-child(\"+t+\")>td:nth-child(2)\").style.display=\"table-cell\"):(document.querySelector(\"#tbl tr:nth-child(\"+t+\")>td:nth-child(2)\").style.display=\"none\",document.querySelector(\"#tbl tr:nth-child(\"+t+\")>td:nth-child(3)\").style.display=\"table-cell\")}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\grade\\grade-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "AddRow",
+    "code": "function AddRow()\n   {\n      $('#tbl > tbody > tr').eq(irow++).after(\"<tr>\\\n         <td><input type='text' name='class[]' class='form-control form-control-lg' placeholder='class \"+irow+\"'></td>\\\n         <td><select name='grade[]' class='form-control form-control-lg'>\\\n            <option selected>--</option>\\\n            <option>A+</option>\\\n            <option>A</option>\\\n            <option>A-</option>\\\n            <option>B+</option>\\\n            <option>B</option>\\\n            <option>B-</option>\\\n            <option>C+</option>\\\n            <option>C</option>\\\n            <option>C-</option>\\\n            <option>D+</option>\\\n            <option>D</option>\\\n            <option>D-</option>\\\n            <option>F</option>\\\n            <option>P</option>\\\n            <option>NP</option>\\\n         </select></td>\\\n         <td><input type='number' min='0' step='any' name='hours[]' class='form-control form-control-lg'></td>\\\n         <td><select name='weight[]' class='form-control form-control-lg'>\\\n            <option selected>Regular</option>\\\n            <option>Honors</option>\\\n            <option>AP</option>\\\n            <option>IB</option>\\\n            <option>College</option>\\\n         </select></td>\\\n      </tr>\");\n      if (screen.width < 577) {\n         var n=irow+1;\n         $('#tbl > tbody > tr:nth-child('+n+') > td:first-child > input').css(\"display\",\"none\");\n      }\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\grade\\high-school-gpa-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 59,
+    "lineEnd": 94
+  },
+  {
+    "name": "AddRow",
+    "code": "function AddRow(){document.getElementById(\"tbl2\").getElementsByTagName(\"tbody\")[1].insertRow(++irow).innerHTML=\"<tr>         <td><input type='number' min='0' step='any' name='weight[]' class='form-control mb-1'></td>         <td><input type='text' name='data[]' class='form-control mb-1'></td>      </tr>\"}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\average-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "AddTxt",
+    "code": "function AddTxt(t,e){void 0==e&&(e=0),window.screen.width<800&&(e=0,t.length>1&&\")\"==t.substr(t.length-1)&&(t=t.substring(0,t.length-1))),isResult&&(calctxt.value=\"\"),isResult=!1,pos=calctxt.selectionStart;var n=calctxt.value;t=num2str3(t),0==pos?calctxt.value=t+n:pos==n.length?calctxt.value+=t:calctxt.value=n.substring(0,pos)+t+n.substring(pos,n.length),pos+=t.length+e,calctxt.selectionStart=pos,calctxt.selectionEnd=pos,calctxt.focus(),\"vibrate\"in navigator&&navigator.vibrate(13)}",
+    "params": [
+      "t",
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "AddTxt",
+    "code": "function AddTxt(s)\n   {\n      calctxt.value+=s;\n      calctxt.focus();\n   }",
+    "params": [
+      "s"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\complex-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 53,
+    "lineEnd": 57
+  },
+  {
+    "name": "AddTxt",
+    "code": "function AddTxt(t,l){\"\"!=txt.value&&(txt.value+=\"\\n\"),txt.value+=num2str3(t)+\"\\n= \";var e=math.fraction(l);txt.value+=math.format(e)+\"\\n= \",txt.value+=num2str3(l.toString()),txt.scrollTop=txt.scrollHeight}",
+    "params": [
+      "t",
+      "l"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\fractions-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "addPoint",
+    "code": "function addPoint(x)\n   {\n      if( px!=null && px<=x )\n      {\n         arr.push([px, py, py]);\n         ip=arr.length-1;\n         px=null;\n      }\n      var y=Math.log(x);\n      x = parseFloat(roundresult(x));\n      y = parseFloat(roundresult(y));\n      arr.push([x, y, null]);\n   }",
+    "params": [
+      "x"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\Ln_Calc.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 25,
+    "lineEnd": 37
+  },
+  {
+    "name": "addRange",
+    "code": "function addRange(x1,x2,step)\n   {\n      for(var x=x1; x<x2; x+=step)\n         addPoint(x);\n   }",
+    "params": [
+      "x1",
+      "x2",
+      "step"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\Ln_Calc.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 38,
+    "lineEnd": 42
+  },
+  {
+    "name": "AddRow",
+    "code": "function AddRow()\n   {\n      var tableRef = document.getElementById('tbl').getElementsByTagName('tbody')[0];\n      var newRow = tableRef.insertRow(++irow);\n      newRow.innerHTML = \"<tr>\\\n         <td><input type='number' name='data[]' class='form-control'></td>\\\n         <td><input type='number' name='weight[]' class='form-control'></td>\\\n      </tr>\";\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\standard-deviation-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 80,
+    "lineEnd": 88
+  },
+  {
+    "name": "AddRow",
+    "code": "function AddRow()\n\t\t{\n\t\t\t$('#tbl > tbody > tr').eq(++irow).after(\"<tr>\\\n\t\t\t\t<td><input type='number' name='weight[]' min='0' step='0.1' max='1'></td>\\\n\t\t\t\t<td><input type='number' name='data[]'></td>\\\n\t\t\t</tr>\");\n\t\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\variance-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 91,
+    "lineEnd": 97
+  },
+  {
+    "name": "AddRow",
+    "code": "function AddRow(){document.getElementById(\"tbl\").getElementsByTagName(\"tbody\")[1].insertRow(++irow).innerHTML=\"<tr>         <td><input type='text' name='data[]' class='form-control mb-1'></td>         <td><input type='number' min='0' step='any' name='weight[]' class='form-control mb-1'></td>     </tr>\"}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\weighted-average-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "addchar",
+    "code": "function addchar(e){var t=xelem.value;\"\"==t&&(t=\"0\"),\"-\"==e&&(t=e+t),\".\"==e&&(t+=e),xelem.value=t,xelem.focus()}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\number\\decimal-to-binary.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  }
+]

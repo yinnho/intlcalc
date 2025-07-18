@@ -1,0 +1,9 @@
+{
+  "title": "长度转换器",
+  "description": "根据您的需求\"帮我做长度转换，厘米转英寸\"自动生成的计算器",
+  "type": "conversion-calculator",
+  "complexity": "medium",
+  "features": [],
+  "generatedAt": "2025-07-16T04:56:40.219Z",
+  "version": "1.0.0"
+}

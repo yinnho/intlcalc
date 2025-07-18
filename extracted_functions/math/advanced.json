@@ -1,0 +1,894 @@
+[
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2) {\n      var iphase = document.calcform.phase.selectedIndex;\n      var ivolt = document.calcform.volt.selectedIndex;\n      var kva = x1*x2/1000;\n      if( iphase==1 )\n      {\n         if( ivolt==0 )\n            kva*=Math.sqrt(3);\n         else\n            kva*=3;\n      }\n      kva = kva.toFixed(3);\n      return kva;\n   }",
+    "params": [
+      "x1",
+      "x2"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\Amp_to_kVA_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 14,
+    "lineEnd": 27
+  },
+  {
+    "name": "convert",
+    "code": "function convert() {\n      var x1 = str2num(document.calcform.x1.value);\n      var x2 = str2num(document.calcform.x2.value);\n      var iaunit = document.getElementById(\"aunitsel\").selectedIndex;\n      var ivunit = document.getElementById(\"vunitsel\").selectedIndex;\n      var iphase = document.calcform.phase.selectedIndex;\n      var ivolt = document.calcform.volt.selectedIndex;\n      var pf = str2num(document.calcform.pf.value);\n      if( iaunit==0 ) x1/=1000;\n      if( iaunit==2 ) x1*=1000;\n      if( ivunit==0 ) x2/=1000;\n      if( ivunit==2 ) x2*=1000;\n      var kw = x1*x2/1000;\n      if( pf<0 || pf>1 )\n      {\n         alert('Please enter power factor from 0 to 1');\n         document.calcform.pf.focus();\n         return;\n      }\n      if( iphase==1 )\n         kw*=pf;\n      else if( iphase==2 )\n      {\n         if( ivolt==0 )\n            kw*=(pf*Math.sqrt(3));\n         else\n            kw*=(pf*3);\n      }\n      document.calcform.y.value = num2str(roundresult(kw));\n      document.calcform.y2.value = num2str(roundresult(1000*kw));\n      document.calcform.y3.value = num2str(roundresult(1000000*kw));\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\Amp_to_kW_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 31,
+    "lineEnd": 62
+  },
+  {
+    "name": "convert",
+    "code": "function convert(){var e=str2num(iElem.value),l=str2num(vElem.value),t=iselElem.selectedIndex,n=vselElem.selectedIndex,a=itypeElem.selectedIndex,y=vtypeElem.selectedIndex,f=str2num(pfElem.value),s=e,d=l;0==t&&(e/=1e3),2==t&&(e*=1e3),0==n&&(l/=1e3),2==n&&(l*=1e3);var m=e*l;if(f<0||f>1){alert(\"Please enter power factor from 0 to 1\"),pfElem.focus();return}1==a?m*=f:2==a&&(0==y?m*=f*Math.sqrt(3):m*=3*f),document.getElementById(\"y\").value=num2str(roundresult(m)),document.getElementById(\"y2\").value=num2str(roundresult(m/1e3)),document.getElementById(\"y3\").value=num2str(roundresult(1e3*m)),\"NaN\"==s&&(s=\"\"),\"NaN\"==d&&(d=\"\");var p=window.location.href.split(\"?\")[0];p+=\"?type=\"+a+\"&i=\"+s+\"&isel=\"+t+\"&vtype=\"+y+\"&v=\"+d+\"&vsel=\"+n+\"&pf=\"+f,p+=\"#calcform\",history.replaceState({},\"\",p)}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\Amp_to_Watt_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnSetPower",
+    "code": "function OnSetPower()\n\t\t{\n\t\t\tlook=[600,3000,2400,1600,2000,70,2000,800,100,50,200,200,70,1000,1600,2000,4000];\n\t\t\ti = document.calcform.Select4.selectedIndex;\n\t\t\tif(i==0) return;\n\t\t\tdocument.calcform.Text1.value = look[i-1];\n\t\t\tdocument.calcform.Select2.selectedIndex=0;\n\t\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\energy-cost-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 11,
+    "lineEnd": 18
+  },
+  {
+    "name": "OnCalcCost",
+    "code": "function OnCalcCost()\n\t\t{\n\t\t\ti3 = document.calcform.Select3.selectedIndex;\n\t\t\tkwh_cost = document.calcform.Text3.value;\n\t\t\tkwh = document.calcform.Text8.value;\n\t\t\tif( kwh=='' ) OnEnergyCalc();\n\t\t\tkwh = document.calcform.Text8.value;\n\t\t\tif( i3>1 ) kwh_cost*=100; \n\t\t\tday_cost   = kwh*kwh_cost/100;\n\t\t\tmonth_cost = day_cost*30;\n\t\t\tyear_cost  = day_cost*365;\n\t\t\tday_cost   = roundnum(day_cost,5);\n\t\t\tmonth_cost = roundnum(month_cost,5);\n\t\t\tyear_cost  = roundnum(year_cost,5);\n\t\t\tdocument.calcform.Text5.value = c+day_cost;\n\t\t\tdocument.calcform.Text6.value = c+month_cost;\n\t\t\tdocument.calcform.Text7.value = c+year_cost;\n\t\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\energy-cost-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 30,
+    "lineEnd": 47
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2) {\n\t\t\t\tvar iphase = document.calcform.phase.selectedIndex;\n\t\t\t\tvar pf = document.calcform.pf.value;\n\t\t\t\tvar kw = 1000*x1/x2;\n\t\t\t\tif( pf<0 || pf>1 )\n\t\t\t\t{\n\t\t\t\t\talert('Please enter power factor from 0 to 1');\n\t\t\t\t\tdocument.calcform.pf.focus();\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tif( iphase==1 )\n\t\t\t \t\tkw/=pf;\n\t\t\t\telse if( iphase==2 )\n\t\t\t \t\tkw/=(pf*Math.sqrt(3));\n\t\t\t \treturn kw;\n\t\t\t}",
+    "params": [
+      "x1",
+      "x2"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\kw-to-volt-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 18,
+    "lineEnd": 33
+  },
+  {
+    "name": "onselchange",
+    "code": "function onselchange(e,l){0==l?txt=document.calcform.r:1==l?txt=document.calcform.i:2==l?txt=document.calcform.v:3==l&&(txt=document.calcform.p),\"\"!=txt.value&&(di=e.selectedIndex-prevIndex[l],txt.value=roundnum(txt.value/Math.pow(1e3,di),8),prevIndex[l]=e.selectedIndex)}",
+    "params": [
+      "e",
+      "l"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\ohms-law-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "oncalc",
+    "code": "function oncalc(){var e,l,a,t,n,o=document.getElementById(\"r\"),d=document.getElementById(\"i\"),m=document.getElementById(\"v\"),u=document.getElementById(\"p\"),f=document.getElementById(\"cr\"),I=document.getElementById(\"ci\"),$=document.getElementById(\"cv\"),b=document.getElementById(\"cp\"),g=document.getElementById(\"cal\"),_=document.getElementById(\"caldiv\"),V=Math.pow(10,3*f.selectedIndex),E=Math.pow(10,3*I.selectedIndex-6),w=Math.pow(10,3*$.selectedIndex-6),B=Math.pow(10,3*b.selectedIndex-6),h=roundnum(o.value,6),N=roundnum(d.value,6),P=roundnum(m.value,6),A=roundnum(u.value,6),O=roundnum(h*V,6),R=roundnum(N*E,6),W=roundnum(P*w,6),k=roundnum(A*B,6);if(\"NaN\"==O&&(O=\"\"),\"NaN\"==R&&(R=\"\"),\"NaN\"==W&&(W=\"\"),\"NaN\"==k&&(k=\"\"),O<0){alert(\"Please enter positive resistance value!\");return}if(k<0){alert(\"Please enter positive power value!\");return}var l=a=t=n=\"\";\"\"!=O&&\"\"!=W?(R=roundnum(W/O,6),k=roundnum(W*R,6),0!=f.selectedIndex&&(l=\"&times;10<sup>\"+3*f.selectedIndex+\"</sup>\"),2!=$.selectedIndex&&(t=\"&times;10<sup>\"+3*($.selectedIndex-2)+\"</sup>\"),e=\"Current calculation:<br><i>I = V / R</i><br>= \"+P+t+\" volt (V) / \"+h+l+\" ohm (&Omega;)<br>= \"+R+\" ampere (A)<br>\",e+=\"Power calculation:<br><i>P = V &times; I</i><br>= \"+P+t+\" volt (V) &times; \"+R+\" ampere (A)<br>= \"+k+\" watt (W)<br>\"):\"\"!=O&&\"\"!=R?(W=roundnum(R*O,6),k=roundnum(W*R,6),0!=f.selectedIndex&&(l=\"&times;10<sup>\"+3*f.selectedIndex+\"</sup>\"),2!=I.selectedIndex&&(a=\"&times;10<sup>\"+3*(I.selectedIndex-2)+\"</sup>\"),e=\"Voltage calculation:<br><i>V = I &times; R</i><br>= \"+N+a+\" ampere (A) &times; \"+h+l+\" ohm (&Omega;)<br>= \"+W+\" volt (V)<br>\",e+=\"Power calculation:<br><i>P = V &times; I</i><br>= \"+W+\" volt (V) &times;\"+N+a+\" ampere (A)<br>= \"+k+\" watt (W)<br>\"):\"\"!=O&&\"\"!=k?(W=roundnum(Math.sqrt(k*O),6),R=roundnum(k/W,6),0!=f.selectedIndex&&(l=\"&times;10<sup>\"+3*f.selectedIndex+\"</sup>\"),2!=b.selectedIndex&&(n=\"&times;10<sup>\"+3*(b.selectedIndex-2)+\"</sup>\"),e=\"Voltage calculation:<br><i>V</i> = √(<i>P &times; R</i>)<br>= √(\"+A+n+\" watt (W) &times; \"+h+l+\" ohm (&Omega;))<br>= \"+W+\" volt (V)<br>\",e+=\"Current calculation:<br><i>I = P / V</i><br>= \"+A+n+\" watt (W) / \"+W+\" volt (V)<br>= \"+R+\" ampere (A)<br>\"):\"\"!=R&&\"\"!=W?(O=roundnum(W/R,6),k=roundnum(W*R,6),2!=I.selectedIndex&&(a=\"&times;10<sup>\"+3*(I.selectedIndex-2)+\"</sup>\"),2!=$.selectedIndex&&(t=\"&times;10<sup>\"+3*($.selectedIndex-2)+\"</sup>\"),e=\"Resistance calculation:<br><i>R = V / I</i><br>= \"+P+t+\" volt (V) / \"+N+a+\" ampere (A)<br>= \"+O+\" ohm (&Omega;)<br>\",e+=\"Power calculation:<br><i>P = V&times;I</i><br>= \"+P+t+\" volt (V) &times;\"+N+a+\" ampere (A)<br>= \"+k+\" watt (W)<br>\"):\"\"!=R&&\"\"!=k?(W=roundnum(k/R,6),O=roundnum(W/R,6),2!=I.selectedIndex&&(a=\"&times;10<sup>\"+3*(I.selectedIndex-2)+\"</sup>\"),2!=b.selectedIndex&&(n=\"&times;10<sup>\"+3*(b.selectedIndex-2)+\"</sup>\"),e=\"Voltage calculation:<br><i>V = P / I</i><br>= \"+A+n+\" watt (W) / \"+N+a+\" ampere (A)<br>= \"+W+\" volt (V)<br>\",e+=\"Resistance calculation:<br><i>R = V / I</i><br>= \"+W+\" volt (V) / \"+N+a+\" ampere (A)<br>= \"+O+\" ohm (&Omega;)<br>\"):\"\"!=W&&\"\"!=k&&(R=roundnum(k/W,6),O=roundnum(W/R,6),2!=$.selectedIndex&&(t=\"&times;10<sup>\"+3*($.selectedIndex-2)+\"</sup>\"),2!=b.selectedIndex&&(n=\"&times;10<sup>\"+3*(b.selectedIndex-2)+\"</sup>\"),e=\"Power calculation:<br><i>I = P / V</i><br>= \"+A+n+\" watt (W) / \"+P+t+\" volt (V)<br>= \"+R+\" ampere (A)<br>\",e+=\"Voltage calculation:<br><i>R = V / I</i><br>= \"+P+t+\" volt (V) / \"+R+\" ampere (A)<br>= \"+O+\" ohm (&Omega;)<br>\"),O/=V,R/=E,W/=w,k/=B,o.value=roundnum(O,6),d.value=roundnum(R,6),m.value=roundnum(W,6),u.value=roundnum(k,6),g.innerHTML=e,_.style.display=\"flex\",\"NaN\"==h&&(h=\"\"),\"NaN\"==N&&(N=\"\"),\"NaN\"==P&&(P=\"\"),\"NaN\"==A&&(A=\"\");var C=window.location.href.split(\"?\")[0];C+=\"?v=\"+P+\"&cv=\"+$.selectedIndex,C+=\"&i=\"+N+\"&ci=\"+I.selectedIndex,C+=\"&r=\"+h+\"&cr=\"+f.selectedIndex,C+=\"&p=\"+A+\"&cp=\"+b.selectedIndex,C+=\"#calcform\",history.replaceState({},\"\",C)}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\ohms-law-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "onselchange2",
+    "code": "function onselchange2(e,l){0==l?txt=document.calcform2.z:1==l?txt=document.calcform2.i2:2==l?txt=document.calcform2.v2:3==l&&(txt=document.calcform2.s),\"\"!=txt.value&&(di=e.selectedIndex-prevIndex2[l],txt.value=roundnum(txt.value/Math.pow(1e3,di),8),prevIndex2[l]=e.selectedIndex)}",
+    "params": [
+      "e",
+      "l"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\ohms-law-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "oncalc2",
+    "code": "function oncalc2(){fz=Math.pow(10,3*document.calcform2.cz.selectedIndex),fi=Math.pow(10,3*document.calcform2.ci2.selectedIndex-6),fv=Math.pow(10,3*document.calcform2.cv2.selectedIndex),fs=Math.pow(10,3*document.calcform2.cs.selectedIndex),z=fz*document.calcform2.z.value,i=fi*document.calcform2.i2.value,v=fv*document.calcform2.v2.value,s=fs*document.calcform2.s.value,zdeg=document.calcform2.zdeg.value,ideg=document.calcform2.ideg.value,vdeg=document.calcform2.vdeg.value,sdeg=document.calcform2.sdeg.value,_zdeg=parseFloat(zdeg),_ideg=parseFloat(ideg),_vdeg=parseFloat(vdeg),_sdeg=parseFloat(sdeg),\"\"!=z&&\"\"!=v&&\"\"!=zdeg&&\"\"!=vdeg?(i=v/z,s=v*i,ideg=_vdeg-_zdeg,sdeg=_zdeg):\"\"!=z&&\"\"!=i&&\"\"!=zdeg&&\"\"!=ideg?(s=(v=i*z)*i,vdeg=_zdeg+_ideg,sdeg=_zdeg):\"\"!=z&&\"\"!=s&&\"\"!=zdeg&&\"\"!=sdeg?(v=Math.sqrt(s*z),i=s/v,vdeg=(_sdeg+_zdeg)/2,ideg=_sdeg-vdeg):\"\"!=i&&\"\"!=v&&\"\"!=ideg&&\"\"!=vdeg?(z=v/i,s=v*i,sdeg=zdeg=_vdeg-_ideg):\"\"!=i&&\"\"!=s&&\"\"!=ideg&&\"\"!=sdeg?(z=(v=s/i)/i,vdeg=(zdeg=_sdeg)+_ideg):\"\"!=v&&\"\"!=s&&\"\"!=vdeg&&\"\"!=sdeg&&(i=s/v,z=v/i,ideg=_vdeg-(zdeg=_sdeg)),z/=fz,i/=fi,v/=fv,s/=fs,document.calcform2.z.value=roundnum(z,8),document.calcform2.i2.value=roundnum(i,8),document.calcform2.v2.value=roundnum(v,8),document.calcform2.s.value=roundnum(s,8),document.calcform2.zdeg.value=roundnum(zdeg,5),document.calcform2.ideg.value=roundnum(ideg,5),document.calcform2.vdeg.value=roundnum(vdeg,5),document.calcform2.sdeg.value=roundnum(sdeg,5),\"\"==document.calcform2.z_car.value&&oncalccart(0),\"\"==document.calcform2.s_car.value&&oncalccart(1);var e=window.location.href.split(\"?\")[0];e=e.split(\"#\")[0],e+=\"#accalc\",history.replaceState({},\"\",e)}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\ohms-law-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "oncalccart",
+    "code": "function oncalccart(e){0==e?(r=document.calcform2.z.value,ang=document.calcform2.zdeg.value):(r=document.calcform2.s.value,ang=document.calcform2.sdeg.value),\"\"!=r&&\"\"!=ang&&(x=r*Math.cos(ang=ang/180*Math.PI),(y=r*Math.sin(ang))<0?(y=-y,sign=\"-\"):sign=\"+\",p=(x=x.toFixed(2))+sign+\"j\"+(y=y.toFixed(2)),0==e?document.calcform2.z_car.value=p:document.calcform2.s_car.value=p)}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\ohms-law-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "oncalcpolar",
+    "code": "function oncalcpolar(e){0==e?(car=document.calcform2.z_car.value,c=document.calcform2.cz.selectedIndex):(car=document.calcform2.s_car.value,c=document.calcform2.cs.selectedIndex),\"\"!=car&&(-1==(i=car.indexOf(\"j\"))&&(car+=\"+j0\"),0==i&&(car=\"0+\"+car),1==i&&(car=\"0\"+car),len=car.length,i1=car.indexOf(\"+\"),i2=car.indexOf(\"-\"),i3=car.indexOf(\" \"),sign1=0==i2?-1:1,i1<1&&(i1=100),i2<1&&(i2=100),i3<1&&(i3=100),sign2=(i=Math.min(i1,i2,i3))==i2?-1:1,x=parseFloat(x=car.substring(0,i)),i=car.indexOf(\"j\"),y=parseFloat(y=car.substring(i+1,len)),y*=sign2,mag=Math.sqrt(x*x+y*y),ang=0!=x?180*Math.atan(y/x)/Math.PI:y>0?90:y<0?-90:0,-1==sign1&&0!=ang&&(ang>0?ang-=180:ang+=180),mag/=Math.pow(10,3*c),mag=mag.toFixed(2),ang=ang.toFixed(0),0==e?(document.calcform2.z.value=mag,document.calcform2.zdeg.value=ang):(document.calcform2.s.value=mag,document.calcform2.sdeg.value=ang))}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\ohms-law-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "onselchange",
+    "code": "function onselchange(sel, i) {\n\t\t\tif( i==0 ) txt=document.calcform.r;\n\t\t\telse if( i==1 ) txt=document.calcform.i;\n\t\t\telse if( i==2 ) txt=document.calcform.v;\n\t\t\telse if( i==3 ) txt=document.calcform.p;\n\t\t\tif( txt.value=='' ) return;\n\t\t\tdi = sel.selectedIndex-prevIndex[i];\n\t\t\ttxt.value = roundnum(txt.value/Math.pow(1000, di), 8);\n\t\t\tprevIndex[i] = sel.selectedIndex;\n\t\t}",
+    "params": [
+      "sel",
+      "i"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\power-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 51,
+    "lineEnd": 60
+  },
+  {
+    "name": "oncalc",
+    "code": "function oncalc() {\n\t\t\tfr = Math.pow(10,3*document.calcform.cr.selectedIndex);\n\t\t\tfi = Math.pow(10,3*document.calcform.ci.selectedIndex-6);\n\t\t\tfv = Math.pow(10,3*document.calcform.cv.selectedIndex-6);\n\t\t\tfp = Math.pow(10,3*document.calcform.cp.selectedIndex-6);\n\t\t\tr = fr*document.calcform.r.value;\n\t\t\ti = fi*document.calcform.i.value;\n\t\t\tv = fv*document.calcform.v.value;\n\t\t\tp = fp*document.calcform.p.value;\n\t\t\tif( r!=\"\" && v!=\"\" ) {i=v/r; p=v*i;}\n\t\t\telse if( r!=\"\" && i!=\"\" ) {v=i*r; p=v*i;}\n\t\t\telse if( r!=\"\" && p!=\"\" ) {v=Math.sqrt(p*r); i=p/v;}\n\t\t\telse if( i!=\"\" && v!=\"\" ) {r=v/i; p=v*i;}\n\t\t\telse if( i!=\"\" && p!=\"\" ) {v=p/i; r=v/i;}\n\t\t\telse if( v!=\"\" && p!=\"\" ) {i=p/v; r=v/i;}\n\t\t\tr /= fr;\n\t\t\ti /= fi;\n\t\t\tv /= fv;\n\t\t\tp /= fp;\n\t\t\tdocument.calcform.r.value = roundnum(r,8);\n\t\t\tdocument.calcform.i.value = roundnum(i,8);\n\t\t\tdocument.calcform.v.value = roundnum(v,8);\n\t\t\tdocument.calcform.p.value = roundnum(p,8);\n\t\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\power-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 61,
+    "lineEnd": 84
+  },
+  {
+    "name": "onselchange2",
+    "code": "function onselchange2(sel, i) {\n\t\t\tif( i==0 ) txt=document.calcform2.z;\n\t\t\telse if( i==1 ) txt=document.calcform2.i2;\n\t\t\telse if( i==2 ) txt=document.calcform2.v2;\n\t\t\telse if( i==3 ) txt=document.calcform2.s;\n\t\t\tif( txt.value=='' ) return;\n\t\t\tdi = sel.selectedIndex-prevIndex2[i];\n\t\t\ttxt.value = roundnum(txt.value/Math.pow(1000, di), 8);\n\t\t\tprevIndex2[i] = sel.selectedIndex;\n\t\t}",
+    "params": [
+      "sel",
+      "i"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\power-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 106,
+    "lineEnd": 115
+  },
+  {
+    "name": "oncalc2",
+    "code": "function oncalc2() {\n\t\t\tfz = Math.pow(10,3*document.calcform2.cz.selectedIndex);\n\t\t\tfi = Math.pow(10,3*document.calcform2.ci2.selectedIndex-6);\n\t\t\tfv = Math.pow(10,3*document.calcform2.cv2.selectedIndex);\n\t\t\tfs = Math.pow(10,3*document.calcform2.cs.selectedIndex);\n\t\t\tz = fz*document.calcform2.z.value;\n\t\t\ti = fi*document.calcform2.i2.value;\n\t\t\tv = fv*document.calcform2.v2.value;\n\t\t\ts = fs*document.calcform2.s.value;\n\t\t \tzdeg = document.calcform2.zdeg.value;\n\t\t \tideg = document.calcform2.ideg.value;\n\t\t \tvdeg = document.calcform2.vdeg.value;\n\t\t \tsdeg = document.calcform2.sdeg.value;\n\t\t \t_zdeg = parseFloat(zdeg);\n\t\t \t_ideg = parseFloat(ideg);\n\t\t \t_vdeg = parseFloat(vdeg);\n\t\t \t_sdeg = parseFloat(sdeg);\n\t\t\tif( z!=\"\" && v!=\"\" && zdeg!=\"\" && vdeg!=\"\" ) {i=v/z; s=v*i; ideg=_vdeg-_zdeg; sdeg=_zdeg; }\n\t\t\telse if( z!=\"\" && i!=\"\" && zdeg!=\"\" && ideg!=\"\" ) {v=i*z; s=v*i; vdeg=_zdeg+_ideg; sdeg=_zdeg; }\n\t\t\telse if( z!=\"\" && s!=\"\" && zdeg!=\"\" && sdeg!=\"\" ) {v=Math.sqrt(s*z); i=s/v; vdeg=(_sdeg+_zdeg)/2; ideg=_sdeg-vdeg; }\n\t\t\telse if( i!=\"\" && v!=\"\" && ideg!=\"\" && vdeg!=\"\" ) {z=v/i; s=v*i; zdeg=_vdeg-_ideg; sdeg=zdeg;}\n\t\t\telse if( i!=\"\" && s!=\"\" && ideg!=\"\" && sdeg!=\"\" ) {v=s/i; z=v/i; zdeg=_sdeg; vdeg=zdeg+_ideg; }\n\t\t\telse if( v!=\"\" && s!=\"\" && vdeg!=\"\" && sdeg!=\"\" ) {i=s/v; z=v/i; zdeg=_sdeg; ideg=_vdeg-zdeg; }\n\t\t\tz /= fz;\n\t\t\ti /= fi;\n\t\t\tv /= fv;\n\t\t\ts /= fs;\n\t\t\tdocument.calcform2.z.value  = roundnum(z,8);\n\t\t\tdocument.calcform2.i2.value = roundnum(i,8);\n\t\t\tdocument.calcform2.v2.value = roundnum(v,8);\n\t\t\tdocument.calcform2.s.value  = roundnum(s,8);\n\t\t\tdocument.calcform2.zdeg.value = roundnum(zdeg,5);\n\t\t\tdocument.calcform2.ideg.value = roundnum(ideg,5);\n\t\t\tdocument.calcform2.vdeg.value = roundnum(vdeg,5);\n\t\t\tdocument.calcform2.sdeg.value = roundnum(sdeg,5);\n\t\t\t\n\t\t\tif( document.calcform2.z_car.value=='' ) oncalccart(0);\n\t\t\tif( document.calcform2.s_car.value=='' ) oncalccart(1);\n\t\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\power-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 116,
+    "lineEnd": 154
+  },
+  {
+    "name": "oncalccart",
+    "code": "function oncalccart(ix)\n\t\t{\n\t\t\tif( ix==0 )\n\t\t\t{\n\t\t\t\tr = document.calcform2.z.value;\n\t\t\t\tang = document.calcform2.zdeg.value;\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tr = document.calcform2.s.value\n\t\t\t\tang = document.calcform2.sdeg.value;\n\t\t\t}\n\t\t\t\n\t\t\tif( r=='' || ang=='' ) return;\n\t\t\t\n\t\t\tang = ang/180*Math.PI;\n\t\t\tx = r*Math.cos(ang);\n\t\t\ty = r*Math.sin(ang);\n\t\t\tif( y<0 ) { y=-y; sign='-'; } else sign='+';\n\t\t\tx = x.toFixed(2);\n\t\t\ty = y.toFixed(2);\n\t\t\tp = x+sign+'j'+y;\n\t\t\t\n\t\t\tif( ix==0 )\n\t\t\t\tdocument.calcform2.z_car.value = p;\n\t\t\telse\n\t\t\t\tdocument.calcform2.s_car.value = p;\n\t\t}",
+    "params": [
+      "ix"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\power-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 155,
+    "lineEnd": 182
+  },
+  {
+    "name": "oncalcpolar",
+    "code": "function oncalcpolar(ix)\n\t\t{\n\t\t\tif( ix==0 )\n\t\t\t{\n\t\t\t\tcar = document.calcform2.z_car.value;\n\t\t\t\tc   = document.calcform2.cz.selectedIndex;\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tcar = document.calcform2.s_car.value\n\t\t\t\tc   = document.calcform2.cs.selectedIndex;\n\t\t\t}\n\t\t\t\n\t\t\tif( car=='' ) return;\n\t\t\ti = car.indexOf('j');\n\t\t\tif( i==-1 ) car+='+j0';\n\t\t\tif( i==0  ) car='0+'+car;\n\t\t\tif( i==1  ) car='0'+car;\n\t\t\t\n\t\t\tlen = car.length;\n\t\t\ti1 = car.indexOf('+');\n\t\t\ti2 = car.indexOf('-');\n\t\t\ti3 = car.indexOf(' ');\n\t\t\tif( i2==0 ) sign1=-1; else sign1=1; \n\t\t\tif( i1<1 ) i1=100;\n\t\t\tif( i2<1 ) i2=100;\n\t\t\tif( i3<1 ) i3=100; \n\t\t\ti = Math.min(i1,i2,i3);\n\t\t\tif( i==i2 ) sign2=-1; else sign2=1;\n\t\t\tx = car.substring(0,i);\n\t\t\t\n\t\t\tx = parseFloat(x);\n\t\t\t\n\t\t\ti = car.indexOf('j');\n\t\t\ty = car.substring(i+1,len);\n\t\t\ty = parseFloat(y);\n\t\t\t\n\t\t\ty*= sign2;\n\t\t\tmag = Math.sqrt(x*x+y*y);\n\t\t\tif( x!=0 )\n\t\t\t\tang = Math.atan(y/x)*180/Math.PI;\n\t\t\telse\n\t\t\t\tang = (y>0 ? 90 : (y<0 ? -90 : 0));\n\t\t\tif( sign1==-1 && ang!=0 )\n\t\t\t{\n\t\t\t\tif( ang>0 ) \n\t\t\t\t\tang-=180;\n\t\t\t\telse\n\t\t\t\t\tang+=180;\n\t\t\t}\n\t\t\t\n\t\t\tmag /= Math.pow(10,(c*3));\n\t\t\t\n\t\t\tmag = mag.toFixed(2);\n\t\t\tang = ang.toFixed(0);\n\t\t\t\n\t\t\tif( ix==0 )\n\t\t\t{\n\t\t\t\tdocument.calcform2.z.value = mag;\n\t\t\t\tdocument.calcform2.zdeg.value = ang;\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tdocument.calcform2.s.value = mag;\n\t\t\t\tdocument.calcform2.sdeg.value = ang;\n\t\t\t}\n\t\t}",
+    "params": [
+      "ix"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\power-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 183,
+    "lineEnd": 249
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n\t\t\tvar iphase = document.calcform.phase.selectedIndex;\n\t\t\tvar ivolt = document.calcform.volt_type.selectedIndex;\n\t\t\tvar kw   = document.calcform.kw.value;\n\t\t\tvar amp  = document.calcform.amp.value;\n\t\t\tvar volt = document.calcform.volt.value;\n\t\t\tvar hz = document.calcform.hz.value;\n\t\t\tvar pf_cor = document.calcform.pfc.value;\n\t\t\tif( volt=='' ) volt=120;\n\t\t\tif( hz=='' ) hz=60;\n\t\t\tvar kva = volt*amp/1000;\n\t\t\tif( iphase==1 )\n\t\t\t{\n\t\t\t\tif( ivolt==0 )\n\t\t\t\t{\n\t\t\t \t\tkva*=Math.sqrt(3);\n\t\t\t \t\tvolt/=Math.sqrt(3);\n\t\t\t \t}\n\t\t\t \telse\n\t\t\t \t\tkva*=3;\n\t\t\t}\n\t\t\tpf = kw/kva;\n\t\t\tkvar = Math.sqrt(kva*kva-kw*kw);\n\t\t\t\n\t\t\t\n\t\t\tif( pf>1 ) {alert(\"Error: power factor > 1\\n1000\\u00D7\"+kw+\"kW > \"+amp+\"A\\u00D7\"+volt+\"V\"); return;}\n\t\t\tvar kva_cor = kw/pf_cor;\n\t\t\tvar kvar_cor = Math.sqrt(kva_cor*kva_cor-kw*kw);\n\t\t\tvar kvar_c = kvar-kvar_cor;\n\t\t\tif( iphase==1 )\tkvar_c/=3;\n\t\t\tc = 1000000000*kvar_c/(2*Math.PI*hz*volt*volt);\n\t\t \tpf = pf.toFixed(3);\n\t\t \tkva = kva.toFixed(6);\n\t\t \tkvar = kvar.toFixed(6);\n\t\t \tc = c.toFixed(6);\n\t\t \tdocument.calcform.pf.value = pf;\n\t\t \tdocument.calcform.kva.value = kva;\n\t\t \tdocument.calcform.kvar.value = kvar;\n\t\t \tdocument.calcform.c.value = c;\n\t\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\power-factor-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 56
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2) {\n\t\t\t\tvar iphase = document.calcform.phase.selectedIndex;\n\t\t\t\tvar amps = x1/x2;\n\t\t\t\tif( iphase==1 )\n\t\t\t \t\tamps/=Math.sqrt(3);\n\t\t\t \treturn amps ;\n\t\t\t}",
+    "params": [
+      "x1",
+      "x2"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\va-to-amps-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 8
+  },
+  {
+    "name": "calcA",
+    "code": "function calcA() {\n      var vinsel = Math.pow(10,(3*vinselElem.selectedIndex-3));\n      var voutsel = Math.pow(10,(3*voutselElem.selectedIndex-3));\n      var r1sel = Math.pow(10,(3*r1selElem.selectedIndex));\n      var r2sel = Math.pow(10,(3*r2selElem.selectedIndex));\n      var vin = parseFloat(vinElem.value*vinsel);\n      var vout = parseFloat(voutElem.value*voutsel);\n      var r1 = parseFloat(r1Elem.value*r1sel);\n      var r2 = parseFloat(r2Elem.value*r2sel);\n      var txt=\"\";\n      if( vin!=0 && r1!=0 && r2!=0 && vout==0 ) {\n         vout = vin*r2/(r1+r2);\n         voutElem.value = roundresult(vout);\n         txt = \"<i>V</i><sub>out</sub> = <i>V</i><sub>in</sub> &times; <i>R</i><sub>2</sub> / (<i>R</i><sub>1</sub> + <i>R</i><sub>2</sub>)\";\n         txt+= \"<br>= \"+vin+\"V &times; \"+r2+\"&Omega; / (\"+r1+\"&Omega;+\"+r2+\"&Omega;) <br>= \"+voutElem.value+\"V\";\n      }\n      else if( vin!=0 && r1!=0 && r2==0 && vout!=0 ) {\n         r2 = r1*vout/(vin-vout);\n         r2Elem.value = roundresult(r2);\n         txt = \"<i>R</i><sub>2</sub> = <i>R</i><sub>1</sub> &times; <i>V</i><sub>out</sub> / (<i>V</i><sub>in</sub> - <i>V</i><sub>out</sub>)\";\n         txt+= \"<br>= \"+r1+\"&Omega; &times; \"+vout+\"V / (\"+vin+\"V - \"+vout+\"V) <br>= \"+r2Elem.value+\"&Omega;\";\n      }\n      else if( vin!=0 && r1==0 && r2!=0 && vout!=0 ) {\n         r1 = r2*(vin-vout)/vout;\n         r1Elem.value = roundresult(r1);\n         txt = \"<i>R</i><sub>1</sub> = <i>R</i><sub>2</sub> &times; (<i>V</i><sub>in</sub> - <i>V</i><sub>out</sub>) / <i>V</i><sub>out</sub>\";\n         txt+= \"<br>= \"+r2+\"&Omega; &times; (\"+vin+\"V - \"+vout+\"V) / \"+vout+\"V<br>= \"+r1Elem.value+\"&Omega;\";\n      }\n      else if( vin==0 && r1!=0 && r2!=0 && vout!=0 ) {\n         vin = vout*(r1+r2)/r2;\n         vinElem.value = roundresult(vin);\n         txt = \"<i>V</i><sub>in</sub> = <i>V</i><sub>out</sub> &times; (<i>R</i><sub>1</sub> + <i>R</i><sub>2</sub>) / <i>R</i><sub>2</sub>\";\n         txt+= \"<br>= \"+vout+\"V &times; (\"+r1+\"&Omega; + \"+r2+\"&Omega;) / \"+r2+\"&Omega;<br>= \"+vinElem.value+\"V\";\n      }\n      else {\n         alert(\"Please enter 3 values!\");\n         return;\n      }\n      calElem.innerHTML = txt;\n      caldivElem.style.display=\"flex\";\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\voltage-divider-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 57
+  },
+  {
+    "name": "onselchange",
+    "code": "function onselchange(sel, i) {\n\t\tif( i==0 ) txt=relem;\n\t\telse if( i==1 ) txt=ielem;\n\t\telse if( i==2 ) txt=velem;\n\t\telse if( i==3 ) txt=pelem;\n\t\tif( txt.value=='' ) return;\n\t\tdi = sel.selectedIndex-prevIndex[i];\n\t\ttxt.value = roundnum(txt.value/Math.pow(1000, di), 8);\n\t\tprevIndex[i] = sel.selectedIndex;\n\t}",
+    "params": [
+      "sel",
+      "i"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\watt-volt-amp-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 38,
+    "lineEnd": 47
+  },
+  {
+    "name": "oncalc",
+    "code": "function oncalc() {\n\t\tvar fr = Math.pow(10,3*document.calcform.cr.selectedIndex);\n\t\tvar fi = Math.pow(10,3*document.calcform.ci.selectedIndex-6);\n\t\tvar fv = Math.pow(10,3*document.calcform.cv.selectedIndex-6);\n\t\tvar fp = Math.pow(10,3*document.calcform.cp.selectedIndex-6);\n\t\tvar r = fr*str2num(relem.value);\n\t\tvar i = fi*str2num(ielem.value);\n\t\tvar v = fv*str2num(velem.value);\n\t\tvar p = fp*str2num(pelem.value);\n\t\tif( r!=0 && v!=0 ) {i=v/r; p=v*i;}\n\t\telse if( r!=0 && i!=0 ) {v=i*r; p=v*i;}\n\t\telse if( r!=0 && p!=0 ) {v=Math.sqrt(p*r); i=p/v;}\n\t\telse if( i!=0 && v!=0 ) {r=v/i; p=v*i;}\n\t\telse if( i!=0 && p!=0 ) {v=p/i; r=v/i;}\n\t\telse if( v!=0 && p!=0 ) {i=p/v; r=v/i;}\n\t\tr /= fr;\n\t\ti /= fi;\n\t\tv /= fv;\n\t\tp /= fp;\n\t\trelem.value = roundnum(r,8);\n\t\tielem.value = roundnum(i,8);\n\t\tvelem.value = roundnum(v,8);\n\t\tpelem.value = roundnum(p,8);\n\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\watt-volt-amp-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 48,
+    "lineEnd": 71
+  },
+  {
+    "name": "convert",
+    "code": "function convert(){var e=str2num(welem.value),l=str2num(velem.value),t=wselelem.selectedIndex,a=vselelem.selectedIndex,n=typeelem.selectedIndex,s=vtypeelem.selectedIndex,o=str2num(pfelem.value),f=e,d=l;0==t&&(e/=1e3),2==t&&(e*=1e3),0==a&&(l/=1e3),2==a&&(l*=1e3);var r=e/l;if(o<0||o>1){alert(\"Please enter power factor from 0 to 1\"),pfelem.focus();return}1==n?r/=o:2==n&&(0==s?r/=o*Math.sqrt(3):r/=3*o);var y=roundresult(r),m=roundresult(1e3*r);document.calcform.y.value=num2str(y),document.calcform.y2.value=num2str(m),\"NaN\"==f&&(f=\"\"),\"NaN\"==d&&(d=\"\");var v=window.location.href.split(\"?\")[0];v+=\"?type=\"+n+\"&w=\"+f+\"&wsel=\"+t+\"&vtype=\"+s+\"&v=\"+d+\"&vsel=\"+a+\"&pf=\"+o,v+=\"#calcform\",history.replaceState({},\"\",v)}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\Watt_to_Amp_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2) {\n\t\t\t\tvar iphase = document.calcform.phase.selectedIndex;\n\t\t\t\tvar pf = document.calcform.pf.value;\n\t\t\t\tvar w = x1/x2;\n\t\t\t\tif( pf<0 || pf>1 )\n\t\t\t\t{\n\t\t\t\t\talert('Please enter power factor from 0 to 1');\n\t\t\t\t\tdocument.calcform.pf.focus();\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tif( iphase==1 )\n\t\t\t \t\tw/=pf;\n\t\t\t\telse if( iphase==2 )\n\t\t\t \t\tw/=(pf*Math.sqrt(3));\n\t\t\t \treturn w;\n\t\t\t}",
+    "params": [
+      "x1",
+      "x2"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\Watt_to_Volt_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 18,
+    "lineEnd": 33
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc()\n\t\t\t{\n\t\t\t\ti = document.getElementById(\"Text1\").value;\n\t\t\t\tn = document.getElementById(\"Text2\").value;\n\t\t\t\ti = parseFloat(i)/100;\n\t\t\t\timonth = i/n*100;\n\t\t\t\tiyear  = (Math.pow((1+i/n),n)-1)*100;\n\t\t\t\tdocument.getElementById(\"Text6\").value = imonth.toFixed(3);\n\t\t\t\tdocument.getElementById(\"Text7\").value = iyear.toFixed(3);\n\t\t\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\effective-interest-rate-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 22,
+    "lineEnd": 31
+  },
+  {
+    "name": "PayCalc",
+    "code": "function PayCalc(e,l,t){var a=Math.pow(1+(l/=1200),t);return e*l*a/(a-1)}",
+    "params": [
+      "e",
+      "l",
+      "t"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\mortgage-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "PVCalc",
+    "code": "function PVCalc(e,l,t){var a=Math.pow(1+(l/=1200),t);return e*(a-1)/(l*a)}",
+    "params": [
+      "e",
+      "l",
+      "t"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\mortgage-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "TermCalc",
+    "code": "function TermCalc(e,l,t){var a=l/(l-e*(t/=1200));return a<0?-1:Math.log(a)/Math.log(1+t)}",
+    "params": [
+      "e",
+      "l",
+      "t"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\mortgage-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2) {\n\t\t\tvar cd  = parseFloat(x1);\n\t\t\tvar deg = parseFloat(x2);\n\t\t\tdeg *= Math.PI/180;\n\t\t \treturn cd*(2*Math.PI*(1-Math.cos(deg/2)));\n\t\t}",
+    "params": [
+      "x1",
+      "x2"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\light\\candela-to-lumen-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 7
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2) {\n\t\t\t\tvar lm  = parseFloat(x1);\n\t\t\t\tvar deg = parseFloat(x2);\n\t\t\t\tdeg *= Math.PI/180;\n\t\t\t \treturn lm/(2*Math.PI*(1-Math.cos(deg/2)));\n\t\t\t}",
+    "params": [
+      "x1",
+      "x2"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\light\\lumen-to-candela-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 7
+  },
+  {
+    "name": "OnChange2",
+    "code": "function OnChange2() {\n\t\t\tx2 = document.calcform.x2.value;\n\t\t\tx3 = Math.sqrt(x2/(4*Math.PI));\n\t\t\tdocument.calcform.x3.value = roundresult(x3);\n\t\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\light\\lumen-to-lux-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 20,
+    "lineEnd": 24
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2) {\n\t\t\tvar lm  = parseFloat(x1);\n\t\t\tvar deg = parseFloat(x2);\n\t\t\tdeg *= Math.PI/180;\n\t\t \treturn 1000*lm/(2*Math.PI*(1-Math.cos(deg/2)));\n\t\t}",
+    "params": [
+      "x1",
+      "x2"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\light\\lumen-to-mcd-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 7
+  },
+  {
+    "name": "OnChange2",
+    "code": "function OnChange2() {\n\t\t\tx2 = document.calcform.x2.value;\n\t\t\tx3 = Math.sqrt(x2/(4*Math.PI));\n\t\t\tdocument.calcform.x3.value = roundresult(x3);\n\t\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\light\\lux-to-lumen-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 21,
+    "lineEnd": 25
+  },
+  {
+    "name": "OnAreaChange",
+    "code": "function OnAreaChange() {\n\t\t\tx3 = document.calcform.x3.value;\n\t\t\tx4 = Math.sqrt(x3/(4*Math.PI));\n\t\t\tdocument.calcform.x4.value = roundresult(x4);\n\t\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\light\\lux-to-watt-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 21
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2) {\n\t\t\tvar mcd = parseFloat(x1);\n\t\t\tvar deg = parseFloat(x2);\n\t\t\tdeg *= Math.PI/180;\n\t\t \treturn mcd*(2*Math.PI*(1-Math.cos(deg/2)))/1000;\n\t\t}",
+    "params": [
+      "x1",
+      "x2"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\light\\mcd-to-lumen-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 7
+  },
+  {
+    "name": "OnAreaChange",
+    "code": "function OnAreaChange() {\n\t\t\tx3 = document.calcform.x3.value;\n\t\t\tx4 = Math.sqrt(x3/(4*Math.PI));\n\t\t\tdocument.calcform.x4.value = roundresult(x4);\n\t\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\light\\watt-to-lux-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 21
+  },
+  {
+    "name": "calcB",
+    "code": "function calcB() {\n\t\t\tx3 = document.calcform2.x3.value;\n\t\t\tx4 = document.calcform2.x4.value;\n\t\t\tif( x3=='e' ) x3=Math.E;\n\t\t\ty0 = Math.pow(x3,x4);\n\t\t \ty0 = roundnum(y0,10);\n\t\t\tdocument.calcform2.y0.value = y0;\n\t\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\anti-log-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 9
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc(){var e=delem.value,t=(e=e.trim()).split(/[^0-9.-e]+/);if(Array.isArray(t)&&0!=t.length){var a=t.length;if(0!=a){for(var n=\"\",l=0;l<a;l++)n+=t[l],l<a-1&&(n+=\"+\");for(var l=0;l<a;l++)t[l]=t[l].trim();for(var i=0,l=0;l<a;l++)i+=parseFloat(t[l]);avg=roundresult(i/a),e=\"Average = Sum / Count\\n= (\";for(var l=0;l<a-1;l++)e+=t[l]+\"+\";e+=t[a-1]+\") / \"+a+\"\\n= \"+i+\"/\"+a+\"\\n= \"+avg,avgelem.value=avg,document.getElementById(\"cnt\").value=a,document.getElementById(\"sum\").value=roundresult(i),document.getElementById(\"avgcalc\").value=e;for(var r=1,l=0;l<a;l++)r*=t[l];for(var o=Math.pow(r,1/a),d=0,l=0;l<a;l++)d+=t[l]*t[l];d=Math.sqrt(d/a);var c=max=\"\";num0=t.slice(),t.sort(function(e,t){return e-t}),c=t[0],max=t[a-1],dist=[];for(var s=null,l=0,u=-1;l<a;l++)t[l]!=s?(s=t[l],dist[++u]={},dist[u].num=t[l],dist[u].count=1):dist[u].count++;for(var m=-1,l=0;l<dist.length;l++)dist[l].count>m&&(m=dist[l].count);for(var v=\"\",l=0;l<dist.length;l++)dist[l].count==m&&(v+=dist[l].num+\" \");v=v.slice(0,-1);for(var g=0,l=0;l<dist.length;l++)g+=dist[l].count*Math.pow(dist[l].num-avg,2);var y=roundresult(Math.sqrt(g/a)),$=roundresult(Math.sqrt(g/(a-1))),p=roundresult((t[Math.floor((a+1)/2)-1]+t[Math.floor((a+2)/2)-1])/2),h=roundresult(max-c);document.getElementById(\"min\").value=c,document.getElementById(\"max\").value=max,document.getElementById(\"gmean\").value=o,document.getElementById(\"rms\").value=d,document.getElementById(\"med\").value=p,document.getElementById(\"mod\").value=v,document.getElementById(\"pstd\").value=y,document.getElementById(\"sstd\").value=$,document.getElementById(\"ran\").value=h;for(var b=document.querySelectorAll(\"#calcform>div:nth-child(n+4)\"),l=0;l<b.length;l++)b[l].style.display=\"flex\";DrawGraph();var f=window.location.href.split(\"?\")[0];f+=\"?data=\"+encodeURIComponent(n),history.pushState({},\"\",f)}}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\average-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "log",
+    "code": "function log(t,e){document.getElementById(\"log\").value+=t+\": \"+e+\"\\n\"}",
+    "params": [
+      "t",
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x=xelem.value;\n      x=x.replace(/(\\d)(\\u03C0)/gm,\"$1*\\u03C0\");\n      x=x.replace(/\\u03C0/g,\"3.141592653589793\");\n      x=str2num(x);\n      var degtype=document.getElementById(\"degtype\");\n      var i=degtype.selectedIndex;\n      if( i==0 )\n         x*=Math.PI/180;\n      y = Math.cos(x);\n      y = roundnum2(y,8);\n      document.getElementById(\"y\").value = y;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\Cos_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 32,
+    "lineEnd": 44
+  },
+  {
+    "name": "calcfunc",
+    "code": "function calcfunc() {\n\t\t\tvar x0=document.calcform.x1.value;\n\t\t\tvar r=document.calcform.x2.value;\n\t\t\tvar t=document.calcform.x3.value;\n\t\t\tvar x=(1+r/100);\n\t\t\ty = x0*Math.pow(x,t);\n\t\t\ty = roundresult(y);\n\t\t\tdocument.calcform.y.value = y;\n\t\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\exponential-growth-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 10
+  },
+  {
+    "name": "gcfcalc",
+    "code": "function gcfcalc()\n   {\n      \n      var data = document.getElementById(\"data\").value;\n      if( data==\"\" ) return;\n      \n      data = data.split(\" \");\n      var d,dmax=0;\n      for(var i=0; i<data.length; i++) {\n         d = decnum(Math.abs(parseFloat(data[i])));\n         if( d>dmax ) dmax=d;\n      }\n      var f=Math.pow(10,dmax);\n      for(var i=0; i<data.length; i++)\n         data[i] = f*Math.abs(parseInt(data[i]));\n      if( data.length<2 ) return;\n      var gcf,lcm;\n      for(var i=0; i<data.length-1; i++) {\n         if( i==0 )\n            gcf = gcf2(data[0],data[1]);\n         else\n            gcf = gcf2(gcf,data[i+1]);\n      }\n      for(var i=0; i<data.length-1; i++) {\n         if( i==0 )\n            lcm = lcm2(data[0],data[1]);\n         else\n            lcm = lcm2(lcm,data[i+1]);\n      }\n\n      document.getElementById(\"gcf\").value = gcf/f;\n      document.getElementById(\"lcm\").value = lcm/f;\n      SetLinks(data);\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\gcf-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 40,
+    "lineEnd": 73
+  },
+  {
+    "name": "lcmcalc",
+    "code": "function lcmcalc()\n   {\n      \n      var data = document.getElementById(\"data\").value;\n      if( data==\"\" ) return;\n      \n      data = data.split(\" \");\n      SetLinks(data);\n      var d,dmax=0;\n      for(var i=0; i<data.length; i++) {\n         d = decnum(Math.abs(parseFloat(data[i])));\n         if( d>dmax ) dmax=d;\n      }\n      var f=Math.pow(10,dmax);\n      for(var i=0; i<data.length; i++)\n         data[i] = f*Math.abs(parseFloat(data[i]));\n      if( data.length<2 ) return;\n      var gcf,lcm;\n      for(var i=0; i<data.length-1; i++) {\n         if( i==0 )\n            gcf = gcf2(data[0],data[1]);\n         else\n            gcf = gcf2(gcf,data[i+1]);\n      }\n      for(var i=0; i<data.length-1; i++) {\n         if( i==0 )\n            lcm = lcm2(data[0],data[1]);\n         else\n            lcm = lcm2(lcm,data[i+1]);\n      }\n\n      document.getElementById(\"gcf\").value = gcf/f;\n      document.getElementById(\"lcm\").value = lcm/f;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\lcm-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 40,
+    "lineEnd": 73
+  },
+  {
+    "name": "lncalc",
+    "code": "function lncalc()\n   {\n      var x=document.getElementById(\"x\").value;\n      if( x==\"\" ) return;\n      if( x==\"e\" ) x=Math.E;\n      x = str2num(x);\n      var y=Math.log(x);\n      px=parseFloat(x); py=parseFloat(y);\n      yelem.value = y;\n      google.charts.load('current', {'packages':['corechart']});\n      google.charts.setOnLoadCallback(drawChart);\n      document.getElementById(\"graph\").style.display=\"block\";\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\Ln_Calc.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 12,
+    "lineEnd": 24
+  },
+  {
+    "name": "drawChart",
+    "code": "function drawChart() {\n      arr=[];\n      arr[0]=['x', 'y', 'y'];\n      var n=Math.ceil(Math.log10(px));\n      var x1,x2;\n      for(var i=-3; i<0; i++)\n      {\n         x1=Math.pow(10,n+i);\n         x2=Math.pow(10,n+i+1);\n         addRange(x1,x2,x1);\n      }\n      if( px!=null )\n         arr.push([px, py, py]);\n      var data = google.visualization.arrayToDataTable(arr);\n      var ticks=[0, 2, 4, 6, 8];\n      for(var i=0; i<ticks.length; i++)\n         ticks[i]*=Math.pow(10,n-1);\n      var options = {\n         title: 'y = ln x',\n         curveType: 'function',\n         legend: 'none',\n         pointSize: 10,\n         pointsVisible: false,\n         \n         series: { 0: { pointSize: 0, pointsVisible: false }, 1: { pointsVisible: true } },\n         hAxis: {\n            title:'x',\n            \n            ticks: ticks\n         },\n         vAxis: { title:'y' },\n         crosshair: { trigger: 'both' },\n         explorer: { \n            actions: ['dragToZoom', 'rightClickToReset'],\n            axis: 'horizontal',\n            keepInBounds: true,\n            maxZoomIn: 4.0},\n      };\n\n      chart = new google.visualization.LineChart(document.getElementById('chart_div'));\n      \n      chart.draw(data, options);\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\Ln_Calc.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 43,
+    "lineEnd": 85
+  },
+  {
+    "name": "oncalc",
+    "code": "function oncalc() {\n      document.getElementById(\"y\").value = '';\n      var x=str2num(document.getElementById(\"x\").value);\n      if( x<0 ) return;\n      var y = Math.pow(x,0.5);\n      y = roundresult(y);\n      if( x>0 ) y='\\u00B1'+y;\n      document.getElementById(\"y\").value = y;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\root-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 10
+  },
+  {
+    "name": "oncalc2",
+    "code": "function oncalc2() {\n      document.getElementById(\"y2\").value = '';\n      var n=document.getElementById(\"n\").value;\n      var x=str2num(document.getElementById(\"x2\").value);\n      if( n!=Math.round(n) ) return;\n      if( x<0 && (n%2)==0 ) return;\n      var minus=false;\n      if( x<0 ) { x=Math.abs(x); minus=true; }\n      var y = Math.pow(x,1/n);\n      y = roundresult(y);\n      if( minus==false && (n%2)==0 ) y='\\u00B1'+y;\n      if( minus ) y='-'+y;\n      document.getElementById(\"y2\").value = y;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\root-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 11,
+    "lineEnd": 24
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc()\n{\n   n1 = str2num(n1_input.value);\n   e1 = str2num(e1_input.value);\n   n2 = str2num(n2_input.value);\n   e2 = str2num(e2_input.value);\n   i = op_input.selectedIndex;\n   \n   \n   e1 = parseInt(e1);\n   e2 = parseInt(e2);\n   \n   dec1 = n1*Math.pow(10,e1);\n   dec2 = n2*Math.pow(10,e2);\n   if(i==0)\n   {\n      dec = dec1+dec2;\n      en = dec.toExponential();\n      n=en; e=0;\n      i=en.indexOf('e');\n      if( i!=-1 )\n      {\n         n = en.substring(0,i);\n         e = en.substring(i+1,en.length);\n      }\n      e = parseInt(e);\n   }\n   else if(i==1)\n   {\n      dec = dec1-dec2;\n      en = dec.toExponential();\n      n=en; e=0;\n      i=en.indexOf('e');\n      if( i!=-1 )\n      {\n         n = en.substring(0,i);\n         e = en.substring(i+1,en.length);\n      }\n      e = parseInt(e);\n   }\n   else if(i==2)\n   {\n      n = n1*n2;\n      e = e1+e2;\n      dec = n*Math.pow(10,e);\n   }\n   else\n   {\n      n = n1/n2;\n      e = e1-e2;\n      dec = n*Math.pow(10,e);\n   }\n   if( n==0 )\n      f=0;\n   else\n      f = Math.floor( Math.log(Math.abs(n))*Math.LOG10E );\n   norm = n/Math.pow(10,f);\n   norm = roundnum(norm,10);\n   norm2= parseInt(e)+f;\n   sign=\"\"; if(norm2>=0) sign=\"+\";\n   en = norm+\"e\"+sign+norm2;\n\n   dec_input.value = dec;\n   e_input.value = en;\n   sci_input.value = norm;\n   sci2_input.value = norm2;\n}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\scientific-notation-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 118,
+    "lineEnd": 184
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x=xelem.value;\n      x=x.replace(/(\\d)(\\u03C0)/gm,\"$1*\\u03C0\");\n      x=x.replace(/\\u03C0/g,\"3.141592653589793\");\n      x=str2num(x);\n      var degtype=document.getElementById(\"degtype\");\n      var i=degtype.selectedIndex;\n      if( i==0 )\n         x*=Math.PI/180;\n      y = Math.sin(x);\n      y = roundnum2(y,8);\n      document.getElementById(\"y\").value = y;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\Sin_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 32,
+    "lineEnd": 44
+  },
+  {
+    "name": "oncalc",
+    "code": "function oncalc() {\n      var y;\n      document.getElementById(\"y\").value = '';\n      var x=str2num(document.getElementById(\"x\").value);\n      if( x<0 ) return;\n      if( expandState==false ) {\n         y = Math.pow(x,0.5);\n         y = roundresult(y);\n         if( x>0 ) y='\\u00B1'+y;\n      }\n      else {\n         var op = document.getElementById(\"sel1\").selectedIndex;\n         var x1=str2num(document.getElementById(\"x1\").value);\n         if( x1<0 ) return;\n         var r1 = parseFloat(roundresult(Math.pow(x,0.5)));\n         var r2 = parseFloat(roundresult(Math.pow(x1,0.5)));\n         r=[];\n         if( op==0 || op==1 ) {\n            r[0] = roundresult(r1+r2);\n            r[1] = roundresult(Math.abs(r1-r2));\n            y=\"\";\n            if( r[0]!=0 )\n               y+=\"\\u00B1\";\n            y+=r[0];\n            if( r[1]!=r[0] ) {\n               y+=\", \";\n               if( r[1]!=0 )\n                  y+=\"\\u00B1\";\n               y+=r[1];\n            }\n         }\n         else if( op==2 ) {\n            y = roundresult(r1*r2);\n            if( y>0 ) y=\"\\u00B1\"+y;\n         }\n         else {\n            y = \"\\u00B1\"+roundresult(r1/r2);\n         }\n      }\n      document.getElementById(\"y\").value = y;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\square-root-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 8,
+    "lineEnd": 48
+  },
+  {
+    "name": "oncalc2",
+    "code": "function oncalc2() {\n      document.getElementById(\"y2\").value = '';\n      var x=str2num(document.getElementById(\"x2\").value);\n      if( x<0 && (n%2)==0 ) return;\n      var minus=false;\n      if( x<0 ) { x=Math.abs(x); minus=true; }\n      var y = Math.pow(x,(1/3));\n      y = roundresult(y);\n      if( minus==false && (n%2)==0 ) y='\\u00B1'+y;\n      if( minus ) y='-'+y;\n      document.getElementById(\"y2\").value = y;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\square-root-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 49,
+    "lineEnd": 60
+  },
+  {
+    "name": "oncalc3",
+    "code": "function oncalc3() {\n      document.getElementById(\"y3\").value = '';\n      var n=document.getElementById(\"n\").value;\n      var x=str2num(document.getElementById(\"x3\").value);\n      if( n!=Math.round(n) ) return;\n      if( x<0 && (n%2)==0 ) return;\n      var minus=false;\n      if( x<0 ) { x=Math.abs(x); minus=true; }\n      var y = Math.pow(x,1/n);\n      y = roundresult(y);\n      if( minus==false && (n%2)==0 ) y='\\u00B1'+y;\n      if( minus ) y='-'+y;\n      document.getElementById(\"y3\").value = y;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\square-root-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 61,
+    "lineEnd": 74
+  },
+  {
+    "name": "onExpand",
+    "code": "function onExpand() {\n      var x = document.getElementById(\"x\");\n      var sel1div = document.getElementById(\"sel1div\");\n      var in1div = document.getElementById(\"in1div\");\n      var expand1btn = document.getElementById(\"expand1btn\");\n      if( expandState==false )\n      {\n         expandState=true;\n         sel1div.style.display=\"flex\";\n         in1div.style.display=\"flex\";\n         expand1btn.innerHTML = (\"<span>-</span> Collapse\");\n      }\n      else\n      {\n         expandState=false;\n         sel1div.style.display=\"none\";\n         in1div.style.display=\"none\";\n         expand1btn.innerHTML = (\"<span>+</span> Expand\");\n      }\n      x.focus();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\square-root-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 75,
+    "lineEnd": 95
+  },
+  {
+    "name": "oncalc",
+    "code": "function oncalc() {\n      var y;\n      document.getElementById(\"y\").value = '';\n      var x=str2num(document.getElementById(\"x\").value);\n      if( x<0 ) return;\n      if( expandState==false ) {\n         y = Math.pow(x,0.5);\n         y = roundresult(y);\n         if( x>0 ) y='\\u00B1'+y;\n      }\n      else {\n         var op = document.getElementById(\"sel1\").selectedIndex;\n         var x1=str2num(document.getElementById(\"x1\").value);\n         if( x1<0 ) return;\n         var r1 = parseFloat(roundresult(Math.pow(x,0.5)));\n         var r2 = parseFloat(roundresult(Math.pow(x1,0.5)));\n         r=[];\n         if( op==0 || op==1 ) {\n            r[0] = roundresult(r1+r2);\n            r[1] = roundresult(Math.abs(r1-r2));\n            y=\"\";\n            if( r[0]!=0 )\n               y+=\"\\u00B1\";\n            y+=r[0];\n            if( r[1]!=r[0] ) {\n               y+=\", \";\n               if( r[1]!=0 )\n                  y+=\"\\u00B1\";\n               y+=r[1];\n            }\n         }\n         else if( op==2 ) {\n            y = roundresult(r1*r2);\n            if( y>0 ) y=\"\\u00B1\"+y;\n         }\n         else {\n            y = \"\\u00B1\"+roundresult(r1/r2);\n         }\n      }\n      document.getElementById(\"y\").value = y;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\Square_Root_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 8,
+    "lineEnd": 48
+  },
+  {
+    "name": "oncalc2",
+    "code": "function oncalc2() {\n      document.getElementById(\"y2\").value = '';\n      var x=str2num(document.getElementById(\"x2\").value);\n      if( x<0 && (n%2)==0 ) return;\n      var minus=false;\n      if( x<0 ) { x=Math.abs(x); minus=true; }\n      var y = Math.pow(x,(1/3));\n      y = roundresult(y);\n      if( minus==false && (n%2)==0 ) y='\\u00B1'+y;\n      if( minus ) y='-'+y;\n      document.getElementById(\"y2\").value = y;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\Square_Root_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 49,
+    "lineEnd": 60
+  },
+  {
+    "name": "oncalc3",
+    "code": "function oncalc3() {\n      document.getElementById(\"y3\").value = '';\n      var n=document.getElementById(\"n\").value;\n      var x=str2num(document.getElementById(\"x3\").value);\n      if( n!=Math.round(n) ) return;\n      if( x<0 && (n%2)==0 ) return;\n      var minus=false;\n      if( x<0 ) { x=Math.abs(x); minus=true; }\n      var y = Math.pow(x,1/n);\n      y = roundresult(y);\n      if( minus==false && (n%2)==0 ) y='\\u00B1'+y;\n      if( minus ) y='-'+y;\n      document.getElementById(\"y3\").value = y;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\Square_Root_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 61,
+    "lineEnd": 74
+  },
+  {
+    "name": "onExpand",
+    "code": "function onExpand() {\n      var x = document.getElementById(\"x\");\n      var sel1div = document.getElementById(\"sel1div\");\n      var in1div = document.getElementById(\"in1div\");\n      var expand1btn = document.getElementById(\"expand1btn\");\n      if( expandState==false )\n      {\n         expandState=true;\n         sel1div.style.display=\"flex\";\n         in1div.style.display=\"flex\";\n         expand1btn.innerHTML = (\"<span>-</span> Collapse\");\n      }\n      else\n      {\n         expandState=false;\n         sel1div.style.display=\"none\";\n         in1div.style.display=\"none\";\n         expand1btn.innerHTML = (\"<span>+</span> Expand\");\n      }\n      x.focus();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\Square_Root_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 75,
+    "lineEnd": 95
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc()\n   {\n      var num = new Array();\n      txt = document.calcform.TextArea1.value;\n      if( txt==\"\" ) txt=\"1, 3, 5\";\n      txt=txt.trim();\n      n = txt.split(/[\\s,\\n]+/);\n      for(i=0; i<n.length; i++)\n         num[i] = parseFloat(n[i]);\n      m = 0;\n      for(i=0; i<num.length; i++)\n         m += num[i];\n      m /= num.length;\n      v = 0;\n      for(i=0; i<num.length; i++)\n         v += (num[i]-m)*(num[i]-m);\n      pvar = v/num.length;\n      svar = v/(num.length-1);\n      pstd = Math.sqrt(pvar);\n      sstd = Math.sqrt(svar);\n      document.calcform.pstd.value = roundresult(pstd);\n      document.calcform.sstd.value = roundresult(sstd);\n      document.calcform.pvar.value = roundresult(pvar);\n      document.calcform.svar.value = roundresult(svar);\n      document.calcform.mean.value = roundresult(m);\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\standard-deviation-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 6,
+    "lineEnd": 31
+  },
+  {
+    "name": "OnCalc2",
+    "code": "function OnCalc2()\n   {\n      var avg=0;\n      var v=0;\n      var sum=0;\n      var txt=\"\\u03BC = \";\n      var txt1=txt2='';\n      for(var i=1; i<=irow+1; i++)\n      {\n         weight=document.querySelector(\"#tbl > tbody > tr:nth-child(\"+i+\") > td:nth-child(2) > input\").value;\n         weight = parseFloat(weight);\n         data=document.querySelector(\"#tbl > tbody > tr:nth-child(\"+i+\") > td:nth-child(1) > input\").value;\n         if( weight>=0 )\n         {\n            avg+=weight*data;\n            sum+=weight;\n            txt1+=weight+\"\\u00D7\"+data+\"+\";\n            txt2+=weight+\"+\";\n         }\n      }\n      avg/=sum;\n      var avg0=avg;\n      avg = roundnum2(avg,8);\n      txt+=\"(\"+txt1+\") / (\"+txt2+\") = \"+avg;\n      txt1='';\n      for(var i=1; i<=irow+1; i++)\n      {\n         weight=document.querySelector(\"#tbl > tbody > tr:nth-child(\"+i+\") > td:nth-child(2) > input\").value;\n         weight = parseFloat(weight);\n         data=document.querySelector(\"#tbl > tbody > tr:nth-child(\"+i+\") > td:nth-child(1) > input\").value;\n         if( weight>=0 )\n         {\n            v+=weight*(data-avg0)*(data-avg0);\n            txt1+=weight+\"\\u00D7(\"+data+\"-\"+avg+\")\\u00B2+\";\n         }\n      }\n      v/=sum;\n      std=Math.sqrt(v);\n      v = roundnum2(v,8);\n      std = roundnum2(std,8);\n      txt+=\"\\n\\u03C3 = \\u221A( (\"+txt1+\") / (\"+txt2+\") ) = \"+std;\n      txt=txt.replace(/\\u002B\\u0029/g,\")\");\n      document.getElementById(\"var\").value=v;\n      document.getElementById(\"mean2\").value=avg;\n      document.getElementById(\"std\").value=std;\n      document.getElementById(\"TA1\").value=txt;\n      document.getElementById(\"row1\").style.display=\"block\";\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\standard-deviation-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 32,
+    "lineEnd": 79
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x=xelem.value;\n      x=x.replace(/(\\d)(\\u03C0)/gm,\"$1*\\u03C0\");\n      x=x.replace(/\\u03C0/g,\"3.141592653589793\");\n      x=str2num(x);\n      var degtype=document.getElementById(\"degtype\");\n      var i=degtype.selectedIndex;\n      if( i==0 )\n         x*=Math.PI/180;\n      y = Math.tan(x);\n      y = roundnum2(y,8);\n      document.getElementById(\"y\").value = y;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\Tan_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 32,
+    "lineEnd": 44
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc(){var e=xelem.value;e=str2num(e=(e=e.replace(/(\\d)(\\u03C0)/gm,\"$1*π\")).replace(/\\u03C0/g,\"3.141592653589793\")),0==document.getElementById(\"degtype\").selectedIndex&&(e*=Math.PI/180),y=roundnum2(y=Math.tan(e),8),document.getElementById(\"y\").value=y}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\Tan_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "calcright",
+    "code": "function calcright()\n\t{\n\t\tvar i1 = document.getElementById(\"degtype1\").selectedIndex;\n\t\tvar i2 = document.getElementById(\"degtype2\").selectedIndex;\n\t\tvar a = str2num(document.getElementById(\"a\").value);\n\t\tvar b = str2num(document.getElementById(\"b\").value);\n\t\tvar c = str2num(document.getElementById(\"c\").value);\n\t\tvar anglea = str2num(document.getElementById(\"anglea\").value);\n\t\tvar angleb = str2num(document.getElementById(\"angleb\").value);\n\t\t\n\t\tif( anglea!=\"\" && i1==0 ) anglea*=Math.PI/180.0;\n\t\tif( angleb!=\"\" && i2==0 ) angleb*=Math.PI/180.0;\n\t\tif( angleb && !anglea ) anglea=Math.PI/2-angleb;\n\t\tif( anglea && !angleb ) angleb=Math.PI/2-anglea;\n\t\tif( a && b ) {\n\t\t\tc=Math.sqrt(a*a+b*b);\n\t\t}\n\t\telse if( a && c ) {\n\t\t\tb=Math.sqrt(c*c-a*a);\n\t\t}\n\t\telse if( b && c ) {\n\t\t\ta=Math.sqrt(c*c-b*b);\n\t\t}\n\t\telse if( a && anglea ) {\n\t\t\tb=a/Math.tan(anglea);\n\t\t\tc=Math.sqrt(a*a+b*b);\n\t\t}\n\t\telse if( b && anglea ) {\n\t\t\ta=b*Math.tan(anglea);\n\t\t\tc=Math.sqrt(a*a+b*b);\n\t\t}\n\t\telse if( c && anglea ) {\n\t\t\ta=c*Math.sin(anglea);\n\t\t\tb=c*Math.cos(anglea);\n\t\t}\n\t\tanglea=Math.atan(a/b);\n\t\tangleb=Math.atan(b/a);\n\t\tif( i1==0 ) anglea*=180.0/Math.PI;\n\t\tif( i2==0 ) angleb*=180.0/Math.PI;\n\t\tdocument.getElementById(\"a\").value = roundnum(a,6);\n\t\tdocument.getElementById(\"b\").value = roundnum(b,6);\n\t\tdocument.getElementById(\"c\").value = roundnum(c,6);\n\t\tdocument.getElementById(\"anglea\").value = roundnum(anglea,6);\n\t\tdocument.getElementById(\"angleb\").value = roundnum(angleb,6);\n\t\t\n\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\trigonometry-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 47
+  },
+  {
+    "name": "calc",
+    "code": "function calc()\n\t{\n\t\tvar i = document.getElementById(\"func\").selectedIndex;\n\t\tvar i1 = document.getElementById(\"degtype\").selectedIndex;\n\t\tvar i2 = document.getElementById(\"degtype3\").selectedIndex;\n\t\tvar x = str2num(document.calcform2.x.value);\n\t\tvar y;\n\t\tif( i<=5 && i1==0 ) x*=Math.PI/180;\n\t\tif( i==0 ) y = Math.sin(x);\n\t\telse if( i==1 ) y = Math.cos(x);\n\t\telse if( i==2 ) y = Math.tan(x);\n\t\telse if( i==3 ) y = 1/Math.sin(x);\n\t\telse if( i==4 ) y = 1/Math.cos(x);\n\t\telse if( i==5 ) y = 1/Math.tan(x);\n\t\telse if( i==6 ) y = Math.asin(x);\n\t\telse if( i==7 ) y = Math.acos(x);\n\t\telse if( i==8 ) y = Math.atan(x);\n\t\telse if( i==9 ) y = Math.asin(1/x);\n\t\telse if( i==10 ) y = Math.acos(1/x);\n\t\telse y = Math.atan(1/x);\n\t\tif( i>=6 && i2==0 ) y*=180/Math.PI;\n\t\ty = roundnum2(y,8);\n\t\tdocument.calcform2.y.value = y;\n\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\trigonometry-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 68,
+    "lineEnd": 91
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc()\n\t\t{\n\t\t\tvar num = new Array();\n\t\t\ttxt = document.calcform.TextArea1.value;\n\t\t\tindex1 =  document.calcform.Select1.selectedIndex;\n\t\t\tif( txt==\"\" ) txt=\"1 3 5\";\n\t\t\ttxt = txt.replace(/\\054/g,\" \");\n\t\t\ttxt = txt.replace(/\\r\\n/g,\" \");\n\t\t\ttxt = txt.replace(/\\n/g,\" \");\n\t\t\tif( txt.charAt(txt.length-1)==\" \" )\n\t\t\t\ttxt = txt.substring(0,txt.length-1);\n\t\t\tn = txt.split(\" \");\n\t\t\tfor(i=0; i<n.length; i++)\n\t\t\t\tnum[i] = parseFloat(n[i]);\n\t\t\tm = 0;\n\t\t\tfor(i=0; i<num.length; i++)\n\t\t\t\tm += num[i];\n\t\t\tm /= num.length;\n\t\t\tv = 0;\n\t\t\tfor(i=0; i<num.length; i++)\n\t\t\t\tv += (num[i]-m)*(num[i]-m);\n\t\t\tif( index1==0 )\n\t\t\t\tv /= num.length;\n\t\t\telse\n\t\t\t\tv /= (num.length-1);\n\t\t\tstd = Math.sqrt(v);\n\t\t\tdocument.calcform.Text1.value = roundresult(std);\n\t\t\tdocument.calcform.Text2.value = roundresult(v);\n\t\t\tdocument.calcform.Text3.value = roundresult(m);\n\t\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\variance-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 11,
+    "lineEnd": 40
+  },
+  {
+    "name": "Calc",
+    "code": "function Calc()\n\t\t{\n\t\t\tvar avg=0;\n\t\t\tvar v=0;\n\t\t\tvar sum=0;\n\t\t\tvar txt=\"\\u03BC = \";\n\t\t\tvar txt1=txt2='';\n\t\t\tfor(var i=1; i<=irow+1; i++)\n\t\t\t{\n\t\t\t\tweight = $(\"#tbl > tbody > tr:nth-child(\"+i+\") > td:nth-child(1) > input\").val();\n\t\t\t\tweight = parseFloat(weight);\n\t\t\t\tdata = $(\"#tbl > tbody > tr:nth-child(\"+i+\") > td:nth-child(2) > input\").val();\n\t\t\t\tif( weight>=0 )\n\t\t\t\t{\n\t\t\t\t\tavg+=weight*data;\n\t\t\t\t\tsum+=weight;\n\t\t\t\t\ttxt1+=weight+\"\\u00D7\"+data+\"+\";\n\t\t\t\t\ttxt2+=weight+\"+\";\n\t\t\t\t}\n\t\t\t}\n\t\t\tavg/=sum;\n\t\t\tvar avg0=avg;\n\t\t\tavg = roundnum2(avg,8);\n\t\t\ttxt+=\"(\"+txt1+\") / (\"+txt2+\") = \"+avg;\n\t\t\ttxt1='';\n\t\t\tfor(var i=1; i<=irow+1; i++)\n\t\t\t{\n\t\t\t\tweight = $(\"#tbl > tbody > tr:nth-child(\"+i+\") > td:nth-child(1) > input\").val();\n\t\t\t\tweight = parseFloat(weight);\n\t\t\t\tdata = $(\"#tbl > tbody > tr:nth-child(\"+i+\") > td:nth-child(2) > input\").val();\n\t\t\t\tif( weight>=0 )\n\t\t\t\t{\n\t\t\t\t\tv+=weight*(data-avg0)*(data-avg0);\n\t\t\t\t\ttxt1+=weight+\"\\u00D7(\"+data+\"-\"+avg+\")\\u00B2+\";\n\t\t\t\t}\n\t\t\t}\n\t\t\tv/=sum;\n\t\t\tstd=Math.sqrt(v)\n\t\t\tv = roundnum2(v,8);\n\t\t\tstd = roundnum2(std,8);\n\t\t\ttxt+=\"\\n\\u03C3\\u00B2 = (\"+txt1+\") / (\"+txt2+\") = \"+v;\n\t\t\ttxt=txt.replace(/\\u002B\\u0029/g,\")\");\n\t\t\t$(\"#var\").val(v);\n\t\t\t$(\"#mean\").val(avg);\n\t\t\t$(\"#std\").val(std);\n\t\t\t$(\"#TA1\").val(txt);\n\t\t\t$(\"#row1\").show();\n\t\t\t$(\"#row2\").show();\n\t\t\t\n\t\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\variance-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 41,
+    "lineEnd": 90
+  },
+  {
+    "name": "OnCalc1",
+    "code": "function OnCalc1()\n   {\n      n = document.calcform.x.value;\n      if( n==\"0000\" ) n=-3;\n      if( n==\"000\" )  n=-2;\n      if( n==\"00\" )   n=-1;\n      d = 0.127*Math.pow(92,((36-n)/39));\n      a = Math.PI/4*d*d;\n      document.calcform.d.value = num2str(d.toFixed(4));\n      document.calcform.a.value = num2str(a.toFixed(4));\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\wire\\awg-to-mm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 11,
+    "lineEnd": 21
+  },
+  {
+    "name": "OnCalc2",
+    "code": "function OnCalc2()\n   {\n      var d = str2num(document.calcform.d.value);\n      var n = -39*Math.log(d/0.127)/4.521788577+36;\n      n = Math.round(n);\n      if( n==-1 ) n=\"00\";\n      if( n==-2 ) n=\"000\";\n      if( n==-3 ) n=\"0000\";\n      document.calcform.x.value = num2str(n);\n      OnCalc1();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\wire\\awg-to-mm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 22,
+    "lineEnd": 32
+  },
+  {
+    "name": "OnCalc3",
+    "code": "function OnCalc3()\n   {\n      var a = str2num(document.calcform.a.value);\n      \n      \n      var d = Math.sqrt(4*a/Math.PI);\n      var n = -39*Math.log(d/0.127)/4.521788577+36;\n      n = Math.round(n);\n      if( n==-1 ) n=\"00\";\n      if( n==-2 ) n=\"000\";\n      if( n==-3 ) n=\"0000\";\n      document.calcform.x.value = num2str(n);\n      OnCalc1();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\wire\\awg-to-mm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 33,
+    "lineEnd": 46
+  },
+  {
+    "name": "OnCalc4",
+    "code": "function OnCalc4()\n   {\n      var sum=0,sumin;\n      for(var i=2; i<=5; i++) {\n         var num=str2num(document.querySelector(\"#intbl tr:nth-child(\"+i+\") td input\").value);\n         var n=document.querySelector(\"#intbl tr:nth-child(\"+i+\") td select\").selectedIndex;\n         if( n==0 ) continue;\n         n-=4;\n         var d = 0.127*Math.pow(92,((36-n)/39));\n         var a = Math.PI/4*d*d;\n         sum+=num*a;\n      }\n      sumin = sum*0.00155;\n      \n      \n      document.getElementById(\"amm\").value=num2str(sum.toFixed(4));\n      document.getElementById(\"ain\").value=num2str(sumin.toFixed(4));\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\wire\\awg-to-mm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 47,
+    "lineEnd": 64
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc()\n   {\n      \n      var issel = document.calcform.ssel.selectedIndex;\n      var ilsel = document.calcform.lsel.selectedIndex;\n      var iphase = document.calcform.phase.selectedIndex;\n\n      n = (document.calcform.s.value);\n      len  = str2num(document.calcform.l.value);\n      v = str2num(document.calcform.v.value);\n      i = str2num(document.calcform.i.value);\n      \n      \n      \n      var res = str2num(document.calcform.res.value);\n      var d;\n      if( issel==0 )\n      {\n         if( n==\"000000\" || n==\"6/0\" ) n=-5;\n         if( n==\"00000\" || n==\"5/0\" ) n=-4;\n         if( n==\"0000\" || n==\"4/0\" ) n=-3;\n         if( n==\"000\" || n==\"3/0\" ) n=-2;\n         if( n==\"00\" || n==\"2/0\" ) n=-1;\n         \n         if( n>40 ) {\n            alert(\"AWG>40 is not valid\");\n            document.calcform.s.focus();\n            document.calcform.s.select();\n            return;\n         }\n         \n         d = 0.127*Math.pow(92,((36-n)/39));\n         d=d/1000;\n         console.log(\"\\nd=\"+d);\n      }\n      else if( issel==1 )\n      {\n         d = 25.4*n/1000;\n      }\n      else\n      {\n         d = n/1000;\n         console.log(\"\\nd=\"+d);\n      }\n      if( ilsel==0 )\n         len*=0.3048;\n      a = Math.PI*d*d/4.0;\n      r = 2*res*len/a;\n      vd = i*r;\n      if( iphase==2 ) vd*=(1.732/2);\n      vdp = vd/v*100;\n      document.calcform.vd.value  = num2str(vd.toPrecision(6));\n      document.calcform.vdp.value = num2str(vdp.toPrecision(6));\n      document.calcform.r.value   = num2str(r.toPrecision(6));\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\wire\\voltage-drop-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 71
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc()\n   {\n      n = document.calcform.x.value;\n      if( n==\"000000\" || n==\"6/0\" ) n=-5;\n      if( n==\"00000\" || n==\"5/0\" ) n=-4;\n      if( n==\"0000\" || n==\"4/0\" ) n=-3;\n      if( n==\"000\" || n==\"3/0\" ) n=-2;\n      if( n==\"00\" || n==\"2/0\" ) n=-1;\n      din = 0.005*Math.pow(92,((36-n)/39));\n      dmm = 0.127*Math.pow(92,((36-n)/39));\n      amil = 1000*din*din;\n      ain = Math.PI/4*din*din;\n      amm = Math.PI/4*dmm*dmm;\n      document.calcform.din.value = num2str(din.toFixed(4));\n      document.calcform.dmm.value = num2str(dmm.toFixed(4));\n      document.calcform.amil.value = num2str(amil.toFixed(4));\n      document.calcform.ain.value  = num2str(ain.toFixed(4));\n      document.calcform.amm.value  = num2str(amm.toFixed(4));\n\n      var res = str2num(document.calcform.r.value);\n      rft = 0.3048e9*res/(25.4*25.4*ain);\n      rm = 1e9*res/amm;\n      document.calcform.rft.value = num2str(rft.toFixed(4));\n      document.calcform.rm.value  = num2str(rm.toFixed(4));\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\wire\\wire-gauge-chart.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 19,
+    "lineEnd": 43
+  },
+  {
+    "name": "Round",
+    "code": "function Round(x,res) \n\t\t{\n\t\t \ty = parseFloat(x);\n\t\t \tres = Math.pow(10,res);\n\t\t \ty = Math.round(y*res+1)/res;\n\t\t \treturn y;\n\t\t}",
+    "params": [
+      "x",
+      "res"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\chemistry\\ppm-to-mg-per-liter.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 5,
+    "lineEnd": 11
+  },
+  {
+    "name": "dec2frac",
+    "code": "function dec2frac(x) {\n      var y = parseFloat(x);\n      y = Math.round(y*64)/64;\n      var absy=Math.abs(y);\n      var yy=Math.floor(absy);\n      var frac=roundresult(absy-yy);\n      \n      d = digits_after_period(absy);\n      den = Math.round(Math.pow(10,d));\n      num = Math.round(frac*den);\n      var len=num.toString().length;\n      var f=false;\n      if( len>8 ) f=true;\n      g = gcd2(num,den,f);\n      num2 = Math.round(num/g);\n      den2 = Math.round(den/g);\n      y = yy;\n      if( num2!=0 ) y+=\" \"+getFracString(num2,den2);\n      return(y);\n   }",
+    "params": [
+      "x"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-feet-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 41,
+    "lineEnd": 60
+  },
+  {
+    "name": "dec2frac",
+    "code": "function dec2frac(e){var t,n=parseFloat(e),r=Math.abs(n=Math.round(64*n)/64),u=Math.floor(r),a=(num=Math.round(roundresult(r-u)*(den=Math.round(Math.pow(10,d=digits_after_period(r)))))).toString().length,o=!1;return a>8&&(o=!0),g=gcd2(num,den,o),num2=Math.round(num/g),den2=Math.round(den/g),n=u,0!=num2&&(0==n?n=getFracString(num2,den2):n+=\" \"+getFracString(num2,den2)),n}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "dec2frac",
+    "code": "function dec2frac(x) {\n      var y = parseFloat(x);\n      y = Math.round(y*64)/64;\n      var absy=Math.abs(y);\n      var yy=Math.floor(absy);\n      var frac=roundresult(absy-yy);\n      \n      d = digits_after_period(absy);\n      den = Math.round(Math.pow(10,d));\n      num = Math.round(frac*den);\n      var len=num.toString().length;\n      var f=false;\n      if( len>8 ) f=true;\n      g = gcd2(num,den,f);\n      num2 = Math.round(num/g);\n      den2 = Math.round(den/g);\n      y = yy;\n      if( num2!=0 ) {\n         if( y==0 )\n            y=getFracString(num2,den2);\n         else\n            y+=\" \"+getFracString(num2,den2);\n      }\n      return(y);\n   }",
+    "params": [
+      "x"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 58,
+    "lineEnd": 82
+  },
+  {
+    "name": "dec2frac",
+    "code": "function dec2frac(x) {\n      var y = parseFloat(x);\n      y = Math.round(y*64)/64;\n      var absy=Math.abs(y);\n      var yy=Math.floor(absy);\n      var frac=roundresult(absy-yy);\n      \n      d = digits_after_period(absy);\n      den = Math.round(Math.pow(10,d));\n      num = Math.round(frac*den);\n      var len=num.toString().length;\n      var f=false;\n      if( len>8 ) f=true;\n      g = gcd2(num,den,f);\n      num2 = Math.round(num/g);\n      den2 = Math.round(den/g);\n      y = yy;\n      if( num2!=0 ) {\n         if( y==0 )\n            y=getFracString(num2,den2);\n         else\n            y+=\" \"+getFracString(num2,den2);\n      }\n      return(y);\n   }",
+    "params": [
+      "x"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 57,
+    "lineEnd": 81
+  },
+  {
+    "name": "dec2frac",
+    "code": "function dec2frac(x) {\n      var y = parseFloat(x);\n      y = Math.round(y*64)/64;\n      var absy=Math.abs(y);\n      var yy=Math.floor(absy);\n      var frac=roundresult(absy-yy);\n      \n      d = digits_after_period(absy);\n      den = Math.round(Math.pow(10,d));\n      num = Math.round(frac*den);\n      var len=num.toString().length;\n      var f=false;\n      if( len>8 ) f=true;\n      g = gcd2(num,den,f);\n      num2 = Math.round(num/g);\n      den2 = Math.round(den/g);\n      y = yy;\n      if( num2!=0 ) y+=\" \"+getFracString(num2,den2);\n      return(y);\n   }",
+    "params": [
+      "x"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-feet-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 41,
+    "lineEnd": 60
+  },
+  {
+    "name": "dec2frac",
+    "code": "function dec2frac(e){var t,r=parseFloat(e),n=Math.abs(r=Math.round(64*r)/64),a=Math.floor(n),u=(num=Math.round(roundresult(n-a)*(den=Math.round(Math.pow(10,d=digits_after_period(n)))))).toString().length,o=!1;return u>8&&(o=!0),g=gcd2(num,den,o),num2=Math.round(num/g),den2=Math.round(den/g),r=a,0!=num2&&(0==r?r=getFracString(num2,den2):r+=\" \"+getFracString(num2,den2)),r}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "dec2frac",
+    "code": "function dec2frac(x) {\n      var y = parseFloat(x);\n      y = Math.round(y*64)/64;\n      var absy=Math.abs(y);\n      var yy=Math.floor(absy);\n      var frac=roundresult(absy-yy);\n      \n      d = digits_after_period(absy);\n      den = Math.round(Math.pow(10,d));\n      num = Math.round(frac*den);\n      var len=num.toString().length;\n      var f=false;\n      if( len>8 ) f=true;\n      g = gcd2(num,den,f);\n      num2 = Math.round(num/g);\n      den2 = Math.round(den/g);\n      y = yy;\n      if( num2!=0 ) {\n         if( y==0 )\n            y=getFracString(num2,den2);\n         else\n            y+=\" \"+getFracString(num2,den2);\n      }\n      return(y);\n   }",
+    "params": [
+      "x"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 57,
+    "lineEnd": 81
+  },
+  {
+    "name": "dec2frac",
+    "code": "function dec2frac(x) {\n      var y = parseFloat(x);\n      y = Math.round(y*64)/64;\n      var absy=Math.abs(y);\n      var yy=Math.floor(absy);\n      var frac=roundresult(absy-yy);\n      \n      d = digits_after_period(absy);\n      den = Math.round(Math.pow(10,d));\n      num = Math.round(frac*den);\n      var len=num.toString().length;\n      var f=false;\n      if( len>8 ) f=true;\n      g = gcd2(num,den,f);\n      num2 = Math.round(num/g);\n      den2 = Math.round(den/g);\n      y = yy;\n      if( num2!=0 ) y+=\" \"+getFracString(num2,den2);\n      return(y);\n   }",
+    "params": [
+      "x"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-feet-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 39,
+    "lineEnd": 58
+  },
+  {
+    "name": "dec2frac",
+    "code": "function dec2frac(e){var t=parseFloat(e),n=Math.abs(t=Math.round(64*t)/64),r=Math.floor(n),a=roundresult(n-r),l=Math.round(Math.pow(10,digits_after_period(n))),u=Math.round(a*l),o=u.toString().length,i=!1;o>8&&(i=!0);var c=gcd2(u,l,i),$=Math.round(u/c),d=Math.round(l/c);return t=r,0!=$&&(0==t?t=getFracString($,d):t+=\" \"+getFracString($,d)),t}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "dec2frac",
+    "code": "function dec2frac(x) {\n      var y = parseFloat(x);\n      y = Math.round(y*64)/64;\n      var absy=Math.abs(y);\n      var yy=Math.floor(absy);\n      var frac=roundresult(absy-yy);\n      \n      d = digits_after_period(absy);\n      den = Math.round(Math.pow(10,d));\n      num = Math.round(frac*den);\n      var len=num.toString().length;\n      var f=false;\n      if( len>8 ) f=true;\n      g = gcd2(num,den,f);\n      num2 = Math.round(num/g);\n      den2 = Math.round(den/g);\n      y = yy;\n      if( num2!=0 ) {\n         if( y==0 )\n            y=getFracString(num2,den2);\n         else\n            y+=\" \"+getFracString(num2,den2);\n      }\n      return(y);\n   }",
+    "params": [
+      "x"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 57,
+    "lineEnd": 81
+  },
+  {
+    "name": "decimal2base",
+    "code": "function decimal2base(e,t,n){var l,r=null,i=document.getElementById(\"cal2tbl\"),a=i.tBodies[0].rows.length;if(a)for(var d=0;d<a;d++)i.tBodies[0].deleteRow(0);e<0&&(e=-e),e=e.toString();var o=(t=t.toString().replace(/\\s/g,\"\")).indexOf(\".\"),s=t.length-o-1;s>8&&(s=8);var g=\"\";o>=0&&(g=\"To avoid the decimal separator, multiply the decimal number with the base raised to the power of decimals in result:<br>\",g+=e+\"&times;\"+n+\"<sup>\"+s+\"</sup> = \",e*=Math.pow(n,s),g+=e=Math.round(e)),document.getElementById(\"cal2dec\").innerHTML=g;for(var m=e,$=0;m>=1;$++)l=\"<tr>\",l+=\"<td>(\"+m+\")/\"+n+\"</td>\",l+=\"<td>\"+Math.floor(m/n)+\"</td>\",l+=\"<td>\"+(m%n).toFixed()+\"</td>\",l+=\"<td>\"+$+\"</td>\",l+=\"</tr>\",m=Math.floor(m/n),i.tBodies[0].insertRow().innerHTML=l;if(g=\"\",o>=0){var m=(r=t.toString()).length-r.indexOf(\".\")-s-1;g=\"= (\"+(r=r.substring(0,r.length-m).replace(\".\",\"\"))+\")<sub>\"+n+\"</sub> / \"+n+\"<sup>\"+s+\"</sup>\"}document.getElementById(\"cal2result1\").innerHTML=g,o>=0&&(t=t.substring(0,r.length+1)),g=\"= (\"+t+\")<sub>\"+n+\"</sub>\",document.getElementById(\"cal2result2\").innerHTML=g,document.getElementById(\"caldiv\").style.display=\"block\"}",
+    "params": [
+      "e",
+      "t",
+      "n"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\number\\decimal-to-binary.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "convert",
+    "code": "function convert()\n   {\n      var sign = '';\n      var x = document.calcform.x.value;\n      var y = parseFloat(x);\n      y = roundresult(y/100);\n      if( y<0 )\n      {\n         y = -y;\n         sign = '-';\n      }\n      var d = digits_after_period(y);\n      den = Math.round(Math.pow(10,d));\n      num = Math.round(y*den);\n      g = gcd(num,den);\n      num2 = Math.round(num/g);\n      den2 = Math.round(den/g);\n      y = sign+num+'/'+den;\n      if( g>1 )\n         y+= ' = '+sign+num2+'/'+den2;\n      if( num2>den2 )\n      {\n         y+= ' = '+sign+Math.floor(num2/den2);\n         if( (num2%den2)!=0 )\n            y+= ' '+(num2%den2)+'/'+den2;\n      }\n      \n      \n      document.getElementById(\"area\").value = y;\n\n      var obj = document.getElementById(\"frac\");\n      CircNumber(obj,{\n         n: 0,\n         num: num2,\n         den: den2,\n         radius: 20,\n         fillColor: \"rgb(80,192,0)\",\n         lineWidth: 1\n      });\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\number\\percent-to-fraction.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 20,
+    "lineEnd": 59
+  },
+  {
+    "name": "Convert_Sci",
+    "code": "function Convert_Sci()\n{\n   var a = str2num(sci_input.value);\n   var b = str2num(sci2_input.value);\n   b = parseInt(b);\n   var dec = a*Math.pow(10,b);\n   dec = roundnum(dec,10);\n   var sign=\"\"; if(b>=0) sign=\"+\";\n   e = a+\"e\"+sign+b;\n   f = (a==0)?0:Math.floor( Math.log(Math.abs(a))*Math.LOG10E );\n   norm = a/Math.pow(10,f);\n   norm = roundnum(norm,10);\n   norm2= parseInt(b)+f;\n   mod = norm2%3;\n   eng  = norm*Math.pow(10,mod);\n   eng  = roundnum(eng,10);\n   eng2= norm2-mod;\n   if( Math.abs(eng)<1 && eng!=0 )\n   {\n      eng*=1000;\n      eng2-=3;\n   }\n   eng  = roundnum(eng,10);\n   dec=parseFloat(dec).toFixed(20).replace(/\\.?0+$/,\"\");\n   dec_input.value = roundresult(dec);\n   e_input.value = e;\n   norm_input.value = norm;\n   norm2_input.value = norm2;\n   eng_input.value = eng;\n   eng2_input.value = eng2;\n}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\number\\scientific-notation-converter.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 70,
+    "lineEnd": 100
+  },
+  {
+    "name": "Convert_Dec",
+    "code": "function Convert_Dec()\n{\n   var dec = str2num(document.getElementById(\"dec\").value);\n   \n   var e = dec.toExponential();\n   var a=e; b=0;\n   var i=e.indexOf('e');\n   if( i!=-1 )\n   {\n      a = e.substring(0,i);\n      b = e.substring(i+1,e.length);\n   }\n   b = parseInt(b);\n   f = (a==0)?0:Math.floor( Math.log(Math.abs(a))*Math.LOG10E );\n   norm = a/Math.pow(10,f);\n   norm = roundnum(norm,10);\n   norm2= parseInt(b)+f;\n   mod = norm2%3;\n   eng  = norm*Math.pow(10,mod);\n   eng  = roundnum(eng,10);\n   eng2= norm2-mod;\n   if( Math.abs(eng)<1 && eng!=0 )\n   {\n      eng*=1000;\n      eng2-=3;\n   }\n   eng  = roundnum(eng,10);\n   \n   sci_input.value = a;\n   sci2_input.value = b;\n   e_input.value = e;\n   norm_input.value = norm;\n   norm2_input.value = norm2;\n   eng_input.value = eng;\n   eng2_input.value = eng2;\n}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\number\\scientific-notation-converter.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 101,
+    "lineEnd": 136
+  },
+  {
+    "name": "Convert_E",
+    "code": "function Convert_E()\n{\n   var e = document.getElementById(\"e\").value;\n   var a=e; b=0;\n   var i=e.indexOf('e');\n   if( i!=-1 )\n   {\n      a = e.substring(0,i);\n      b = e.substring(i+1,e.length);\n   }\n   b = parseInt(b);\n   dec = a*Math.pow(10,b);\n   dec = roundnum(dec,10);\n   f = (a==0)?0:Math.floor( Math.log(Math.abs(a))*Math.LOG10E );\n   norm = a/Math.pow(10,f);\n   norm = roundnum(norm,10);\n   norm2= parseInt(b)+f;\n   mod = norm2%3;\n   eng  = norm*Math.pow(10,mod);\n   eng  = roundnum(eng,10);\n   eng2= norm2-mod;\n   if( Math.abs(eng)<1 && eng!=0 )\n   {\n      eng*=1000;\n      eng2-=3;\n   }\n   eng  = roundnum(eng,10);\n   dec=parseFloat(dec).toFixed(20).replace(/\\.?0+$/,\"\");\n\n   sci_input.value = a;\n   sci2_input.value = b;\n   dec_input.value = roundresult(dec);\n   norm_input.value = norm;\n   norm2_input.value = norm2;\n   eng_input.value = eng;\n   eng2_input.value = eng2;\n}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\number\\scientific-notation-converter.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 137,
+    "lineEnd": 173
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x) {\n\t\t\t \treturn 10*Math.log(x*1000)*Math.LOG10E;\n\t\t\t}",
+    "params": [
+      "x"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\power\\Watt_to_dBm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 4
+  }
+]

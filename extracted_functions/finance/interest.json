@@ -1,0 +1,152 @@
+[
+  {
+    "name": "anonymous",
+    "code": "function(){ OnCalc(); }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\discount-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 26,
+    "lineEnd": 26
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      if( typeof Promise !==\"function\" ) return;\n      if( window.location.href.indexOf(\"?\")!=-1 ) return;\n      \n      \n      \n      calcbtn.type=\"button\";\n      calcbtn.onclick=function(){ OnCalc(); };\n      taxcheckElem.onclick=function() { OnTaxCheck(); };\n      dstype[0].onclick=function() { OnType(0); };\n      dstype[1].onclick=function() { OnType(1); };\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\discount-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 19,
+    "lineEnd": 30
+  },
+  {
+    "name": "OnCurSel",
+    "code": "function OnCurSel(i)\n   {\n      if( i==null )\n         cur=Currency.getCurrency();\n      else {\n         var o=document.getElementsByName(\"cursel\");\n         o[i].checked=true;\n         var clook=['$','&euro;','&pound;','&yen;','&#8377;','&nbsp;'];\n         cur=clook[i];\n      }\n      var el=document.getElementsByClassName(\"cur\");\n      for(var i=0; i<el.length; i++) el[i].innerHTML=cur;\n   }",
+    "params": [
+      "i"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\discount-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 31,
+    "lineEnd": 43
+  },
+  {
+    "name": "OnCurSel",
+    "code": "function OnCurSel(e){null==e?cur=Currency.getCurrency():(document.getElementsByName(\"cursel\")[e].checked=!0,cur=[\"$\",\"&euro;\",\"&pound;\",\"&yen;\",\"&#8377;\",\"&nbsp;\"][e]);for(var t=document.getElementsByClassName(\"cur\"),e=0;e<t.length;e++)t[e].innerHTML=cur}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\discount-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){OnCalc()}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\discount-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){\"function\"==typeof Promise&&-1==window.location.href.indexOf(\"?\")&&(calcbtn.type=\"button\",calcbtn.onclick=function(){OnCalc()},taxcheckElem.onclick=function(){OnTaxCheck()},dstype[0].onclick=function(){OnType(0)},dstype[1].onclick=function(){OnType(1)})}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\discount-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams(){for(var e,l=window.location.href,t=/[?&]([^=#]+)=([^&#]*)/g,a={};e=t.exec(l);)a[e[1]]=e[2];return a}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\mortgage-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnCurSel",
+    "code": "function OnCurSel(e){null==e?cur=Currency.getCurrency():(document.getElementsByName(\"cursel\")[e].checked=!0,cur=[\"$\",\"&euro;\",\"&pound;\",\"&yen;\",\"&#8377;\",\"&nbsp;\"][e]);for(var l=document.getElementsByClassName(\"cur\"),e=0;e<l.length;e++)l[e].innerHTML=cur}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\mortgage-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnCalcSel",
+    "code": "function OnCalcSel(e,l){calcsel=e;for(var t=[[1,1,1,0,1,1,1,1,0,0,1,1,1],[0,0,0,1,1,1,1,0,1,0,1,0,1],[1,1,1,1,1,0,1,0,0,1,1,1,1]],a=document.getElementsByClassName(\"divs\"),n=t[e].length,u=0;u<n;u++)t[e][u]?a[u].style.display=\"flex\":a[u].style.display=\"none\";document.getElementsByName(\"calcsel\")[e].checked=!0,l&&(document.getElementById(\"mpout\").value=\"\",document.getElementById(\"laout\").value=\"\",document.getElementById(\"ltout\").value=\"\",document.getElementById(\"ltmout\").value=\"\",ltvElem.value=\"\",tpElem.value=\"\")}",
+    "params": [
+      "e",
+      "l"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\mortgage-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "DrawTable",
+    "code": "function DrawTable(e,l,t){for(var a,n,u,m,o=document.getElementById(\"Select1\").selectedIndex,r=[\"$\",\"&pound;\",\"&euro;\",\"&#3647;\",\"kr\",\"L\",\"t\",\"&#8369;\",\"R\",\"R$\",\"RM\",\"R\",\"Rs\",\"&#8362;\",\"z&#322;\",\"\"][o],d=tblElem.rows.length,o=1;o<d;o++)tblElem.deleteRow(1);u=e.length;for(var o=0;o<u;o++)n=0,(m=(o+1)/t)==Math.round(m)&&(n=l),n=num2str(n,2),a=num2str(e[o],2),tblElem.tBodies[0].insertRow().innerHTML=\"<tr>            <td>\"+o+\"</td>            <td>\"+r+n+\"</td>            <td>\"+r+a+\"</td>         </tr>\";document.getElementById(\"tbldiv\").style.display=\"block\"}",
+    "params": [
+      "e",
+      "l",
+      "t"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\mortgage-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "()=>console.log(\"Share was successful.\")",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\mortgage-calculator.html",
+    "type": "ArrowFunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "e=>console.log(\"Sharing failed\",e)",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\mortgage-calculator.html",
+    "type": "ArrowFunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnShare",
+    "code": "function OnShare(){navigator.canShare?navigator.share({title:document.title,url:window.location.href}).then(()=>console.log(\"Share was successful.\")).catch(e=>console.log(\"Sharing failed\",e)):console.log(\"Your system doesn't support sharing files.\")}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\mortgage-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){var e=null,l=GetURLParams();if(void 0!==l.cursel&&(e=l.cursel),OnCurSel(e),-1!=window.location.href.indexOf(\"?\")){for(let t in l)\"cursel\"==t?e=l[t]:\"calcsel\"==t?calcsel=l[t]:document.getElementById(t).value=decodeURIComponent2(l[t]);OnCalc(),window.location.hash=\"\",window.location.hash=\"#btns\",OnCalcSel(calcsel,0)}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\mortgage-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnCurrencyChange",
+    "code": "function OnCurrencyChange()\n\t\t\t{\n\t\t\t\tc_look=['$','&pound;','&euro;','kr','L','t','P','RM','R','Rs','&#8362;','zl',''];\n\t\t\t\ti = document.calcform.Select1.selectedIndex;\n\t\t\t\tc = c_look[i];\n\t\t\t\tdocument.getElementById(\"cur1\").innerHTML = c;\n\t\t\t\tdocument.getElementById(\"cur2\").innerHTML = c;\n\t\t\t\tdocument.getElementById(\"cur3\").innerHTML = c;\n\t\t\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\simple-interest-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 25
+  }
+]

@@ -1,0 +1,43 @@
+# Cloudflare Pages 重定向规则
+
+# 英文子域名重定向
+https://en.intlcalc.com/* https://intlcalc.com/en/:splat 200
+
+# 中文子域名重定向  
+https://zh.intlcalc.com/* https://intlcalc.com/zh/:splat 200
+
+# 西班牙语子域名重定向
+https://es.intlcalc.com/* https://intlcalc.com/es/:splat 200
+
+# 法语子域名重定向
+https://fr.intlcalc.com/* https://intlcalc.com/fr/:splat 200
+
+# 德语子域名重定向
+https://de.intlcalc.com/* https://intlcalc.com/de/:splat 200
+
+# 日语子域名重定向
+https://ja.intlcalc.com/* https://intlcalc.com/ja/:splat 200
+
+# 韩语子域名重定向
+https://ko.intlcalc.com/* https://intlcalc.com/ko/:splat 200
+
+# 葡萄牙语子域名重定向
+https://pt.intlcalc.com/* https://intlcalc.com/pt/:splat 200
+
+# 俄语子域名重定向
+https://ru.intlcalc.com/* https://intlcalc.com/ru/:splat 200
+
+# 阿拉伯语子域名重定向
+https://ar.intlcalc.com/* https://intlcalc.com/ar/:splat 200
+
+# 默认重定向到语言选择页面
+/en /en/index.html 200
+/zh /zh/index.html 200  
+/es /es/index.html 200
+/fr /fr/index.html 200
+/de /de/index.html 200
+/ja /ja/index.html 200
+/ko /ko/index.html 200
+/pt /pt/index.html 200
+/ru /ru/index.html 200
+/ar /ar/index.html 200 

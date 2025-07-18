@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线计算器大全 - 免费实用工具集合</title>
+    <meta name="description" content="提供各种类型的在线计算器工具，包括数学计算、单位转换、财务计算等，完全免费使用">
+    <meta name="keywords" content="在线计算器,数学计算器,单位转换,财务计算,BMI计算器,贷款计算器">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .demo-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-section h2 {
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .calculator-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .calculator-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+        }
+
+        .calculator-card h4 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .calculator-card h4::before {
+            content: "🧮";
+            font-size: 1.2rem;
+        }
+
+        .requirement {
+            background: linear-gradient(45deg, #e3f2fd, #f3e5f5);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-style: italic;
+            color: #555;
+            border-left: 4px solid #2196F3;
+        }
+
+        .specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .spec-item {
+            background: rgba(108, 117, 125, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .spec-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .spec-value {
+            font-weight: bold;
+            color: #495057;
+            font-size: 1rem;
+        }
+
+        .actions {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #0056b3, #004085);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .feature-item .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .feature-item p {
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .specs {
+                grid-template-columns: 1fr;
+            }
+            
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧮 在线计算器大全</h1>
+            <p>免费、实用、专业的计算器工具集合</p>
+        </div>
+
+        <!-- 核心功能介绍 -->
+        <div class="demo-section">
+            <h2>🚀 主要功能</h2>
+            <div class="features">
+                <div class="feature-item">
+                    <span class="icon">📊</span>
+                    <h3>数学计算</h3>
+                    <p>科学计算器、百分比计算、基础数学运算等</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">📏</span>
+                    <h3>单位转换</h3>
+                    <p>长度、重量、温度等各种单位转换工具</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">💰</span>
+                    <h3>财务计算</h3>
+                    <p>贷款计算、利息计算、投资回报分析</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">⚡</span>
+                    <h3>实时计算</h3>
+                    <p>无需刷新页面，实时显示计算结果</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 精选计算器 -->
+        <div class="demo-section">
+            <h2>🎯 精选计算器</h2>
+            <div class="calculator-grid">
+                <div class="calculator-card">
+                    <h4>基础数学计算器</h4>
+                    <div class="requirement">支持四则运算、平方根、百分比等基本数学功能</div>
+                    <div class="specs">
+                        <div class="spec-item">
+                            <span class="spec-label">类型</span><br>
+                            <span class="spec-value">数学工具</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">复杂度</span><br>
+                            <span class="spec-value">简单</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <a href="generated_calculators/basic-math-calculator.html" class="btn btn-primary" target="_blank">🔗 立即使用</a>
+                    </div>
+                </div>
+
+                <div class="calculator-card">
+                    <h4>温度转换器</h4>
+                    <div class="requirement">摄氏度、华氏度、开尔文等温度单位相互转换</div>
+                    <div class="specs">
+                        <div class="spec-item">
+                            <span class="spec-label">类型</span><br>
+                            <span class="spec-value">单位转换</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">复杂度</span><br>
+                            <span class="spec-value">简单</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <a href="generated_calculators/temperature-converter.html" class="btn btn-primary" target="_blank">🔗 立即使用</a>
+                    </div>
+                </div>
+
+                <div class="calculator-card">
+                    <h4>贷款计算器</h4>
+                    <div class="requirement">计算贷款月供、总利息，支持等额本息和等额本金</div>
+                    <div class="specs">
+                        <div class="spec-item">
+                            <span class="spec-label">类型</span><br>
+                            <span class="spec-value">财务工具</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">复杂度</span><br>
+                            <span class="spec-value">高级</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <a href="generated_calculators/loan-calculator.html" class="btn btn-primary" target="_blank">🔗 立即使用</a>
+                    </div>
+                </div>
+
+                <div class="calculator-card">
+                    <h4>长度转换器</h4>
+                    <div class="requirement">米、英尺、英寸、厘米等长度单位相互转换</div>
+                    <div class="specs">
+                        <div class="spec-item">
+                            <span class="spec-label">类型</span><br>
+                            <span class="spec-value">单位转换</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">复杂度</span><br>
+                            <span class="spec-value">简单</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <a href="generated_calculators/length-converter.html" class="btn btn-primary" target="_blank">🔗 立即使用</a>
+                    </div>
+                </div>
+
+                <div class="calculator-card">
+                    <h4>百分比计算器</h4>
+                    <div class="requirement">计算百分比增减、比例、税率等各种百分比运算</div>
+                    <div class="specs">
+                        <div class="spec-item">
+                            <span class="spec-label">类型</span><br>
+                            <span class="spec-value">数学工具</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">复杂度</span><br>
+                            <span class="spec-value">中等</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <a href="generated_calculators/percentage-calculator.html" class="btn btn-primary" target="_blank">🔗 立即使用</a>
+                    </div>
+                </div>
+
+                <div class="calculator-card">
+                    <h4>BMI计算器</h4>
+                    <div class="requirement">身体质量指数计算，支持公制英制单位，提供健康建议</div>
+                    <div class="specs">
+                        <div class="spec-item">
+                            <span class="spec-label">类型</span><br>
+                            <span class="spec-value">健康工具</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">复杂度</span><br>
+                            <span class="spec-value">中等</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <a href="generated_calculators/bmi-calculator.html" class="btn btn-primary" target="_blank">🔗 立即使用</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 所有可用计算器 -->
+        <div class="demo-section">
+            <h2>🧮 所有计算器</h2>
+            <div class="calculator-grid">
+                <div class="calculator-card">
+                    <h4>科学计算器</h4>
+                    <div class="requirement">高级数学函数，三角函数、对数、指数运算</div>
+                    <div class="actions">
+                        <a href="generated_calculators/scientific-calculator.html" class="btn btn-primary" target="_blank">🔗 立即使用</a>
+                    </div>
+                </div>
+                
+                <div class="calculator-card">
+                    <h4>利息计算器</h4>
+                    <div class="requirement">简单利息和复合利息计算工具</div>
+                    <div class="actions">
+                        <a href="generated_calculators/interest-calculator.html" class="btn btn-primary" target="_blank">🔗 立即使用</a>
+                    </div>
+                </div>
+                
+                <div class="calculator-card">
+                    <h4>年龄计算器</h4>
+                    <div class="requirement">精确计算年龄，支持多种时间格式</div>
+                    <div class="actions">
+                        <a href="generated_calculators/age-calculator.html" class="btn btn-primary" target="_blank">🔗 立即使用</a>
+                    </div>
+                </div>
+                
+                <div class="calculator-card">
+                    <h4>基础计算器</h4>
+                    <div class="requirement">简单易用的基础数学运算工具</div>
+                    <div class="actions">
+                        <a href="generated_calculators/basic-calculator.html" class="btn btn-primary" target="_blank">🔗 立即使用</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 未来规划 -->
+        <div class="demo-section">
+            <h2>🚧 未来规划</h2>
+            <div class="calculator-grid">
+                <div class="calculator-card">
+                    <h4>更多数学工具</h4>
+                    <div class="requirement">几何计算、统计分析、方程求解等</div>
+                    <div class="actions">
+                        <span class="btn" style="background: #6c757d; cursor: not-allowed;">开发中</span>
+                    </div>
+                </div>
+                
+                <div class="calculator-card">
+                    <h4>物理计算器</h4>
+                    <div class="requirement">力学、热力学、电磁学等物理计算</div>
+                    <div class="actions">
+                        <span class="btn" style="background: #6c757d; cursor: not-allowed;">规划中</span>
+                    </div>
+                </div>
+                
+                <div class="calculator-card">
+                    <h4>自定义公式</h4>
+                    <div class="requirement">用户自定义计算公式的通用计算器</div>
+                    <div class="actions">
+                        <span class="btn" style="background: #6c757d; cursor: not-allowed;">设计中</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 在线计算器大全 - 免费实用的计算器工具集合</p>
+            <p>所有工具完全免费使用，无需注册登录</p>
+        </div>
+    </div>
+</body>
+</html> 

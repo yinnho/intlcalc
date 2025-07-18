@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://de.intlcalc.com/sitemap.xml
+
+# Language-specific robots.txt for de
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

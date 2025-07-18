@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科学计算器</title>
+    <meta name="description" content="根据您的需求"创建一个可以计算sin、cos、tan的计算器"自动生成的计算器">
+    <style id="calculator-styles">
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .calculator-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .calculator-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .calculator-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .calculator-header .description {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .calculator-main {
+            padding: 30px;
+        }
+
+        .calculator-footer {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+        }
+                .calculator-display {
+                    margin-bottom: 20px;
+                    position: relative;
+                }
+
+                .display-input {
+                    width: 100%;
+                    height: 80px;
+                    font-size: 1.8rem;
+                    text-align: right;
+                    padding: 15px;
+                    border: 2px solid #e9ecef;
+                    border-radius: 10px;
+                    background: #f8f9fa;
+                }
+
+                .display-mode {
+                    position: absolute;
+                    top: 10px;
+                    left: 15px;
+                    font-size: 0.8rem;
+                    color: #666;
+                }
+
+                .scientific-buttons {
+                    display: grid;
+                    gap: 8px;
+                }
+
+                .button-row {
+                    display: grid;
+                    grid-template-columns: repeat(5, 1fr);
+                    gap: 8px;
+                }
+
+                .btn {
+                    height: 50px;
+                    border: none;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                }
+
+                .btn-function {
+                    background: #6c757d;
+                    color: white;
+                    font-size: 0.9rem;
+                }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <header class="calculator-header">
+            <h1>科学计算器</h1>
+            <p class="description">根据您的需求"创建一个可以计算sin、cos、tan的计算器"自动生成的计算器</p>
+        </header>
+        
+        <main class="calculator-main">
+            
+        <div class="calculator-display">
+            <input type="text" id="display" class="display-input" readonly>
+            <div class="display-mode">
+                <span>DEG</span>
+                <span id="memory-indicator" style="display:none">M</span>
+            </div>
+        </div>
+        
+        <div class="scientific-buttons">
+            <!-- 第一行：内存和模式 -->
+            <div class="button-row">
+                <button class="btn btn-function" onclick="memoryClear()">MC</button>
+                <button class="btn btn-function" onclick="memoryRecall()">MR</button>
+                <button class="btn btn-function" onclick="memoryAdd()">M+</button>
+                <button class="btn btn-function" onclick="memorySubtract()">M-</button>
+                <button class="btn btn-clear" onclick="clearDisplay()">C</button>
+            </div>
+            
+            <!-- 第二行：三角函数 -->
+            <div class="button-row">
+                <button class="btn btn-function" onclick="inputFunction('sin(')">sin</button>
+                <button class="btn btn-function" onclick="inputFunction('cos(')">cos</button>
+                <button class="btn btn-function" onclick="inputFunction('tan(')">tan</button>
+                <button class="btn btn-function" onclick="inputFunction('log(')">log</button>
+                <button class="btn btn-operator" onclick="deleteLast()">⌫</button>
+            </div>
+            
+            <!-- 第三行：指数和根 -->
+            <div class="button-row">
+                <button class="btn btn-function" onclick="inputFunction('pow(')">x^y</button>
+                <button class="btn btn-function" onclick="inputFunction('sqrt(')">√</button>
+                <button class="btn btn-function" onclick="inputOperator('(')">(</button>
+                <button class="btn btn-function" onclick="inputOperator(')')">)</button>
+                <button class="btn btn-operator" onclick="inputOperator('/')">/</button>
+            </div>
+            
+            <!-- 数字行 -->
+            <div class="button-row">
+                <button class="btn btn-number" onclick="inputNumber('7')">7</button>
+                <button class="btn btn-number" onclick="inputNumber('8')">8</button>
+                <button class="btn btn-number" onclick="inputNumber('9')">9</button>
+                <button class="btn btn-operator" onclick="inputOperator('*')">×</button>
+            </div>
+            
+            <div class="button-row">
+                <button class="btn btn-number" onclick="inputNumber('4')">4</button>
+                <button class="btn btn-number" onclick="inputNumber('5')">5</button>
+                <button class="btn btn-number" onclick="inputNumber('6')">6</button>
+                <button class="btn btn-operator" onclick="inputOperator('-')">-</button>
+            </div>
+            
+            <div class="button-row">
+                <button class="btn btn-number" onclick="inputNumber('1')">1</button>
+                <button class="btn btn-number" onclick="inputNumber('2')">2</button>
+                <button class="btn btn-number" onclick="inputNumber('3')">3</button>
+                <button class="btn btn-operator" onclick="inputOperator('+')">+</button>
+            </div>
+            
+            <div class="button-row">
+                <button class="btn btn-number btn-wide" onclick="inputNumber('0')">0</button>
+                <button class="btn btn-number" onclick="inputNumber('.')">.</button>
+                <button class="btn btn-equals" onclick="calculate()">=</button>
+            </div>
+        </div>
+        </main>
+        
+        <footer class="calculator-footer">
+            <p>由AI自动生成 • 2025/7/16</p>
+        </footer>
+    </div>
+
+    <script>
+        
+        // 基础功能函数
+        function formatNumber(num) {
+            if (typeof num !== 'number') return num;
+            return num.toLocaleString('zh-CN', { maximumFractionDigits: 10 });
+        }
+
+        function showError(message) {
+            console.error(message);
+            if (document.getElementById('display')) {
+                document.getElementById('display').value = '错误';
+            }
+        }
+
+        function validateInput(input) {
+            return !isNaN(input) && isFinite(input);
+        }
+        let memory = 0;
+        let currentInput = '';
+        let shouldResetDisplay = false;
+
+        function inputFunction(func) {
+            const display = document.getElementById('display');
+            if (shouldResetDisplay) {
+                display.value = '';
+                shouldResetDisplay = false;
+            }
+            display.value += func;
+        }
+
+        function memoryClear() {
+            memory = 0;
+            updateMemoryIndicator();
+        }
+
+        function memoryRecall() {
+            const display = document.getElementById('display');
+            display.value = memory.toString();
+            shouldResetDisplay = true;
+        }
+
+        function memoryAdd() {
+            const display = document.getElementById('display');
+            const value = parseFloat(display.value);
+            if (!isNaN(value)) {
+                memory += value;
+                updateMemoryIndicator();
+            }
+        }
+
+        function memorySubtract() {
+            const display = document.getElementById('display');
+            const value = parseFloat(display.value);
+            if (!isNaN(value)) {
+                memory -= value;
+                updateMemoryIndicator();
+            }
+        }
+
+        function updateMemoryIndicator() {
+            const indicator = document.getElementById('memory-indicator');
+            indicator.style.display = memory !== 0 ? 'inline' : 'none';
+        }
+
+        // 重写calculate函数以支持科学计算
+        function calculate() {
+            const display = document.getElementById('display');
+            let expression = display.value;
+            
+            try {
+                // 替换函数名
+                expression = expression.replace(/sin\(/g, 'Math.sin(');
+                expression = expression.replace(/cos\(/g, 'Math.cos(');
+                expression = expression.replace(/tan\(/g, 'Math.tan(');
+                expression = expression.replace(/log\(/g, 'Math.log10(');
+                expression = expression.replace(/sqrt\(/g, 'Math.sqrt(');
+                expression = expression.replace(/pow\(/g, 'Math.pow(');
+                
+                const result = eval(expression);
+                display.value = formatNumber(result);
+                shouldResetDisplay = true;
+            } catch (error) {
+                showError('计算错误');
+            }
+        }
+    </script>
+</body>
+</html>

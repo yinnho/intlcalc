@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基础数学计算器</title>
+    <meta name="description" content="功能齐全的基础数学计算器 - 支持四则运算、平方根、百分比、记忆功能">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .calculator-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            max-width: 400px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+        }
+
+        .calculator-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .calculator-header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .calculator-header .description {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .calculator-main {
+            padding: 25px;
+        }
+
+        .display-section {
+            margin-bottom: 20px;
+        }
+
+        .display {
+            width: 100%;
+            height: 80px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 15px;
+            font-size: 2rem;
+            text-align: right;
+            background: #f8f9fa;
+            color: #333;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .display:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .memory-display {
+            font-size: 0.8rem;
+            color: #666;
+            text-align: right;
+            margin-bottom: 5px;
+            height: 20px;
+        }
+
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .btn {
+            height: 60px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        .btn.number {
+            background: #f8f9fa;
+            color: #333;
+            border: 2px solid #e9ecef;
+        }
+
+        .btn.number:hover {
+            background: #e9ecef;
+            border-color: #dee2e6;
+        }
+
+        .btn.operator {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn.operator:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+        }
+
+        .btn.function {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+        }
+
+        .btn.function:hover {
+            background: linear-gradient(135deg, #218838 0%, #1cb085 100%);
+        }
+
+        .btn.clear {
+            background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
+            color: white;
+        }
+
+        .btn.clear:hover {
+            background: linear-gradient(135deg, #c82333 0%, #e66d03 100%);
+        }
+
+        .btn.equals {
+            background: linear-gradient(135deg, #fd7e14 0%, #ffc107 100%);
+            color: white;
+            grid-column: span 2;
+        }
+
+        .btn.equals:hover {
+            background: linear-gradient(135deg, #e66d03 0%, #e0a800 100%);
+        }
+
+        .btn.zero {
+            grid-column: span 2;
+        }
+
+        .history-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .history-title {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .history-list {
+            max-height: 120px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #666;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .history-item {
+            margin-bottom: 5px;
+            cursor: pointer;
+            padding: 2px 5px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .history-item:hover {
+            background-color: #e9ecef;
+        }
+
+        @media (max-width: 480px) {
+            .calculator-container {
+                margin: 10px;
+            }
+            
+            .display {
+                font-size: 1.5rem;
+                height: 70px;
+            }
+            
+            .btn {
+                height: 50px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <header class="calculator-header">
+            <h1>基础数学计算器</h1>
+            <p class="description">功能齐全的科学计算器</p>
+        </header>
+        
+        <main class="calculator-main">
+            <div class="display-section">
+                <div class="memory-display" id="memory-display"></div>
+                <input type="text" id="display" class="display" value="0" readonly>
+            </div>
+            
+            <div class="buttons-grid">
+                <!-- 第一行：清除和内存操作 -->
+                <button class="btn clear" onclick="clearAll()">AC</button>
+                <button class="btn clear" onclick="clearEntry()">CE</button>
+                <button class="btn function" onclick="memoryRecall()">MR</button>
+                <button class="btn function" onclick="memoryClear()">MC</button>
+                
+                <!-- 第二行：内存操作和运算符 -->
+                <button class="btn function" onclick="memoryAdd()">M+</button>
+                <button class="btn function" onclick="memorySubtract()">M-</button>
+                <button class="btn operator" onclick="inputOperator('/')" title="除法">÷</button>
+                <button class="btn operator" onclick="inputOperator('*')" title="乘法">×</button>
+                
+                <!-- 第三行：数字和减法 -->
+                <button class="btn number" onclick="inputNumber('7')">7</button>
+                <button class="btn number" onclick="inputNumber('8')">8</button>
+                <button class="btn number" onclick="inputNumber('9')">9</button>
+                <button class="btn operator" onclick="inputOperator('-')" title="减法">-</button>
+                
+                <!-- 第四行：数字和加法 -->
+                <button class="btn number" onclick="inputNumber('4')">4</button>
+                <button class="btn number" onclick="inputNumber('5')">5</button>
+                <button class="btn number" onclick="inputNumber('6')">6</button>
+                <button class="btn operator" onclick="inputOperator('+')" title="加法">+</button>
+                
+                <!-- 第五行：数字和函数 -->
+                <button class="btn number" onclick="inputNumber('1')">1</button>
+                <button class="btn number" onclick="inputNumber('2')">2</button>
+                <button class="btn number" onclick="inputNumber('3')">3</button>
+                <button class="btn function" onclick="calculateSquareRoot()" title="平方根">√</button>
+                
+                <!-- 第六行：0, 小数点, 百分比, 等号 -->
+                <button class="btn number zero" onclick="inputNumber('0')">0</button>
+                <button class="btn number" onclick="inputDecimal()">.</button>
+                <button class="btn function" onclick="calculatePercent()" title="百分比">%</button>
+                <button class="btn equals" onclick="calculate()" title="计算结果">=</button>
+            </div>
+            
+            <div class="history-section">
+                <div class="history-title">计算历史</div>
+                <div class="history-list" id="history-list">
+                    <div style="color: #999; text-align: center;">暂无计算历史</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // 全局变量
+        let display = document.getElementById('display');
+        let memoryDisplay = document.getElementById('memory-display');
+        let historyList = document.getElementById('history-list');
+        
+        let currentInput = '0';
+        let operator = '';
+        let previousInput = '';
+        let isNewInput = true;
+        let memory = 0;
+        let history = [];
+
+        // 更新显示
+        function updateDisplay() {
+            display.value = formatNumber(currentInput);
+            updateMemoryDisplay();
+        }
+
+        // 格式化数字显示
+        function formatNumber(num) {
+            if (num === '' || num === null || num === undefined) return '0';
+            
+            let numStr = num.toString();
+            if (numStr.length > 12) {
+                if (numStr.includes('e')) {
+                    return parseFloat(num).toExponential(6);
+                }
+                return parseFloat(num).toPrecision(12);
+            }
+            return numStr;
+        }
+
+        // 输入数字
+        function inputNumber(num) {
+            if (isNewInput) {
+                currentInput = num;
+                isNewInput = false;
+            } else {
+                if (currentInput === '0') {
+                    currentInput = num;
+                } else {
+                    currentInput += num;
+                }
+            }
+            updateDisplay();
+        }
+
+        // 输入小数点
+        function inputDecimal() {
+            if (isNewInput) {
+                currentInput = '0.';
+                isNewInput = false;
+            } else if (!currentInput.includes('.')) {
+                currentInput += '.';
+            }
+            updateDisplay();
+        }
+
+        // 输入运算符
+        function inputOperator(op) {
+            if (operator && !isNewInput) {
+                calculate();
+            }
+            
+            operator = op;
+            previousInput = currentInput;
+            isNewInput = true;
+        }
+
+        // 计算结果
+        function calculate() {
+            if (!operator || previousInput === '') return;
+            
+            try {
+                let prev = parseFloat(previousInput);
+                let curr = parseFloat(currentInput);
+                let result;
+                let expression = `${previousInput} ${getOperatorSymbol(operator)} ${currentInput}`;
+                
+                switch (operator) {
+                    case '+':
+                        result = prev + curr;
+                        break;
+                    case '-':
+                        result = prev - curr;
+                        break;
+                    case '*':
+                        result = prev * curr;
+                        break;
+                    case '/':
+                        if (curr === 0) {
+                            throw new Error('除数不能为零');
+                        }
+                        result = prev / curr;
+                        break;
+                    default:
+                        return;
+                }
+                
+                // 四舍五入到12位小数
+                result = Math.round(result * 1e12) / 1e12;
+                
+                // 添加到历史记录
+                addToHistory(expression + ' = ' + formatNumber(result));
+                
+                currentInput = result.toString();
+                operator = '';
+                previousInput = '';
+                isNewInput = true;
+                updateDisplay();
+                
+            } catch (error) {
+                currentInput = '错误';
+                updateDisplay();
+                setTimeout(() => {
+                    clearAll();
+                }, 2000);
+            }
+        }
+
+        // 获取运算符符号
+        function getOperatorSymbol(op) {
+            switch (op) {
+                case '+': return '+';
+                case '-': return '-';
+                case '*': return '×';
+                case '/': return '÷';
+                default: return op;
+            }
+        }
+
+        // 计算平方根
+        function calculateSquareRoot() {
+            try {
+                let num = parseFloat(currentInput);
+                if (num < 0) {
+                    throw new Error('负数无法开平方根');
+                }
+                
+                let result = Math.sqrt(num);
+                let expression = `√${currentInput} = ${formatNumber(result)}`;
+                
+                addToHistory(expression);
+                currentInput = result.toString();
+                isNewInput = true;
+                updateDisplay();
+                
+            } catch (error) {
+                currentInput = '错误';
+                updateDisplay();
+                setTimeout(() => {
+                    clearAll();
+                }, 2000);
+            }
+        }
+
+        // 计算百分比
+        function calculatePercent() {
+            try {
+                let num = parseFloat(currentInput);
+                let result = num / 100;
+                let expression = `${currentInput}% = ${formatNumber(result)}`;
+                
+                addToHistory(expression);
+                currentInput = result.toString();
+                isNewInput = true;
+                updateDisplay();
+                
+            } catch (error) {
+                currentInput = '错误';
+                updateDisplay();
+            }
+        }
+
+        // 清除所有
+        function clearAll() {
+            currentInput = '0';
+            operator = '';
+            previousInput = '';
+            isNewInput = true;
+            updateDisplay();
+        }
+
+        // 清除当前输入
+        function clearEntry() {
+            currentInput = '0';
+            isNewInput = true;
+            updateDisplay();
+        }
+
+        // 内存操作
+        function memoryRecall() {
+            currentInput = memory.toString();
+            isNewInput = true;
+            updateDisplay();
+        }
+
+        function memoryClear() {
+            memory = 0;
+            updateDisplay();
+        }
+
+        function memoryAdd() {
+            memory += parseFloat(currentInput) || 0;
+            updateDisplay();
+        }
+
+        function memorySubtract() {
+            memory -= parseFloat(currentInput) || 0;
+            updateDisplay();
+        }
+
+        // 更新内存显示
+        function updateMemoryDisplay() {
+            if (memory !== 0) {
+                memoryDisplay.textContent = `记忆: ${formatNumber(memory)}`;
+            } else {
+                memoryDisplay.textContent = '';
+            }
+        }
+
+        // 添加到历史记录
+        function addToHistory(expression) {
+            history.unshift(expression);
+            if (history.length > 10) {
+                history = history.slice(0, 10);
+            }
+            updateHistoryDisplay();
+        }
+
+        // 更新历史记录显示
+        function updateHistoryDisplay() {
+            if (history.length === 0) {
+                historyList.innerHTML = '<div style="color: #999; text-align: center;">暂无计算历史</div>';
+                return;
+            }
+            
+            historyList.innerHTML = history.map(item => 
+                `<div class="history-item" onclick="useHistoryResult('${item}')">${item}</div>`
+            ).join('');
+        }
+
+        // 使用历史记录结果
+        function useHistoryResult(expression) {
+            let result = expression.split(' = ')[1];
+            if (result) {
+                currentInput = result;
+                isNewInput = true;
+                updateDisplay();
+            }
+        }
+
+        // 键盘支持
+        document.addEventListener('keydown', function(event) {
+            event.preventDefault();
+            
+            const key = event.key;
+            
+            if ('0123456789'.includes(key)) {
+                inputNumber(key);
+            } else if (key === '.') {
+                inputDecimal();
+            } else if ('+-*/'.includes(key)) {
+                inputOperator(key);
+            } else if (key === 'Enter' || key === '=') {
+                calculate();
+            } else if (key === 'Escape') {
+                clearAll();
+            } else if (key === 'Backspace') {
+                clearEntry();
+            }
+        });
+
+        // 初始化
+        updateDisplay();
+    </script>
+</body>
+</html> 

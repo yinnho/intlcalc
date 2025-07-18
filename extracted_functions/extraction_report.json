@@ -1,0 +1,35 @@
+{
+  "totalFunctions": 1429,
+  "categories": 5,
+  "processedFiles": 468,
+  "categoryBreakdown": {
+    "math": {
+      "basic": 18,
+      "advanced": 89,
+      "percentage": 162,
+      "statistics": 0
+    },
+    "physics": {
+      "electrical": 33,
+      "mechanical": 0,
+      "thermal": 0
+    },
+    "conversion": {
+      "length": 209,
+      "weight": 21,
+      "temperature": 28,
+      "currency": 0
+    },
+    "finance": {
+      "interest": 15,
+      "loan": 0,
+      "investment": 0
+    },
+    "utility": {
+      "date": 0,
+      "text": 0,
+      "validator": 854
+    }
+  },
+  "extractionDate": "2025-07-16T04:38:39.031Z"
+}

@@ -1,0 +1,632 @@
+<!DOCTYPE html><html lang="en"><!-- #BeginTemplate "../../rapidtables.dwt" --><head>
+<script>var mobileAdsNum=0;</script>
+<script async="" src="/lib/tagmng8.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/lib/rapid02.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/lib/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/lib/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/lib/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/lib/favicon/manifest.json">
+<link rel="mask-icon" href="/lib/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/lib/favicon/favicon.ico">
+<meta name="msapplication-config" content="/lib/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+<!-- #BeginEditable "doctitle" -->
+<!--
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+-->
+<title>GPA Calculator</title>
+<meta content="GPA calculator. Calculate your GPA. Grade point average calculator online." name="description">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<style>
+   h1 { font-size:1.6rem; }
+   h2 { font-size:1.4rem; }
+   h4 { font-size:1.2rem; }
+   #wrapper td { padding-left:5px; padding-right:unset; }
+   #addrowdiv,#areadiv,#finaldiv { display:none; }
+   .calc { background:#eee8d5; max-width:470px; padding:15px; }
+   #tbl tr td:nth-child(1) {display:none; }
+   #tbl tr td:nth-child(4) {display:none; }
+   #tbl tr td:nth-child(6) {display:none; }
+   #tbl tr td:nth-child(7) {display:none; }
+   #tbl thead td:nth-child(n+2) { padding:10px; }
+   #tbl tr td:nth-child(3),
+   #tbl tr td:nth-child(4),
+   #tbl tr td:nth-child(5) { width:100px; }
+   #tbl tr td:nth-child(6) { width:85px; }
+   #tbl tr td:nth-child(7) button { font-weight:bold; font-size:large; color:#888; }
+   .btn span { font-weight: bold; font-size:large; }
+	.dtable { text-align:center }
+	.dtable td { width:100px }
+   #gpacircle, #finalcircle { margin: 0 auto; float:none; }
+@media all and (max-width: 320px) {
+	.calc button img { display:none; }
+}
+@media all and (max-width: 576px) {
+	.calc { padding:10px; width:100%; }
+}
+@media all and (min-width: 577px) {
+}
+</style>
+<!--
+<style>
+   div:has(div>label>#gradetype1:checked) ~ div>table>tbody>tr>.gper { display:table-cell; }
+   div:has(div>label>#gradetype1:checked) ~ div>table>tbody>tr>.gsel { display:none; }
+   div:has(div>label>#gradetype2:checked) ~ div>table>tbody>tr>.gper { display:none; }
+   div:has(div>label>#gradetype2:checked) ~ div>table>tbody>tr>.gsel { display:table-cell; }
+</style>
+-->
+<!-- #EndEditable -->
+
+<script async="" src="//cdn.snigelweb.com/adconsent/adconsent.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NY85XQ2FKR"></script></head>
+
+<body>
+
+<div id="header">
+	<div>
+	<div id="logo"><a href="/">RapidTables</a></div>
+   <div class="gcse-search"></div>
+   <div id="tooldiv">
+      <a href="#" onclick="OnPageSearch()"><img width="24" height="24" title="Search" src="/lib/icons/material/svg/search_black_24dp.svg" loading="lazy"><span> Search</span></a>
+      <a href="#" onclick="OnPageShare()"><img width="24" height="24" title="Share" src="/lib/icons/material/svg/share_black_24dp.svg" loading="lazy"><span> Share</span></a>
+   </div>
+	</div>
+</div>
+
+<div id="wrapper">
+
+<div id="nav">
+	<!-- #BeginEditable "doclink" -->
+	<a href="/">Home</a>›<a href="../index.html">Calculators</a>›<a href="index.html">Grade calculators</a>›<a href="gpa-calculator.html">GPA calculator</a>
+	<!-- #EndEditable -->
+</div>
+
+<div id="lcol">
+
+	<div id="doc">
+	<!-- #BeginEditable "doctext" -->
+	<h1>GPA Calculator</h1>
+   <ul class="nav nav-tabs">
+      <li class="nav-item"><a class="nav-link" href="grade-calculator.html">Grade calculator</a></li>
+      <li class="nav-item"><a class="nav-link" href="final-grade-calculator.html">Final grade calculator</a></li>
+      <li class="nav-item"><a class="nav-link active" href="gpa-calculator.html">GPA calculator</a></li>
+   </ul>
+	<br>
+   <p>GPA calculator - calculates GPA from letter grades and credit points:</p>
+	<form id="calcform" name="calcform" action="gpa-calculator.html#cumdiv" class="calc" autocomplete="off">
+   <div id="gradetypediv" class="mb-3" style="display: block;">
+      <div class="btn-group" data-toggle="buttons">
+         <input type="radio" class="btn-check" name="gradetype[]" id="gradetype0" checked="">
+         <label class="btn btn-secondary" for="gradetype0">Letters</label>
+         <input type="radio" class="btn-check" name="gradetype[]" id="gradetype1">
+         <label class="btn btn-secondary" for="gradetype1">Percentage</label>
+      </div>
+   </div>
+   <div id="wgpadiv" class="mb-3 form-check form-switch" style="display: block;">
+      <input class="form-check-input" type="checkbox" role="switch" id="wgpa" name="wgpa">
+      <label class="form-check-label" for="wgpa">Weighted GPA</label>
+   </div>
+   <div class="mb-3">
+	<table id="tbl">
+		<thead>
+		<tr>
+			<td style="display: table-cell;"><input type="checkbox" id="allcheck"></td>
+			<td>Course<br>(optional)</td>
+			<td>Grade</td>
+			<td>Grade</td>
+			<td>Credits</td>
+			<td>Weight</td>
+			<td style="display: table-cell;">&nbsp;</td>
+		</tr>
+		</thead>
+		<tbody>
+      <tr>
+			<td style="display: table-cell;"><input type="checkbox" checked=""></td>
+         <td><input type="text" name="desc[]" value="" class="form-control" placeholder="Course #1" autofocus=""></td>
+         <td><select name="lg[]" class="form-control">
+            <option selected="">--</option>
+            <option>A+</option>
+            <option>A</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B</option>
+            <option>B-</option>
+            <option>C+</option>
+            <option>C</option>
+            <option>C-</option>
+            <option>D+</option>
+            <option>D</option>
+            <option>D-</option>
+            <option>F</option>
+            <option>P</option>
+            <option>NP</option>
+         </select></td>
+         <td><input type="text" name="pg[]" class="form-control"></td>
+         <td><input type="text" name="hr[]" value="" class="form-control"></td>
+         <td><select name="wg[]" class="form-control">
+            <option selected="">Regular</option>
+            <option>Honors</option>
+            <option>AP</option>
+            <option>IB</option>
+            <option>College</option>
+         </select></td>
+			<td style="display: table-cell;"><button type="button" class="btn btn-sm btn-white">×</button></td>
+      </tr>
+      <tr>
+			<td style="display: table-cell;"><input type="checkbox" checked=""></td>
+         <td><input type="text" name="desc[]" value="" class="form-control" placeholder="Course #2"></td>
+         <td><select name="lg[]" class="form-control">
+            <option selected="">--</option>
+            <option>A+</option>
+            <option>A</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B</option>
+            <option>B-</option>
+            <option>C+</option>
+            <option>C</option>
+            <option>C-</option>
+            <option>D+</option>
+            <option>D</option>
+            <option>D-</option>
+            <option>F</option>
+            <option>P</option>
+            <option>NP</option>
+         </select></td>
+         <td><input type="text" name="pg[]" class="form-control"></td>
+         <td><input type="text" name="hr[]" value="" class="form-control"></td>
+         <td><select name="wg[]" class="form-control">
+            <option selected="">Regular</option>
+            <option>Honors</option>
+            <option>AP</option>
+            <option>IB</option>
+            <option>College</option>
+         </select></td>
+			<td style="display: table-cell;"><button type="button" class="btn btn-sm btn-white">×</button></td>
+      </tr>
+      <tr>
+			<td style="display: table-cell;"><input type="checkbox" checked=""></td>
+         <td><input type="text" name="desc[]" value="" class="form-control" placeholder="Course #3"></td>
+         <td><select name="lg[]" class="form-control">
+            <option selected="">--</option>
+            <option>A+</option>
+            <option>A</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B</option>
+            <option>B-</option>
+            <option>C+</option>
+            <option>C</option>
+            <option>C-</option>
+            <option>D+</option>
+            <option>D</option>
+            <option>D-</option>
+            <option>F</option>
+            <option>P</option>
+            <option>NP</option>
+         </select></td>
+         <td><input type="text" name="pg[]" class="form-control"></td>
+         <td><input type="text" name="hr[]" value="" class="form-control"></td>
+         <td><select name="wg[]" class="form-control">
+            <option selected="">Regular</option>
+            <option>Honors</option>
+            <option>AP</option>
+            <option>IB</option>
+            <option>College</option>
+         </select></td>
+			<td style="display: table-cell;"><button type="button" class="btn btn-sm btn-white">×</button></td>
+      </tr>
+      <tr>
+			<td style="display: table-cell;"><input type="checkbox" checked=""></td>
+         <td><input type="text" name="desc[]" value="" class="form-control" placeholder="Course #4"></td>
+         <td><select name="lg[]" class="form-control">
+            <option selected="">--</option>
+            <option>A+</option>
+            <option>A</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B</option>
+            <option>B-</option>
+            <option>C+</option>
+            <option>C</option>
+            <option>C-</option>
+            <option>D+</option>
+            <option>D</option>
+            <option>D-</option>
+            <option>F</option>
+            <option>P</option>
+            <option>NP</option>
+         </select></td>
+         <td><input type="text" name="pg[]" class="form-control"></td>
+         <td><input type="text" name="hr[]" value="" class="form-control"></td>
+         <td><select name="wg[]" class="form-control">
+            <option selected="">Regular</option>
+            <option>Honors</option>
+            <option>AP</option>
+            <option>IB</option>
+            <option>College</option>
+         </select></td>
+			<td style="display: table-cell;"><button type="button" class="btn btn-sm btn-white">×</button></td>
+      </tr>
+      <tr>
+			<td style="display: table-cell;"><input type="checkbox" checked=""></td>
+         <td><input type="text" name="desc[]" value="" class="form-control" placeholder="Course #5"></td>
+         <td><select name="lg[]" class="form-control">
+            <option selected="">--</option>
+            <option>A+</option>
+            <option>A</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B</option>
+            <option>B-</option>
+            <option>C+</option>
+            <option>C</option>
+            <option>C-</option>
+            <option>D+</option>
+            <option>D</option>
+            <option>D-</option>
+            <option>F</option>
+            <option>P</option>
+            <option>NP</option>
+         </select></td>
+         <td><input type="text" name="pg[]" class="form-control"></td>
+         <td><input type="text" name="hr[]" value="" class="form-control"></td>
+         <td><select name="wg[]" class="form-control">
+            <option selected="">Regular</option>
+            <option>Honors</option>
+            <option>AP</option>
+            <option>IB</option>
+            <option>College</option>
+         </select></td>
+			<td style="display: table-cell;"><button type="button" class="btn btn-sm btn-white">×</button></td>
+      </tr>
+      <tr>
+			<td style="display: table-cell;"><input type="checkbox" checked=""></td>
+         <td><input type="text" name="desc[]" value="" class="form-control" placeholder="Course #6"></td>
+         <td><select name="lg[]" class="form-control">
+            <option selected="">--</option>
+            <option>A+</option>
+            <option>A</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B</option>
+            <option>B-</option>
+            <option>C+</option>
+            <option>C</option>
+            <option>C-</option>
+            <option>D+</option>
+            <option>D</option>
+            <option>D-</option>
+            <option>F</option>
+            <option>P</option>
+            <option>NP</option>
+         </select></td>
+         <td><input type="text" name="pg[]" class="form-control"></td>
+         <td><input type="text" name="hr[]" value="" class="form-control"></td>
+         <td><select name="wg[]" class="form-control">
+            <option selected="">Regular</option>
+            <option>Honors</option>
+            <option>AP</option>
+            <option>IB</option>
+            <option>College</option>
+         </select></td>
+			<td style="display: table-cell;"><button type="button" class="btn btn-sm btn-white">×</button></td>
+      </tr>
+      <tr>
+			<td style="display: table-cell;"><input type="checkbox" checked=""></td>
+         <td><input type="text" name="desc[]" value="" class="form-control" placeholder="Course #7"></td>
+         <td><select name="lg[]" class="form-control">
+            <option selected="">--</option>
+            <option>A+</option>
+            <option>A</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B</option>
+            <option>B-</option>
+            <option>C+</option>
+            <option>C</option>
+            <option>C-</option>
+            <option>D+</option>
+            <option>D</option>
+            <option>D-</option>
+            <option>F</option>
+            <option>P</option>
+            <option>NP</option>
+         </select></td>
+         <td><input type="text" name="pg[]" class="form-control"></td>
+         <td><input type="text" name="hr[]" value="" class="form-control"></td>
+         <td><select name="wg[]" class="form-control">
+            <option selected="">Regular</option>
+            <option>Honors</option>
+            <option>AP</option>
+            <option>IB</option>
+            <option>College</option>
+         </select></td>
+			<td style="display: table-cell;"><button type="button" class="btn btn-sm btn-white">×</button></td>
+      </tr>
+      <tr>
+			<td style="display: table-cell;"><input type="checkbox" checked=""></td>
+         <td><input type="text" name="desc[]" value="" class="form-control" placeholder="Course #8"></td>
+         <td><select name="lg[]" class="form-control">
+            <option selected="">--</option>
+            <option>A+</option>
+            <option>A</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B</option>
+            <option>B-</option>
+            <option>C+</option>
+            <option>C</option>
+            <option>C-</option>
+            <option>D+</option>
+            <option>D</option>
+            <option>D-</option>
+            <option>F</option>
+            <option>P</option>
+            <option>NP</option>
+         </select></td>
+         <td><input type="text" name="pg[]" class="form-control"></td>
+         <td><input type="text" name="hr[]" value="" class="form-control"></td>
+         <td><select name="wg[]" class="form-control">
+            <option selected="">Regular</option>
+            <option>Honors</option>
+            <option>AP</option>
+            <option>IB</option>
+            <option>College</option>
+         </select></td>
+			<td style="display: table-cell;"><button type="button" class="btn btn-sm btn-white">×</button></td>
+      </tr>
+      </tbody>
+	</table>
+   </div>
+   <!--<div id="addrowdiv" class="mb-3 d-grid">-->
+   <div id="addrowdiv" class="mb-3" style="display: grid;">
+      <button type="button" id="addrow" title="Add row" class="btn btn-light btn-sm w-100"><span>+</span> Add row</button>
+   </div>
+   <div id="cumdiv" class="mb-3">
+      <label for="gpa" class="form-label">Add previous cumulative GPA/credits (optional)</label>
+      <div class="row">
+      <div class="col">
+      <!--<label for="cgpa">Cumulative GPA</label>-->
+      <input type="text" id="cgpa" name="cgpa" value="" placeholder="cumulative gpa" class="form-control">
+      </div>
+      <div class="col">
+      <!--<label for="chours">Credits</label>-->
+      <input type="text" id="chours" name="chours" value="" placeholder="credits" class="form-control">
+      </div>
+      </div>
+   </div>
+   <div id="btndiv" class="mb-3">
+      <button type="button" id="calcbtn" title="Calculate" class="btn btn-success"><span>=</span> Calculate</button>
+      <!--<button type="button" onclick="Calc()" id="calcbtn" title="Calculate" class="btn btn-success"><span>=</span> Calculate</button>-->
+      <button type="reset" id="resetbtn" title="Reset" class="btn btn-secondary"><span>×</span> Reset</button>
+      <!--<button type="button" id="addrow" title="Add row" class="btn btn-secondary"><span>+</span> Row</button>-->
+   </div>
+   <div class="mb-3">
+      <label for="gpa" class="form-label">GPA</label>
+      <input type="text" id="gpa" value="" readonly="" class="form-control form-control-lg fw-semibold">
+   </div>
+   <div class="mb-3">
+      <div id="gpacircle" class="red small mb-3"></div>
+   </div>
+   <div class="mb-3">
+      <label for="total" class="form-label">Total credits/hours</label>
+      <input type="text" id="total" value="" class="form-control" readonly="">
+   </div>
+   <div id="areadiv" class="mb-3" style="display: block;">
+      <label for="area" class="form-label">GPA calculation</label>
+      <textarea rows="3" id="area" class="form-control" readonly=""></textarea>
+   </div>
+	</form>
+	<p><a href="grade-calculator.html">Grade calculator ►</a></p>
+
+   <div id="finaldiv" style="display: block;">
+   <h2>Final GPA Calculator</h2>
+   <p>Find what additional GPA you need to get target GPA:</p>
+   <form id="calcform2" class="calc" autocomplete="off">
+   <div class="mb-3">
+      <label for="curgpa" class="form-label">Current GPA</label>
+      <input type="text" id="curgpa" class="form-control">
+   </div>
+   <div class="mb-3">
+      <label for="tgpa" class="form-label">Target GPA you want to get</label>
+      <input type="text" id="tgpa" class="form-control">
+   </div>
+   <div class="mb-3">
+      <label for="curhours" class="form-label">Current credits</label>
+      <input type="text" id="curhours" class="form-control">
+   </div>
+   <div class="mb-3">
+      <label for="ahours" class="form-label">Additional credits</label>
+      <input type="text" id="ahours" class="form-control">
+   </div>
+   <div class="mb-3">
+      <button type="button" id="calcbtn2" title="Calculate" class="btn btn-success"><span>=</span> Calculate</button>
+      <button type="reset" id="resetbtn2" title="Reset" class="btn btn-secondary"><span>×</span> Reset</button>
+   </div>
+   <div class="mb-3">
+      <label for="fgpa" class="form-label">Additional GPA/grade needed to get target GPA</label>
+      <div class="input-group">
+		<input type="text" id="fgpa" class="form-control mr-2" readonly="">
+      <input type="text" id="flet" class="form-control" readonly="">
+      </div>
+   </div>
+   <div class="mb-3">
+      <div id="finalcircle" class="red small mb-3"></div>
+   </div>
+   </form>
+   </div>
+	<p><a href="final-grade-calculator.html">Final grade calculator ►</a></p>
+
+	<!-- #EndEditable -->
+
+   <!-- rapidtables_bottom_01 -->
+   <div id="adngin-bottom_01-0"></div>
+	
+	<!-- #BeginEditable "doctext2" -->
+	<h2>GPA calculation</h2>
+	<p>The GPA is calculated as a weighted average of the grades, when the number of credit/hours is the weight and the numeric grade is taken from the GPA table.</p>
+	<p>The GPA is equal to the sum of the product of the credit hours weight (w) times the grade (g):</p>
+	<p class="math"><em>GPA</em> = <em>w</em><sub>1</sub>×<em>g</em><sub>1</sub>+<em> w</em><sub>2</sub>×<em>g</em><sub>2</sub>+<em> w</em><sub>3</sub>×<em>g</em><sub>3
+	</sub>+ ... + <em> w</em><sub><em>n</em></sub>×<em>g</em><sub><em>n</em></sub></p>
+	<p>The credit hours weight (w<sub><em>i</em></sub>) is equal to the credit hours of the class divided by the sum of the credit hours of all the classes:</p>
+	<p class="math"><em>w</em><sub><em>i</em></sub><em>= c</em><sub><em>i</em></sub> 
+	/ (<em>c</em><sub>1</sub><em>+c</em><sub>2</sub><em>+c</em><sub>3</sub><em>+...+c<sub>n</sub></em>)</p>
+	<h2>GPA table</h2>
+	<table class="dtable">
+		<tbody><tr>
+			<th>Grade</th>
+			<th>GPA</th>
+		</tr>
+		<tr>
+			<td>A+</td>
+			<td>4.33</td>
+		</tr>
+		<tr>
+			<td>A</td>
+			<td>4.00</td>
+		</tr>
+		<tr>
+			<td>A-</td>
+			<td>3.67</td>
+		</tr>
+		<tr>
+			<td>B+</td>
+			<td>3.33</td>
+		</tr>
+		<tr>
+			<td>B</td>
+			<td>3.00</td>
+		</tr>
+		<tr>
+			<td>B-</td>
+			<td>2.67</td>
+		</tr>
+		<tr>
+			<td>C+</td>
+			<td>2.33</td>
+		</tr>
+		<tr>
+			<td>C</td>
+			<td>2.00</td>
+		</tr>
+		<tr>
+			<td>C-</td>
+			<td>1.67</td>
+		</tr>
+		<tr>
+			<td>D+</td>
+			<td>1.33</td>
+		</tr>
+		<tr>
+			<td>D</td>
+			<td>1.00</td>
+		</tr>
+		<tr>
+			<td>D-</td>
+			<td>0.67</td>
+		</tr>
+		<tr>
+			<td>F</td>
+			<td>0</td>
+		</tr>
+        <!--
+		<tr>
+			<td>P (pass)</td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>NP (no pass)</td>
+			<td>-</td>
+		</tr>
+        -->
+	</tbody></table>
+	<p><a href="gpa-calculation.html">GPA calculation ►</a></p>
+	<hr>
+	<h2>See also</h2>
+	<ul class="seealso">
+		<li><a href="gpa-calculation.html">How to calculate GPA</a></li>
+		<li><a href="grade-calculator.html">Grade calculator</a></li>
+		<li><a href="../math/standard-deviation-calculator.html">Standard deviation calculator</a></li>
+		<li><a href="../math/weighted-average-calculator.html">Weighted average calculator</a></li>
+		<li><a href="index.html">Grade calculators</a></li>
+	</ul>	
+	<!-- #EndEditable -->
+	</div>
+	
+   <div id="fdbk">
+      <h2 id="feedback">Write how to improve this page</h2>
+      <form id="fdbkform">
+      <textarea id="fdbkarea" rows="4" minlength="30" maxlength="1000" placeholder="Your message ..." required="" class="form-control"></textarea>
+      <span id="fdbkmsg"></span>
+      <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">Submit Feedback</button>
+      </form>
+   </div>
+</div>
+
+<div id="rcol">
+   <!-- rapidtables_right_sidebar -->
+   <div id="adngin-right_sidebar-0"></div>
+
+	<!-- #BeginEditable "docnav" -->
+	<h5>GRADE CALCULATORS</h5>
+	<ul>
+		<li><a href="final-grade-calculator.html">Final grade calculator</a></li>
+		<li><a href="gpa-calculator.html">GPA calculator</a></li>
+		<li><a href="grade-calculator.html">Grade calculator</a></li>
+		<li><a href="gpa-calculation.html">GPA calculation</a></li>
+		<li><a href="grade-calculation.html">Grade calculation</a></li>
+		<li><a href="gpa-to-letter-grade-calculator.html">GPA to letter grade</a></li>
+		<li><a href="high-school-gpa-calculator.html">High school GPA calculator</a></li>
+		<li><a href="letter-grade-to-gpa-calculator.html">Letter grade to GPA</a></li>
+		<li><a href="test-calculator.html">Test calculator</a></li>
+	</ul>
+	<h5>RAPID TABLES</h5>
+	<ul>
+		<li><a href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com">Recommend Site</a></li>
+		<li><a href="#feedback">Send Feedback</a></li>
+		<li><a href="/about/about.html">About</a></li>
+	</ul>
+	<!-- #EndEditable -->
+	
+</div>
+
+</div>
+
+<div id="footer">
+	<a href="/index.html">Home</a> | 
+	<a href="/web/index.html">Web</a> |
+	<a href="/math/index.html">Math</a> | 
+	<a href="/electric/index.html">Electricity</a> |
+	<a href="/calc/index.html">Calculators</a> | 
+	<a href="/convert/index.html">Converters</a> |
+	<a href="/tools/index.html">Tools</a>
+	<p>©  
+	<a href="/">RapidTables.com</a> | 
+	<a href="/about/about.html" rel="nofollow">About</a> | 
+	<a href="/about/terms.html" rel="nofollow">Terms of Use</a> | 
+	<a href="/about/privacy.html" rel="nofollow">Privacy Policy</a> | 
+	<a href="/about/cookies.html" rel="nofollow">Manage Cookies</a>
+	</p>
+</div>
+
+<!-- rapidtables_bottom_adhesive -->
+<div id="adngin-adhesive-0"></div>
+
+<!-- #BeginEditable "docscript" -->
+<!--sse-->
+<script src="/calc/calc2.js"></script>
+<script>
+"use strict";var irow=0,igradetype=0,gradetype=document.getElementsByName("gradetype[]"),calcform=document.getElementById("calcform"),gradetypediv=document.getElementById("gradetypediv"),wgpadiv=document.getElementById("wgpadiv"),wgpa=document.getElementById("wgpa"),allcheck=document.getElementById("allcheck"),calcbtn=document.getElementById("calcbtn"),resetbtn=document.getElementById("resetbtn"),addrowbtn=document.getElementById("addrow"),calcbtn2=document.getElementById("calcbtn2"),tblElem=document.getElementById("tbl"),fgpaElem=document.getElementById("fgpa"),fletElem=document.getElementById("flet"),addrowdiv=document.getElementById("addrowdiv"),cgpaElem=document.getElementById("cgpa"),choursElem=document.getElementById("chours"),gpaElem=document.getElementById("gpa"),totalElem=document.getElementById("total"),areaElem=document.getElementById("area"),areadiv=document.getElementById("areadiv"),finaldiv=document.getElementById("finaldiv");function OnReset(){}function GradeType(e){console.log(e),igradetype=e,0==e?GradeLetter():1==e&&GradePercent()}function GradeLetter(){ColShow(3,!0),ColShow(4,!1),wgpa.disabled=!1,gradetype1.checked=!1}function GradePercent(){ColShow(3,!1),ColShow(4,!0),ColShow(6,!1),wgpa.checked=!1,wgpa.disabled=!0,gradetype0.checked=!1}function ColShow(e,t){var o=tblElem.querySelectorAll("tr>td:nth-child("+e+")"),l="none";t&&(l="table-cell");for(var n=0;n<o.length;n++)o[n].style.display=l}function OnWGPACheck(){wgpa.checked?ColShow(6,!0):ColShow(6,!1)}function OnAllCheck(){for(var e=tblElem.querySelectorAll("tr>td:nth-child(1)>input[type=checkbox]"),t=allcheck.checked,o=0;o<e.length;o++)e[o].checked=t}function GetGPAFromPercent(e){for(var t,o=[4.33,4,3.67,3.33,3,2.67,2.33,2,1.67,1.33,1,.67,0],l=[97,93,90,87,83,80,77,73,70,67,63,60,0],n=0;n<l.length;n++)if(e>=l[n]){t=o[n];break}return t}function Calc(){var e,t,o,l,n,c,d,a,i,r,p,y=[-1,4.33,4,3.67,3.33,3,2.67,2.33,2,1.67,1.33,1,.67,0,-1,-1],$=[0,.5,1,1,1],g=0,h=0,u="",m="";e=document.querySelectorAll("#tbl>tbody>tr>td:nth-child(1)>input"),o=document.querySelectorAll("#tbl>tbody>tr>td:nth-child(3)>select"),l=document.querySelectorAll("#tbl>tbody>tr>td:nth-child(4)>input"),t=document.querySelectorAll("#tbl>tbody>tr>td:nth-child(5)>input"),i=document.querySelectorAll("#tbl>tbody>tr>td:nth-child(6)>select");for(var s=0;s<irow;s++)e[s].checked&&(n=str2num(n=t[s].value),0==igradetype?(d=y[c=o[s].selectedIndex],wgpa.checked&&(d+=$[a=i[s].selectedIndex])):d=l[s].value,n>0&&d>=0&&(g+=n*d,h+=n,u+=num2str(n)+"\xd7"+num2str(d,2)+"+",m+=num2str(n)+"+"));r=cgpaElem.value,p=choursElem.value,r=parseFloat(r),p=parseFloat(p),1==igradetype&&(g=GetGPAFromPercent(g/h)*h),r>=0&&p>0&&(g+=p*r,h+=p,u+=num2str(p,0)+"\xd7"+num2str(r,2)+"+",m+=num2str(p,0)+"+"),g/=h,g=num2str(g,2);var b="("+(u=u.slice(0,-1))+") / ("+(m=m.slice(0,-1))+") = "+g;gpaElem.value=g,totalElem.value=num2str(h),areaElem.value=b}function AddRow(){var e=document.getElementById("tbl").getElementsByTagName("tbody")[0].insertRow(irow++),t="<tr>         <td><input type='checkbox' checked>         <td><input type='text' name='desc[]' class='form-control' placeholder='Course #"+irow+"'></td>         <td><select name='lg[]' class='form-control'>            <option selected>--</option>            <option>A+</option>            <option>A</option>            <option>A-</option>            <option>B+</option>            <option>B</option>            <option>B-</option>            <option>C+</option>            <option>C</option>            <option>C-</option>            <option>D+</option>            <option>D</option>            <option>D-</option>            <option>F</option>            <option>P</option>            <option>NP</option>         </select></td>         <td><input type='number' min='0' step='any' name='pg[]' class='form-control'></td>         <td><input type='number' min='0' step='any' name='hr[]' class='form-control'></td>         <td><select name='wg[]' class='form-control'>            <option selected>Regular</option>            <option>Honors</option>            <option>AP</option>            <option>IB</option>            <option>College</option>         </select></td>			<td><button type='button' class='btn btn-sm btn-white'>&times;</button></td>      ";e.innerHTML=t,ColShow(1,!0),ColShow(7,!0),0==igradetype?ColShow(4,!1):ColShow(4,!0),1==igradetype?ColShow(3,!1):ColShow(3,!0),wgpa.checked?ColShow(6,!0):ColShow(6,!1),e.querySelector("td:nth-child(7)>button").onclick=function(){irow--;var e=this.parentNode.parentNode;e.parentNode.removeChild(e)}}function GetLetterFromGPA(e){for(var t="",o=["A+","A","A-","B+","B","B-","C+","C","C-","D+","D","D-","F"],l=[4.33,4,3.67,3.33,3,2.67,2.33,2,1.67,1.33,1,.67,0],n=0;n<l.length;n++)if(e>=l[n]){t=o[n];break}return t}function Calc2(){var e=str2num(document.getElementById("curgpa").value),t=str2num(document.getElementById("tgpa").value),o=str2num(document.getElementById("curhours").value),l=str2num(document.getElementById("ahours").value),n=((o+l)*t-o*e)/l,c=GetLetterFromGPA(n);fgpaElem.value=num2str(n,2),fletElem.value=c}window.addEventListener("DOMContentLoaded",function(){calcbtn.type="button",calcbtn.onclick=function(){Calc()},document.getElementById("calcform").onkeypress=function(e){13==e.keyCode&&OnCalc()},irow=8,gradetypediv.style.display="block",wgpadiv.style.display="block",addrowdiv.style.display="grid",areadiv.style.display="block",finaldiv.style.display="block",ColShow(1,!0),ColShow(7,!0);for(var e=tblElem.querySelectorAll("tr>td:nth-child(7)>button"),t=0;t<e.length;t++)e[t].onclick=function(){irow--;var e=this.parentNode.parentNode;e.parentNode.removeChild(e)};gradetype[0].onclick=function(){GradeType(0)},gradetype[1].onclick=function(){GradeType(1)},wgpa.onclick=function(){OnWGPACheck()},allcheck.onclick=function(){OnAllCheck()},resetbtn.onclick=function(){OnReset()},addrowbtn.onclick=function(){AddRow()},calcbtn2.onclick=function(){Calc2()},allcheck.checked=!0,OnAllCheck()});
+</script>
+<!--/sse-->
+<!-- #EndEditable -->
+
+
+
+
+
+
+<iframe name="__tcfapiLocator" style="display: none;"></iframe><iframe name="__uspapiLocator" style="display: none;"></iframe><iframe name="__adconsentLocator" style="display: none;"></iframe></body><!-- #EndTemplate --></html>

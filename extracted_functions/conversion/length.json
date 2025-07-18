@@ -1,0 +1,2054 @@
+[
+  {
+    "name": "numberWithCommas",
+    "code": "function numberWithCommas(x) \n\t\t\t{\n\t\t\t    return x.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, \",\");\n\t\t\t}",
+    "params": [
+      "x"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\finance\\simple-interest-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 26,
+    "lineEnd": 29
+  },
+  {
+    "name": "numberWithCommas",
+    "code": "function numberWithCommas(t){var e=t.toString().split(ds);return e[0]=e[0].replace(/\\B(?=(\\d{3})+(?!\\d))/g,ts),e.join(ds)}",
+    "params": [
+      "t"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e) { if( e.keyCode==13 ) lcmcalc(); }",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\lcm-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 3,
+    "lineEnd": 3
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      document.getElementById(\"data\").onkeypress = function(e) { if( e.keyCode==13 ) lcmcalc(); };\n      var params=GetURLParams();\n      \n      if( typeof params.data!=\"undefined\" ) {\n         document.getElementById(\"data\").value = params.data.replace(/\\+/g,\" \");\n         lcmcalc();\n      }\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\lcm-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 10
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\lcm-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 11,
+    "lineEnd": 22
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(data)\n   {\n      var linkdiv = document.getElementById(\"linkdiv\");\n      var p1 = document.getElementById(\"p1\");\n      var param=param2=\"\";\n      for(var i=0; i<data.length; i++) {\n         param+=data[i];\n         param2+=data[i];\n         if( i<data.length-1 ) { param+=\"+\"; param2+=\",\"; }\n      }\n      linkdiv.innerHTML = \"<a href='gcf-calculator.html?data=\"+param+\"' class='btn btn-secondary'> gcf(\"+param2+\") calculation</a>\";\n      \n   }",
+    "params": [
+      "data"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\lcm-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 23,
+    "lineEnd": 35
+  },
+  {
+    "name": "decnum",
+    "code": "function decnum(x) {\n      if(Math.floor(x) === x) return 0;\n      return x.toString().split(\".\")[1].length || 0; \n   }",
+    "params": [
+      "x"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\lcm-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 36,
+    "lineEnd": 39
+  },
+  {
+    "name": "anonymous",
+    "code": "function(a,b)\n   {\n      while( a!=b ) {\n         if( a>b )\n            a = a-b;\n         else\n            b = b-a;\n      }\n      return a;\n   }",
+    "params": [
+      "a",
+      "b"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\lcm-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 74,
+    "lineEnd": 83
+  },
+  {
+    "name": "anonymous",
+    "code": "function(a,b)\n   {\n      return a*b/gcf2(a,b);\n   }",
+    "params": [
+      "a",
+      "b"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\lcm-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 84,
+    "lineEnd": 87
+  },
+  {
+    "name": "calcmul",
+    "code": "function calcmul(){var e=str2num2(x1elem.value),t=str2num2(x2elem.value),l=math.evaluate(e),a=math.evaluate(t),n=math.multiply(l,a).toString();if(document.getElementById(\"y\").value=num2str2(n),-1==e.indexOf(\".\")){var i=e+\"\\xd7\"+t+\" = \";if(e.length<=2&&t.length<=8){if(e>0){for(var o=0;o<e-1;o++)i+=t+\"+\";i+=t,i+=\" = \"+n}else i=\"N/A\"}else i=\"N/A\";document.getElementById(\"txt\").value=i}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\math\\multiplication-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc()\n\t\t{\n\t\t\tvar i = document.calcform.swgsel.selectedIndex;\n\t\t\tvar dlook=[0.5, 0.464, 0.432, 0.4, 0.372, 0.348, 0.324, 0.3, 0.276, 0.252, 0.232, 0.212, 0.192, 0.176, 0.16, 0.144, 0.128, 0.116, 0.104, 0.092, 0.08, 0.072, 0.064, 0.056, 0.048, 0.040, 0.036, 0.032, 0.028, 0.024, 0.022, 0.02, 0.018, 0.0164, 0.0148, 0.0136, 0.0124, 0.0116, 0.0108, 0.01, 0.0092, 0.0084, 0.0076, 0.0068, 0.006, 0.0052, 0.0048, 0.0044, 0.004, 0.0036, 0.0032, 0.0028, 0.0024, 0.002, 0.0016, 0.0012, 0.001];\n\t\t\tdin = dlook[i-1];\n\t\t\td = 25.4*din;\n\t\t\ta = Math.PI/4*d*d;\n\t\t\tdocument.calcform.d.value = d.toFixed(3);\n\t\t\tdocument.calcform.din.value = din.toFixed(3);\n\t\t\tdocument.calcform.a.value = a.toFixed(4);\n\t\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\wire\\swg-to-mm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 12
+  },
+  {
+    "name": "hexFromRGB",
+    "code": "function hexFromRGB(r, g, b) {\n\t\tvar hex = [\n\t\tr.toString( 16 ),\n\t\tg.toString( 16 ),\n\t\tb.toString( 16 )\n\t\t];\n\t\t$.each( hex, function( nr, val ) {\n\t\tif ( val.length === 1 ) {\n\t\t\thex[ nr ] = \"0\" + val;\n\t\t}\n\t\t});\n\t\treturn hex.join( \"\" ).toUpperCase();\n\t}",
+    "params": [
+      "r",
+      "g",
+      "b"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\color\\cmyk-to-rgb.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 30,
+    "lineEnd": 42
+  },
+  {
+    "name": "hexFromRGB",
+    "code": "function hexFromRGB(r, g, b) {\n\t\tvar hex = [\n\t\tr.toString( 16 ),\n\t\tg.toString( 16 ),\n\t\tb.toString( 16 )\n\t\t];\n\t\t$.each( hex, function( nr, val ) {\n\t\tif ( val.length === 1 ) {\n\t\t\thex[ nr ] = \"0\" + val;\n\t\t}\n\t\t});\n\t\treturn hex.join( \"\" ).toUpperCase();\n\t}",
+    "params": [
+      "r",
+      "g",
+      "b"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\color\\rgb-to-cmyk.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 25,
+    "lineEnd": 37
+  },
+  {
+    "name": "onnumber",
+    "code": "function onnumber(obj,n)\n\t{\n\t\tvar r=$(\"#r\").val();\n\t\tvar g=$(\"#g\").val();\n\t\tvar b=$(\"#b\").val();\n\t\tif( n==1 )\n\t\t\t$(\"#red\").slider(\"value\", r);\n\t\telse if( n==2 )\n\t\t\t$(\"#green\").slider(\"value\", g);\n\t\telse\n\t\t\t$(\"#blue\").slider(\"value\", b);\n\t\t\n\t\t\n\t}",
+    "params": [
+      "obj",
+      "n"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\color\\rgb-to-cmyk.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 38,
+    "lineEnd": 51
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      \n      var params=GetURLParams();\n      if( typeof params.x != \"undefined\" ) {\n         var x=decodeURIComponent2(params.x);\n         var el = document.querySelector(\"#doc>h1\");\n         el.innerHTML = x+\" cm to feet+inch conversion\";\n         document.title = x+\" cm to feet+inch conversion\";\n         xelem.value = x;\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-feet-inch.html",
+    "type": "FunctionExpression",
+    "lineStart": 3,
+    "lineEnd": 14
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-feet-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 15,
+    "lineEnd": 26
+  },
+  {
+    "name": "getFracString",
+    "code": "function getFracString(num,den)\n   {\n      var s=\"\";\n      num=num.toString();\n      den=den.toString();\n      ulook=[\"\\u2070\",\"\\u00B9\",\"\\u00B2\",\"\\u00B3\",\"\\u2074\",\"\\u2075\",\"\\u2076\",\"\\u2077\",\"\\u2078\",\"\\u2079\"];\n      dlook=[\"\\u2080\",\"\\u2081\",\"\\u2082\",\"\\u2083\",\"\\u2084\",\"\\u2085\",\"\\u2086\",\"\\u2087\",\"\\u2088\",\"\\u2089\"];\n      for(var i=0; i<num.length; i++)\n         s+=ulook[num[i]];\n      s+=\"/\";\n      for(var i=0; i<den.length; i++)\n         s+=dlook[den[i]];         \n      return s;\n   }",
+    "params": [
+      "num",
+      "den"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-feet-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 27,
+    "lineEnd": 40
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      \n      var cm = str2num(xelem.value);\n      var inch = roundresult(cm/2.54);\n      var ft2 = Math.floor(inch/12);\n      var inch2 = roundresult(inch-ft2*12);\n      var inch3 = dec2frac(inch);\n      var txt=\"length = \";\n      txt+=num2str(cm)+\"cm/\"+num2str(2.54)+\" = \"+num2str(inch)+\"in\\n\";\n      txt+=\"feet = floor(\"+num2str(inch)+\"in / 12) = \"+ft2+\"ft\\n\";\n      txt+=\"inch = \"+num2str(inch)+\"in - 12\\u00D7\"+ft2+\"ft = \"+num2str(inch2)+\"in\\n\";\n      txt+=\"length = \"+ft2+\"ft+\"+num2str(inch2)+\"in\";\n      document.getElementById(\"ft\").value = ft2;\n      document.getElementById(\"inch1\").value = num2str(inch2);\n      document.getElementById(\"ftf\").value = ft2;\n      document.getElementById(\"inch1f\").value = dec2frac(inch2);\n      document.getElementById(\"inch2\").value = num2str(inch);\n      document.getElementById(\"inch3\").value = inch3;\n      document.getElementById(\"TA\").value = txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-feet-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 61,
+    "lineEnd": 80
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(e){var t=document.getElementById(\"p1\"),n=document.createElement(\"p\"),r=document.createElement(\"p\"),u=parseInt(e.x),a=u-1,o=u+1;a>=0&&(n.innerHTML=\"<a href='cm-to-feet.html?x=\"+a+\"'>\"+a+\" cm to feet &#9658;</a>\"),r.innerHTML=\"<a href='cm-to-feet.html?x=\"+o+\"'>\"+o+\" cm to feet &#9658;</a>\",t.parentNode.insertBefore(n,t),t.parentNode.insertBefore(r,t)}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "getFracString",
+    "code": "function getFracString(e,t){var n=\"\";e=e.toString(),t=t.toString(),ulook=[\"⁰\",\"\\xb9\",\"\\xb2\",\"\\xb3\",\"⁴\",\"⁵\",\"⁶\",\"⁷\",\"⁸\",\"⁹\"],dlook=[\"₀\",\"₁\",\"₂\",\"₃\",\"₄\",\"₅\",\"₆\",\"₇\",\"₈\",\"₉\"];for(var r=0;r<e.length;r++)n+=ulook[e[r]];n+=\"/\";for(var r=0;r<t.length;r++)n+=dlook[t[r]];return n}",
+    "params": [
+      "e",
+      "t"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc(){var e=xelem.value;if(\"\"!=e){var t=(e=str2num(e))/30.48,t=roundresult(t);t<0&&(e=-e,t=-t);var n=Math.floor(t),r=roundresult((t-n)*12),u=num2str(e)+\"cm / \"+num2str(30.48)+\"\\n\";u+=\"= \"+num2str(t)+\"ft\",document.getElementById(\"y\").value=num2str(t),document.getElementById(\"y2\").value=num2str(n),document.getElementById(\"y3\").value=num2str(r),document.getElementById(\"TA\").value=u;var a=window.location.href.split(\"?\")[0];a+=\"?x=\"+e,history.pushState({},\"\",a)}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){OnCalc()}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-feet.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e){13==e.keyCode&&OnCalc()}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-feet.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){\"function\"==typeof Promise&&(unitnav.style.display=\"flex\",calcbtn.type=\"button\",calcbtn.onclick=function(){OnCalc()},xelem.onkeypress=function(e){13==e.keyCode&&OnCalc()})}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-feet.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e) { if( e.keyCode==13 ) OnCalc(); }",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-km.html",
+    "type": "FunctionExpression",
+    "lineStart": 5,
+    "lineEnd": 5
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      xelem.onkeypress = function(e) { if( e.keyCode==13 ) OnCalc(); };\n      var params=GetURLParams();\n      \n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=\"\" ) {\n            document.title = params.x+\" cm to km conversion\";\n            document.getElementById(\"x\").value = decodeURIComponent2(params.x)\n         }\n         SetLinks(params);\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-km.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 16
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='cm-to-km.html?x=\"+x1+\"'>\"+x1+\" cm to km &#9658;</a>\";\n      p3.innerHTML = \"<a href='cm-to-km.html?x=\"+x2+\"'>\"+x2+\" cm to km &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-km.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 30
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-km.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 31,
+    "lineEnd": 42
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=null ) {\n            window.location.hash = \"\";\n            if( params.x!=null ) { xelem.value=decodeURIComponent2(params.x); }\n            document.title = params.x+\" cm to miles conversion\";\n            SetLinks(params);\n         }\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-mile.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 15
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='cm-to-mile.html?x=\"+x1+\"&n=&d='>\"+x1+\" cm to miles &#9658;</a>\";\n      p3.innerHTML = \"<a href='cm-to-mile.html?x=\"+x2+\"&n=&d='>\"+x2+\" cm to miles &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 16,
+    "lineEnd": 29
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 30,
+    "lineEnd": 41
+  },
+  {
+    "name": "fracselHandler",
+    "code": "function fracselHandler(i)\n   {\n      if ( i ) {\n         nelem.style.display=\"inline-block\";\n         delem.style.display=\"inline-block\";\n         ndspanelem.style.display=\"inline-block\";\n         xelem.classList.add(\"mr-4\");\n         fracsel[0].checked=false;\n         fracsel[1].checked=true;\n         fracsel[0].parentElement.classList.remove(\"active\");\n         fracsel[1].parentElement.classList.add(\"active\");\n      }\n      else {\n         nelem.style.display=\"none\";\n         delem.style.display=\"none\";\n         ndspanelem.style.display=\"none\";\n         xelem.classList.remove(\"mr-4\");\n         fracsel[0].checked=true;\n         fracsel[1].checked=false;\n         fracsel[0].parentElement.classList.add(\"active\");\n         fracsel[1].parentElement.classList.remove(\"active\");\n      }\n      nelem.value=\"\";\n      delem.value=\"\";\n   }",
+    "params": [
+      "i"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 42,
+    "lineEnd": 66
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = str2num(xelem.value);         \n      var y = roundresult(x/160934.4);\n      var txt=num2str(x)+\"cm / \"+num2str(160934.4)+\"\\n\";\n      txt+=\"= \"+num2str(y)+'mi';\n      document.getElementById(\"y\").value=num2str(y);\n      document.getElementById(\"TA\").value=txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 91,
+    "lineEnd": 98
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      \n      var params=GetURLParams();\n      \n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=null  ) {\n            document.title = params.x+\" cm to yards conversion\";\n            window.location.hash = \"\";\n            SetLinks(params);\n            xelem.value = decodeURIComponent2(params.x);\n         }\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-yard.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 17
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='cm-to-yard.html?x=\"+x1+\"'>\"+x1+\" cm to yards &#9658;</a>\";\n      p3.innerHTML = \"<a href='cm-to-yard.html?x=\"+x2+\"'>\"+x2+\" cm to yards &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 18,
+    "lineEnd": 31
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 32,
+    "lineEnd": 43
+  },
+  {
+    "name": "getFracString",
+    "code": "function getFracString(num,den)\n   {\n      var s=\"\";\n      num=num.toString();\n      den=den.toString();\n      ulook=[\"\\u2070\",\"\\u00B9\",\"\\u00B2\",\"\\u00B3\",\"\\u2074\",\"\\u2075\",\"\\u2076\",\"\\u2077\",\"\\u2078\",\"\\u2079\"];\n      dlook=[\"\\u2080\",\"\\u2081\",\"\\u2082\",\"\\u2083\",\"\\u2084\",\"\\u2085\",\"\\u2086\",\"\\u2087\",\"\\u2088\",\"\\u2089\"];\n      for(var i=0; i<num.length; i++)\n         s+=ulook[num[i]];\n      s+=\"/\";\n      for(var i=0; i<den.length; i++)\n         s+=dlook[den[i]];         \n      return s;\n   }",
+    "params": [
+      "num",
+      "den"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 44,
+    "lineEnd": 57
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = xelem.value;\n      if( x==\"\" ) return;\n      x=str2num(x);\n      var y = roundresult(x/91.44);\n      if( y<0 ) { x=-x; y=-y; }\t\n      \n      var y1 = roundresult(3*y);\n      var y2 = Math.floor(y1);\n      var y3 = roundresult((y1-y2)*12);\n      var txt=num2str(x)+\"cm / \"+num2str(91.44)+\"\\n\";\n      txt+=\"= \"+num2str(y)+'yd';\n      document.getElementById(\"y\").value = num2str(y);\n      document.getElementById(\"y1\").value = num2str(y1);\n      document.getElementById(\"y2\").value = num2str(y2);\n      document.getElementById(\"y3\").value = num2str(y3);\n      document.getElementById(\"TA\").value = txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 83,
+    "lineEnd": 100
+  },
+  {
+    "name": "OnCalc2",
+    "code": "function OnCalc2() {\n      var x = x2elem.value;\n      if( x==\"\" ) return;\n      x=str2num(x);\n      var p=91.44;\n      var y = (x/p/p);\n      var y = roundresult(y);\n      if( y<0 ) { x=-x; y=-y; }\t\n      document.getElementById(\"y4\").value = num2str(y);\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\cm-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 101,
+    "lineEnd": 110
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.f!=\"\" ) { felem.value=decodeURIComponent2(params.f); }\n         if( params.x!=\"\" ) { xelem.value=decodeURIComponent2(params.x); }\n         if( params.f!=\"\" && params.x!=\"\" ) {\n            document.title = params.f+\" feet & \"+params.x+\" feet+inches to feet conversion\";\n         }\n         else if( params.f!=\"\" ) {\n            document.title = params.f+\" feet to feet conversion\";\n         }\n         OnCalc();\n      }\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-inch-to-feet.html",
+    "type": "FunctionExpression",
+    "lineStart": 7,
+    "lineEnd": 20
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-inch-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 21,
+    "lineEnd": 32
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var f = str2num(felem.value);\n      var x = str2num(xelem.value);\n      var y=roundresult(f+x/12);\n      var txt=\"feet = \"+num2str(f)+\"ft + \"+num2str(x)+\"in/12 = \"+num2str(y)+\"ft\\n\";\n      document.getElementById(\"y\").value=num2str(y);\n      document.getElementById(\"TA\").value=txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-inch-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 33,
+    "lineEnd": 40
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.f!=\"\" ) { felem.value=decodeURIComponent2(params.f); }\n         if( params.x!=\"\" ) { xelem.value=decodeURIComponent2(params.x); }\n         if( params.f!=\"\" && params.x!=\"\" ) {\n            document.title = params.f+\" feet & \"+params.x+\" inches to inches conversion\";\n         }\n         else if( params.f!=\"\" ) {\n            document.title = params.f+\" feet to inches conversion\";\n         }\n         OnCalc();\n      }\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-inch-to-inch.html",
+    "type": "FunctionExpression",
+    "lineStart": 7,
+    "lineEnd": 20
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-inch-to-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 21,
+    "lineEnd": 32
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var f = str2num(felem.value);\n      var x = str2num(xelem.value);\n      var y=num2str(roundresult(x+12*f));\n      var txt=\"inches = 12\\u00D7\"+num2str(f)+\"ft + \"+num2str(x)+\"in = \"+y+\"in\\n\";\n      document.getElementById(\"y\").value=y;\n      document.getElementById(\"TA\").value=txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-inch-to-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 33,
+    "lineEnd": 40
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      \n      var params=GetURLParams();\n      if( typeof params.ft!=\"undefined\" && typeof params.inch!=\"undefined\" ) {\n         if( params.ft!=\"\" && params.inch!=\"\" ) {\n            var ft=decodeURIComponent2(params.ft);\n            var inch=decodeURIComponent2(params.inch);\n            var el = document.querySelector(\"#doc>h1\");\n            el.innerHTML = ft+\" ft+\"+inch+\" in to meters conversion\";\n            document.title = ft+\" feet+\"+inch+\" inches to meters conversion\";\n         }\n         if( params.ft!=\"\" )\n            ftelem.value = decodeURIComponent2(params.ft);\n         if( params.inch!=\"\" )\n            inchelem.value = decodeURIComponent2(params.inch);\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-inch-to-meter.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 21
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-inch-to-meter.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 22,
+    "lineEnd": 33
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         var x=decodeURIComponent2(params.x);\n         document.title = x+\" feet to feet+inches conversion\";\n         \n         xelem.value = x;\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-to-feet-inch.html",
+    "type": "FunctionExpression",
+    "lineStart": 3,
+    "lineEnd": 12
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-to-feet-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 13,
+    "lineEnd": 24
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = str2num(xelem.value);\n      var y = roundresult(x);\n      var y2 = Math.floor(y);\n      var y3 = roundresult(12*(y-y2));\n      x=num2str(x);\n      y=num2str(y);\n      y2=num2str(y2);\n      y3=num2str(y3);\n      var txt=\"feet = ⌊\"+x+\"ft⌋ = \"+y2+'ft\\n';\n      txt+=\"inches = 12\\u00D7(\"+y+\"-\"+y2+\")ft = \"+y3+\"in\";\n      document.getElementById(\"y2\").value = y2;\n      document.getElementById(\"y3\").value = y3;\n      document.getElementById(\"TA\").value = txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-to-feet-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 25,
+    "lineEnd": 39
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e) { if( e.keyCode==13 ) OnCalc(); }",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-to-km.html",
+    "type": "FunctionExpression",
+    "lineStart": 5,
+    "lineEnd": 5
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      xelem.onkeypress = function(e) { if( e.keyCode==13 ) OnCalc(); };\n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=\"\" ) {\n            var x=decodeURIComponent2(params.x);\n            document.title = x+\" feet to km conversion\";\n            document.getElementById(\"x\").value = x;\n         }\n         SetLinks(params);\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-to-km.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 16
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='feet-to-km.html?x=\"+x1+\"'>\"+x1+\" feet to km &#9658;</a>\";\n      p3.innerHTML = \"<a href='feet-to-km.html?x=\"+x2+\"'>\"+x2+\" feet to km &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-to-km.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 30
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-to-km.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 31,
+    "lineEnd": 42
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = str2num(xelem.value);\n      var y = roundresult(x/3280.84);\n      var txt=num2str(x)+\"ft / \"+num2str(3280.84)+\"\\n\";\n      txt+=\"= \"+num2str(y)+'km';\n      document.getElementById(\"y\").value=num2str(y);\n      document.getElementById(\"TA\").value=txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-to-km.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 58,
+    "lineEnd": 65
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      var params=GetURLParams();\n      \n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=null ) {\n            window.location.hash = \"\";\n            if( params.x!=null ) { xelem.value=decodeURIComponent2(params.x); }\n            document.title = params.x+\" feet to miles conversion\";\n            SetLinks(params);\n         }\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-to-mile.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 16
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='feet-to-mile.html?x=\"+x1+\"&n=&d='>\"+x1+\" feet to miles &#9658;</a>\";\n      p3.innerHTML = \"<a href='feet-to-mile.html?x=\"+x2+\"&n=&d='>\"+x2+\" feet to miles &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 30
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 31,
+    "lineEnd": 42
+  },
+  {
+    "name": "fracselHandler",
+    "code": "function fracselHandler(i)\n   {\n      if ( i ) {\n         nelem.style.display=\"inline-block\";\n         delem.style.display=\"inline-block\";\n         ndspanelem.style.display=\"inline-block\";\n         xelem.classList.add(\"mr-4\");\n         fracsel[0].checked=false;\n         fracsel[1].checked=true;\n         fracsel[0].parentElement.classList.remove(\"active\");\n         fracsel[1].parentElement.classList.add(\"active\");\n      }\n      else {\n         nelem.style.display=\"none\";\n         delem.style.display=\"none\";\n         ndspanelem.style.display=\"none\";\n         xelem.classList.remove(\"mr-4\");\n         fracsel[0].checked=true;\n         fracsel[1].checked=false;\n         fracsel[0].parentElement.classList.add(\"active\");\n         fracsel[1].parentElement.classList.remove(\"active\");\n      }\n      nelem.value=\"\";\n      delem.value=\"\";\n   }",
+    "params": [
+      "i"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 43,
+    "lineEnd": 67
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = str2num(xelem.value);         \n      var y = roundresult(x/5280);\n      var txt=num2str(x)+\"ft / 5280\\n\";\n      txt+=\"= \"+num2str(y)+'mi';\n      document.getElementById(\"y\").value=num2str(y);\n      document.getElementById(\"TA\").value=txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 92,
+    "lineEnd": 99
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      \n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=null  ) {\n            document.title = params.x+\" feet to yards conversion\";\n            window.location.hash = \"\";\n            SetLinks(params);\n            xelem.value = decodeURIComponent2(params.x);\n         }\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-to-yard.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 16
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='feet-to-yard.html?x=\"+x1+\"'>\"+x1+\" feet to yards &#9658;</a>\";\n      p3.innerHTML = \"<a href='feet-to-yard.html?x=\"+x2+\"'>\"+x2+\" feet to yards &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 30
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 31,
+    "lineEnd": 42
+  },
+  {
+    "name": "getFracString",
+    "code": "function getFracString(num,den)\n   {\n      var s=\"\";\n      num=num.toString();\n      den=den.toString();\n      ulook=[\"\\u2070\",\"\\u00B9\",\"\\u00B2\",\"\\u00B3\",\"\\u2074\",\"\\u2075\",\"\\u2076\",\"\\u2077\",\"\\u2078\",\"\\u2079\"];\n      dlook=[\"\\u2080\",\"\\u2081\",\"\\u2082\",\"\\u2083\",\"\\u2084\",\"\\u2085\",\"\\u2086\",\"\\u2087\",\"\\u2088\",\"\\u2089\"];\n      for(var i=0; i<num.length; i++)\n         s+=ulook[num[i]];\n      s+=\"/\";\n      for(var i=0; i<den.length; i++)\n         s+=dlook[den[i]];         \n      return s;\n   }",
+    "params": [
+      "num",
+      "den"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 43,
+    "lineEnd": 56
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = xelem.value;\n      if( x==\"\" ) return;\n      x=str2num(x);\n      var y = roundresult(x/3);\n      if( y<0 ) { x=-x; y=-y; }\t\n      var txt=num2str(x)+\"ft / 3\\n\";\n      txt+=\"= \"+num2str(y)+'yd';\n      document.getElementById(\"y\").value = num2str(y);\n      document.getElementById(\"TA\").value = txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\feet-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 82,
+    "lineEnd": 92
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         document.title = params.x+\" inches to feet conversion\";\n         \n         xelem.value = decodeURIComponent2(params.x);\n         OnCalc();\n      }\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-feet-inch.html",
+    "type": "FunctionExpression",
+    "lineStart": 3,
+    "lineEnd": 11
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-feet-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 12,
+    "lineEnd": 23
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = str2num(xelem.value);\n      var y = roundresult(x/12);\n      var y2 = Math.floor(y);\n      var y3 = roundresult(x-y2*12);\n      x=num2str(x);\n      y=num2str(y);\n      y2=num2str(y2);\n      y3=num2str(y3);\n      var txt=\"feet = ⌊\"+x+\"\\\" / 12⌋ = \"+y2+'ft\\n';\n      txt+=\"inches = (\"+x+\"-12\\u00D7\"+y2+\")in = \"+y3+\"in\";\n      document.getElementById(\"y\").value = y;\n      document.getElementById(\"y2\").value = y2;\n      document.getElementById(\"y3\").value = y3;\n      document.getElementById(\"TA\").value = txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-feet-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 24,
+    "lineEnd": 39
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         document.title = params.x+\" inches to feet conversion\";\n         \n         xelem.value = decodeURIComponent2(params.x);\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-feet.html",
+    "type": "FunctionExpression",
+    "lineStart": 3,
+    "lineEnd": 11
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 12,
+    "lineEnd": 23
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = str2num(xelem.value);\n      var y = roundresult(x/12);\n      var y2 = Math.floor(y);\n      var y3 = roundresult(x-y2*12);\n      x=num2str(x);\n      y=num2str(y);\n      y2=num2str(y2);\n      y3=num2str(y3);\n      var txt=x+\"\\\" / 12\\n\";\n      txt+=\"= \"+y+'ft';\n      document.getElementById(\"y\").value = y;\n      document.getElementById(\"y2\").value = y2;\n      document.getElementById(\"y3\").value = y3;\n      document.getElementById(\"TA\").value = txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 24,
+    "lineEnd": 39
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e) { if( e.keyCode==13 ) OnCalc(); }",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-km.html",
+    "type": "FunctionExpression",
+    "lineStart": 5,
+    "lineEnd": 5
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      xelem.onkeypress = function(e) { if( e.keyCode==13 ) OnCalc(); };\n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=\"\" ) {\n            document.title = params.x+\" inches to km conversion\";\n            document.getElementById(\"x\").value = decodeURIComponent2(params.x)\n         }\n         SetLinks(params);\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-km.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 15
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='inch-to-km.html?x=\"+x1+\"'>\"+x1+\" inches to km &#9658;</a>\";\n      p3.innerHTML = \"<a href='inch-to-km.html?x=\"+x2+\"'>\"+x2+\" inches to km &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-km.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 16,
+    "lineEnd": 29
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-km.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 30,
+    "lineEnd": 41
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = str2num(xelem.value);\n      var y = roundresult(x/39370.1);\n      x=num2str(x);\n      y=num2str(y);\n      var txt=x+\"in / 39370.1\\n\";\n      txt+=\"= \"+y+'km';\n      document.getElementById(\"y\").value=y;\n      document.getElementById(\"TA\").value=txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-km.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 57,
+    "lineEnd": 66
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         document.title = params.x+\" inches to meters conversion\";\n         \n         xelem.value = decodeURIComponent2(params.x);\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-meter.html",
+    "type": "FunctionExpression",
+    "lineStart": 3,
+    "lineEnd": 11
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-meter.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 12,
+    "lineEnd": 23
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=null ) {\n            window.location.hash = \"\";\n            if( params.x!=null ) { xelem.value=decodeURIComponent2(params.x); }\n            document.title = params.x+\" inches to miles conversion\";\n            SetLinks(params);\n         }\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-mile.html",
+    "type": "FunctionExpression",
+    "lineStart": 9,
+    "lineEnd": 20
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='inch-to-mile.html?x=\"+x1+\"&n=&d='>\"+x1+\" inches to miles &#9658;</a>\";\n      p3.innerHTML = \"<a href='inch-to-mile.html?x=\"+x2+\"&n=&d='>\"+x2+\" inches to miles &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 21,
+    "lineEnd": 34
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 35,
+    "lineEnd": 46
+  },
+  {
+    "name": "fracselHandler",
+    "code": "function fracselHandler(i)\n   {\n      if ( i ) {\n         nelem.style.display=\"inline-block\";\n         delem.style.display=\"inline-block\";\n         ndspanelem.style.display=\"inline-block\";\n         xelem.classList.add(\"mr-4\");\n         fracsel[0].checked=false;\n         fracsel[1].checked=true;\n         fracsel[0].parentElement.classList.remove(\"active\");\n         fracsel[1].parentElement.classList.add(\"active\");\n      }\n      else {\n         nelem.style.display=\"none\";\n         delem.style.display=\"none\";\n         ndspanelem.style.display=\"none\";\n         xelem.classList.remove(\"mr-4\");\n         fracsel[0].checked=true;\n         fracsel[1].checked=false;\n         fracsel[0].parentElement.classList.add(\"active\");\n         fracsel[1].parentElement.classList.remove(\"active\");\n      }\n      nelem.value=\"\";\n      delem.value=\"\";\n   }",
+    "params": [
+      "i"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 47,
+    "lineEnd": 71
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = str2num(xelem.value);         \n      var y = roundresult(x/63360);\n      x=num2str(x);\n      y=num2str(y);\n      var txt=x+\"in / 63360\\n\";\n      txt+=\"= \"+y+'mi';\n      document.getElementById(\"y\").value=y;\n      document.getElementById(\"TA\").value=txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 96,
+    "lineEnd": 105
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(e){var l=document.getElementById(\"p1\"),n=document.createElement(\"p\"),t=document.createElement(\"p\"),a=parseInt(e.x),s=a-1,i=a+1;s>=0&&(n.innerHTML=\"<a href='inch-to-mm.html?x=\"+s+\"&n=&d='>\"+s+\" inches to mm &#9658;</a>\"),t.innerHTML=\"<a href='inch-to-mm.html?x=\"+i+\"&n=&d='>\"+i+\" inches to mm &#9658;</a>\",l.parentNode.insertBefore(n,l),l.parentNode.insertBefore(t,l)}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-mm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "inselHandler",
+    "code": "function inselHandler(e){e?(feetdivelem.style.display=\"flex\",insel[0].checked=!1,insel[1].checked=!0,insel[0].parentElement.classList.remove(\"active\"),insel[1].parentElement.classList.add(\"active\")):(feetdivelem.style.display=\"none\",insel[0].checked=!0,insel[1].checked=!1,insel[0].parentElement.classList.add(\"active\"),insel[1].parentElement.classList.remove(\"active\")),felem.value=\"\"}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-mm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "fracselHandler",
+    "code": "function fracselHandler(e){e?(nelem.style.display=\"inline-block\",delem.style.display=\"inline-block\",ndspanelem.style.display=\"inline-block\",xelem.classList.add(\"mr-4\"),fracsel[0].checked=!1,fracsel[1].checked=!0,fracsel[0].parentElement.classList.remove(\"active\"),fracsel[1].parentElement.classList.add(\"active\")):(nelem.style.display=\"none\",delem.style.display=\"none\",ndspanelem.style.display=\"none\",xelem.classList.remove(\"mr-4\"),fracsel[0].checked=!0,fracsel[1].checked=!1,fracsel[0].parentElement.classList.add(\"active\"),fracsel[1].parentElement.classList.remove(\"active\")),nelem.value=\"\",delem.value=\"\"}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-mm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc(){var e=str2num(felem.value),l=str2num(xelem.value),n=parseInt(nelem.value),t=parseInt(delem.value);isNaN(n)||isNaN(t)||(nelem.value=n,delem.value=t,0==t||(l+=n/t));var a=roundresult(25.4*(l+=12*e)),s=Math.floor(a/1e3),i=roundresult(a-1e3*s),c=num2str(l)+\"in \\xd7 \"+num2str(25.4)+\"\\n\";if(c+=\"= \"+num2str(a)+\"mm\",document.getElementById(\"y\").value=num2str(a),document.getElementById(\"y2\").value=num2str(s),document.getElementById(\"y3\").value=num2str(i),document.getElementById(\"TA\").value=c,document.getElementById(\"rlink\").href=\"/tools/ruler-cm.html?cm=\"+a/10,\"\"==felem.value&&\"\"!=xelem.value&&\"\"==nelem.value&&\"\"==delem.value){var m=window.location.href.split(\"?\")[0];m+=\"?x=\"+l,history.pushState({},\"\",m)}else{var m=window.location.href.split(\"?\")[0];history.pushState({},\"\",m)}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-mm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "()=>console.log(\"Share was successful.\")",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-mm.html",
+    "type": "ArrowFunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "e=>console.log(\"Sharing failed\",e)",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-mm.html",
+    "type": "ArrowFunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnShare",
+    "code": "function OnShare(){navigator.canShare?navigator.share({title:document.title,url:window.location.href}).then(()=>console.log(\"Share was successful.\")).catch(e=>console.log(\"Sharing failed\",e)):console.log(\"Your system doesn't support sharing files.\")}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-mm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){OnCalc()}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-mm.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e){13==e.keyCode&&OnCalc()}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-mm.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e){13==e.keyCode&&OnCalc()}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-mm.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e){13==e.keyCode&&OnCalc()}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-mm.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e){13==e.keyCode&&OnCalc()}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-mm.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){\"function\"==typeof Promise&&(unitnav.style.display=\"flex\",btndiv1.style.display=\"flex\",btndiv2.style.display=\"flex\",calcbtn.type=\"button\",calcbtn.onclick=function(){OnCalc()},felem.onkeypress=function(e){13==e.keyCode&&OnCalc()},xelem.onkeypress=function(e){13==e.keyCode&&OnCalc()},nelem.onkeypress=function(e){13==e.keyCode&&OnCalc()},delem.onkeypress=function(e){13==e.keyCode&&OnCalc()},insel[0].onclick=function(){inselHandler(0)},insel[1].onclick=function(){inselHandler(1)},fracsel[0].onclick=function(){fracselHandler(0)},fracsel[1].onclick=function(){fracselHandler(1)})}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\inch-to-mm.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      \n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=\"\" ) {\n            document.title = params.x+\" km to cm conversion\";\n            document.getElementById(\"x\").value = decodeURIComponent2(params.x)\n         }\n         SetLinks(params);\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\km-to-cm.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 15
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='km-to-cm.html?x=\"+x1+\"'>\"+x1+\" km to cm &#9658;</a>\";\n      p3.innerHTML = \"<a href='km-to-cm.html?x=\"+x2+\"'>\"+x2+\" km to cm &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\km-to-cm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 16,
+    "lineEnd": 29
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\km-to-cm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 30,
+    "lineEnd": 41
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      \n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=\"\" ) {\n            document.title = params.x+\" km to feet conversion\";\n            document.getElementById(\"x\").value = decodeURIComponent2(params.x)\n         }\n         SetLinks(params);\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\km-to-feet.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 15
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='km-to-feet.html?x=\"+x1+\"'>\"+x1+\" km to feet &#9658;</a>\";\n      p3.innerHTML = \"<a href='km-to-feet.html?x=\"+x2+\"'>\"+x2+\" km to feet &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\km-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 16,
+    "lineEnd": 29
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\km-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 30,
+    "lineEnd": 41
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = str2num(xelem.value);\n      var y = roundresult(x*3280.84);\n      x=num2str(x);\n      y=num2str(y);\n      var txt=x+\"km \\u00D7 \"+num2str(3280.84)+\"\\n\";\n      txt+=\"= \"+y+'ft';\n      document.getElementById(\"y\").value=y;\n      document.getElementById(\"TA\").value=txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\km-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 57,
+    "lineEnd": 66
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      \n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=\"\" ) {\n            document.title = params.x+\" km to meters conversion\";\n            document.getElementById(\"x\").value = decodeURIComponent2(params.x)\n         }\n         SetLinks(params);\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\km-to-meter.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 15
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='km-to-meter.html?x=\"+x1+\"'>\"+x1+\" km to meters &#9658;</a>\";\n      p3.innerHTML = \"<a href='km-to-meter.html?x=\"+x2+\"'>\"+x2+\" km to meters &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\km-to-meter.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 16,
+    "lineEnd": 29
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\km-to-meter.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 30,
+    "lineEnd": 41
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      \n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=\"\" ) {\n            document.title = params.x+\" km to mm conversion\";\n            document.getElementById(\"x\").value = decodeURIComponent2(params.x)\n            OnCalc();\n         }\n         SetLinks(params);\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\km-to-mm.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 16
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='km-to-mm.html?x=\"+x1+\"'>\"+x1+\" km to mm &#9658;</a>\";\n      p3.innerHTML = \"<a href='km-to-mm.html?x=\"+x2+\"'>\"+x2+\" km to mm &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\km-to-mm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 30
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\km-to-mm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 31,
+    "lineEnd": 42
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      \n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=\"\" ) {\n            document.title = params.x+\" meters to feet+inches conversion\";\n            document.getElementById(\"x\").value = decodeURIComponent2(params.x)\n         }\n         \n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-feet-inch.html",
+    "type": "FunctionExpression",
+    "lineStart": 3,
+    "lineEnd": 14
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-feet-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 15,
+    "lineEnd": 26
+  },
+  {
+    "name": "getFracString",
+    "code": "function getFracString(num,den)\n   {\n      var s=\"\";\n      num=num.toString();\n      den=den.toString();\n      ulook=[\"\\u2070\",\"\\u00B9\",\"\\u00B2\",\"\\u00B3\",\"\\u2074\",\"\\u2075\",\"\\u2076\",\"\\u2077\",\"\\u2078\",\"\\u2079\"];\n      dlook=[\"\\u2080\",\"\\u2081\",\"\\u2082\",\"\\u2083\",\"\\u2084\",\"\\u2085\",\"\\u2086\",\"\\u2087\",\"\\u2088\",\"\\u2089\"];\n      for(var i=0; i<num.length; i++)\n         s+=ulook[num[i]];\n      s+=\"/\";\n      for(var i=0; i<den.length; i++)\n         s+=dlook[den[i]];         \n      return s;\n   }",
+    "params": [
+      "num",
+      "den"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-feet-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 27,
+    "lineEnd": 40
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(e){var t=document.getElementById(\"p1\"),r=document.createElement(\"p\"),n=document.createElement(\"p\"),a=parseInt(e.x),u=a-1,o=a+1;u>=0&&(r.innerHTML=\"<a href='meter-to-feet.html?x=\"+u+\"'>\"+u+\" meters to feet &#9658;</a>\"),n.innerHTML=\"<a href='meter-to-feet.html?x=\"+o+\"'>\"+o+\" meters to feet &#9658;</a>\",t.parentNode.insertBefore(r,t),t.parentNode.insertBefore(n,t)}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams(){for(var e,t=window.location.href,r=/[?&]([^=#]+)=([^&#]*)/g,n={};e=r.exec(t);)n[e[1]]=e[2];return n}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "getFracString",
+    "code": "function getFracString(e,t){var r=\"\";e=e.toString(),t=t.toString(),ulook=[\"⁰\",\"\\xb9\",\"\\xb2\",\"\\xb3\",\"⁴\",\"⁵\",\"⁶\",\"⁷\",\"⁸\",\"⁹\"],dlook=[\"₀\",\"₁\",\"₂\",\"₃\",\"₄\",\"₅\",\"₆\",\"₇\",\"₈\",\"₉\"];for(var n=0;n<e.length;n++)r+=ulook[e[n]];r+=\"/\";for(var n=0;n<t.length;n++)r+=dlook[t[n]];return r}",
+    "params": [
+      "e",
+      "t"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc(){var e=xelem.value;if(\"\"!=e){var t=(e=str2num(e))/.3048,t=roundresult(t);t<0&&(e=-e,t=-t);var r=Math.floor(t),n=roundresult((t-r)*12),a=num2str(e)+\"m / \"+num2str(.3048)+\"\\n\";a+=\"= \"+num2str(t)+\"ft\",document.getElementById(\"y\").value=num2str(t),document.getElementById(\"y2\").value=num2str(r),document.getElementById(\"y3\").value=num2str(n),document.getElementById(\"TA\").value=a}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnCalc2",
+    "code": "function OnCalc2(){var e=x2elem.value;if(\"\"!=e){var t=(e=str2num(e))/.3048/.3048,t=roundresult(t);t<0&&(e=-e,t=-t),document.getElementById(\"y4\").value=t}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){var e=document.querySelector(\"#doc>h1\"),t=GetURLParams();if(void 0!==t.x&&\"\"!=t.x){var r=decodeURIComponent2(t.x);e.innerHTML=r+\" meters to feet\",document.title=r+\" meters to feet\",window.location.hash=\"\",SetLinks(t),xelem.value=r}if(OnCalc(),void 0!==t.x2&&\"\"!=t.x2){var n=decodeURIComponent2(t.x2);e.innerHTML=n+\" square meters to square feet\",document.title=n+\" square meters to square feet\",window.location.hash=\"square\",x2elem.value=n,OnCalc2()}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-feet.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e) { if( e.keyCode==13 ) OnCalc(); }",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-km.html",
+    "type": "FunctionExpression",
+    "lineStart": 5,
+    "lineEnd": 5
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      xelem.onkeypress = function(e) { if( e.keyCode==13 ) OnCalc(); };\n      var params=GetURLParams();\n      \n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=\"\" ) {\n            document.title = params.x+\" meters to km conversion\";\n            document.getElementById(\"x\").value = decodeURIComponent2(params.x)\n         }\n         SetLinks(params);\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-km.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 16
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='meter-to-km.html?x=\"+x1+\"'>\"+x1+\" meters to km &#9658;</a>\";\n      p3.innerHTML = \"<a href='meter-to-km.html?x=\"+x2+\"'>\"+x2+\" meters to km &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-km.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 30
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-km.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 31,
+    "lineEnd": 42
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      var params=GetURLParams();\n      \n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=null ) {\n            window.location.hash = \"\";\n            if( params.x!=null ) { xelem.value=decodeURIComponent2(params.x); }\n            document.title = params.x+\" meters to miles conversion\";\n            SetLinks(params);\n         }\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-mile.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 16
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='meter-to-mile.html?x=\"+x1+\"&n=&d='>\"+x1+\" meters to miles &#9658;</a>\";\n      p3.innerHTML = \"<a href='meter-to-mile.html?x=\"+x2+\"&n=&d='>\"+x2+\" meters to miles &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 30
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 31,
+    "lineEnd": 42
+  },
+  {
+    "name": "fracselHandler",
+    "code": "function fracselHandler(i)\n   {\n      if ( i ) {\n         nelem.style.display=\"inline-block\";\n         delem.style.display=\"inline-block\";\n         ndspanelem.style.display=\"inline-block\";\n         xelem.classList.add(\"mr-4\");\n         fracsel[0].checked=false;\n         fracsel[1].checked=true;\n         fracsel[0].parentElement.classList.remove(\"active\");\n         fracsel[1].parentElement.classList.add(\"active\");\n      }\n      else {\n         nelem.style.display=\"none\";\n         delem.style.display=\"none\";\n         ndspanelem.style.display=\"none\";\n         xelem.classList.remove(\"mr-4\");\n         fracsel[0].checked=true;\n         fracsel[1].checked=false;\n         fracsel[0].parentElement.classList.add(\"active\");\n         fracsel[1].parentElement.classList.remove(\"active\");\n      }\n      nelem.value=\"\";\n      delem.value=\"\";\n   }",
+    "params": [
+      "i"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 43,
+    "lineEnd": 67
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = str2num(xelem.value);         \n      var y = roundresult(x/1609.344);\n      x=num2str(x);\n      y=num2str(y);\n      var txt=x+\"m / \"+num2str(1609.344)+\"\\n\";\n      txt+=\"= \"+y+'mi';\n      document.getElementById(\"y\").value=y;\n      document.getElementById(\"TA\").value=txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 92,
+    "lineEnd": 101
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e) { if( e.keyCode==13 ) OnCalc(); }",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-mm.html",
+    "type": "FunctionExpression",
+    "lineStart": 5,
+    "lineEnd": 5
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      xelem.onkeypress = function(e) { if( e.keyCode==13 ) OnCalc(); };\n      var params=GetURLParams();\n      \n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=\"\" ) {\n            document.title = params.x+\" meters to mm conversion\";\n            document.getElementById(\"x\").value = decodeURIComponent2(params.x)\n         }\n         SetLinks(params);\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-mm.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 16
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='meter-to-mm.html?x=\"+x1+\"'>\"+x1+\" meters to mm &#9658;</a>\";\n      p3.innerHTML = \"<a href='meter-to-mm.html?x=\"+x2+\"'>\"+x2+\" meters to mm &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-mm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 30
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-mm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 31,
+    "lineEnd": 42
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      \n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=null  ) {\n            document.title = params.x+\" meters to yards conversion\";\n            window.location.hash = \"\";\n            SetLinks(params);\n            xelem.value = decodeURIComponent2(params.x);\n         }\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-yard.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 16
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='meter-to-yard.html?x=\"+x1+\"'>\"+x1+\" meters to yards &#9658;</a>\";\n      p3.innerHTML = \"<a href='meter-to-yard.html?x=\"+x2+\"'>\"+x2+\" meters to yards &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 30
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 31,
+    "lineEnd": 42
+  },
+  {
+    "name": "getFracString",
+    "code": "function getFracString(num,den)\n   {\n      var s=\"\";\n      num=num.toString();\n      den=den.toString();\n      ulook=[\"\\u2070\",\"\\u00B9\",\"\\u00B2\",\"\\u00B3\",\"\\u2074\",\"\\u2075\",\"\\u2076\",\"\\u2077\",\"\\u2078\",\"\\u2079\"];\n      dlook=[\"\\u2080\",\"\\u2081\",\"\\u2082\",\"\\u2083\",\"\\u2084\",\"\\u2085\",\"\\u2086\",\"\\u2087\",\"\\u2088\",\"\\u2089\"];\n      for(var i=0; i<num.length; i++)\n         s+=ulook[num[i]];\n      s+=\"/\";\n      for(var i=0; i<den.length; i++)\n         s+=dlook[den[i]];         \n      return s;\n   }",
+    "params": [
+      "num",
+      "den"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 43,
+    "lineEnd": 56
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = xelem.value;\n      if( x==\"\" ) return;\n      x=str2num(x);\n      var y = roundresult(x/0.9144);\n      if( y<0 ) { x=-x; y=-y; }\t\n      \n      var y1 = roundresult(3*y);\n      var y2 = Math.floor(y1);\n      var y3 = roundresult((y1-y2)*12);\n      x=num2str(x);\n      y=num2str(y);\n      y1=num2str(y1);\n      y2=num2str(y2);\n      y3=num2str(y3);\n      var txt=x+\"m / \"+num2str(0.9144)+\"\\n\";\n      txt+=\"= \"+y+'yd';\n      document.getElementById(\"y\").value = y;\n      document.getElementById(\"y1\").value = y1;\n      document.getElementById(\"y2\").value = y2;\n      document.getElementById(\"y3\").value = y3;\n      document.getElementById(\"TA\").value = txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 82,
+    "lineEnd": 104
+  },
+  {
+    "name": "OnCalc2",
+    "code": "function OnCalc2() {\n      var x = x2elem.value;\n      if( x==\"\" ) return;\n      x=str2num(x);\n      var p=0.9144;\n      var y = (x/p/p);\n      var y = roundresult(y);\n      if( y<0 ) { x=-x; y=-y; }\t\n      document.getElementById(\"y4\").value = y;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\meter-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 105,
+    "lineEnd": 114
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      \n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=null  ) {\n            document.title = params.x+\" miles to inches conversion\";\n            window.location.hash = \"\";\n            SetLinks(params);\n            xelem.value = decodeURIComponent2(params.x);\n         }\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mile-to-inch.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 16
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='meter-to-inch.html?x=\"+x1+\"'>\"+x1+\" miles to inches &#9658;</a>\";\n      p3.innerHTML = \"<a href='meter-to-inch.html?x=\"+x2+\"'>\"+x2+\" miles to inches &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mile-to-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 30
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mile-to-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 31,
+    "lineEnd": 42
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = xelem.value;\n      if( x==\"\" ) return;\n      x=str2num(x);\n      var y = roundresult(x*63360);\n      if( y<0 ) { x=-x; y=-y; }\t\n      x=num2str(x);\n      y=num2str(y);\n      var txt=x+\"mi \\u00D7 63360\\n\";\n      txt+=\"= \"+y+'in';\n      document.getElementById(\"y\").value = y;\n      document.getElementById(\"TA\").value = txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mile-to-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 43,
+    "lineEnd": 55
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(e){var t=document.getElementById(\"p1\"),n=document.createElement(\"p\"),l=document.createElement(\"p\"),a=parseInt(e.x),m=a-1,o=a+1;m>=0&&(n.innerHTML=\"<a href='mile-to-km.html?x=\"+m+\"'>\"+m+\" miles to km &#9658;</a>\"),l.innerHTML=\"<a href='mile-to-km.html?x=\"+o+\"'>\"+o+\" miles to km &#9658;</a>\",t.parentNode.insertBefore(n,t),t.parentNode.insertBefore(l,t)}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mile-to-km.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc(){var e=xelem.value;if(\"\"!=e){var t=roundresult(1.609344*(e=str2num(e)));t<0&&(e=-e,t=-t);var n=Math.floor(t),l=1e3*(t-n),a=\"Kilometers\\n= Miles \\xd7 \"+num2str(1.609344)+\"\\n= \";if(a+=num2str(e)+\"mi \\xd7 \"+num2str(1.609344)+\"\\n\",a+=\"= \"+num2str(t)+\"km\",document.getElementById(\"y\").value=num2str(t),document.getElementById(\"y2\").value=num2str(n),document.getElementById(\"y3\").value=num2str(l),document.getElementById(\"TA\").value=a,\"\"!=xelem.value){var m=window.location.href.split(\"?\")[0];m+=\"?x=\"+e,history.pushState({},\"\",m)}}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mile-to-km.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){OnCalc()}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mile-to-km.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e){13==e.keyCode&&OnCalc()}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mile-to-km.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){\"function\"==typeof Promise&&(calcbtn.type=\"button\",calcbtn.onclick=function(){OnCalc()},xelem.onkeypress=function(e){13==e.keyCode&&OnCalc()})}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mile-to-km.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      \n      var params=GetURLParams();\n      \n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=null  ) {\n            document.title = params.x+\" miles to meters conversion\";\n            window.location.hash = \"\";\n            SetLinks(params);\n            xelem.value = decodeURIComponent2(params.x);\n         }\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mile-to-meter.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 17
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='mile-to-meter.html?x=\"+x1+\"'>\"+x1+\" miles to meters &#9658;</a>\";\n      p3.innerHTML = \"<a href='mile-to-meter.html?x=\"+x2+\"'>\"+x2+\" miles to meters &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mile-to-meter.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 18,
+    "lineEnd": 31
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mile-to-meter.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 32,
+    "lineEnd": 43
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = xelem.value;\n      if( x==\"\" ) return;\n      x=str2num(x);\n      var y = roundresult(x*1609.344);\n      if( y<0 ) { x=-x; y=-y; }\t\n      x=num2str(x);\n      y=num2str(y);\n      var txt=x+\"mi \\u00D7 \"+num2str(1609.344)+\"\\n\";\n      txt+=\"= \"+y+'m';\n      document.getElementById(\"y\").value = y;\n      document.getElementById(\"TA\").value = txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mile-to-meter.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 44,
+    "lineEnd": 56
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      \n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=null  ) {\n            document.title = params.x+\" miles to yards conversion\";\n            window.location.hash = \"\";\n            SetLinks(params);\n            xelem.value = decodeURIComponent2(params.x);\n         }\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mile-to-yard.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 16
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='meter-to-yard.html?x=\"+x1+\"'>\"+x1+\" miles to yards &#9658;</a>\";\n      p3.innerHTML = \"<a href='meter-to-yard.html?x=\"+x2+\"'>\"+x2+\" miles to yards &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mile-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 30
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mile-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 31,
+    "lineEnd": 42
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = xelem.value;\n      if( x==\"\" ) return;\n      x=str2num(x);\n      var y = roundresult(x*1760);\n      if( y<0 ) { x=-x; y=-y; }\t\n      x=num2str(x);\n      y=num2str(y);\n      var txt=x+\"mi \\u00D7 1760\\n\";\n      txt+=\"= \"+y+'yd';\n      document.getElementById(\"y\").value = y;\n      document.getElementById(\"TA\").value = txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mile-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 43,
+    "lineEnd": 55
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      \n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         document.title = params.x+\"mm to cm conversion\";\n         \n         xelem.value = decodeURIComponent2(params.x);\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-cm.html",
+    "type": "FunctionExpression",
+    "lineStart": 3,
+    "lineEnd": 12
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-cm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 13,
+    "lineEnd": 24
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      \n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         document.title = params.x+\"mm to feet+inches\";\n         \n         xelem.value = decodeURIComponent2(params.x);\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-feet-inch.html",
+    "type": "FunctionExpression",
+    "lineStart": 3,
+    "lineEnd": 12
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-feet-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 13,
+    "lineEnd": 24
+  },
+  {
+    "name": "getFracString",
+    "code": "function getFracString(num,den)\n   {\n      var s=\"\";\n      num=num.toString();\n      den=den.toString();\n      ulook=[\"\\u2070\",\"\\u00B9\",\"\\u00B2\",\"\\u00B3\",\"\\u2074\",\"\\u2075\",\"\\u2076\",\"\\u2077\",\"\\u2078\",\"\\u2079\"];\n      dlook=[\"\\u2080\",\"\\u2081\",\"\\u2082\",\"\\u2083\",\"\\u2084\",\"\\u2085\",\"\\u2086\",\"\\u2087\",\"\\u2088\",\"\\u2089\"];\n      for(var i=0; i<num.length; i++)\n         s+=ulook[num[i]];\n      s+=\"/\";\n      for(var i=0; i<den.length; i++)\n         s+=dlook[den[i]];         \n      return s;\n   }",
+    "params": [
+      "num",
+      "den"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-feet-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 25,
+    "lineEnd": 38
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      \n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         document.title = params.x+\" mm to feet conversion\";\n         \n         xelem.value = decodeURIComponent2(params.x);\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-feet.html",
+    "type": "FunctionExpression",
+    "lineStart": 3,
+    "lineEnd": 12
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 13,
+    "lineEnd": 24
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = str2num(xelem.value);\n      var y = (x/304.8);\n      var y = roundresult(y);\n      var y2 = Math.floor(y);\n      var y3 = roundresult((y-y2)*12);\n      x=num2str(x);\n      y=num2str(y);\n      y2=num2str(y2);\n      y3=num2str(y3);\n      var txt=x+\"mm / \"+num2str(304.8)+\"\\n\";\n      txt+=\"= \"+y+'ft';\n      document.getElementById(\"ft\").value = y;\n      document.getElementById(\"ft1\").value = y2;\n      document.getElementById(\"inch1\").value = y3;\n      document.getElementById(\"TA\").value = txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 25,
+    "lineEnd": 41
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(e){var t=document.getElementById(\"p1\"),n=document.createElement(\"p\"),r=document.createElement(\"p\"),a=parseInt(e.x),l=a-1,u=a+1;l>=0&&(n.innerHTML=\"<a href='mm-to-inch.html?x=\"+l+\"'>\"+l+\" mm to inches &#9658;</a>\"),r.innerHTML=\"<a href='mm-to-inch.html?x=\"+u+\"'>\"+u+\" mm to inches &#9658;</a>\",t.parentNode.insertBefore(n,t),t.parentNode.insertBefore(r,t)}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "getFracString",
+    "code": "function getFracString(e,t){var n=\"\";e=e.toString(),t=t.toString();for(var r=[\"⁰\",\"\\xb9\",\"\\xb2\",\"\\xb3\",\"⁴\",\"⁵\",\"⁶\",\"⁷\",\"⁸\",\"⁹\"],a=[\"₀\",\"₁\",\"₂\",\"₃\",\"₄\",\"₅\",\"₆\",\"₇\",\"₈\",\"₉\"],l=0;l<e.length;l++)n+=r[e[l]];n+=\"/\";for(var l=0;l<t.length;l++)n+=a[t[l]];return n}",
+    "params": [
+      "e",
+      "t"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc(){var e=xelem.value;if(\"\"!=e){var t=(e=str2num(e))/25.4,t=roundresult(t);t<0&&(e=-e,t=-t);var n=dec2frac(t),r=Math.floor(t/12),a=roundresult(t-12*r),l=num2str(e)+\"mm / \"+num2str(25.4)+\"\\n\";l+=\"= \"+num2str(t)+\"in\",document.getElementById(\"y\").value=num2str(t),document.getElementById(\"y1\").value=n,document.getElementById(\"y2\").value=num2str(r),document.getElementById(\"y3\").value=num2str(a),document.getElementById(\"TA\").value=l,document.getElementById(\"rlink\").href=\"/tools/ruler-inch.html?inch=\"+num2str(t);var u=window.location.href.split(\"?\")[0];u+=\"?x=\"+e,history.pushState({},\"\",u)}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "()=>console.log(\"Share was successful.\")",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-inch.html",
+    "type": "ArrowFunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "e=>console.log(\"Sharing failed\",e)",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-inch.html",
+    "type": "ArrowFunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "OnShare",
+    "code": "function OnShare(){navigator.canShare?navigator.share({title:document.title,url:window.location.href}).then(()=>console.log(\"Share was successful.\")).catch(e=>console.log(\"Sharing failed\",e)):console.log(\"Your system doesn't support sharing files.\")}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){OnCalc()}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-inch.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e){OnCalc()}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-inch.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){\"function\"==typeof Promise&&-1==window.location.href.indexOf(\"?\")&&(unitnav.style.display=\"flex\",btndiv2.style.display=\"flex\",calcbtn.type=\"button\",calcbtn.onclick=function(){OnCalc()},xelem.oninput=function(e){OnCalc()})}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-inch.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      \n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=\"\" ) {\n            document.title = params.x+\" mm to km conversion\";\n            document.getElementById(\"x\").value = decodeURIComponent2(params.x)\n         }\n         SetLinks(params);\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-km.html",
+    "type": "FunctionExpression",
+    "lineStart": 3,
+    "lineEnd": 14
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='mm-to-km.html?x=\"+x1+\"'>\"+x1+\" mm to km &#9658;</a>\";\n      p3.innerHTML = \"<a href='mm-to-km.html?x=\"+x2+\"'>\"+x2+\" mm to km &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-km.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 15,
+    "lineEnd": 28
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-km.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 29,
+    "lineEnd": 40
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      \n      var params=GetURLParams();\n      \n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=\"\" ) {\n            document.title = params.x+\" mm to meters conversion\";\n            document.getElementById(\"x\").value = decodeURIComponent2(params.x)\n         }\n         SetLinks(params);\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-meter.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 16
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='cm-to-meter.html?x=\"+x1+\"'>\"+x1+\" mm to meters &#9658;</a>\";\n      p3.innerHTML = \"<a href='cm-to-meter.html?x=\"+x2+\"'>\"+x2+\" mm to meters &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-meter.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 30
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-meter.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 31,
+    "lineEnd": 42
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=null ) {\n            window.location.hash = \"\";\n            if( params.x!=null ) { xelem.value=decodeURIComponent2(params.x); }\n            document.title = params.x+\" mm to miles conversion\";\n            SetLinks(params);\n         }\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-mile.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 15
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='mm-to-mile.html?x=\"+x1+\"&n=&d='>\"+x1+\" mm to miles &#9658;</a>\";\n      p3.innerHTML = \"<a href='mm-to-mile.html?x=\"+x2+\"&n=&d='>\"+x2+\" mm to miles &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 16,
+    "lineEnd": 29
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 30,
+    "lineEnd": 41
+  },
+  {
+    "name": "fracselHandler",
+    "code": "function fracselHandler(i)\n   {\n      if ( i ) {\n         nelem.style.display=\"inline-block\";\n         delem.style.display=\"inline-block\";\n         ndspanelem.style.display=\"inline-block\";\n         xelem.classList.add(\"mr-4\");\n         fracsel[0].checked=false;\n         fracsel[1].checked=true;\n         fracsel[0].parentElement.classList.remove(\"active\");\n         fracsel[1].parentElement.classList.add(\"active\");\n      }\n      else {\n         nelem.style.display=\"none\";\n         delem.style.display=\"none\";\n         ndspanelem.style.display=\"none\";\n         xelem.classList.remove(\"mr-4\");\n         fracsel[0].checked=true;\n         fracsel[1].checked=false;\n         fracsel[0].parentElement.classList.add(\"active\");\n         fracsel[1].parentElement.classList.remove(\"active\");\n      }\n      nelem.value=\"\";\n      delem.value=\"\";\n   }",
+    "params": [
+      "i"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 42,
+    "lineEnd": 66
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = str2num(xelem.value);         \n      var y = roundresult(x/1609344);\n      x=num2str(x);\n      y=num2str(y);\n      var txt=x+\"mm / 1609344\\n\";\n      txt+=\"= \"+y+'mi';\n      document.getElementById(\"y\").value=y;\n      document.getElementById(\"TA\").value=txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 91,
+    "lineEnd": 100
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      \n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=null  ) {\n            document.title = params.x+\" mm to yards conversion\";\n            window.location.hash = \"\";\n            SetLinks(params);\n            xelem.value = decodeURIComponent2(params.x);\n         }\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-yard.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 16
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='cm-to-yard.html?x=\"+x1+\"'>\"+x1+\" mm to yards &#9658;</a>\";\n      p3.innerHTML = \"<a href='cm-to-yard.html?x=\"+x2+\"'>\"+x2+\" mm to yards &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 30
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 31,
+    "lineEnd": 42
+  },
+  {
+    "name": "getFracString",
+    "code": "function getFracString(num,den)\n   {\n      var s=\"\";\n      num=num.toString();\n      den=den.toString();\n      ulook=[\"\\u2070\",\"\\u00B9\",\"\\u00B2\",\"\\u00B3\",\"\\u2074\",\"\\u2075\",\"\\u2076\",\"\\u2077\",\"\\u2078\",\"\\u2079\"];\n      dlook=[\"\\u2080\",\"\\u2081\",\"\\u2082\",\"\\u2083\",\"\\u2084\",\"\\u2085\",\"\\u2086\",\"\\u2087\",\"\\u2088\",\"\\u2089\"];\n      for(var i=0; i<num.length; i++)\n         s+=ulook[num[i]];\n      s+=\"/\";\n      for(var i=0; i<den.length; i++)\n         s+=dlook[den[i]];         \n      return s;\n   }",
+    "params": [
+      "num",
+      "den"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 43,
+    "lineEnd": 56
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = xelem.value;\n      if( x==\"\" ) return;\n      x=str2num(x);\n      var y = roundresult(x/914.4);\n      if( y<0 ) { x=-x; y=-y; }\t\n      \n      var y1 = roundresult(3*y);\n      var y2 = Math.floor(y1);\n      var y3 = roundresult((y1-y2)*12);\n      x=num2str(x);\n      y=num2str(y);\n      y2=num2str(y2);\n      y3=num2str(y3);\n      var txt=x+\"cm / \"+num2str(914.4)+\"\\n\";\n      txt+=\"= \"+y+'yd';\n      document.getElementById(\"y\").value = y;\n      document.getElementById(\"y1\").value = y1;\n      document.getElementById(\"y2\").value = y2;\n      document.getElementById(\"y3\").value = y3;\n      document.getElementById(\"TA\").value = txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 82,
+    "lineEnd": 103
+  },
+  {
+    "name": "OnCalc2",
+    "code": "function OnCalc2() {\n      var x = x2elem.value;\n      if( x==\"\" ) return;\n      x=str2num(x);\n      var p=91.44;\n      var y = (x/p/p);\n      var y = roundresult(y);\n      if( y<0 ) { x=-x; y=-y; }\t\n      document.getElementById(\"y4\").value = num2str(y);\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\mm-to-yard.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 104,
+    "lineEnd": 113
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=null ) {\n            window.location.hash = \"\";\n            if( params.x!=null ) { xelem.value=decodeURIComponent2(params.x); }\n            document.title = params.x+\" yards to cm conversion\";\n            SetLinks(params);\n         }\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-cm.html",
+    "type": "FunctionExpression",
+    "lineStart": 10,
+    "lineEnd": 21
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='yard-to-cm.html?x=\"+x1+\"&n=&d='>\"+x1+\" yards to cm &#9658;</a>\";\n      p3.innerHTML = \"<a href='yard-to-cm.html?x=\"+x2+\"&n=&d='>\"+x2+\" yards to cm &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-cm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 22,
+    "lineEnd": 35
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-cm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 36,
+    "lineEnd": 47
+  },
+  {
+    "name": "fracselHandler",
+    "code": "function fracselHandler(i)\n   {\n      if ( i ) {\n         nelem.style.display=\"inline-block\";\n         delem.style.display=\"inline-block\";\n         ndspanelem.style.display=\"inline-block\";\n         xelem.classList.add(\"mr-4\");\n         fracsel[0].checked=false;\n         fracsel[1].checked=true;\n         fracsel[0].parentElement.classList.remove(\"active\");\n         fracsel[1].parentElement.classList.add(\"active\");\n      }\n      else {\n         nelem.style.display=\"none\";\n         delem.style.display=\"none\";\n         ndspanelem.style.display=\"none\";\n         xelem.classList.remove(\"mr-4\");\n         fracsel[0].checked=true;\n         fracsel[1].checked=false;\n         fracsel[0].parentElement.classList.add(\"active\");\n         fracsel[1].parentElement.classList.remove(\"active\");\n      }\n      nelem.value=\"\";\n      delem.value=\"\";\n   }",
+    "params": [
+      "i"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-cm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 48,
+    "lineEnd": 72
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      var params=GetURLParams();\n      \n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=null ) {\n            window.location.hash = \"\";\n            if( params.x!=null ) { xelem.value=decodeURIComponent2(params.x); }\n            document.title = params.x+\" yards to feet conversion\";\n            SetLinks(params);\n         }\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-feet.html",
+    "type": "FunctionExpression",
+    "lineStart": 10,
+    "lineEnd": 22
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='yard-to-feet.html?x=\"+x1+\"&n=&d='>\"+x1+\" yards to feet &#9658;</a>\";\n      p3.innerHTML = \"<a href='yard-to-feet.html?x=\"+x2+\"&n=&d='>\"+x2+\" yards to feet &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 23,
+    "lineEnd": 36
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 37,
+    "lineEnd": 48
+  },
+  {
+    "name": "fracselHandler",
+    "code": "function fracselHandler(i)\n   {\n      if ( i ) {\n         nelem.style.display=\"inline-block\";\n         delem.style.display=\"inline-block\";\n         ndspanelem.style.display=\"inline-block\";\n         xelem.classList.add(\"mr-4\");\n         fracsel[0].checked=false;\n         fracsel[1].checked=true;\n         fracsel[0].parentElement.classList.remove(\"active\");\n         fracsel[1].parentElement.classList.add(\"active\");\n      }\n      else {\n         nelem.style.display=\"none\";\n         delem.style.display=\"none\";\n         ndspanelem.style.display=\"none\";\n         xelem.classList.remove(\"mr-4\");\n         fracsel[0].checked=true;\n         fracsel[1].checked=false;\n         fracsel[0].parentElement.classList.add(\"active\");\n         fracsel[1].parentElement.classList.remove(\"active\");\n      }\n      nelem.value=\"\";\n      delem.value=\"\";\n   }",
+    "params": [
+      "i"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 49,
+    "lineEnd": 73
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = str2num(xelem.value);         \n      var y = roundresult(x*3);\n      var y2 = Math.floor(y);\n      var y3 = roundresult((y-y2)*12);\n      x=num2str(x);\n      y=num2str(y);\n      y2=num2str(y2);\n      y3=num2str(y3);\n      var txt=x+\"yd \\u00D7 3\\n\";\n      txt+=\"= \"+y+'ft';\n      document.getElementById(\"y\").value=y;\n      document.getElementById(\"y2\").value=y2;\n      document.getElementById(\"y3\").value=y3;\n      document.getElementById(\"TA\").value=txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-feet.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 98,
+    "lineEnd": 113
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      var params=GetURLParams();\n      \n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=null ) {\n            window.location.hash = \"\";\n            if( params.x!=null ) { xelem.value=decodeURIComponent2(params.x); }\n            document.title = params.x+\" yards to inches conversion\";\n            SetLinks(params);\n         }\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-inch.html",
+    "type": "FunctionExpression",
+    "lineStart": 10,
+    "lineEnd": 22
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='yard-to-inch.html?x=\"+x1+\"&n=&d='>\"+x1+\" yards to inches &#9658;</a>\";\n      p3.innerHTML = \"<a href='yard-to-inch.html?x=\"+x2+\"&n=&d='>\"+x2+\" yards to inches &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 23,
+    "lineEnd": 36
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 37,
+    "lineEnd": 48
+  },
+  {
+    "name": "fracselHandler",
+    "code": "function fracselHandler(i)\n   {\n      if ( i ) {\n         nelem.style.display=\"inline-block\";\n         delem.style.display=\"inline-block\";\n         ndspanelem.style.display=\"inline-block\";\n         xelem.classList.add(\"mr-4\");\n         fracsel[0].checked=false;\n         fracsel[1].checked=true;\n         fracsel[0].parentElement.classList.remove(\"active\");\n         fracsel[1].parentElement.classList.add(\"active\");\n      }\n      else {\n         nelem.style.display=\"none\";\n         delem.style.display=\"none\";\n         ndspanelem.style.display=\"none\";\n         xelem.classList.remove(\"mr-4\");\n         fracsel[0].checked=true;\n         fracsel[1].checked=false;\n         fracsel[0].parentElement.classList.add(\"active\");\n         fracsel[1].parentElement.classList.remove(\"active\");\n      }\n      nelem.value=\"\";\n      delem.value=\"\";\n   }",
+    "params": [
+      "i"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 49,
+    "lineEnd": 73
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = str2num(xelem.value);         \n      var y = roundresult(x*36);\n      var y1 = roundresult(x*3);\n      var y2 = Math.floor(y1);\n      var y3 = roundresult((y1-y2)*12);\n      x=num2str(x);\n      y=num2str(y);\n      y2=num2str(y2);\n      y3=num2str(y3);\n      var txt=x+\"yd \\u00D7 36\\n\";\n      txt+=\"= \"+y+'in';\n      document.getElementById(\"y\").value=y;\n      document.getElementById(\"y1\").value=y1;\n      document.getElementById(\"y2\").value=y2;\n      document.getElementById(\"y3\").value=y3;\n      document.getElementById(\"TA\").value=txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-inch.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 98,
+    "lineEnd": 115
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      var params=GetURLParams();\n      \n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=null ) {\n            window.location.hash = \"\";\n            if( params.x!=null ) { xelem.value=decodeURIComponent2(params.x); }\n            document.title = params.x+\" yards to miles conversion\";\n            SetLinks(params);\n         }\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-mile.html",
+    "type": "FunctionExpression",
+    "lineStart": 9,
+    "lineEnd": 21
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='yard-to-mile.html?x=\"+x1+\"&n=&d='>\"+x1+\" yards to miles &#9658;</a>\";\n      p3.innerHTML = \"<a href='yard-to-mile.html?x=\"+x2+\"&n=&d='>\"+x2+\" yards to miles &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 22,
+    "lineEnd": 35
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 36,
+    "lineEnd": 47
+  },
+  {
+    "name": "OnCalc",
+    "code": "function OnCalc() {\n      var x = str2num(xelem.value);         \n      var y = roundresult(x/1760);\n      x=num2str(x);\n      y=num2str(y);\n      var txt=x+\"yd / 1760\\n\";\n      txt+=\"= \"+y+'mi';\n      document.getElementById(\"y\").value=y;\n      document.getElementById(\"TA\").value=txt;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-mile.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 72,
+    "lineEnd": 81
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      var params=GetURLParams();\n      if( typeof params.x!=\"undefined\" ) {\n         if( params.x!=null ) {\n            window.location.hash = \"\";\n            if( params.x!=null ) { xelem.value=decodeURIComponent2(params.x); }\n            document.title = params.x+\" yards to mm conversion\";\n            SetLinks(params);\n         }\n      }\n      OnCalc();\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-mm.html",
+    "type": "FunctionExpression",
+    "lineStart": 4,
+    "lineEnd": 15
+  },
+  {
+    "name": "SetLinks",
+    "code": "function SetLinks(params)\n   {\n      var p1 = document.getElementById(\"p1\");\n      var p2 = document.createElement('p');\n      var p3 = document.createElement('p');\n      var x=parseInt(params.x);\n      var x1=x-1;\n      var x2=x+1;\n      if( x1>=0 )\n         p2.innerHTML = \"<a href='yard-to-mm.html?x=\"+x1+\"&n=&d='>\"+x1+\" yards to mm &#9658;</a>\";\n      p3.innerHTML = \"<a href='yard-to-mm.html?x=\"+x2+\"&n=&d='>\"+x2+\" yards to mm &#9658;</a>\";\n      p1.parentNode.insertBefore(p2, p1);\n      p1.parentNode.insertBefore(p3, p1);\n   }",
+    "params": [
+      "params"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-mm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 16,
+    "lineEnd": 29
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams()\n   {\n      var url=window.location.href;\n      var regex = /[?&]([^=#]+)=([^&#]*)/g,\n            \n            params = {},\n            match;\n      while(match = regex.exec(url)) {\n         params[match[1]] = match[2];\n      }\n      return params;\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\length\\yard-to-mm.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 30,
+    "lineEnd": 41
+  }
+]

@@ -1,0 +1,52 @@
+{{#> layout title="Free Online Calculators" description="Professional online calculators and converters for all your calculation needs" currentPath=""}}
+
+<div class="home-content">
+    <div class="hero-section">
+        <h1>{{#if (eq lang "zh")}}免费在线计算器{{else}}Free Online Calculators{{/if}}</h1>
+        <p>{{#if (eq lang "zh")}}专业的在线计算器和转换工具，满足您的所有计算需求{{else}}Professional online calculators and converters for all your calculation needs{{/if}}</p>
+    </div>
+
+    {{#each categories}}
+    <div class="category-section">
+        <h2>{{name}}</h2>
+        <p>{{description}}</p>
+        <div class="calculator-grid">
+            {{#each calculators}}
+            <div class="calculator-card">
+                <h3><a href="/{{../lang}}/calc/{{slug}}">{{title}}</a></h3>
+                <p>{{description}}</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+<style>
+.hero-section {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 40px 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 10px;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.home-content {
+    margin-top: 20px;
+}
+</style>
+
+{{/layout}} 

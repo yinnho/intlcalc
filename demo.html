@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI计算器生成系统 - 演示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .demo-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .system-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-card li {
+            padding: 5px 0;
+            color: #666;
+        }
+
+        .info-card li:before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .generated-calculators {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .calculator-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .calculator-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .calculator-card h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .calculator-card .requirement {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 8px;
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .calculator-card .specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .calculator-card .spec-item {
+            text-align: center;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .calculator-card .spec-label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .calculator-card .spec-value {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .calculator-card .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+            flex: 1;
+        }
+
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+
+        .workflow {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .workflow-steps {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .workflow-step {
+            background: white;
+            padding: 20px;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .workflow-arrow {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .stats {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .stats h3 {
+            margin-bottom: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .workflow-steps {
+                flex-direction: column;
+            }
+            
+            .workflow-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AI计算器生成系统</h1>
+            <p>输入需求，AI自动生成专属计算器！</p>
+        </div>
+
+        <!-- 系统统计 -->
+        <div class="stats">
+            <h3>🎯 系统成果展示</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">1429</span>
+                    <span class="stat-label">提取函数数量</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">468</span>
+                    <span class="stat-label">分析页面数量</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">9</span>
+                    <span class="stat-label">生成计算器数量</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">测试成功率</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 工作流程 -->
+        <div class="demo-section">
+            <h2 style="text-align: center; margin-bottom: 30px;">⚙️ AI生成工作流程</h2>
+            <div class="workflow">
+                <div class="workflow-steps">
+                    <div class="workflow-step">1</div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">2</div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">3</div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">4</div>
+                </div>
+                <div style="margin-top: 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center;">
+                    <div>
+                        <strong>需求分析</strong><br>
+                        <small>理解用户自然语言需求</small>
+                    </div>
+                    <div>
+                        <strong>函数匹配</strong><br>
+                        <small>从1429个函数中智能选择</small>
+                    </div>
+                    <div>
+                        <strong>UI生成</strong><br>
+                        <small>自动选择合适的界面模板</small>
+                    </div>
+                    <div>
+                        <strong>代码组装</strong><br>
+                        <small>生成完整HTML+CSS+JS</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 系统信息 -->
+        <div class="demo-section">
+            <h2 style="margin-bottom: 20px;">📋 系统能力</h2>
+            <div class="system-info">
+                <div class="info-card">
+                    <h3>🧮 支持的计算器类型</h3>
+                    <ul>
+                        <li>基础计算器 (加减乘除)</li>
+                        <li>科学计算器 (三角函数、对数等)</li>
+                        <li>单位转换器 (长度、重量、温度)</li>
+                        <li>金融计算器 (利息、贷款等)</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>🚀 核心功能</h3>
+                    <ul>
+                        <li>自然语言需求理解</li>
+                        <li>智能函数匹配</li>
+                        <li>自动UI生成</li>
+                        <li>响应式设计</li>
+                        <li>键盘快捷键支持</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>📊 技术特色</h3>
+                    <ul>
+                        <li>AI驱动的代码生成</li>
+                        <li>模块化架构设计</li>
+                        <li>实时计算功能</li>
+                        <li>错误处理机制</li>
+                        <li>现代化界面设计</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 生成的计算器展示 -->
+        <div class="demo-section">
+            <h2 style="margin-bottom: 20px;">🎨 AI生成的计算器展示</h2>
+            <div class="generated-calculators">
+                <div class="calculator-card">
+                    <h4>基础数学计算器</h4>
+                    <div class="requirement">"我要一个简单的计算器，只要加减乘除"</div>
+                    <div class="specs">
+                        <div class="spec-item">
+                            <span class="spec-label">类型</span><br>
+                            <span class="spec-value">basic-calculator</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">复杂度</span><br>
+                            <span class="spec-value">simple</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <a href="generated_calculators/basic-math-calculator.html" class="btn btn-primary" target="_blank">🔗 打开计算器</a>
+                    </div>
+                </div>
+
+                <div class="calculator-card">
+                    <h4>温度转换器</h4>
+                    <div class="requirement">"帮我做温度转换，摄氏度和华氏度互转"</div>
+                    <div class="specs">
+                        <div class="spec-item">
+                            <span class="spec-label">类型</span><br>
+                            <span class="spec-value">conversion-calculator</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">复杂度</span><br>
+                            <span class="spec-value">medium</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <a href="generated_calculators/temperature-converter.html" class="btn btn-primary" target="_blank">🔗 打开计算器</a>
+                    </div>
+                </div>
+
+                <div class="calculator-card">
+                    <h4>科学计算器</h4>
+                    <div class="requirement">"创建一个可以计算sin、cos、tan的计算器"</div>
+                    <div class="specs">
+                        <div class="spec-item">
+                            <span class="spec-label">类型</span><br>
+                            <span class="spec-value">scientific-calculator</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">复杂度</span><br>
+                            <span class="spec-value">medium</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <a href="generated_calculators/scientific-calculator.html" class="btn btn-primary" target="_blank">🔗 打开计算器</a>
+                    </div>
+                </div>
+
+                <div class="calculator-card">
+                    <h4>长度转换器</h4>
+                    <div class="requirement">"帮我做长度转换，厘米转英寸"</div>
+                    <div class="specs">
+                        <div class="spec-item">
+                            <span class="spec-label">类型</span><br>
+                            <span class="spec-value">conversion-calculator</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">复杂度</span><br>
+                            <span class="spec-value">medium</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <a href="generated_calculators/length-converter.html" class="btn btn-primary" target="_blank">🔗 打开计算器</a>
+                    </div>
+                </div>
+
+                <div class="calculator-card">
+                    <h4>利息计算器</h4>
+                    <div class="requirement">"我要计算贷款利息"</div>
+                    <div class="specs">
+                        <div class="spec-item">
+                            <span class="spec-label">类型</span><br>
+                            <span class="spec-value">financial-calculator</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">复杂度</span><br>
+                            <span class="spec-value">medium</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <a href="generated_calculators/interest-calculator.html" class="btn btn-primary" target="_blank">🔗 打开计算器</a>
+                    </div>
+                </div>
+
+                <div class="calculator-card">
+                    <h4>百分比计算器</h4>
+                    <div class="requirement">"我需要一个百分比计算器"</div>
+                    <div class="specs">
+                        <div class="spec-item">
+                            <span class="spec-label">类型</span><br>
+                            <span class="spec-value">scientific-calculator</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">复杂度</span><br>
+                            <span class="spec-value">medium</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <a href="generated_calculators/percentage-calculator.html" class="btn btn-primary" target="_blank">🔗 打开计算器</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 项目架构 -->
+        <div class="demo-section">
+            <h2 style="margin-bottom: 20px;">🏗️ 项目架构</h2>
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; font-family: monospace;">
+                <pre style="margin: 0; line-height: 1.6;">
+calculator/
+├── src/
+│   ├── ai/
+│   │   ├── requirement-analyzer.js  # AI需求分析器
+│   │   └── calculator-generator.js  # 计算器生成器
+│   ├── extractor/
+│   │   └── function-extractor.js    # 函数提取器
+│   ├── scraper/
+│   │   └── simple-mirror.js         # 网站镜像器
+│   └── test-ai-generator.js         # 完整测试脚本
+├── extracted_functions/             # 提取的函数库 (1429个)
+├── mirrored_site/                   # 镜像的网站数据
+├── generated_calculators/           # AI生成的计算器
+└── demo.html                        # 演示页面
+                </pre>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div style="text-align: center; color: white; margin-top: 40px; opacity: 0.8;">
+            <p>🎊 AI计算器生成系统演示完成！</p>
+            <p>© 2024 由AI自动生成 • 技术驱动创新</p>
+        </div>
+    </div>
+</body>
+</html> 

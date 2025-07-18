@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntlCalc - EN</title>
+    <meta name="description" content="Free online calculators and converters">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #fff; color: #000; }
+        
+        .header { border-bottom: 1px solid #ccc; padding: 10px 0; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; text-decoration: none; color: #000; }
+        
+        .main-content { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .page-title { font-size: 28px; margin-bottom: 10px; }
+        .page-description { font-size: 16px; color: #333; margin-bottom: 30px; }
+        
+        .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .category { border: 1px solid #ccc; padding: 20px; }
+        .category-title { font-size: 20px; margin-bottom: 15px; }
+        .calculator-list { list-style: none; }
+        .calculator-list li { margin-bottom: 8px; }
+        .calculator-list a { color: #0000ee; text-decoration: none; }
+        .calculator-list a:hover { text-decoration: underline; }
+        
+        .footer { margin-top: 50px; border-top: 1px solid #ccc; padding: 20px 0; text-align: center; font-size: 12px; color: #666; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/en/" class="logo">🧮 IntlCalc</a>
+            <div>
+                <select onchange="changeLanguage(this.value)">
+                    <option value="en" selected>English</option>
+                    <option value="zh" >中文</option>
+                    <option value="es" >Español</option>
+                    <option value="fr" >Français</option>
+                    <option value="de" >Deutsch</option>
+                    <option value="ja" >日本語</option>
+                    <option value="ko" >한국어</option>
+                    <option value="pt" >Português</option>
+                    <option value="ru" >Русский</option>
+                    <option value="ar" >العربية</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1 class="page-title">Calculators & Converters</h1>
+        <p class="page-description">Free online calculators and converters for various calculations and conversions.</p>
+        
+        <div class="categories">
+            <div class="category">
+                <h2 class="category-title">Calculators</h2>
+                <ul class="calculator-list">
+                    <li><a href="/en/calc/percentagecalculator.html">percentagecalculator</a></li>
+                    <li><a href="/en/calc/scientificcalculator.html">scientificcalculator</a></li>
+                    <li><a href="/en/calc/bmicalculator.html">bmicalculator</a></li>
+                    <li><a href="/en/calc/mortgagecalculator.html">mortgagecalculator</a></li>
+                    <li><a href="/en/calc/compoundinterestcalculator.html">compoundinterestcalculator</a></li>
+                    <li><a href="/en/calc/gradecalculator.html">gradecalculator</a></li>
+                    <li><a href="/en/calc/averagecalculator.html">averagecalculator</a></li>
+                    <li><a href="/en/calc/fractioncalculator.html">fractioncalculator</a></li>
+                    <li><a href="/en/calc/finalgradecalculator.html">finalgradecalculator</a></li>
+                    <li><a href="/en/calc/percentagechangecalculator.html">percentagechangecalculator</a></li>
+                    <li><a href="/en/calc/percentageincreasecalculator.html">percentageincreasecalculator</a></li>
+                    <li><a href="/en/calc/wiregaugecalculator.html">wiregaugecalculator</a></li>
+                    <li><a href="/en/calc/${slug}.html">${slug}</a></li>
+                    <li><a href="/en/calc/percentagecalculator.html">percentagecalculator</a></li>
+                    <li><a href="/en/calc/scientificcalculator.html">scientificcalculator</a></li>
+                    <li><a href="/en/calc/bmicalculator.html">bmicalculator</a></li>
+                    <li><a href="/en/calc/mortgagecalculator.html">mortgagecalculator</a></li>
+                    <li><a href="/en/calc/compoundinterestcalculator.html">compoundinterestcalculator</a></li>
+                    <li><a href="/en/calc/gradecalculator.html">gradecalculator</a></li>
+                    <li><a href="/en/calc/averagecalculator.html">averagecalculator</a></li>
+                    <li><a href="/en/calc/fractioncalculator.html">fractioncalculator</a></li>
+                    <li><a href="/en/calc/finalgradecalculator.html">finalgradecalculator</a></li>
+                    <li><a href="/en/calc/percentagechangecalculator.html">percentagechangecalculator</a></li>
+                    <li><a href="/en/calc/percentageincreasecalculator.html">percentageincreasecalculator</a></li>
+                    <li><a href="/en/calc/wiregaugecalculator.html">wiregaugecalculator</a></li>
+                    <li><a href="/en/calc/${slug}.html">${slug}</a></li>
+                    <li><a href="/en/calc/percentagecalculator.html">percentagecalculator</a></li>
+                    <li><a href="/en/calc/scientificcalculator.html">scientificcalculator</a></li>
+                    <li><a href="/en/calc/bmicalculator.html">bmicalculator</a></li>
+                    <li><a href="/en/calc/mortgagecalculator.html">mortgagecalculator</a></li>
+                    <li><a href="/en/calc/compoundinterestcalculator.html">compoundinterestcalculator</a></li>
+                    <li><a href="/en/calc/gradecalculator.html">gradecalculator</a></li>
+                    <li><a href="/en/calc/averagecalculator.html">averagecalculator</a></li>
+                    <li><a href="/en/calc/fractioncalculator.html">fractioncalculator</a></li>
+                    <li><a href="/en/calc/finalgradecalculator.html">finalgradecalculator</a></li>
+                    <li><a href="/en/calc/percentagechangecalculator.html">percentagechangecalculator</a></li>
+                    <li><a href="/en/calc/percentageincreasecalculator.html">percentageincreasecalculator</a></li>
+                    <li><a href="/en/calc/wiregaugecalculator.html">wiregaugecalculator</a></li>
+                    <li><a href="/en/calc/${slug}.html">${slug}</a></li>
+                    <li><a href="/en/calc/percentagecalculator.html">percentagecalculator</a></li>
+                    <li><a href="/en/calc/scientificcalculator.html">scientificcalculator</a></li>
+                    <li><a href="/en/calc/bmicalculator.html">bmicalculator</a></li>
+                    <li><a href="/en/calc/mortgagecalculator.html">mortgagecalculator</a></li>
+                    <li><a href="/en/calc/compoundinterestcalculator.html">compoundinterestcalculator</a></li>
+                    <li><a href="/en/calc/gradecalculator.html">gradecalculator</a></li>
+                    <li><a href="/en/calc/averagecalculator.html">averagecalculator</a></li>
+                    <li><a href="/en/calc/fractioncalculator.html">fractioncalculator</a></li>
+                    <li><a href="/en/calc/finalgradecalculator.html">finalgradecalculator</a></li>
+                    <li><a href="/en/calc/percentagechangecalculator.html">percentagechangecalculator</a></li>
+                    <li><a href="/en/calc/percentageincreasecalculator.html">percentageincreasecalculator</a></li>
+                    <li><a href="/en/calc/wiregaugecalculator.html">wiregaugecalculator</a></li>
+                    <li><a href="/en/calc/${slug}.html">${slug}</a></li>
+                    <li><a href="/en/calc/percentagecalculator.html">percentagecalculator</a></li>
+                    <li><a href="/en/calc/scientificcalculator.html">scientificcalculator</a></li>
+                    <li><a href="/en/calc/bmicalculator.html">bmicalculator</a></li>
+                    <li><a href="/en/calc/mortgagecalculator.html">mortgagecalculator</a></li>
+                    <li><a href="/en/calc/compoundinterestcalculator.html">compoundinterestcalculator</a></li>
+                    <li><a href="/en/calc/gradecalculator.html">gradecalculator</a></li>
+                    <li><a href="/en/calc/averagecalculator.html">averagecalculator</a></li>
+                    <li><a href="/en/calc/fractioncalculator.html">fractioncalculator</a></li>
+                    <li><a href="/en/calc/finalgradecalculator.html">finalgradecalculator</a></li>
+                    <li><a href="/en/calc/percentagechangecalculator.html">percentagechangecalculator</a></li>
+                    <li><a href="/en/calc/percentageincreasecalculator.html">percentageincreasecalculator</a></li>
+                    <li><a href="/en/calc/wiregaugecalculator.html">wiregaugecalculator</a></li>
+                    <li><a href="/en/calc/${slug}.html">${slug}</a></li>
+                    <li><a href="/en/calc/percentagecalculator.html">percentagecalculator</a></li>
+                    <li><a href="/en/calc/scientificcalculator.html">scientificcalculator</a></li>
+                    <li><a href="/en/calc/bmicalculator.html">bmicalculator</a></li>
+                    <li><a href="/en/calc/mortgagecalculator.html">mortgagecalculator</a></li>
+                    <li><a href="/en/calc/compoundinterestcalculator.html">compoundinterestcalculator</a></li>
+                    <li><a href="/en/calc/gradecalculator.html">gradecalculator</a></li>
+                    <li><a href="/en/calc/averagecalculator.html">averagecalculator</a></li>
+                    <li><a href="/en/calc/fractioncalculator.html">fractioncalculator</a></li>
+                    <li><a href="/en/calc/finalgradecalculator.html">finalgradecalculator</a></li>
+                    <li><a href="/en/calc/percentagechangecalculator.html">percentagechangecalculator</a></li>
+                    <li><a href="/en/calc/percentageincreasecalculator.html">percentageincreasecalculator</a></li>
+                    <li><a href="/en/calc/wiregaugecalculator.html">wiregaugecalculator</a></li>
+                    <li><a href="/en/calc/${slug}.html">${slug}</a></li>
+                    <li><a href="/en/calc/percentagecalculator.html">percentagecalculator</a></li>
+                    <li><a href="/en/calc/scientificcalculator.html">scientificcalculator</a></li>
+                    <li><a href="/en/calc/bmicalculator.html">bmicalculator</a></li>
+                    <li><a href="/en/calc/mortgagecalculator.html">mortgagecalculator</a></li>
+                    <li><a href="/en/calc/compoundinterestcalculator.html">compoundinterestcalculator</a></li>
+                    <li><a href="/en/calc/gradecalculator.html">gradecalculator</a></li>
+                    <li><a href="/en/calc/averagecalculator.html">averagecalculator</a></li>
+                    <li><a href="/en/calc/fractioncalculator.html">fractioncalculator</a></li>
+                    <li><a href="/en/calc/finalgradecalculator.html">finalgradecalculator</a></li>
+                    <li><a href="/en/calc/percentagechangecalculator.html">percentagechangecalculator</a></li>
+                    <li><a href="/en/calc/percentageincreasecalculator.html">percentageincreasecalculator</a></li>
+                    <li><a href="/en/calc/wiregaugecalculator.html">wiregaugecalculator</a></li>
+                    <li><a href="/en/calc/${slug}.html">${slug}</a></li>
+                    <li><a href="/en/calc/percentagecalculator.html">percentagecalculator</a></li>
+                    <li><a href="/en/calc/scientificcalculator.html">scientificcalculator</a></li>
+                    <li><a href="/en/calc/bmicalculator.html">bmicalculator</a></li>
+                    <li><a href="/en/calc/mortgagecalculator.html">mortgagecalculator</a></li>
+                    <li><a href="/en/calc/compoundinterestcalculator.html">compoundinterestcalculator</a></li>
+                    <li><a href="/en/calc/gradecalculator.html">gradecalculator</a></li>
+                    <li><a href="/en/calc/averagecalculator.html">averagecalculator</a></li>
+                    <li><a href="/en/calc/fractioncalculator.html">fractioncalculator</a></li>
+                    <li><a href="/en/calc/finalgradecalculator.html">finalgradecalculator</a></li>
+                    <li><a href="/en/calc/percentagechangecalculator.html">percentagechangecalculator</a></li>
+                    <li><a href="/en/calc/percentageincreasecalculator.html">percentageincreasecalculator</a></li>
+                    <li><a href="/en/calc/wiregaugecalculator.html">wiregaugecalculator</a></li>
+                    <li><a href="/en/calc/${slug}.html">${slug}</a></li>
+                    <li><a href="/en/calc/percentagecalculator.html">percentagecalculator</a></li>
+                    <li><a href="/en/calc/scientificcalculator.html">scientificcalculator</a></li>
+                    <li><a href="/en/calc/bmicalculator.html">bmicalculator</a></li>
+                    <li><a href="/en/calc/mortgagecalculator.html">mortgagecalculator</a></li>
+                    <li><a href="/en/calc/compoundinterestcalculator.html">compoundinterestcalculator</a></li>
+                    <li><a href="/en/calc/gradecalculator.html">gradecalculator</a></li>
+                    <li><a href="/en/calc/averagecalculator.html">averagecalculator</a></li>
+                    <li><a href="/en/calc/fractioncalculator.html">fractioncalculator</a></li>
+                    <li><a href="/en/calc/finalgradecalculator.html">finalgradecalculator</a></li>
+                    <li><a href="/en/calc/percentagechangecalculator.html">percentagechangecalculator</a></li>
+                    <li><a href="/en/calc/percentageincreasecalculator.html">percentageincreasecalculator</a></li>
+                    <li><a href="/en/calc/wiregaugecalculator.html">wiregaugecalculator</a></li>
+                    <li><a href="/en/calc/${slug}.html">${slug}</a></li>
+                    <li><a href="/en/calc/percentagecalculator.html">percentagecalculator</a></li>
+                    <li><a href="/en/calc/scientificcalculator.html">scientificcalculator</a></li>
+                    <li><a href="/en/calc/bmicalculator.html">bmicalculator</a></li>
+                    <li><a href="/en/calc/mortgagecalculator.html">mortgagecalculator</a></li>
+                    <li><a href="/en/calc/compoundinterestcalculator.html">compoundinterestcalculator</a></li>
+                    <li><a href="/en/calc/gradecalculator.html">gradecalculator</a></li>
+                    <li><a href="/en/calc/averagecalculator.html">averagecalculator</a></li>
+                    <li><a href="/en/calc/fractioncalculator.html">fractioncalculator</a></li>
+                    <li><a href="/en/calc/finalgradecalculator.html">finalgradecalculator</a></li>
+                    <li><a href="/en/calc/percentagechangecalculator.html">percentagechangecalculator</a></li>
+                    <li><a href="/en/calc/percentageincreasecalculator.html">percentageincreasecalculator</a></li>
+                    <li><a href="/en/calc/wiregaugecalculator.html">wiregaugecalculator</a></li>
+                    <li><a href="/en/calc/${slug}.html">${slug}</a></li>
+                    <li><a href="/en/calc/percentagecalculator.html">percentagecalculator</a></li>
+                    <li><a href="/en/calc/scientificcalculator.html">scientificcalculator</a></li>
+                    <li><a href="/en/calc/bmicalculator.html">bmicalculator</a></li>
+                    <li><a href="/en/calc/mortgagecalculator.html">mortgagecalculator</a></li>
+                    <li><a href="/en/calc/compoundinterestcalculator.html">compoundinterestcalculator</a></li>
+                    <li><a href="/en/calc/gradecalculator.html">gradecalculator</a></li>
+                    <li><a href="/en/calc/averagecalculator.html">averagecalculator</a></li>
+                    <li><a href="/en/calc/fractioncalculator.html">fractioncalculator</a></li>
+                    <li><a href="/en/calc/finalgradecalculator.html">finalgradecalculator</a></li>
+                    <li><a href="/en/calc/percentagechangecalculator.html">percentagechangecalculator</a></li>
+                    <li><a href="/en/calc/percentageincreasecalculator.html">percentageincreasecalculator</a></li>
+                    <li><a href="/en/calc/wiregaugecalculator.html">wiregaugecalculator</a></li>
+                    <li><a href="/en/calc/${slug}.html">${slug}</a></li>
+                    <li><a href="/en/calc/percentagecalculator.html">percentagecalculator</a></li>
+                    <li><a href="/en/calc/scientificcalculator.html">scientificcalculator</a></li>
+                    <li><a href="/en/calc/bmicalculator.html">bmicalculator</a></li>
+                    <li><a href="/en/calc/mortgagecalculator.html">mortgagecalculator</a></li>
+                    <li><a href="/en/calc/compoundinterestcalculator.html">compoundinterestcalculator</a></li>
+                    <li><a href="/en/calc/gradecalculator.html">gradecalculator</a></li>
+                    <li><a href="/en/calc/averagecalculator.html">averagecalculator</a></li>
+                    <li><a href="/en/calc/fractioncalculator.html">fractioncalculator</a></li>
+                    <li><a href="/en/calc/finalgradecalculator.html">finalgradecalculator</a></li>
+                    <li><a href="/en/calc/percentagechangecalculator.html">percentagechangecalculator</a></li>
+                    <li><a href="/en/calc/percentageincreasecalculator.html">percentageincreasecalculator</a></li>
+                    <li><a href="/en/calc/wiregaugecalculator.html">wiregaugecalculator</a></li>
+                    <li><a href="/en/calc/${slug}.html">${slug}</a></li>
+                </ul>
+            </div>
+            
+            <div class="category">
+                <h2 class="category-title">Converters</h2>
+                <ul class="calculator-list">
+                    <li><a href="/en/convert/temperature-converter.html">Temperature Converter</a></li>
+                    <li><a href="/en/convert/length-converter.html">Length Converter</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2024 IntlCalc. All rights reserved.</p>
+    </footer>
+
+    <script>
+    function changeLanguage(lang) {
+        const currentPath = window.location.pathname;
+        const newPath = currentPath.replace(/^/([a-z]{2})//, '/' + lang + '/');
+        if (newPath !== currentPath) {
+            window.location.href = newPath;
+        }
+    }
+    </script>
+</body>
+</html>

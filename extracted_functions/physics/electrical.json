@@ -1,0 +1,358 @@
+[
+  {
+    "name": "anonymous",
+    "code": "function(e) { if( e.keyCode==13 ) convert(); }",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\Amp_to_kW_Calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 3,
+    "lineEnd": 3
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      document.getElementById(\"calcform\").onkeypress = function(e) { if( e.keyCode==13 ) convert(); };\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\Amp_to_kW_Calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 4
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2,x3) {\n\t\t\t\tvar isel = document.calcform.C1.selectedIndex;\n\t\t\t\tvar v;\n\t\t\t\tif( isel==0 )\n\t\t\t \t\tv=x2/x1;\n\t\t\t \telse\n\t\t\t \t\tv=x3*x1;\n\t\t\t \treturn v;\n\t\t\t}",
+    "params": [
+      "x1",
+      "x2",
+      "x3"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\Amp_to_Volt_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 25
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams(){for(var e,l=window.location.href,t=/[?&]([^=#]+)=([^&#]*)/g,n={};e=t.exec(l);)n[e[1]]=e[2];return n}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\Amp_to_Watt_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e){13==e.keyCode&&convert()}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\Amp_to_Watt_Calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){var e=document.getElementById(\"pf0\"),l=document.getElementById(\"pf1\");if(e.style.display=\"none\",l.style.display=\"none\",calcform.onkeypress=function(e){13==e.keyCode&&convert()},-1!=window.location.href.indexOf(\"?\")){var t=GetURLParams();if(void 0!==t.type){if(\"0\"==t.type&&\"1\"==t.isel&&\"1\"==t.vsel){var n=t.i+\" amps to watts at \"+t.v+\"V\";document.title=n}itypeElem.selectedIndex=t.type,vtypeElem.selectedIndex=t.vtype,iElem.value=t.i,iselElem.value=t.isel,vElem.value=t.v,vselElem.value=t.vsel,pfElem.value=t.pf,OnTypeChange(),convert()}}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\Amp_to_Watt_Calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2,x3) {\n\t\t\t\tvar ictype = document.calcform.charge_type.selectedIndex;\n\t\t\t\tvar v,y;\n\t\t\t\tif( ictype==0 )\n\t\t\t\t\tv = x1/x2;\n\t\t\t\telse\n\t\t\t\t\tv = 1.602176565e-19*x1/x3;\n\t\t\t \treturn v;\n\t\t\t}",
+    "params": [
+      "x1",
+      "x2",
+      "x3"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\ev-to-volt-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 25
+  },
+  {
+    "name": "xcalc4",
+    "code": "function xcalc4() {\n\t\t\t\tvar x1 = document.calcform.x1.value;\n\t\t\t\tvar x2 = document.calcform.x2.value;\n\t\t\t\tvar x3 = document.calcform.x3.value;\n\t\t\t\tvar ictype = document.calcform.charge_type.selectedIndex;\n\t\t\t\tvar v,y;\n\t\t\t\tif( ictype==0 )\n\t\t\t\t\tv = x1/x2;\n\t\t\t\telse\n\t\t\t\t\tv = 1.602176565e-19*x1/x3;\n\t\t\t \ty  = roundresult(v);\n\t\t\t \tyy = y.toString();\n\t\t\t \tif( yy.length>12 ) {\n\t\t\t \t\ty = parseFloat(y);\n\t\t\t \t\ty = y.toPrecision(10);\n\t\t\t \t}\n\t\t\t \tdocument.calcform.y.value = y;\n\t\t\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\ev-to-volt-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 26,
+    "lineEnd": 43
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2) {\n\t\t\t \treturn x1/x2;\n\t\t\t}",
+    "params": [
+      "x1",
+      "x2"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\Joule_to_Volt_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 4
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2) {\n\t\t\t \treturn x1/x2;\n\t\t\t}",
+    "params": [
+      "x1",
+      "x2"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\Joule_to_Watt_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 4
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2) {\n\t\t\tif( x2>1 || x2<0 )\n\t\t\t{\n\t\t\t\talert('Enter power factor from 0 to 1');\n\t\t\t\tdocument.calcform.x2.value = '';\n\t\t\t\treturn Number.NaN;\n\t\t\t}\n\t\t\telse\n\t\t \t\treturn x1*x2;\n\t\t}",
+    "params": [
+      "x1",
+      "x2"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\kva-to-kw-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 11
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2) {\n\t\t\t \treturn x1/x2;\n\t\t\t}",
+    "params": [
+      "x1",
+      "x2"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\kw-to-kva-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 4
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2) {\n\t\t\t\tif( x2>1 || x2<0 )\n\t\t\t\t{\n\t\t\t\t\talert('Enter power factor from 0 to 1');\n\t\t\t\t\tdocument.calcform.x2.value = '';\n\t\t\t\t\treturn Number.NaN;\n\t\t\t\t}\n\t\t\t\telse\n\t\t\t\t \treturn x1/x2;\n\t\t\t}",
+    "params": [
+      "x1",
+      "x2"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\kw-to-kva-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 11
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2) {\n\t\t\t \treturn x1/x2;\n\t\t\t}",
+    "params": [
+      "x1",
+      "x2"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\kWh_to_kW_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 4
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams(){for(var e,l=window.location.href,a=/[?&]([^=#]+)=([^&#]*)/g,t={};e=a.exec(l);)t[e[1]]=e[2];return t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\ohms-law-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){oncalc()}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\ohms-law-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e){13==e.keyCode&&oncalc()}",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\ohms-law-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){if(bcalc.type=\"button\",bcalc.onclick=function(){oncalc()},document.getElementById(\"calcform\").onkeypress=function(e){13==e.keyCode&&oncalc()},document.getElementById(\"calcform2\").onkeypress=function(e){13==e.keyCode&&oncalc2()},-1!=window.location.href.indexOf(\"?\")){var e=GetURLParams();if(void 0!==e.cr||void 0!==e.ci||void 0!==e.cv){var l=decodeURIComponent2(e.r),a=decodeURIComponent2(e.i),t=decodeURIComponent2(e.v),n=decodeURIComponent2(e.p),o=decodeURIComponent2(e.cr),d=decodeURIComponent2(e.ci),m=decodeURIComponent2(e.cv),u=decodeURIComponent2(e.cp);rctl.value=l,ictl.value=a,vctl.value=t,pctl.value=n,crctl.selectedIndex=o,cictl.selectedIndex=d,cvctl.selectedIndex=m,cpctl.selectedIndex=u,window.location.hash=\"\",window.location.hash=\"#calcform\",oncalc()}}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\ohms-law-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "oncalc3",
+    "code": "function oncalc3() {\n\t\t\te = document.calcform3.e.value;\n\t\t\tt = document.calcform3.t.value;\n\t\t\tp = document.calcform3.p.value;\n\t\t\tif( e!=\"\" && t!=\"\" ) p=e/t;\n\t\t\telse if( e!=\"\" && p!=\"\" ) t=e/p;\n\t\t\telse if( p!=\"\" && t!=\"\" ) e=p*t;\n\t\t\tdocument.calcform3.e.value = roundnum(e,8);\n\t\t\tdocument.calcform3.t.value = roundnum(t,8);\n\t\t\tdocument.calcform3.p.value = roundnum(p,8);\n\t\t}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\power-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 25,
+    "lineEnd": 35
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2) {\n\t\t\t\tif( x2>1 || x2<0 )\n\t\t\t\t{\n\t\t\t\t\talert('Enter power factor from 0 to 1');\n\t\t\t\t\tdocument.calcform.x2.value = '';\n\t\t\t\t\treturn Number.NaN;\n\t\t\t\t}\n\t\t\t\telse\n\t\t\t \t\treturn x1*x2;\n\t\t\t}",
+    "params": [
+      "x1",
+      "x2"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\va-to-watt-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 11
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2,x3) {\n\t\t\t\tvar ictype = document.calcform.charge_type.selectedIndex;\n\t\t\t\tvar ev,y;\n\t\t\t\tif( ictype==0 )\n\t\t\t\t\tev = x1*x2;\n\t\t\t\telse\n\t\t\t\t\tev = x1*x3/1.602176565e-19;\n\t\t\t \treturn ev;\n\t\t\t}",
+    "params": [
+      "x1",
+      "x2",
+      "x3"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\volt-to-ev-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 17,
+    "lineEnd": 25
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2) {\n\t\t \treturn x1*x2;\n\t\t}",
+    "params": [
+      "x1",
+      "x2"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\Volt_to_Joule_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 4
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2) {\n\t\t\t\tif( x2>1 || x2<0 )\n\t\t\t\t{\n\t\t\t\t\talert('Enter power factor from 0 to 1');\n\t\t\t\t\tdocument.calcform.x2.value = '';\n\t\t\t\t\treturn Number.NaN;\n\t\t\t\t}\n\t\t\t\telse\n\t\t\t \t\treturn x1/x2;\n\t\t\t}",
+    "params": [
+      "x1",
+      "x2"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\watt-to-va-calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 11
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e) { if( e.keyCode==13 && calcbtn.disabled==false ) oncalc(); }",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\watt-volt-amp-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 9,
+    "lineEnd": 9
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e) { if( e.keyCode==13 && calcbtn.disabled==false ) oncalc(); }",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\watt-volt-amp-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 10,
+    "lineEnd": 10
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e) { if( e.keyCode==13 && calcbtn.disabled==false ) oncalc(); }",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\watt-volt-amp-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 11,
+    "lineEnd": 11
+  },
+  {
+    "name": "anonymous",
+    "code": "function(e) { if( e.keyCode==13 && calcbtn.disabled==false ) oncalc(); }",
+    "params": [
+      "e"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\watt-volt-amp-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 12,
+    "lineEnd": 12
+  },
+  {
+    "name": "anonymous",
+    "code": "function() {\n      relem.onkeypress = function(e) { if( e.keyCode==13 && calcbtn.disabled==false ) oncalc(); };\n      ielem.onkeypress = function(e) { if( e.keyCode==13 && calcbtn.disabled==false ) oncalc(); };\n      velem.onkeypress = function(e) { if( e.keyCode==13 && calcbtn.disabled==false ) oncalc(); };\n      pelem.onkeypress = function(e) { if( e.keyCode==13 && calcbtn.disabled==false ) oncalc(); };\n   }",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\watt-volt-amp-calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 8,
+    "lineEnd": 13
+  },
+  {
+    "name": "GetURLParams",
+    "code": "function GetURLParams(){for(var e,l=window.location.href,t=/[?&]([^=#]+)=([^&#]*)/g,a={};e=t.exec(l);)a[e[1]]=e[2];return a}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\Watt_to_Amp_Calculator.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "anonymous",
+    "code": "function(){if(row0.style.display=\"none\",row1.style.display=\"none\",-1!=window.location.href.indexOf(\"?\")){var e=GetURLParams();if(void 0!==e.w&&void 0!==e.v){if(\"0\"==e.type&&\"1\"==e.wsel&&\"1\"==e.vsel){var l=e.w+\" watts to amps at \"+e.v+\"V\";document.title=l}welem.value=decodeURIComponent2(e.w),velem.value=decodeURIComponent2(e.v),typeelem.value=decodeURIComponent2(e.type),vtypeelem.value=decodeURIComponent2(e.vtype),pfelem.value=decodeURIComponent2(e.pf),wselelem.selectedIndex=decodeURIComponent2(e.wsel),vselelem.selectedIndex=decodeURIComponent2(e.vsel),OnTypeChange(),convert()}}}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\calc\\electric\\Watt_to_Amp_Calculator.html",
+    "type": "FunctionExpression",
+    "lineStart": 2,
+    "lineEnd": 2
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2) {\n\t\t \treturn x1/x2;\n\t\t}",
+    "params": [
+      "x1",
+      "x2"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\electric\\Joule_to_Volt.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 4
+  },
+  {
+    "name": "convert",
+    "code": "function convert(x1,x2) {\n\t\t \treturn x1/x2;\n\t\t}",
+    "params": [
+      "x1",
+      "x2"
+    ],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\electric\\Joule_to_Watt.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 4
+  },
+  {
+    "name": "OnSample",
+    "code": "function OnSample(){hexelem.value=\"54 68 69 73 20 69 73 20 61 20 73 61 6D 70 6C 65 20 74 65 78 74 20 73 74 72 69 6E 67 21\",OnConvert()}",
+    "params": [],
+    "sourceFile": "F:\\www\\calculator\\mirrored_site\\convert\\number\\hex-to-ascii.html",
+    "type": "FunctionDeclaration",
+    "lineStart": 2,
+    "lineEnd": 2
+  }
+]

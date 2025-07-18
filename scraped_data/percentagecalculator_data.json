@@ -1,0 +1,1079 @@
+{
+  "basic": {
+    "name": "Percentage calculator",
+    "slug": "percentagecalculator",
+    "category": "数学计算",
+    "url": "https://www.rapidtables.com/calc/math/percentage-calculator.html",
+    "title": "Percentage Calculator (%)",
+    "description": "Percentage calculator (%) - calculate percentage with steps shown free online.",
+    "keywords": ""
+  },
+  "html": {
+    "calculator_container": {
+      "selector": "[class*=\"calc\"]",
+      "html": "\n      <textarea rows=\"4\" id=\"txt\" placeholder=\"Calculation results ...\" class=\"form-control\" readonly=\"\"></textarea>\n\t",
+      "text": "\n      \n\t\n   \n      What is  % of  ?\n   \n   \n      = Calculate\n      \n   \n   \n      \n   \n\t\n   \n       is what % of \n       ?\n      = Calculate\n       %\n   \n   \n      \n   \n\t\n   \n       is\n       % of what?\n   \n   \n      = Calculate\n      \n   \n   \n      \n   \n   \n   \n      What is the percentage changefrom\n      \n      to\n      ?\n   \n   \n      = Calculate\n       %\n   \n   \n      \n   \n\t\n\t\n\t\t\n\t\t\tPercent:\n\t\t\t \n\t\t\t \n\t\t\tFraction:\n\t\t\t \n\t\t\tDecimal:\n\t\t\t \n\t\t\n\t\t\n\t\t\t\n\t\t\t%\n\t\t\t=\n\t\t\t\n\t\t\t=\n\t\t\t\n\t\t\t×\n\t\t\n\t\t\n\t\t\t\n\t\t\n\t\t\n\t\t\t× Reset\n\t\t\n\t\n\t\n\t"
+    },
+    "input_elements": [
+      {
+        "tag": "textarea",
+        "type": "text",
+        "name": "",
+        "id": "txt",
+        "class": "form-control",
+        "placeholder": "Calculation results ...",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "p11",
+        "id": "p11",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "p12",
+        "id": "p12",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "",
+        "id": "result1",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "textarea",
+        "type": "text",
+        "name": "",
+        "id": "out1",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "p21",
+        "id": "p21",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "p22",
+        "id": "p22",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "",
+        "id": "result2",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "textarea",
+        "type": "text",
+        "name": "",
+        "id": "out2",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "p31",
+        "id": "p31",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "p32",
+        "id": "p32",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "",
+        "id": "result3",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "textarea",
+        "type": "text",
+        "name": "",
+        "id": "out3",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "p41",
+        "id": "p41",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "p42",
+        "id": "p42",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "",
+        "id": "result4",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "textarea",
+        "type": "text",
+        "name": "",
+        "id": "out4",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "p51",
+        "id": "p51",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "p52",
+        "id": "p52",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "p54",
+        "id": "p54",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "p53",
+        "id": "p53",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "q",
+        "id": "calctxt",
+        "class": "form-control ms-0",
+        "placeholder": "Enter a calculation ...",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "",
+        "id": "calcresult",
+        "class": "form-control",
+        "placeholder": "",
+        "value": "",
+        "required": false,
+        "min": null,
+        "max": null,
+        "step": null
+      },
+      {
+        "tag": "textarea",
+        "type": "text",
+        "name": "",
+        "id": "fdbkarea",
+        "class": "form-control",
+        "placeholder": "Your message ...",
+        "value": "",
+        "required": true,
+        "min": null,
+        "max": null,
+        "step": null
+      }
+    ],
+    "output_elements": [
+      {
+        "tag": "input",
+        "id": "result1",
+        "class": "form-control",
+        "text": "",
+        "html": ""
+      },
+      {
+        "tag": "input",
+        "id": "result2",
+        "class": "form-control",
+        "text": "",
+        "html": ""
+      },
+      {
+        "tag": "input",
+        "id": "result3",
+        "class": "form-control",
+        "text": "",
+        "html": ""
+      },
+      {
+        "tag": "input",
+        "id": "result4",
+        "class": "form-control",
+        "text": "",
+        "html": ""
+      },
+      {
+        "tag": "input",
+        "id": "calcresult",
+        "class": "form-control",
+        "text": "",
+        "html": ""
+      }
+    ],
+    "button_elements": [
+      {
+        "tag": "button",
+        "type": "button",
+        "id": "calcbtn1",
+        "class": "btn btn-success",
+        "onclick": "",
+        "text": "= Calculate"
+      },
+      {
+        "tag": "button",
+        "type": "button",
+        "id": "calcbtn2",
+        "class": "btn btn-success",
+        "onclick": "",
+        "text": "= Calculate"
+      },
+      {
+        "tag": "button",
+        "type": "button",
+        "id": "calcbtn3",
+        "class": "btn btn-success",
+        "onclick": "",
+        "text": "= Calculate"
+      },
+      {
+        "tag": "button",
+        "type": "button",
+        "id": "calcbtn4",
+        "class": "btn btn-success",
+        "onclick": "",
+        "text": "= Calculate"
+      },
+      {
+        "tag": "button",
+        "type": "button",
+        "id": "",
+        "class": "btn btn-success",
+        "onclick": "convert()",
+        "text": "="
+      },
+      {
+        "tag": "button",
+        "type": "button",
+        "id": "",
+        "class": "btn btn-success",
+        "onclick": "convert()",
+        "text": "="
+      },
+      {
+        "tag": "button",
+        "type": "reset",
+        "id": "resetbtn1",
+        "class": "btn btn-secondary",
+        "onclick": "",
+        "text": "×"
+      },
+      {
+        "tag": "button",
+        "type": "reset",
+        "id": "resetbtn2",
+        "class": "btn btn-secondary",
+        "onclick": "",
+        "text": "× Reset"
+      },
+      {
+        "tag": "button",
+        "type": "button",
+        "id": "calcbtn",
+        "class": "btn btn-success fw-semibold",
+        "onclick": "calcq()",
+        "text": "="
+      },
+      {
+        "tag": "button",
+        "type": "submit",
+        "id": "",
+        "class": "btn btn-secondary",
+        "onclick": "OnSubFb()",
+        "text": "Submit Feedback"
+      }
+    ],
+    "full_html": "<!DOCTYPE html><html lang=\"en\"><!-- #BeginTemplate \"../../rapidtables.dwt\" --><head>\n<!--\n<script>var mobileAdsNum=0;</script>\n<script async src=\"/lib/tagmng8.js\"></script>\n-->\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/lib/rapid02.css\">\n<link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/lib/favicon/apple-touch-icon.png\">\n<link rel=\"icon\" type=\"image/png\" href=\"/lib/favicon/favicon-32x32.png\" sizes=\"32x32\">\n<link rel=\"icon\" type=\"image/png\" href=\"/lib/favicon/favicon-16x16.png\" sizes=\"16x16\">\n<link rel=\"manifest\" href=\"/lib/favicon/manifest.json\">\n<link rel=\"mask-icon\" href=\"/lib/favicon/safari-pinned-tab.svg\" color=\"#5bbad5\">\n<link rel=\"shortcut icon\" href=\"/lib/favicon/favicon.ico\">\n<meta name=\"msapplication-config\" content=\"/lib/favicon/browserconfig.xml\">\n<meta name=\"theme-color\" content=\"#ffffff\">\n<meta name=\"format-detection\" content=\"telephone=no\">\n<!-- #BeginEditable \"doctitle\" -->\n<title>Percentage Calculator (%)</title>\n<meta name=\"description\" content=\"Percentage calculator (%) - calculate percentage with steps shown free online.\">\n<!--<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi\" crossorigin=\"anonymous\">-->\n<link href=\"/lib/bootstrap/bootstrap4small.css\" rel=\"stylesheet\">\n<style>\n   #adngin-right_sidebar-0 { display:none; }\n   h1 { font-size:1.6rem; }\n   h2 { font-size:1.4rem; }\n   h3 { font-size:1.2rem; }\n   h4 { font-size:1.2rem; }\n   :root { scroll-behavior:unset; }\n   #header>div { width:1050px; }\n   #wrapper { max-width:1050px; }\n   #lcol { max-width:700px; }\n   h1 a,h1 a:hover { color:black; text-decoration:none; }\n   .btn span { font-size:large; font-weight:bold; }\n   .calcform { max-width:700px; width:100%; background:#f0eedc; background:#eed;  padding:15px; border-radius:7px; margin-bottom:20px; }\n   .calcform div { display:inline-block; }\n   .calcform div:nth-child(2) { margin-top:10px; }\n   .calcform div:nth-child(1) input[type=text] { width:105px; display:inline-block; margin-left:5px; }\n   .calcform div:nth-child(1) input[type=number] { width:105px; display:inline-block; margin-left:5px; }\n   .calcform div:nth-child(2) input[type=text] { width:105px; display:inline-block; margin-left:5px; }\n   .calcform div:nth-child(2) input[type=number] { width:105px; display:inline-block; margin-left:5px; }\n   .calcform div:nth-child(3) { display:none; margin-top:10px; }\n   /*#calcform,#calcform0,#calcform5 { display:none; }*/\n   #calcform { display:none; }\n   #calcform0 { background:#f0eedc; padding:15px; border-radius:7px; margin-bottom:20px; }\n   #calcform2 div:nth-child(2) { display:none; margin-top:10px; }\n   #calcform4 input[type=text] { margin-top:10px; }\n   #calcform4 input[type=number] { margin-top:10px; }\n   #txt { font-size:large; }\n\t#tbl5 tr:nth-child(2) td:nth-child(4) { border-bottom:2px #666 solid }\n   #p52,#p53 { text-align:center; }\n\t@media all and (max-width: 672px) {\n      .calcform { padding:10px; }\n      .calcform div:nth-child(2) { display:block; }\n      .calcform input[type=text] { margin:5px 0; }\n      .calcform input[type=number] { margin:5px 0; }\n      .calcform div:nth-child(1) input[type=text] { width:90px; }\n      .calcform div:nth-child(1) input[type=number] { width:90px; }\n      #calcform5 { padding:10px; }\n      #calcform5 button[type=reset] { float:left; }\n      #resetbtn1 { display:none; }\n   }\n\t@media all and (min-width: 673px) {\n      .calcform button { margin-left:10px; }\n      #calcform5 button { margin-left:0; }\n      #resetbtn2 { display:none; }\n   }\n   .fraction {\n      display: inline-block;\n      position: relative;\n      vertical-align: middle; \n      letter-spacing: 0.001em;\n      text-align: center;\n   }\n   .fraction > span { display: block; padding: 0.1em; }\n   .fraction span.fdn { border-top: 2px solid black; }\n</style>\n<noscript>\n   <style>#calcform0, #calcform5 { display:none; }</style>\n</noscript>\n<!-- #EndEditable -->\n\n</head>\n\n<body>\n\n<div id=\"header\">\n\t<div>\n\t<div id=\"logo\"><a href=\"/\">RapidTables</a></div>\n   <div class=\"gcse-search\"></div>\n   <div id=\"tooldiv\">\n      <a href=\"#\" onclick=\"OnPageSearch()\"><img width=\"24\" height=\"24\" title=\"Search\" src=\"/lib/icons/material/svg/search_black_24dp.svg\" loading=\"lazy\"><span> Search</span></a>\n      <a href=\"#\" onclick=\"OnPageShare()\"><img width=\"24\" height=\"24\" title=\"Share\" src=\"/lib/icons/material/svg/share_black_24dp.svg\" loading=\"lazy\"><span> Share</span></a>\n   </div>\n\t</div>\n</div>\n\n<div id=\"wrapper\">\n\n<div id=\"nav\">\n\t<!-- #BeginEditable \"doclink\" -->\n\t<a href=\"/\">Home</a>›<a href=\"../index.html\">Calculators</a>›<a href=\"index.html\">Math Calculators</a>›<a href=\"percentage-calculator.html\">Percentage calculator</a>\n\t<!-- #EndEditable -->\n</div>\n\n<div id=\"lcol\">\n\n\t<div id=\"doc\">\n\t<!-- #BeginEditable \"doctext\" -->\n\t<h1><a href=\"percentage-calculator.html\">Percentage Calculator (%)</a></h1>\n\t<form id=\"calcform\" class=\"calcform\">\n      <textarea rows=\"4\" id=\"txt\" placeholder=\"Calculation results ...\" class=\"form-control\" readonly=\"\"></textarea>\n\t</form>\n\t<form id=\"calcform1\" class=\"calcform\">\n   <div>\n      What is <input type=\"text\" id=\"p11\" name=\"p11\" value=\"\" class=\"form-control\" tabindex=\"1\" autofocus=\"\"> % of <input type=\"text\" id=\"p12\" name=\"p12\" value=\"\" class=\"form-control\" tabindex=\"2\"> ?\n   </div>\n   <div>\n      <button type=\"button\" id=\"calcbtn1\" title=\"Calculate\" class=\"btn btn-success\" tabindex=\"3\"><span>=</span> Calculate</button>\n      <input type=\"text\" id=\"result1\" value=\"\" class=\"form-control\" tabindex=\"4\" readonly=\"\">\n   </div>\n   <div>\n      <textarea rows=\"1\" id=\"out1\" class=\"form-control\" readonly=\"\"></textarea>\n   </div>\n\t</form>\n\t<form id=\"calcform2\" class=\"calcform\">\n   <div>\n      <input type=\"text\" id=\"p21\" name=\"p21\" value=\"\" class=\"form-control\" tabindex=\"5\"> is what % of \n      <input type=\"text\" id=\"p22\" name=\"p22\" value=\"\" class=\"form-control\" tabindex=\"6\"> ?\n      <button type=\"button\" id=\"calcbtn2\" title=\"Calculate\" class=\"btn btn-success\" tabindex=\"7\"><span>=</span> Calculate</button>\n      <input type=\"text\" id=\"result2\" value=\"\" class=\"form-control\" readonly=\"\" tabindex=\"8\"> %\n   </div>\n   <div>\n      <textarea rows=\"1\" id=\"out2\" class=\"form-control\" readonly=\"\"></textarea>\n   </div>\n\t</form>\n   <form id=\"calcform3\" class=\"calcform\">\n   <div>\n      <input type=\"text\" id=\"p31\" name=\"p31\" value=\"\" class=\"form-control\" tabindex=\"9\"> is\n      <input type=\"text\" id=\"p32\" name=\"p32\" value=\"\" class=\"form-control\" tabindex=\"10\"> % of what?\n   </div>\n   <div>\n      <button type=\"button\" id=\"calcbtn3\" title=\"Calculate\" class=\"btn btn-success\" tabindex=\"11\"><span>=</span> Calculate</button>\n      <input type=\"text\" id=\"result3\" value=\"\" class=\"form-control\" tabindex=\"12\" readonly=\"\">\n   </div>\n   <div>\n      <textarea rows=\"1\" id=\"out3\" class=\"form-control\" readonly=\"\"></textarea>\n   </div>\n   </form>\n\n   <!--<h4>Percentage change</h4>-->\n\t<form id=\"calcform4\" class=\"calcform\">\n   <div>\n      What is the percentage change<br>from\n      <input type=\"text\" id=\"p41\" name=\"p41\" value=\"\" class=\"form-control\" tabindex=\"13\">\n      to\n      <input type=\"text\" id=\"p42\" name=\"p42\" value=\"\" class=\"form-control\" tabindex=\"14\">?\n   </div>\n   <div>\n      <button type=\"button\" id=\"calcbtn4\" title=\"Calculate\" class=\"btn btn-success\" tabindex=\"15\"><span>=</span> Calculate</button>\n      <input type=\"text\" id=\"result4\" value=\"\" class=\"form-control\" tabindex=\"16\" readonly=\"\"> %\n   </div>\n   <div>\n      <textarea rows=\"1\" id=\"out4\" class=\"form-control\" readonly=\"\"></textarea>\n   </div>\n\t</form>\n\t\n   <!--<h4>Percent to fraction & decimal</h4>-->\n\t<form id=\"calcform5\" class=\"calcform\" style=\"display: block;\">\n\t<table id=\"tbl5\">\n\t\t<tbody><tr>\n\t\t\t<td>Percent:</td>\n\t\t\t<td>&nbsp;</td>\n\t\t\t<td>&nbsp;</td>\n\t\t\t<td>Fraction:</td>\n\t\t\t<td>&nbsp;</td>\n\t\t\t<td>Decimal:</td>\n\t\t\t<td>&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td rowspan=\"2\"><input type=\"text\" id=\"p51\" name=\"p51\" class=\"form-control\" tabindex=\"17\"></td>\n\t\t\t<td rowspan=\"2\">%</td>\n\t\t\t<td rowspan=\"2\"><button type=\"button\" title=\"Convert\" onclick=\"convert()\" class=\"btn btn-success\" tabindex=\"18\"><span>=</span></button></td>\n\t\t\t<td><input type=\"text\" id=\"p52\" name=\"p52\" class=\"form-control\" tabindex=\"19\"></td>\n\t\t\t<td rowspan=\"2\"><button type=\"button\" title=\"Convert\" onclick=\"convert()\" class=\"btn btn-success\" tabindex=\"21\"><span>=</span></button></td>\n\t\t\t<td rowspan=\"2\"><input type=\"text\" id=\"p54\" name=\"p54\" class=\"form-control\" tabindex=\"22\"></td>\n\t\t\t<td rowspan=\"2\"><button type=\"reset\" id=\"resetbtn1\" title=\"Reset\" class=\"btn btn-secondary\" tabindex=\"23\"><span>×</span></button></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td><input type=\"text\" id=\"p53\" name=\"p53\" class=\"form-control\" tabindex=\"20\"></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"7\"><button type=\"reset\" id=\"resetbtn2\" title=\"Reset\" class=\"btn btn-secondary\" tabindex=\"24\"><span>×</span> Reset</button></td>\n\t\t</tr>\n\t</tbody></table>\n\t<!--<p>Example: 30% = 3/10 = 0.3</p>-->\n\t</form>\n\t<form id=\"calcform0\" style=\"display: block;\">\n   <div class=\"input-group\">\n         <input type=\"text\" id=\"calctxt\" name=\"q\" tabindex=\"25\" placeholder=\"Enter a calculation ...\" class=\"form-control ms-0\" spellcheck=\"false\" autocomplete=\"off\">\n         <button type=\"button\" id=\"calcbtn\" title=\"Calculate\" tabindex=\"26\" class=\"btn btn-success fw-semibold\" onclick=\"calcq()\" style=\"margin:auto 15px;\"><span>=</span></button>\n         <input type=\"text\" id=\"calcresult\" tabindex=\"27\" class=\"form-control\" spellcheck=\"false\" autocomplete=\"off\" readonly=\"\" style=\"width:1rem; max-width:200px\">\n   </div>\n\t</form>\n\t<!-- #EndEditable -->\n\n   <!-- rapidtables_bottom_01 -->\n   <div id=\"adngin-bottom_01-0\"></div>\n\t\n\t<!-- #BeginEditable \"doctext2\" -->\n\t<h2>Percentage calculations</h2>\n\t<h4>Percentage of a value calculation</h4>\n\t<p>What is 20% of $60?</p>\n\t<p>20% is 20/100 mutiplied by $60:</p>\n\t<div class=\"mathsymbol\">20% × $60 = <div class=\"fraction\"><span class=\"fup\">20</span><span class=\"fdn\">100</span></div> × $60 = 0.2 × $60 = $12</div>\n\t<h4>Percentage calculation</h4>\n\t<p>$12 is what percent of $60?</p>\n\t<p>$12 is divided by $60 and multiplied by 100%:</p>\n\t<div class=\"mathsymbol\"><div class=\"fraction\"><span class=\"fup\">$12</span><span class=\"fdn\">$60</span></div> × 100% = 20%</div>\n\t<h4>Whole value calculation</h4>\n\t<p>$12 is 20% of what?</p>\n\t<p>$12 is divided by 20%:</p>\n\t<div class=\"mathsymbol\"><div class=\"fraction\"><span class=\"fup\">$12</span><span class=\"fdn\">20%</span></div> = <div class=\"fraction\"><span class=\"fup\">$12</span><span class=\"fdn\">20</span></div> × 100 = $60</div>\n\t<h4>Percentage change calculation</h4>\n   <!--   <p><a href=\"simple-calculator.html?c=200%2B50%25\">Percentage change: 200+50% (short writing)</a></p>-->\n\t<p>What is the percentage change from $40 to $50?</p>\n\t<p>The difference between $50 and $40 is divided by $40 and multiplied by 100%:</p>\n\t<div class=\"mathsymbol\"><div class=\"fraction\"><span class=\"fup\">$50 - $40</span><span class=\"fdn\">$40</span></div> × 100% = 0.25 × 100% = 25%</div>\n\t<br>\n\t<hr>\n\t<h2>See also</h2>\n\t<ul class=\"seealso\">\n\t\t<li><a href=\"/math/number/Percentage.html\">Percentage (%)</a></li>\n\t\t<li><a href=\"percentage-increase-calculator.html\">Percentage increase calculator</a></li>\n\t\t<li><a href=\"percentage-change-calculator.html\">Percentage change calculator</a></li>\n\t\t<li><a href=\"percent-error-calculator.html\">Percent error calculator</a></li>\n\t\t<li><a href=\"/convert/number/percent-to-fraction.html\">Percent to fraction</a></li>\n\t\t<li><a href=\"/convert/number/fraction-to-percent.html\">Fraction to percent</a></li>\n\t\t<li><a href=\"/convert/number/percent-to-decimal.html\">Percent to decimal</a></li>\n\t\t<li><a href=\"/convert/number/decimal-to-percent.html\">Decimal to percent</a></li>\n\t\t<li><a href=\"/convert/number/Percent_to_PPM.html\">Percent to ppm</a></li>\n\t\t<li><a href=\"/convert/number/PPM_to_Percent.html\">ppm to percent</a></li>\n\t\t<li><a href=\"/calc/grade/grade-calculator.html\">Grade calculator</a></li>\n\t\t<li><a href=\"/math/number/Per_mille.html\">Per-mille (‰)</a></li>\n\t\t<li><a href=\"/math/number/PPM.html\">Parts-per million (ppm)</a></li>\n\t\t<li><a href=\"/math/symbols/Basic_Math_Symbols.html\">Math symbols</a></li>\n\t</ul>\n\t<!-- #EndEditable -->\n\t</div>\n\t\n   <div id=\"fdbk\">\n      <h2 id=\"feedback\">Write how to improve this page</h2>\n      <form id=\"fdbkform\">\n      <textarea id=\"fdbkarea\" rows=\"4\" minlength=\"30\" maxlength=\"1000\" placeholder=\"Your message ...\" required=\"\" class=\"form-control\"></textarea>\n      <span id=\"fdbkmsg\"></span>\n      <button type=\"submit\" class=\"btn btn-secondary\" onclick=\"OnSubFb()\">Submit Feedback</button>\n      </form>\n   </div>\n</div>\n\n<div id=\"rcol\">\n   <!-- rapidtables_right_sidebar -->\n   <div id=\"adngin-right_sidebar-0\"></div>\n\n\t<!-- #BeginEditable \"docnav\" -->\n\t<h5>MATH CALCULATORS</h5>\n\t<ul>\n\t\t<li><a href=\"calculator.html\">Scientific calculator</a></li>\n\t\t<li><a href=\"simple-calculator.html\">Simple calculator</a></li>\n\t\t<li><a href=\"average-calculator.html\">Average calculator</a></li>\n\t\t<li><a href=\"base-calculator.html\">Base calculator</a></li>\n\t\t<li><a href=\"complex-calculator.html\">Complex numbers calculator</a></li>\n\t\t<li><a href=\"fractions-calculator.html\">Fractions calculator</a></li>\n      <li><a href=\"percentage-calculator.html\">Percentage calculator</a></li>\n\t</ul>\n\t<h5>RAPID TABLES</h5>\n\t<ul>\n\t\t<li><a href=\"/about.html#link\" rel=\"nofollow\">Link to Us</a></li>\n\t\t<li><a href=\"mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com\">Recommend Site</a></li>\n\t\t<li><a href=\"#feedback\">Send Feedback</a></li>\n\t\t<li><a href=\"/about/about.html\">About</a></li>\n\t</ul>\n\t<!-- #EndEditable -->\n\t\n</div>\n\n</div>\n\n<div id=\"footer\">\n\t<a href=\"/index.html\">Home</a> | \n\t<a href=\"/web/index.html\">Web</a> |\n\t<a href=\"/math/index.html\">Math</a> | \n\t<a href=\"/electric/index.html\">Electricity</a> |\n\t<a href=\"/calc/index.html\">Calculators</a> | \n\t<a href=\"/convert/index.html\">Converters</a> |\n\t<a href=\"/tools/index.html\">Tools</a>\n\t<p>©  \n\t<a href=\"/\">RapidTables.com</a> | \n\t<a href=\"/about/about.html\" rel=\"nofollow\">About</a> | \n\t<a href=\"/about/terms.html\" rel=\"nofollow\">Terms of Use</a> | \n\t<a href=\"/about/privacy.html\" rel=\"nofollow\">Privacy Policy</a> | \n\t<a href=\"/about/cookies.html\" rel=\"nofollow\">Manage Cookies</a>\n\t</p>\n</div>\n\n<!-- rapidtables_bottom_adhesive -->\n<div id=\"adngin-adhesive-0\"></div>\n\n<!-- #BeginEditable \"docscript\" -->\n<!--sse-->\n<!--\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.6.7/es5-shim.min.js\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.6.7/es5-sham.min.js\"></script>\n-->\n<script src=\"/calc/calc2.js\" defer=\"\"></script>\n<!--<script src=\"https://cdnjs.cloudflare.com/ajax/libs/mathjs/13.0.3/math.min.js\" integrity=\"sha512-iatv2PvvAmY15HqtWaNhisBs45yRZpTj/69zD4+wNJoV10U/ti2AoqG2G+0WhAS4/N3WWjqqzGnKxZNFqw4HjQ==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"></script>-->\n<script>\nvar calcform=document.getElementById(\"calcform\"),calcform0=document.getElementById(\"calcform0\"),calcform5=document.getElementById(\"calcform5\"),calcbtn1=document.getElementById(\"calcbtn\"),calcbtn1=document.getElementById(\"calcbtn1\"),calcbtn2=document.getElementById(\"calcbtn2\"),calcbtn3=document.getElementById(\"calcbtn3\"),calcbtn4=document.getElementById(\"calcbtn4\"),txt=document.getElementById(\"txt\"),calctxt=document.getElementById(\"calctxt\"),calcresult=document.getElementById(\"calcresult\"),c1elem=document.getElementById(\"c1\"),c2elem=document.getElementById(\"c2\"),c3elem=document.getElementById(\"c3\"),c4elem=document.getElementById(\"c4\"),p11elem=document.getElementById(\"p11\"),p12elem=document.getElementById(\"p12\"),p21elem=document.getElementById(\"p21\"),p22elem=document.getElementById(\"p22\"),p31elem=document.getElementById(\"p31\"),p32elem=document.getElementById(\"p32\"),p41elem=document.getElementById(\"p41\"),p42elem=document.getElementById(\"p42\"),p51elem=document.getElementById(\"p51\"),p52elem=document.getElementById(\"p52\"),p53elem=document.getElementById(\"p53\"),p54elem=document.getElementById(\"p54\"),lastin=-1,lastout=-1,prec=16;function removeAt(e,t){return e=e.substring(0,t)+e.substring(t+1,e.length)}function digits_after_period(e){var t=e.toString(),l=t.indexOf(\".\");return t.length-l-1}function roundresult(e){return roundnum(y=parseFloat(e),10)}function roundnum(e,t){var l,n=String(parseFloat(e).toPrecision(t+1));if(-1==(l=n.indexOf(\"e\"))&&(l=n.length),l>(j=n.indexOf(\".\"))&&-1!=j){for(;l>0;)if(\"0\"==n.charAt(--l))n=removeAt(n,l);else break;\".\"==n.charAt(l)&&(n=removeAt(n,l))}return n}window.addEventListener(\"DOMContentLoaded\",function(){\"function\"==typeof Promise&&-1==window.location.href.indexOf(\"?\")&&(calcform0.style.display=\"block\",calcform5.style.display=\"block\",calcbtn1.type=\"button\",calcbtn2.type=\"button\",calcbtn3.type=\"button\",calcbtn4.type=\"button\",calcbtn.onclick=function(){calcq()},calcbtn1.onclick=function(){calcp1()},calcbtn2.onclick=function(){calcp2()},calcbtn3.onclick=function(){calcp3()},calcbtn4.onclick=function(){calcp4()},document.getElementById(\"calcform0\").onkeypress=function(e){13==e.keyCode&&(e.preventDefault(),calcq())},document.getElementById(\"calcform1\").onkeypress=function(e){13==e.keyCode&&(e.preventDefault(),calcp1())},document.getElementById(\"calcform2\").onkeypress=function(e){13==e.keyCode&&(e.preventDefault(),calcp2())},document.getElementById(\"calcform3\").onkeypress=function(e){13==e.keyCode&&(e.preventDefault(),calcp3())},document.getElementById(\"calcform4\").onkeypress=function(e){13==e.keyCode&&(e.preventDefault(),calcp4())},document.getElementById(\"calcform5\").onkeypress=function(e){13==e.keyCode&&(e.preventDefault(),convert())},calctxt.oninput=function(){calctxt.value=calctxt.value.replace(\"*\",\"\\xd7\")})});var gcd2=function(e,t,l){if(l){if(t<=1)return e}else if(!t)return e;return gcd2(t,e%t,l)};function AddTxt(e,t){\"\"!=txt.value&&(txt.value+=\"\\n\"),txt.value+=e+\"\\n= \",txt.value+=t,txt.scrollTop=txt.scrollHeight,calcform.style.display=\"block\"}function SetURLParams(e){let t=new URL(window.location.href.split(\"?\")[0]);for(var l in e)t.searchParams.set(l,e[l]);window.history.pushState({},\"\",t)}function getMJS(){calcresult.value=\"Calculating ...\";var e=document.createElement(\"script\");e.async=!0,e.src=\"https://cdnjs.cloudflare.com/ajax/libs/mathjs/13.0.3/math.min.js\",e.onload=function(){onMJS()},document.head.appendChild(e)}function onMJS(){math.config({number:\"BigNumber\",precision:prec}),calcq()}function calcq(){if(\"undefined\"==typeof math){getMJS();return}var e=calctxt.value;if(\"\"!=e){e=str2num4(e=(e=e.replace(/\\u00D7/g,\"*\")).replace(/\\u00F7/g,\"/\"));try{var t=math.evaluate(e)}catch(l){calcresult.value=\"Syntax error!\";return}t=t.toString(),AddTxt(calctxt.value,t),calcresult.value=t,document.title=\"Calculate: \"+e+\" = ?\"}}function calcp1(){var e=str2num4(p11elem.value),t=str2num4(p12elem.value),l=e*t/100;l=roundnum(l,6).toString(),document.getElementById(\"result1\").value=l,AddTxt(e+\"%\\xd7\"+t,l),SetURLParams({p11:e.toString(),p12:t.toString()}),document.title=\"What is \"+e+\"% of \"+t+\" ?\"}function calcp2(){var e=str2num4(p21elem.value),t=str2num4(p22elem.value),l=100*e/t;l=roundnum(l,6).toString(),document.getElementById(\"result2\").value=l,AddTxt(\"(\"+e+\"/\"+t+\")\\xd7100%\",l+\"%\"),SetURLParams({p21:e.toString(),p22:t.toString()}),document.title=e+\" is what % of \"+t+\" ?\"}function calcp3(){var e=str2num4(p31elem.value),t=str2num4(p32elem.value),l=e/t*100;l=roundnum(l,6).toString(),document.getElementById(\"result3\").value=l,AddTxt(e+\"/\"+t+\"%\",l),SetURLParams({p31:e.toString(),p32:t.toString()}),document.title=e+\" is \"+t+\"% of what number?\"}function calcp4(){var e=str2num4(p41elem.value),t=str2num4(p42elem.value),l=(t-e)/e*100;l=roundnum(l,6).toString(),document.getElementById(\"result4\").value=l,AddTxt(\"((\"+t+\"-\"+e+\")/\"+e+\")\\xd7100%\",l+\"%\"),SetURLParams({p41:e.toString(),p42:t.toString()}),document.title=\"What is the percentage change from \"+e+\" to \"+t+\" ?\"}function convert(){var e=str2num4(p51elem.value),t=str2num4(p52elem.value),l=str2num4(p53elem.value),n=str2num4(p54elem.value);if(\"\"!=e){var c=\"\",a=\"+\",r=e,o=parseFloat(r/100),u=Math.abs(o),m=0,p=roundresult(u-m);o<0&&(c=a=\"-\");var i=digits_after_period(u),d=(t=Math.round(p*(l=Math.round(Math.pow(10,i))))).toString().length,s=!1;d>8&&(s=!0);var f=gcd2(t,l,s),g=Math.round(t/f),_=Math.round(l/f);p52elem.value=g,p53elem.value=_,p54elem.value=roundresult(o)}else if(\"\"!=t&&\"\"!=l){var r=t/l;p51elem.value=roundresult(100*r),p54elem.value=roundresult(r)}else{var c=\"\",a=\"+\",r=n,o=parseFloat(r),u=Math.abs(o),m=0,p=roundresult(u-m);o<0&&(c=a=\"-\");var i=digits_after_period(u),d=(t=Math.round(p*(l=Math.round(Math.pow(10,i))))).toString().length,s=!1;d>8&&(s=!0);var f=gcd2(t,l,s),g=Math.round(t/f),_=Math.round(l/f);p52elem.value=g,p53elem.value=_,p51elem.value=roundresult(100*o)}SetURLParams({p51:p51elem.value,p52:p52elem.value,p53:p53elem.value,p54:p54elem.value})}function reset1(){document.getElementById(\"pf1\").style.display=\"none\"}function reset2(){document.getElementById(\"pf3\").style.display=\"none\"}function reset3(){document.getElementById(\"pf5\").style.display=\"none\"}function reset4(){document.getElementById(\"pf7\").style.display=\"none\"}\n</script>\n<!--/sse-->\n<!-- #EndEditable -->\n\n\n\n\n\n\n</body><!-- #EndTemplate --></html>"
+  },
+  "css": {
+    "inline_styles": [
+      {
+        "element": "form",
+        "id": "calcform5",
+        "class": "calcform",
+        "style": "display: block;"
+      },
+      {
+        "element": "form",
+        "id": "calcform0",
+        "class": "",
+        "style": "display: block;"
+      },
+      {
+        "element": "button",
+        "id": "calcbtn",
+        "class": "btn btn-success fw-semibold",
+        "style": "margin:auto 15px;"
+      },
+      {
+        "element": "input",
+        "id": "calcresult",
+        "class": "form-control",
+        "style": "width:1rem; max-width:200px"
+      }
+    ],
+    "internal_styles": "\n   #adngin-right_sidebar-0 { display:none; }\n   h1 { font-size:1.6rem; }\n   h2 { font-size:1.4rem; }\n   h3 { font-size:1.2rem; }\n   h4 { font-size:1.2rem; }\n   :root { scroll-behavior:unset; }\n   #header>div { width:1050px; }\n   #wrapper { max-width:1050px; }\n   #lcol { max-width:700px; }\n   h1 a,h1 a:hover { color:black; text-decoration:none; }\n   .btn span { font-size:large; font-weight:bold; }\n   .calcform { max-width:700px; width:100%; background:#f0eedc; background:#eed;  padding:15px; border-radius:7px; margin-bottom:20px; }\n   .calcform div { display:inline-block; }\n   .calcform div:nth-child(2) { margin-top:10px; }\n   .calcform div:nth-child(1) input[type=text] { width:105px; display:inline-block; margin-left:5px; }\n   .calcform div:nth-child(1) input[type=number] { width:105px; display:inline-block; margin-left:5px; }\n   .calcform div:nth-child(2) input[type=text] { width:105px; display:inline-block; margin-left:5px; }\n   .calcform div:nth-child(2) input[type=number] { width:105px; display:inline-block; margin-left:5px; }\n   .calcform div:nth-child(3) { display:none; margin-top:10px; }\n   /*#calcform,#calcform0,#calcform5 { display:none; }*/\n   #calcform { display:none; }\n   #calcform0 { background:#f0eedc; padding:15px; border-radius:7px; margin-bottom:20px; }\n   #calcform2 div:nth-child(2) { display:none; margin-top:10px; }\n   #calcform4 input[type=text] { margin-top:10px; }\n   #calcform4 input[type=number] { margin-top:10px; }\n   #txt { font-size:large; }\n\t#tbl5 tr:nth-child(2) td:nth-child(4) { border-bottom:2px #666 solid }\n   #p52,#p53 { text-align:center; }\n\t@media all and (max-width: 672px) {\n      .calcform { padding:10px; }\n      .calcform div:nth-child(2) { display:block; }\n      .calcform input[type=text] { margin:5px 0; }\n      .calcform input[type=number] { margin:5px 0; }\n      .calcform div:nth-child(1) input[type=text] { width:90px; }\n      .calcform div:nth-child(1) input[type=number] { width:90px; }\n      #calcform5 { padding:10px; }\n      #calcform5 button[type=reset] { float:left; }\n      #resetbtn1 { display:none; }\n   }\n\t@media all and (min-width: 673px) {\n      .calcform button { margin-left:10px; }\n      #calcform5 button { margin-left:0; }\n      #resetbtn2 { display:none; }\n   }\n   .fraction {\n      display: inline-block;\n      position: relative;\n      vertical-align: middle; \n      letter-spacing: 0.001em;\n      text-align: center;\n   }\n   .fraction > span { display: block; padding: 0.1em; }\n   .fraction span.fdn { border-top: 2px solid black; }\n",
+    "external_styles": [
+      {
+        "url": "https://www.rapidtables.com/lib/rapid02.css",
+        "content": "* {\r\n  -webkit-box-sizing: border-box;\r\n     -moz-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n}\r\nhtml, body {\r\n\tmargin:0px;\r\n\tpadding:0px;\r\n\tcolor:#222;\r\n\tfont-size:16px;\r\n\tfont-family:Arial,Verdana,Helvetica,sans-serif;\r\n\tborder-style:none;\r\n\tmin-height: 100%;\r\n}\r\n\r\n#header {\r\n\tbackground:#f0f0d0;\r\n\twidth:100%;\r\n\tz-index:100;\r\n}\r\nbody {\r\n\tline-height:unset !important;\r\n}\r\n#header p, #header a {\r\n\tline-height:1;\r\n\tfont-size:x-large;\r\n\tfont-weight:bold;\r\n\ttext-decoration:none;\r\n\tcolor:#444;\r\n}\r\n#header a:hover {\r\n\tcolor:#dd6600;\r\n}\r\n#header>div {\r\n\twidth:1000px;\r\n\tmargin:0 auto;\r\n\tpadding:0px;\r\n}\r\n#header { font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Arial,\"Noto Sans\",sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\",\"Noto Color Emoji\" }\r\n#header>div { display:flex; align-items:center; }\r\n#logo { margin-left:5px; }\r\n#tooldiv { display:flex; margin-left:auto; margin-right:100px; }\r\n#tooldiv>a { line-height:61px; color:#444; font-size:large; padding-left:20px; padding-right:20px; }\r\n#tooldiv>a:hover { color:#fff; background:#444; text-decoration:none; }\r\n#tooldiv>a:hover img { -webkit-filter:invert(1); filter:invert(1); }\r\n#tooldiv>a>img { vertical-align:middle; }\r\n#tooldiv>a:nth-child(2) { display:none; }\r\n#___gcse_0 { position:absolute; margin-left:230px; width:400px; }\r\n.gsc-control-cse { background-color:inherit !important; }\r\n@media only screen and (max-width:799px) {\r\n\t#header a {\r\n\t\tfont-size:large;\r\n\t}\r\n\t#header>div {\r\n\t\tmax-width:100%;\r\n\t\twidth:auto;\r\n\t\tpadding:0;\r\n\t}\r\n   #logo { margin-left:10px; }\r\n   #tooldiv { margin-right:10px; }\r\n   #tooldiv>a { padding-left:10px; padding-right:10px; }\r\n   #tooldiv>a>span { display:none; }\r\n   #___gcse_0 { margin-left:-5px; width:280px; }\r\n}\r\n\r\n#wrapper {\r\n\tmax-width:1000px;\r\n\tmargin:0 auto;\r\n\tborder-width:0;\r\n\tpadding:0 5px 20px 5px;\r\n}\r\n\r\n#nav {\r\n\tcolor:#000;\r\n\tclear:left;\r\n\tline-height:2;\r\n\tpadding:6px 0;\r\n\tborder-bottom:1px #ddd solid;\r\n}\r\n#nav a {\r\n\tline-height:2;\r\n\tpadding:11px 4px;\r\n\tcolor:#000;\r\n\ttext-decoration:none; \r\n}\r\n#nav a:first-child { margin-left:-5px; padding-left:5px; padding-right:7px; }\r\n#nav a:hover {\r\n\tbackground:#f0f0d0;\r\n}\r\n\r\n#lcol {\r\n\tdisplay:inline-block;\r\n\tvertical-align:top;\r\n\twidth:650px;\r\n\tpadding-right:10px;\r\n}\r\n#doc {\r\n\tpadding:0px;\r\n   padding-right:20px;\r\n\tmargin-left:0px;\r\n}\r\n#rcol {\r\n\tpadding:20px 0px 10px 0px;\r\n\tdisplay:inline-block;\r\n\tvertical-align:top;\r\n\twidth:300px;\r\n}\r\n\r\n#share { margin-top:20px; }\r\n#share>a>img { width:40px; height:40px; margin-right:5px; }\r\n\r\n#fdbk form * { display:block; }\r\n#fdbk textarea { max-width:500px; width:100%; font-size:15px; }\r\n#fdbk textarea:invalid, #fdbk textarea:focus:invalid { border-color:#cc8080; }\r\n#fdbk .btn { width:fit-content; text-decoration:none; color:#fff; border:#6c757d; background:#6c757d; border-radius:.25rem; font-size:1rem; padding:.375rem .75rem; line-height:1.5; margin-top:10px; }\r\n#fdbk .btn:hover { background:#5a6268; }\r\n#fdbk #msg { display:none; }\r\n\r\n#top-ad {\r\n   display:none;\r\n   max-width:100%;\r\n\twidth:728px;\r\n\tmargin:20px auto 10px auto;\r\n}\r\n#ban-ad {\r\n   display:none;\r\n\tmargin:40px 0 20px 0;\r\n}\r\n.adslot_1 { display:none; width:728px; height:90px; }\r\n.adslot_2 { display:inline-block; width:300px; height:250px; height:600px; margin:30px 0px; }\r\n.adslot_3 { display:inline-block; width:100%; max-width:650px; height:90px; }\r\n\r\n@media only screen and (max-width: 799px) {\r\n\t#nav { margin-top:0; font-size:small; }\r\n\t#lcol { width:100%; padding-right:0; }\r\n\t#doc { padding-right:0; }\r\n\t#rcol { margin-left:0px; width:100%; padding:20px 0; }\r\n\t#ban-ad { margin:30px auto; width:300px; }\r\n\t.adslot_2 { display:none; }\r\n\t.adslot_3 { width:300px; height:250px; margin:auto }\r\n}\r\n@media only screen and (max-width: 799px) and (orientation: portrait) {\r\n   #ban-ad { display:none; }\r\n\t.adslot_1 { max-width:100%; height:100px; }\r\n}\r\n@media only screen and (max-width: 799px) and (orientation: landscape) {\r\n\t.adslot_1 { max-width:320px; height:50px; }\r\n}\r\n@media only screen and (max-width: 320px) and (orientation: portrait) {\r\n\t.adslot_3 { margin-left:-10px }\r\n}\r\n@media only print {\r\n   /*#wrapper {break-inside:always; page-break-inside:always; }*/\r\n   #lcol { display:table; }\r\n   #rcol,#fdbk,#ban-ad,.adslot_1,.adslot_2,.adslot_3 { display:none; }\r\n}\r\n\r\n\r\n#footer {\r\n\tpadding:30px;\r\n\tclear:both;\r\n\ttext-align:center;\r\n\tline-height:200%;\r\n\tborder-top:1px solid #ddd;\r\n\tbackground:#eee;\r\n   font-size:large;\r\n}\r\n\r\n#footer a {\r\n\tpadding:8px 5px 8px 5px;\r\n\ttext-decoration:none; \r\n\tcolor:#333;\r\n}\r\n\r\n#footer a:hover {\r\n\tcolor:#fff;\r\n\tbackground:#666;\r\n}\r\n\r\n#wrapper p, body h1, body h2, body h3, body h4, body h5\r\n{\r\n\tline-height: 1.8;\r\n}\r\n#wrapper a\r\n{\r\n\tline-height: 2;\r\n}\r\n#wrapper P\r\n{\r\n\tmargin-top: 2px;\r\n\tmargin-bottom: 2px;\r\n}\r\n#wrapper TABLE\r\n{\r\n\tmargin-bottom: 5px;\r\n}\r\n#wrapper TH\r\n{\r\n\tbackground: #E0E0E0;\r\n\tfont-style: normal;\r\n}\r\n#wrapper TD\r\n{\r\n\tpadding-right:5px;\r\n\tpadding-left:5px;\r\n}\r\n#wrapper UL, UL UL\r\n{\r\n\tfont-size: 1em;\r\n\tlist-style-position:outside;\r\n}\r\n#wrapper LI\r\n{\r\n\tmargin-top:2px;\r\n}\r\n#rcol li {\r\n\tmargin-left: -11px;\r\n}\r\n#wrapper H1,H2,H3\r\n{\r\n\tfont-weight:normal;\r\n}\r\nH1\r\n{\r\n\tmargin-bottom:4px;\r\n\tpadding-bottom:0px;\r\n\tcolor: #333333;\r\n}\r\nH1 { font-size: 1.8em; margin-top:0; }\r\nH2 { font-size: 1.4em; letter-spacing: 0px; margin-top: 10px; margin-bottom: 3px;}\r\nH3 { font-size: 1.4em; letter-spacing: 0px; margin-top: 10px; margin-bottom: 3px;}\r\nH4 { font-size: 1.1em; margin-top: 5px; margin-bottom: 2px; font-weight: bold;}\r\nH5 { font-size: 0.9em; margin-top: 5px; margin-bottom: 2px; font-weight: bold;}\r\nH6 { font-size: 1.1em; color: #333333; font-weight: normal; font-style: italic; margin-top: 3px; margin-bottom: 0px; }\r\n#rcol H5 { font-size: 0.9em; font-weight: bold; margin-top: 5px; margin-bottom: 2px; background:#e0e0e0; padding:5px 5px 5px 10px}\r\n\r\ninput\t\t{ font-size: 1em; }\r\n@media only screen and (max-width:799px) {\r\n\t.btn { font-size: 1.2em; padding:7px; }\r\n}\r\n@media only screen and (min-width:800px) {\r\n\t.btn { font-size: 1.2em; padding:4px; }\r\n}\r\n/*\r\n.intext  { background: #ffffff; padding-left:3px; border:1px inset #eee}  \r\n.outtext\t{ background: #e0f0e0; padding-left:3px; border:1px solid #ccc}\r\n*/\r\n.intext, .outtext { background:#fff; border:1px solid #888; }\r\n\r\na:link\t\t{ text-decoration: none; color: #083d8d; }\r\na:visited\t{ text-decoration: none; color: #083d8d; }\r\na:active\t{ text-decoration: underline; color: #000000; }\r\na:hover\t\t{ text-decoration: underline; color: #000; }\r\na:focus\t    { outline: none; }\r\n\r\n.math       { font-family: \"Times New Roman\"; font-size: 1.6em; padding-left: 6px; font-weight: normal;}\r\n.mathsymbol { font-family: \"Times New Roman\"; font-size: 1.2em;  font-weight: normal; }\r\n.text       { font-family: \"Times New Roman\", Times, serif; font-size: 1.2em }\r\n.code       { font-family: \"Courier New\"; font-size: 1.0em; padding-left: 6px;}\r\n.codebg     { font-family: \"Courier New\"; font-size: 1.0em; color: #000; background:#f0f0f0; margin-top: 0px; margin-bottom: 0px; padding: 10px; }\r\n.codebg.p   { font-family: \"Courier New\"; font-size: 1.0em; color: #000; background:#f0f0f0; margin-top: 0px; margin-bottom: 0px;}\r\np.code      { font-family: \"Courier New\"; font-size: 1.0em; color: #000; background:#f0f0f0; margin:0px; padding:5px; border-width:1px; border-color:#ccc; border-style:solid; line-height:20px}\r\np.wcode     { font-family: \"Courier New\"; font-size: 1.0em; color: #000}\r\np.tcode\t\t{ font-family: \"Courier New\"; font-size: 1.0em; color: #000; background:#f0f0f0; margin:0px; padding:5px; border-width:1px; border-color:#ccc; border-style:solid; line-height:20px }\r\n\r\n.table1 .hov { border: 2px black solid; padding: 4px; }\r\n.table1 .ho2 { border: 2px #707070 solid; padding: 4px; }\r\n.table1 .td  { border: 1px black solid; padding: 5px; }\r\n\r\ntable.dtable, table.ntable { border: 1px #ccc solid; border-collapse:collapse; padding: 5px;}\r\ntable.dtable th, table.dtable td, table.ntable th, table.ntable td  { border: 1px #ccc solid; border-collapse:collapse; padding: 5px; font-weight:normal;}\r\ntable.dtable th, table.ntable th { text-align:center }\r\ntable.ntable td { text-align:right }\r\n\r\n/*table.calc, .calc2 {*/\r\n.calc, .calc2 {\r\n\tborder-spacing: 0px;\r\n\tborder-collapse: separate;\r\n\tbackground: #e8e8e8;\r\n\tborder:1px #ddd solid;\r\n\t-moz-border-radius:7px;\r\n\t-webkit-border-radius:7px;\r\n\tborder-radius:7px;\r\n}\r\ntable.calc td, .calc2 td {\r\n\tpadding: 2px;\r\n\tborder-width: 0px;\r\n\tborder-style: none;\r\n\tbackground: #e8e8e8;\r\n}\r\n\r\n.calc2 select { padding:4px 2px; font-size:1.2em; font-family:Arial, Helvetica, sans-serif }\r\n@media only screen and (max-width: 576px) {\r\n\t.calc2 { padding:8px; margin-left:auto; margin-right:auto; }\r\n\t.calc2 td { float:left; }\r\n\t.calc2 td:nth-child(2) { clear:left; }\r\n\t.calc2 tr td:nth-child(3) { padding-top:10px; }\r\n\t.calc2 input[type=text], .calc2 input[type=number], .calc2 input[type=url] { width:190px; font-size:x-large; padding-left:3px; }\r\n\t.calc2 tr td:nth-child(3) select { margin-top:-8px; }\r\n}\r\n@media only screen and (min-width: 577px) {\r\n\t.calc2 { padding:15px; }\r\n\t.calc2 tr { line-height:40px; }\r\n\t.calc2 input[type=text], .calc2 input[type=number], .calc2 input[type=url] { width:220px; font-size:x-large; padding-left:3px; }\r\n}\r\n\r\n.seealso { list-style:none; white-space:nowrap; display:flex; flex-wrap:wrap; padding:0 10px 20px 10px; background:#f0f0e0; }\r\n.seealso li { margin-top:20px !important; margin-right:10px; }\r\n.seealso li a { padding:.5rem .75rem; color:#fff; background:#6c757d; background:#198754; border:1px solid#6c757d; font-size:1rem; border-radius:.25rem; text-decoration:none; vertical-align:middle; }\r\n.seealso li a:hover { background:#5a6268; background:#157347 }\r\n\r\n#adngin-bottom_01-0 { margin:40px auto 20px auto; }\r\n#adngin-right_sidebar-0 { margin-bottom:20px; }\r\n@media all and (min-width: 800px) {\r\n   #adngin-right_sidebar-0 { height:600px; }\r\n}\r\n@media all and (max-width: 799px) {\r\n   #adngin-right_sidebar-0 { display:none; }\r\n   #adngin-bottom_01-0 { width:320px; }\r\n}\r\n@media screen and (max-height: 500px) {\r\n   #adngin-adhesive-0 { display:none; } /*hide when input*/\r\n}\r\n\r\n"
+      },
+      {
+        "url": "https://www.rapidtables.com/lib/bootstrap/bootstrap4small.css",
+        "content": "/*\r\nbootstrap4small.css\r\nfrom https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.css\r\n*/\r\n.append { position:relative; }\r\n.append>input { padding-right:30px; display:inline-block; }\r\n.append>span { position:absolute; right:0; padding:8px 10px; }\r\n\r\n.w-100 {\r\n  width: 100% !important;\r\n}\r\nbody {\r\n  margin: 0;\r\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\";\r\n  font-size: 1rem;\r\n  font-weight: 400;\r\n  line-height: 1.5;\r\n  color: #212529;\r\n  text-align: left;\r\n  background-color: #fff;\r\n}\r\nimg {\r\n  vertical-align: middle;\r\n  border-style: none;\r\n}\r\nsvg {\r\n  overflow: hidden;\r\n  vertical-align: middle;\r\n}\r\nsub,\r\nsup {\r\n  position: relative;\r\n  font-size: 75%;\r\n  line-height: 0;\r\n  vertical-align: baseline;\r\n}\r\nsub {\r\n  bottom: -.25em;\r\n}\r\nsup {\r\n  top: -.5em;\r\n}\r\nlabel {\r\n   display:inline-block;\r\n   margin-bottom:0.5rem;\r\n}\r\ninput,\r\nbutton,\r\nselect,\r\noptgroup,\r\ntextarea {\r\n  margin: 0;\r\n  font-family: inherit;\r\n  font-size: inherit;\r\n  line-height: inherit;\r\n}\r\n.form-group {\r\n  margin-bottom: 1rem;\r\n}\r\n.fw-semibold {\r\n  font-weight: 600 !important;\r\n}\r\n.bg-white {\r\n   background:#fff !important;\r\n}\r\n.mt-2,\r\n.my-2 {\r\n  margin-top: 0.5rem !important;\r\n}\r\n.mt-3 {\r\n  margin-top: 1rem !important;\r\n}\r\n.mb-3 {\r\n  margin-bottom: 1rem !important;\r\n}\r\n.ml-0,\r\n.mx-0 {\r\n  margin-left: 0 !important;\r\n}\r\n.ml-2,\r\n.mx-2 {\r\n  margin-left: 0.5rem !important;\r\n}\r\n.ml-3,\r\n.mx-3 {\r\n  margin-left: 1rem !important;\r\n}\r\n.ml-4,\r\n.mx-4 {\r\n  margin-left: 1.5rem !important;\r\n}\r\n.mr-2,\r\n.mx-2 {\r\n  margin-right: 0.5rem !important;\r\n}\r\n.mr-4,\r\n.mx-4 {\r\n  margin-right: 1.5rem !important;\r\n}\r\n.pl-0,\r\n.px-0 {\r\n  padding-left: 0 !important;\r\n}\r\n.pr-0,\r\n.px-0 {\r\n  padding-right: 0 !important;\r\n}\r\n.form-label {\r\n  margin-bottom: 0.5rem;\r\n  display:inline-block; /*add*/\r\n}\r\ninput[type=\"radio\"],\r\ninput[type=\"checkbox\"] {\r\n  box-sizing: border-box;\r\n  padding: 0;\r\n  margin-top: 0;\r\n}\r\n.form-control {\r\n  display: block;\r\n  width: 100%;\r\n  height: calc(1.5em + 0.75rem + 2px);\r\n  padding: 0.375rem 0.75rem;\r\n  font-size: 1rem;\r\n  font-weight: 400;\r\n  line-height: 1.5;\r\n  color: #495057;\r\n  color: #000;\r\n  background-color: #fff;\r\n  background-clip: padding-box;\r\n  border: 1px solid #ced4da;\r\n  border-radius: 0.375rem;\r\n  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\r\n}\r\n.form-control:focus {\r\n  color: #495057;\r\n  background-color: #fff;\r\n  border-color: #80bdff;\r\n  outline: 0;\r\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\r\n}\r\n.form-control::placeholder {\r\n  color: #6c757d;\r\n  opacity: 1;\r\n}\r\n.form-control-lg {\r\n  height: calc(1.5em + 1rem + 2px);\r\n  padding: 0.5rem 1rem;\r\n  font-size: 1.25rem;\r\n  line-height: 1.5;\r\n  border-radius: 0.5rem;\r\n}\r\nselect.form-control[size], select.form-control[multiple] {\r\n  height: auto;\r\n}\r\ntextarea.form-control {\r\n  height: auto;\r\n}\r\n.btn {\r\n  display: inline-block;\r\n  font-weight: 400;\r\n  color: #212529;\r\n  text-align: center;\r\n  vertical-align: middle;\r\n  -webkit-user-select: none;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  user-select: none;\r\n  background-color: transparent;\r\n  border: 1px solid transparent;\r\n  padding: 0.375rem 0.75rem;\r\n  font-size: 1rem;\r\n  line-height: 1.5;\r\n  border-radius: 0.25rem;\r\n  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\r\n}\r\n.btn:hover {\r\n  color: #212529;\r\n  text-decoration: none;\r\n}\r\n.btn:focus, .btn.focus {\r\n  outline: 0;\r\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\r\n}\r\n.btn-lg, .btn-group-lg > .btn {\r\n  padding: 0.5rem 1rem;\r\n  font-size: 1.25rem;\r\n  line-height: 1.5;\r\n  border-radius: 0.3rem;\r\n}\r\n.btn-sm, .btn-group-sm > .btn {\r\n  padding: 0.25rem 0.5rem;\r\n  font-size: 0.875rem;\r\n  line-height: 1.5;\r\n  border-radius: 0.2rem;\r\n}\r\n.btn-secondary {\r\n  color: #fff;\r\n  background-color: #6c757d;\r\n  border-color: #6c757d;\r\n}\r\n.btn-secondary:hover {\r\n  color: #fff;\r\n  background-color: #5a6268;\r\n  border-color: #545b62;\r\n}\r\n.btn-secondary:focus, .btn-secondary.focus {\r\n  color: #fff;\r\n  background-color: #5a6268;\r\n  border-color: #545b62;\r\n  box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);\r\n}\r\n.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active,\r\n.show > .btn-secondary.dropdown-toggle {\r\n  color: #fff;\r\n  background-color: #545b62;\r\n  border-color: #4e555b;\r\n}\r\n.btn-secondary:not(:disabled):not(.disabled):active:focus, .btn-secondary:not(:disabled):not(.disabled).active:focus,\r\n.show > .btn-secondary.dropdown-toggle:focus {\r\n  box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);\r\n}\r\n.btn-success {\r\n  color: #fff;\r\n  background-color: #198754;\r\n  border-color: #28a745;\r\n}\r\n.btn-success:hover {\r\n  color: #fff;\r\n  background-color: #157347;\r\n  border-color: #1e7e34;\r\n}\r\n.btn-success:focus, .btn-success.focus {\r\n  color: #fff;\r\n  background-color: #218838;\r\n  border-color: #1e7e34;\r\n  box-shadow: 0 0 0 0.2rem rgba(72, 180, 97, 0.5);\r\n}\r\n.btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active,\r\n.show > .btn-success.dropdown-toggle {\r\n  color: #fff;\r\n  background-color: #146c43;\r\n  border-color: #1c7430;\r\n}\r\n.btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus,\r\n.show > .btn-success.dropdown-toggle:focus {\r\n  box-shadow: 0 0 0 0.2rem rgba(72, 180, 97, 0.5);\r\n}\r\n.btn-light {\r\n  color: #212529;\r\n  background-color: #f8f9fa;\r\n  border-color: #f8f9fa;\r\n}\r\n.btn-light:hover {\r\n  color: #212529;\r\n  background-color: #e2e6ea;\r\n  border-color: #dae0e5;\r\n}\r\n.btn-light:focus, .btn-light.focus {\r\n  color: #212529;\r\n  background-color: #e2e6ea;\r\n  border-color: #dae0e5;\r\n  box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);\r\n}\r\n.btn-light:not(:disabled):not(.disabled):active, .btn-light:not(:disabled):not(.disabled).active,\r\n.show > .btn-light.dropdown-toggle {\r\n  color: #212529;\r\n  background-color: #dae0e5;\r\n  border-color: #d3d9df;\r\n}\r\n.btn-light:not(:disabled):not(.disabled):active:focus, .btn-light:not(:disabled):not(.disabled).active:focus,\r\n.show > .btn-light.dropdown-toggle:focus {\r\n  box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);\r\n}\r\n.btn-outline-success {\r\n  color: #28a745;\r\n  border-color: #28a745;\r\n}\r\n.btn-outline-success:hover {\r\n  color: #fff;\r\n  background-color: #218838;\r\n  border-color: #28a745;\r\n}\r\n.btn-outline-success:focus, .btn-outline-success.focus {\r\n  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);\r\n}\r\n.btn-outline-success:not(:disabled):not(.disabled):active, .btn-outline-success:not(:disabled):not(.disabled).active,\r\n.show > .btn-outline-success.dropdown-toggle {\r\n  color: #fff;\r\n  background-color: #218838;\r\n  border-color: #218838;\r\n}\r\n.btn-outline-success:not(:disabled):not(.disabled):active:focus, .btn-outline-success:not(:disabled):not(.disabled).active:focus,\r\n.show > .btn-outline-success.dropdown-toggle:focus {\r\n  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);\r\n}\r\n.btn-outline-secondary {\r\n  color: #6c757d;\r\n  border-color: #6c757d;\r\n}\r\n.btn-outline-secondary:hover {\r\n  color: #fff;\r\n  background-color: #6c757d;\r\n  border-color: #6c757d;\r\n}\r\n.btn-outline-secondary:focus, .btn-outline-secondary.focus {\r\n  box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);\r\n}\r\n.btn-outline-secondary.disabled, .btn-outline-secondary:disabled {\r\n  color: #6c757d;\r\n  background-color: transparent;\r\n}\r\n.btn-outline-secondary:not(:disabled):not(.disabled):active, .btn-outline-secondary:not(:disabled):not(.disabled).active, .show > .btn-outline-secondary.dropdown-toggle {\r\n  color: #fff;\r\n  background-color: #6c757d;\r\n  border-color: #6c757d;\r\n}\r\n.btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-secondary.dropdown-toggle:focus {\r\n  box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);\r\n}\r\n.btn-group,\r\n.btn-group-vertical {\r\n  position: relative;\r\n  display: -ms-inline-flexbox;\r\n  display: inline-flex;\r\n  vertical-align: middle;\r\n}\r\n\r\n.btn-group > .btn,\r\n.btn-group-vertical > .btn {\r\n  position: relative;\r\n  -ms-flex: 1 1 auto;\r\n  flex: 1 1 auto;\r\n}\r\n\r\n.btn-group > .btn:hover,\r\n.btn-group-vertical > .btn:hover {\r\n  z-index: 1;\r\n}\r\n\r\n.btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active,\r\n.btn-group-vertical > .btn:focus,\r\n.btn-group-vertical > .btn:active,\r\n.btn-group-vertical > .btn.active {\r\n  z-index: 1;\r\n}\r\n.btn-group > .btn:not(:first-child),\r\n.btn-group > .btn-group:not(:first-child) {\r\n  margin-left: -1px;\r\n}\r\n\r\n.btn-group > .btn:not(:last-child):not(.dropdown-toggle),\r\n.btn-group > .btn-group:not(:last-child) > .btn {\r\n  border-top-right-radius: 0;\r\n  border-bottom-right-radius: 0;\r\n}\r\n\r\n.btn-group > .btn:not(:first-child),\r\n.btn-group > .btn-group:not(:first-child) > .btn {\r\n  border-top-left-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n}\r\n.btn-group-toggle > .btn,\r\n.btn-group-toggle > .btn-group > .btn {\r\n  margin-bottom: 0;\r\n}\r\n\r\n.btn-group-toggle > .btn input[type=\"radio\"],\r\n.btn-group-toggle > .btn input[type=\"checkbox\"],\r\n.btn-group-toggle > .btn-group > .btn input[type=\"radio\"],\r\n.btn-group-toggle > .btn-group > .btn input[type=\"checkbox\"] {\r\n  position: absolute;\r\n  clip: rect(0, 0, 0, 0);\r\n  pointer-events: none;\r\n}\r\n.btn-check {\r\n  position: absolute;\r\n  clip: rect(0, 0, 0, 0);\r\n  pointer-events: none;\r\n}\r\n.table th,\r\n.table td {\r\n  padding: 0.75rem;\r\n  vertical-align: top;\r\n  border-top: 1px solid #dee2e6;\r\n}\r\n.table-responsive { display:block;width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }\r\n\r\n.nav {\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n  flex-wrap: wrap;\r\n  padding-left: 0;\r\n  margin-bottom: 0;\r\n  list-style: none;\r\n}\r\n\r\n.nav-link {\r\n  display: block;\r\n  padding: 0.5rem 1rem;\r\n}\r\n\r\n.nav-link:hover, .nav-link:focus {\r\n  text-decoration: none;\r\n}\r\n\r\n.nav-tabs {\r\n  border-bottom: 1px solid #dee2e6;\r\n}\r\n\r\n.nav-tabs .nav-item {\r\n  margin-bottom: -1px;\r\n}\r\n\r\n.nav-tabs .nav-link {\r\n  border: 1px solid transparent;\r\n  border-top-left-radius: 0.25rem;\r\n  border-top-right-radius: 0.25rem;\r\n}\r\n\r\n.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {\r\n  border-color: #e9ecef #e9ecef #dee2e6;\r\n}\r\n\r\n.nav-tabs .nav-link.active,\r\n.nav-tabs .nav-item.show .nav-link {\r\n  color: #495057;\r\n  background-color: #fff;\r\n  border-color: #dee2e6 #dee2e6 #fff;\r\n}\r\n\r\n.row {\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n  flex-wrap: wrap;\r\n  margin-right: -15px;\r\n  margin-left: -15px;\r\n}\r\n.form-row {\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n  flex-wrap: wrap;\r\n  margin-right: -5px;\r\n  margin-left: -5px;\r\n}\r\n.form-row > .col,\r\n.form-row > [class*=\"col-\"] {\r\n  padding-right: 5px;\r\n  padding-left: 5px;\r\n}\r\n/*\r\n.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,\r\n.col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,\r\n.col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,\r\n.col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,\r\n.col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,\r\n.col-xl-auto {\r\n  position: relative;\r\n  width: 100%;\r\n  padding-right: 15px;\r\n  padding-left: 15px;\r\n}\r\n*/\r\n.col,.col-sm-3,.col-sm-9,.col-sm-2,.col-sm-10 {\r\n  position: relative;\r\n  width: 100%;\r\n  padding-right: 15px;\r\n  padding-left: 15px;\r\n}\r\n.col {\r\n  -ms-flex-preferred-size: 0;\r\n  flex-basis: 0;\r\n  -ms-flex-positive: 1;\r\n  flex-grow: 1;\r\n  max-width: 100%;\r\n}\r\n@media (min-width: 576px) {\r\n   .col-sm-2 {\r\n      -ms-flex: 0 0 16.666667%;\r\n      flex: 0 0 16.666667%;\r\n      max-width: 16.666667%;\r\n   }\r\n   .col-sm-3 {\r\n      -ms-flex: 0 0 25%;\r\n      flex: 0 0 25%;\r\n      max-width: 25%;\r\n   }\r\n   .col-sm-9 {\r\n      -ms-flex: 0 0 75%;\r\n      flex: 0 0 75%;\r\n      max-width: 75%;\r\n   }\r\n   .col-sm-10 {\r\n      -ms-flex: 0 0 83.333333%;\r\n      flex: 0 0 83.333333%;\r\n      max-width: 83.333333%;\r\n   }\r\n}\r\n.col-form-label {\r\n  padding-top: calc(0.375rem + 1px);\r\n  padding-bottom: calc(0.375rem + 1px);\r\n  margin-bottom: 0;\r\n  font-size: inherit;\r\n  line-height: 1.5;\r\n}\r\n\r\n.input-group {\r\n  position: relative;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n  flex-wrap: wrap;\r\n  -ms-flex-align: stretch;\r\n  align-items: stretch;\r\n  width: 100%;\r\n}\r\n.input-group > .form-control,\r\n.input-group > .form-control-plaintext,\r\n.input-group > .custom-select,\r\n.input-group > .custom-file {\r\n  position: relative;\r\n  -ms-flex: 1 1 auto;\r\n  flex: 1 1 auto;\r\n  width: 1%;\r\n  min-width: 0;\r\n  margin-bottom: 0;\r\n}\r\n.input-group > .form-control + .form-control,\r\n.input-group > .form-control + .custom-select,\r\n.input-group > .form-control + .custom-file,\r\n.input-group > .form-control-plaintext + .form-control,\r\n.input-group > .form-control-plaintext + .custom-select,\r\n.input-group > .form-control-plaintext + .custom-file,\r\n.input-group > .custom-select + .form-control,\r\n.input-group > .custom-select + .custom-select,\r\n.input-group > .custom-select + .custom-file,\r\n.input-group > .custom-file + .form-control,\r\n.input-group > .custom-file + .custom-select,\r\n.input-group > .custom-file + .custom-file {\r\n  margin-left: -1px;\r\n}\r\n.input-group-prepend,\r\n.input-group-append {\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n}\r\n\r\n.input-group-prepend .btn,\r\n.input-group-append .btn {\r\n  position: relative;\r\n  z-index: 2;\r\n}\r\n.input-group-prepend .btn:focus,\r\n.input-group-append .btn:focus {\r\n  z-index: 3;\r\n}\r\n.input-group-prepend .btn + .btn,\r\n.input-group-prepend .btn + .input-group-text,\r\n.input-group-prepend .input-group-text + .input-group-text,\r\n.input-group-prepend .input-group-text + .btn,\r\n.input-group-append .btn + .btn,\r\n.input-group-append .btn + .input-group-text,\r\n.input-group-append .input-group-text + .input-group-text,\r\n.input-group-append .input-group-text + .btn {\r\n  margin-left: -1px;\r\n}\r\n.input-group-prepend {\r\n  margin-right: -1px;\r\n}\r\n.input-group-append {\r\n  margin-left: -1px;\r\n}\r\n.input-group-text {\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-align: center;\r\n  align-items: center;\r\n  padding: 0.375rem 0.75rem;\r\n  margin-bottom: 0;\r\n  font-size: 1rem;\r\n  font-weight: 400;\r\n  line-height: 1.5;\r\n  color: #495057;\r\n  text-align: center;\r\n  white-space: nowrap;\r\n  /*background-color: #e9ecef;*/\r\n  background-color: #fff;\r\n  border: 1px solid #ced4da;\r\n  border-radius: 0.25rem;\r\n}\r\n.input-group > .form-control:not(:last-child),\r\n.input-group > .custom-select:not(:last-child) {\r\n  border-top-right-radius: 0;\r\n  border-bottom-right-radius: 0;\r\n}\r\n.input-group > .form-control:not(:first-child),\r\n.input-group > .custom-select:not(:first-child) {\r\n  border-top-left-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n}\r\n"
+      }
+    ]
+  },
+  "javascript": {
+    "inline_scripts": [
+      {
+        "content": "\nvar calcform=document.getElementById(\"calcform\"),calcform0=document.getElementById(\"calcform0\"),calcform5=document.getElementById(\"calcform5\"),calcbtn1=document.getElementById(\"calcbtn\"),calcbtn1=document.getElementById(\"calcbtn1\"),calcbtn2=document.getElementById(\"calcbtn2\"),calcbtn3=document.getElementById(\"calcbtn3\"),calcbtn4=document.getElementById(\"calcbtn4\"),txt=document.getElementById(\"txt\"),calctxt=document.getElementById(\"calctxt\"),calcresult=document.getElementById(\"calcresult\"),c1elem=document.getElementById(\"c1\"),c2elem=document.getElementById(\"c2\"),c3elem=document.getElementById(\"c3\"),c4elem=document.getElementById(\"c4\"),p11elem=document.getElementById(\"p11\"),p12elem=document.getElementById(\"p12\"),p21elem=document.getElementById(\"p21\"),p22elem=document.getElementById(\"p22\"),p31elem=document.getElementById(\"p31\"),p32elem=document.getElementById(\"p32\"),p41elem=document.getElementById(\"p41\"),p42elem=document.getElementById(\"p42\"),p51elem=document.getElementById(\"p51\"),p52elem=document.getElementById(\"p52\"),p53elem=document.getElementById(\"p53\"),p54elem=document.getElementById(\"p54\"),lastin=-1,lastout=-1,prec=16;function removeAt(e,t){return e=e.substring(0,t)+e.substring(t+1,e.length)}function digits_after_period(e){var t=e.toString(),l=t.indexOf(\".\");return t.length-l-1}function roundresult(e){return roundnum(y=parseFloat(e),10)}function roundnum(e,t){var l,n=String(parseFloat(e).toPrecision(t+1));if(-1==(l=n.indexOf(\"e\"))&&(l=n.length),l>(j=n.indexOf(\".\"))&&-1!=j){for(;l>0;)if(\"0\"==n.charAt(--l))n=removeAt(n,l);else break;\".\"==n.charAt(l)&&(n=removeAt(n,l))}return n}window.addEventListener(\"DOMContentLoaded\",function(){\"function\"==typeof Promise&&-1==window.location.href.indexOf(\"?\")&&(calcform0.style.display=\"block\",calcform5.style.display=\"block\",calcbtn1.type=\"button\",calcbtn2.type=\"button\",calcbtn3.type=\"button\",calcbtn4.type=\"button\",calcbtn.onclick=function(){calcq()},calcbtn1.onclick=function(){calcp1()},calcbtn2.onclick=function(){calcp2()},calcbtn3.onclick=function(){calcp3()},calcbtn4.onclick=function(){calcp4()},document.getElementById(\"calcform0\").onkeypress=function(e){13==e.keyCode&&(e.preventDefault(),calcq())},document.getElementById(\"calcform1\").onkeypress=function(e){13==e.keyCode&&(e.preventDefault(),calcp1())},document.getElementById(\"calcform2\").onkeypress=function(e){13==e.keyCode&&(e.preventDefault(),calcp2())},document.getElementById(\"calcform3\").onkeypress=function(e){13==e.keyCode&&(e.preventDefault(),calcp3())},document.getElementById(\"calcform4\").onkeypress=function(e){13==e.keyCode&&(e.preventDefault(),calcp4())},document.getElementById(\"calcform5\").onkeypress=function(e){13==e.keyCode&&(e.preventDefault(),convert())},calctxt.oninput=function(){calctxt.value=calctxt.value.replace(\"*\",\"\\xd7\")})});var gcd2=function(e,t,l){if(l){if(t<=1)return e}else if(!t)return e;return gcd2(t,e%t,l)};function AddTxt(e,t){\"\"!=txt.value&&(txt.value+=\"\\n\"),txt.value+=e+\"\\n= \",txt.value+=t,txt.scrollTop=txt.scrollHeight,calcform.style.display=\"block\"}function SetURLParams(e){let t=new URL(window.location.href.split(\"?\")[0]);for(var l in e)t.searchParams.set(l,e[l]);window.history.pushState({},\"\",t)}function getMJS(){calcresult.value=\"Calculating ...\";var e=document.createElement(\"script\");e.async=!0,e.src=\"https://cdnjs.cloudflare.com/ajax/libs/mathjs/13.0.3/math.min.js\",e.onload=function(){onMJS()},document.head.appendChild(e)}function onMJS(){math.config({number:\"BigNumber\",precision:prec}),calcq()}function calcq(){if(\"undefined\"==typeof math){getMJS();return}var e=calctxt.value;if(\"\"!=e){e=str2num4(e=(e=e.replace(/\\u00D7/g,\"*\")).replace(/\\u00F7/g,\"/\"));try{var t=math.evaluate(e)}catch(l){calcresult.value=\"Syntax error!\";return}t=t.toString(),AddTxt(calctxt.value,t),calcresult.value=t,document.title=\"Calculate: \"+e+\" = ?\"}}function calcp1(){var e=str2num4(p11elem.value),t=str2num4(p12elem.value),l=e*t/100;l=roundnum(l,6).toString(),document.getElementById(\"result1\").value=l,AddTxt(e+\"%\\xd7\"+t,l),SetURLParams({p11:e.toString(),p12:t.toString()}),document.title=\"What is \"+e+\"% of \"+t+\" ?\"}function calcp2(){var e=str2num4(p21elem.value),t=str2num4(p22elem.value),l=100*e/t;l=roundnum(l,6).toString(),document.getElementById(\"result2\").value=l,AddTxt(\"(\"+e+\"/\"+t+\")\\xd7100%\",l+\"%\"),SetURLParams({p21:e.toString(),p22:t.toString()}),document.title=e+\" is what % of \"+t+\" ?\"}function calcp3(){var e=str2num4(p31elem.value),t=str2num4(p32elem.value),l=e/t*100;l=roundnum(l,6).toString(),document.getElementById(\"result3\").value=l,AddTxt(e+\"/\"+t+\"%\",l),SetURLParams({p31:e.toString(),p32:t.toString()}),document.title=e+\" is \"+t+\"% of what number?\"}function calcp4(){var e=str2num4(p41elem.value),t=str2num4(p42elem.value),l=(t-e)/e*100;l=roundnum(l,6).toString(),document.getElementById(\"result4\").value=l,AddTxt(\"((\"+t+\"-\"+e+\")/\"+e+\")\\xd7100%\",l+\"%\"),SetURLParams({p41:e.toString(),p42:t.toString()}),document.title=\"What is the percentage change from \"+e+\" to \"+t+\" ?\"}function convert(){var e=str2num4(p51elem.value),t=str2num4(p52elem.value),l=str2num4(p53elem.value),n=str2num4(p54elem.value);if(\"\"!=e){var c=\"\",a=\"+\",r=e,o=parseFloat(r/100),u=Math.abs(o),m=0,p=roundresult(u-m);o<0&&(c=a=\"-\");var i=digits_after_period(u),d=(t=Math.round(p*(l=Math.round(Math.pow(10,i))))).toString().length,s=!1;d>8&&(s=!0);var f=gcd2(t,l,s),g=Math.round(t/f),_=Math.round(l/f);p52elem.value=g,p53elem.value=_,p54elem.value=roundresult(o)}else if(\"\"!=t&&\"\"!=l){var r=t/l;p51elem.value=roundresult(100*r),p54elem.value=roundresult(r)}else{var c=\"\",a=\"+\",r=n,o=parseFloat(r),u=Math.abs(o),m=0,p=roundresult(u-m);o<0&&(c=a=\"-\");var i=digits_after_period(u),d=(t=Math.round(p*(l=Math.round(Math.pow(10,i))))).toString().length,s=!1;d>8&&(s=!0);var f=gcd2(t,l,s),g=Math.round(t/f),_=Math.round(l/f);p52elem.value=g,p53elem.value=_,p51elem.value=roundresult(100*o)}SetURLParams({p51:p51elem.value,p52:p52elem.value,p53:p53elem.value,p54:p54elem.value})}function reset1(){document.getElementById(\"pf1\").style.display=\"none\"}function reset2(){document.getElementById(\"pf3\").style.display=\"none\"}function reset3(){document.getElementById(\"pf5\").style.display=\"none\"}function reset4(){document.getElementById(\"pf7\").style.display=\"none\"}\n",
+        "type": "text/javascript"
+      }
+    ],
+    "external_scripts": [
+      {
+        "url": "https://www.rapidtables.com/calc/calc2.js",
+        "content": "function setfocus(){document.calcform.x.focus()}function calc(){y=roundresult(y=calcfunc(x=document.calcform.x.value)),document.calcform.y.value=y}function calc_a(){y=roundresult(y=calcfunc_a(x=document.calcform2.x.value)),document.calcform2.y.value=y}function calc3(){y=roundresult(y=calcfunc(x1=document.calcform.x.value,x2=document.calcform.x2.value)),document.calcform.y.value=y}function calc4(){a=document.calcform.x.value,d=(b=document.calcform.x2.value)*b-4*a*(c=document.calcform.x3.value),document.calcform.y0.value=roundresult(d),d>=0?(document.calcform.y1.value=roundresult((-b+Math.sqrt(d))/(2*a)),document.calcform.y2.value=roundresult((-b-Math.sqrt(d))/(2*a))):(re=roundresult(-b/(2*a)),im=roundresult(Math.sqrt(-d)/(2*a)),document.calcform.y1.value=re+\" + i\"+im,document.calcform.y2.value=re+\" - i\"+im),b=-b,document.calcform.y3.value=\"(\"+b.toString()+\" \\xb1 √(\"+d.toString()+\")) / (2\\xd7\"+a.toString()+\")\"}function calc5(){y=roundresult(y=calcfunc(x=document.calcform.x.value)),x>0&&(y=\"\\xb1\"+y),document.calcform.y.value=y}function calc6(){x1=document.calcform.x.value,val=x2=document.calcform.x2.value,x2<0&&(val=-val),y=roundresult(y=calcfunc(x1,val)),x2>0&&x1/2==Math.round(x1/2)&&(y=\"\\xb1\"+y),x2<0&&(y=x1/2==Math.round(x1/2)?\"NaN\":-y),document.calcform.y.value=y}function str2num(r,e){void 0===e&&(e=1);var t=1.1.toLocaleString().substring(1,2);if(1e3.toLocaleString().substring(1,2),-1!=(r=(r=r.toString().trim()).replace(/[^\\d\\s\\.\\,\\-\\+\\*\\/e]/g,\"\")).indexOf(\" \")&&-1!=r.indexOf(\"/\")&&(r=r.replace(/(\\d)(\\s+)(?=\\d)/gm,\"$1+\")),r=r.replace(/\\s/g,\"\"),\",\"==t){var u,n=(r.match(/\\u002E/g)||[]).length,o=(r.match(/\\u002C/g)||[]).length;if(0==n&&(1==o&&(r=r.replace(/\\u002C/g,\".\")),o>1&&(r=r.replace(/\\u002C/g,\"\"))),0==o&&n>1&&(r=r.replace(/\\u002E/g,\"\")),n>0&&o>0){r=r.indexOf(\".\")<r.indexOf(\",\")?r.replace(/\\u002E/g,\"\").replace(/\\u002C/g,\".\"):r.replace(/\\u002C/g,\"\")}}else r=r.replace(/\\u002C/g,\"\");return\"\"==(r=r.replace(\"\\xd7\",\"*\").replace(\"\\xf7\",\"/\"))?0:e?Function('\"use strict\";return ('+r+\")\")():r}function str2num2(r){return r=r.toString().trim().replace(/(\\d)(\\s+)(?=\\d)/gm,\"$1+\").replace(/\\u002C/g,\".\").replace(/[\\u0027\\u002C\\s]/g,\"\").replace(\"\\xd7\",\"*\").replace(\"\\xf7\",\"/\")}function str2num4(r){return r=r.replace(/\\u002C/g,\".\")}function num2str(r,e){//!!!if( arguments.length==1 )\r\nif(void 0===e)var e=-1;if(-1!=(r=r.toString()).indexOf(\"e\")){var t=1.1.toLocaleString().substring(1,2);return r=r.replace(\".\",t)}r=Number(r=(r=r.replace(\"−\",\"-\")).substring(r.indexOf(\"-\")));var u=e<0?0:e,n=e<0?20:e;return r=(r=r.toLocaleString(void 0,{minimumFractionDigits:u,maximumFractionDigits:n})).trim().replace(/\\u00D7/g,\"\")}function num2str2(r){if(-1!=r.toString().indexOf(\"i\"))return r;var e=1.1.toLocaleString().substring(1,2),t=1e3.toLocaleString().substring(1,2);if(-1!=(r=r.toString().replace(\".\",e)).indexOf(\"e\"))return r;var u=r.indexOf(e);if(-1==u&&(u=r.length),u>3)for(var n=u-3;n>0;n-=3)r=r.slice(0,n)+t+r.slice(n);return r}function num2str3(r){var e=1.1.toLocaleString().substring(1,2);return\",\"==e&&(r=r.toString().replace(/\\u002E/g,e)),r}function decodeURIComponent2(r){return decodeURIComponent(r.replace(/\\+/g,\" \"))}function inputnum2txt(){if(!(window.innerWidth<800)&&\"undefined\"==typeof n2tskip)for(var r=document.querySelectorAll(\"input[type=number]\"),e=0;e<r.length;e++)r[e].type=\"text\",r[e].removeAttribute(\"min\"),r[e].removeAttribute(\"max\"),r[e].removeAttribute(\"step\")}function roundresult(r){return y=roundnum(y=parseFloat(r),10)}function roundnum(r,e){var t,u=String(parseFloat(r).toFixed(e));if(-1==(t=u.indexOf(\"e\"))&&(t=u.length),t>(j=u.indexOf(\".\"))&&-1!=j){for(;t>0;)if(\"0\"==u.charAt(--t))u=removeAt(u,t);else break;\".\"==u.charAt(t)&&(u=removeAt(u,t))}return u}function roundnum2(r,e){var t,u=String(parseFloat(r).toFixed(e));if((t=u.length)>(j=u.indexOf(\".\"))&&-1!=j){for(;t>0;)if(\"0\"==u.charAt(--t))u=removeAt(u,t);else break;\".\"==u.charAt(t)&&(u=removeAt(u,t))}return u}function removeAt(r,e){return r=r.substring(0,e)+r.substring(e+1,r.length)}window.addEventListener(\"DOMContentLoaded\",function(){inputnum2txt()});var rtcs,gcd=function(r,e){return e?gcd(e,r%e):r};"
+      }
+    ],
+    "event_handlers": [
+      {
+        "element": "a",
+        "id": "",
+        "class": "",
+        "event": "onclick",
+        "handler": "OnPageSearch()"
+      },
+      {
+        "element": "a",
+        "id": "",
+        "class": "",
+        "event": "onclick",
+        "handler": "OnPageShare()"
+      },
+      {
+        "element": "button",
+        "id": "",
+        "class": "btn btn-success",
+        "event": "onclick",
+        "handler": "convert()"
+      },
+      {
+        "element": "button",
+        "id": "",
+        "class": "btn btn-success",
+        "event": "onclick",
+        "handler": "convert()"
+      },
+      {
+        "element": "button",
+        "id": "calcbtn",
+        "class": "btn btn-success fw-semibold",
+        "event": "onclick",
+        "handler": "calcq()"
+      },
+      {
+        "element": "button",
+        "id": "",
+        "class": "btn btn-secondary",
+        "event": "onclick",
+        "handler": "OnSubFb()"
+      }
+    ]
+  },
+  "calculations": {
+    "formulas": [
+      {
+        "name": "type",
+        "expression": "text] { width:105px; display:i",
+        "source": "content_extraction"
+      },
+      {
+        "name": "type",
+        "expression": "text] { width:105px; display:i",
+        "source": "content_extraction"
+      },
+      {
+        "name": "type",
+        "expression": "text] { margi",
+        "source": "content_extraction"
+      },
+      {
+        "name": "type",
+        "expression": "text] { margi",
+        "source": "content_extraction"
+      },
+      {
+        "name": "type",
+        "expression": "text] { width:90px; }\n      .calcform div:",
+        "source": "content_extraction"
+      },
+      {
+        "name": "type",
+        "expression": "reset] { float:left; }\n      #resetbt",
+        "source": "content_extraction"
+      },
+      {
+        "name": "Reset",
+        "expression": "Perce",
+        "source": "content_extraction"
+      },
+      {
+        "name": "calcform",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "txt",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "calctxt",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "calcresult",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "elem",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "elem",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "elem",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "elem",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "elem",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "elem",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "elem",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "elem",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "elem",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "elem",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "elem",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "elem",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "elem",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "elem",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "elem",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "elem",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "lastin",
+        "expression": "-1,lastout=-1,prec=16;fu",
+        "source": "content_extraction"
+      },
+      {
+        "name": "e",
+        "expression": "e.substri",
+        "source": "content_extraction"
+      },
+      {
+        "name": "t",
+        "expression": "e.toStri",
+        "source": "content_extraction"
+      },
+      {
+        "name": "l",
+        "expression": "t.i",
+        "source": "content_extraction"
+      },
+      {
+        "name": "y",
+        "expression": "parseFloat(e),10)}fu",
+        "source": "content_extraction"
+      },
+      {
+        "name": "n",
+        "expression": "Stri",
+        "source": "content_extraction"
+      },
+      {
+        "name": "n",
+        "expression": "removeAt(",
+        "source": "content_extraction"
+      },
+      {
+        "name": "n",
+        "expression": "removeAt(",
+        "source": "content_extraction"
+      },
+      {
+        "name": "display",
+        "expression": "\"block\",calcform5.style.display=\"block\",calcbt",
+        "source": "content_extraction"
+      },
+      {
+        "name": "type",
+        "expression": "\"butto",
+        "source": "content_extraction"
+      },
+      {
+        "name": "type",
+        "expression": "\"butto",
+        "source": "content_extraction"
+      },
+      {
+        "name": "type",
+        "expression": "\"butto",
+        "source": "content_extraction"
+      },
+      {
+        "name": "type",
+        "expression": "\"butto",
+        "source": "content_extraction"
+      },
+      {
+        "name": "onclick",
+        "expression": "fu",
+        "source": "content_extraction"
+      },
+      {
+        "name": "onclick",
+        "expression": "fu",
+        "source": "content_extraction"
+      },
+      {
+        "name": "onclick",
+        "expression": "fu",
+        "source": "content_extraction"
+      },
+      {
+        "name": "onclick",
+        "expression": "fu",
+        "source": "content_extraction"
+      },
+      {
+        "name": "onclick",
+        "expression": "fu",
+        "source": "content_extraction"
+      },
+      {
+        "name": "onkeypress",
+        "expression": "fu",
+        "source": "content_extraction"
+      },
+      {
+        "name": "onkeypress",
+        "expression": "fu",
+        "source": "content_extraction"
+      },
+      {
+        "name": "onkeypress",
+        "expression": "fu",
+        "source": "content_extraction"
+      },
+      {
+        "name": "onkeypress",
+        "expression": "fu",
+        "source": "content_extraction"
+      },
+      {
+        "name": "onkeypress",
+        "expression": "fu",
+        "source": "content_extraction"
+      },
+      {
+        "name": "onkeypress",
+        "expression": "fu",
+        "source": "content_extraction"
+      },
+      {
+        "name": "oninput",
+        "expression": "fu",
+        "source": "content_extraction"
+      },
+      {
+        "name": "value",
+        "expression": "calctxt.value.replace(\"*\",\"",
+        "source": "content_extraction"
+      },
+      {
+        "name": "n",
+        "expression": "\",txt.value+=t,txt.scrollTop=txt.scrollHeight,calcform.style.display=\"block\"}fu",
+        "source": "content_extraction"
+      },
+      {
+        "name": "value",
+        "expression": "\"Calculati",
+        "source": "content_extraction"
+      },
+      {
+        "name": "e",
+        "expression": "docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "async",
+        "expression": "!0,e.src=\"https://cd",
+        "source": "content_extraction"
+      },
+      {
+        "name": "onload",
+        "expression": "fu",
+        "source": "content_extraction"
+      },
+      {
+        "name": "e",
+        "expression": "calctxt.value;if(\"\"!=e){e=str2",
+        "source": "content_extraction"
+      },
+      {
+        "name": "e",
+        "expression": "(e=e.replace(/",
+        "source": "content_extraction"
+      },
+      {
+        "name": "t",
+        "expression": "math.evaluate(e)}catch(l){calcresult.value=\"Sy",
+        "source": "content_extraction"
+      },
+      {
+        "name": "t",
+        "expression": "t.toStri",
+        "source": "content_extraction"
+      },
+      {
+        "name": "value",
+        "expression": "t,docume",
+        "source": "content_extraction"
+      },
+      {
+        "name": "title",
+        "expression": "\"Calculate: \"+e+\" = ?\"}}fu",
+        "source": "content_extraction"
+      },
+      {
+        "name": "e",
+        "expression": "str2",
+        "source": "content_extraction"
+      },
+      {
+        "name": "t",
+        "expression": "str2",
+        "source": "content_extraction"
+      },
+      {
+        "name": "l",
+        "expression": "e*t/100;l=rou",
+        "source": "content_extraction"
+      },
+      {
+        "name": "value",
+        "expression": "l,AddTxt(e+\"%",
+        "source": "content_extraction"
+      },
+      {
+        "name": "title",
+        "expression": "\"What is \"+e+\"% of \"+t+\" ?\"}fu",
+        "source": "content_extraction"
+      },
+      {
+        "name": "e",
+        "expression": "str2",
+        "source": "content_extraction"
+      },
+      {
+        "name": "t",
+        "expression": "str2",
+        "source": "content_extraction"
+      },
+      {
+        "name": "l",
+        "expression": "100*e/t;l=rou",
+        "source": "content_extraction"
+      },
+      {
+        "name": "value",
+        "expression": "l,AddTxt(\"(\"+e+\"/\"+t+\")",
+        "source": "content_extraction"
+      },
+      {
+        "name": "title",
+        "expression": "e+\" is what % of \"+t+\" ?\"}fu",
+        "source": "content_extraction"
+      },
+      {
+        "name": "e",
+        "expression": "str2",
+        "source": "content_extraction"
+      },
+      {
+        "name": "t",
+        "expression": "str2",
+        "source": "content_extraction"
+      },
+      {
+        "name": "l",
+        "expression": "e/t*100;l=rou",
+        "source": "content_extraction"
+      },
+      {
+        "name": "value",
+        "expression": "l,AddTxt(e+\"/\"+t+\"%\",l),SetURLParams({p31:e.toStri",
+        "source": "content_extraction"
+      },
+      {
+        "name": "title",
+        "expression": "e+\" is \"+t+\"% of what ",
+        "source": "content_extraction"
+      },
+      {
+        "name": "e",
+        "expression": "str2",
+        "source": "content_extraction"
+      },
+      {
+        "name": "t",
+        "expression": "str2",
+        "source": "content_extraction"
+      },
+      {
+        "name": "l",
+        "expression": "(t-e)/e*100;l=rou",
+        "source": "content_extraction"
+      },
+      {
+        "name": "value",
+        "expression": "l,AddTxt(\"((\"+t+\"-\"+e+\")/\"+e+\")",
+        "source": "content_extraction"
+      },
+      {
+        "name": "title",
+        "expression": "\"What is the perce",
+        "source": "content_extraction"
+      },
+      {
+        "name": "e",
+        "expression": "str2",
+        "source": "content_extraction"
+      },
+      {
+        "name": "t",
+        "expression": "str2",
+        "source": "content_extraction"
+      },
+      {
+        "name": "l",
+        "expression": "str2",
+        "source": "content_extraction"
+      },
+      {
+        "name": "n",
+        "expression": "str2",
+        "source": "content_extraction"
+      },
+      {
+        "name": "c",
+        "expression": "\"\",a=\"+\",r=e,o=parseFloat(r/100),u=Math.abs(o),m=0,p=rou",
+        "source": "content_extraction"
+      },
+      {
+        "name": "c",
+        "expression": "a=\"-\");var i=digits_after_period(u),d=(t=Math.rou",
+        "source": "content_extraction"
+      },
+      {
+        "name": "l",
+        "expression": "Math.rou",
+        "source": "content_extraction"
+      },
+      {
+        "name": "s",
+        "expression": "!1;d>8&&(s=!0);var f=gcd2(t,l,s),g=Math.rou",
+        "source": "content_extraction"
+      },
+      {
+        "name": "value",
+        "expression": "g,p53elem.value=_,p54elem.value=rou",
+        "source": "content_extraction"
+      },
+      {
+        "name": "r",
+        "expression": "t/l;p51elem.value=rou",
+        "source": "content_extraction"
+      },
+      {
+        "name": "value",
+        "expression": "rou",
+        "source": "content_extraction"
+      },
+      {
+        "name": "c",
+        "expression": "\"\",a=\"+\",r=",
+        "source": "content_extraction"
+      },
+      {
+        "name": "o",
+        "expression": "parseFloat(r),u=Math.abs(o),m=0,p=rou",
+        "source": "content_extraction"
+      },
+      {
+        "name": "c",
+        "expression": "a=\"-\");var i=digits_after_period(u),d=(t=Math.rou",
+        "source": "content_extraction"
+      },
+      {
+        "name": "l",
+        "expression": "Math.rou",
+        "source": "content_extraction"
+      },
+      {
+        "name": "s",
+        "expression": "!1;d>8&&(s=!0);var f=gcd2(t,l,s),g=Math.rou",
+        "source": "content_extraction"
+      },
+      {
+        "name": "value",
+        "expression": "g,p53elem.value=_,p51elem.value=rou",
+        "source": "content_extraction"
+      },
+      {
+        "name": "display",
+        "expression": "\"",
+        "source": "content_extraction"
+      },
+      {
+        "name": "display",
+        "expression": "\"",
+        "source": "content_extraction"
+      },
+      {
+        "name": "display",
+        "expression": "\"",
+        "source": "content_extraction"
+      },
+      {
+        "name": "display",
+        "expression": "\"",
+        "source": "content_extraction"
+      }
+    ],
+    "functions": []
+  }
+}
